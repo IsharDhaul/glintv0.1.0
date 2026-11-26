@@ -178,7 +178,10 @@ project's virtual environment, run `unset VIRTUAL_ENV` first.
 make check                      # lint, type checks and tests (engine and web)
 make e2e                        # Playwright against mock mode (run `npx playwright install chromium` once)
 make contracts                  # regenerate the OpenAPI file, JSON Schema and TypeScript types
+pre-commit install              # once per clone: gitleaks scans every commit for secrets
 ```
+
+CI also runs gitleaks over the whole history on every push.
 
 - **Project conventions:** [`CLAUDE.md`](CLAUDE.md).
 - **Full spec:** [`docs/SPEC.md`](docs/SPEC.md).

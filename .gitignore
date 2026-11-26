@@ -32,8 +32,10 @@ web/next-env.d.ts
 .DS_Store
 !.env.local.example
 
-# Claude Code per-user settings
+# Claude Code per-user settings, and MCP server configs (they can hold tokens)
 .claude/settings.local.json
+.mcp.json
+**/mcp*.local.json
 
 # Test coverage data
 .coverage

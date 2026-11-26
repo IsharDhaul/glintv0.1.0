@@ -1,0 +1,7 @@
+# Secret scanning before every commit: `pre-commit install` once per clone
+# (`uv tool install pre-commit` if you don't have it). CI runs the same gitleaks version.
+repos:
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.1
+    hooks:
+      - id: gitleaks
