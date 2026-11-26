@@ -1,0 +1,27 @@
+{
+  "name": "Margin inflection",
+  "summary": "Profitable companies whose operating margin rose 20+ percentage points in a year while revenue grew.",
+  "kind": "screen",
+  "how_to_read": "Three filters must all pass: operating margin up at least 20 percentage points on a year earlier (TTM vs the TTM a year before), revenue growth above zero, and an operating margin above zero today. The question each match raises: is the margin gain lasting (pricing, scale, a better mix) or one-off (a gain on a sale, a cost that moved quarters, a weak year-ago comparison)? Check the filings for one-off items before reading a trend into it.",
+  "misses": [
+    "Inflections that haven't yet reached a full trailing year.",
+    "Companies still loss-making but improving fast."
+  ],
+  "source": "Turnaround heuristic",
+  "screen": {
+    "dsl_version": 1,
+    "name": "Margin inflection",
+    "filters": {
+      "op": "and",
+      "children": [
+        { "metric": "operating_margin_change_yoy", "cmp": "gte", "value": 0.20 },
+        { "metric": "revenue_growth_yoy", "cmp": "gt", "value": 0 },
+        { "metric": "operating_margin", "cmp": "gt", "value": 0 }
+      ]
+    },
+    "columns": ["ticker", "name", "sector", "market_cap", "operating_margin_change_yoy", "operating_margin", "revenue_growth_yoy", "gross_margin_change_yoy"],
+    "sort": { "by": "operating_margin_change_yoy", "dir": "desc" },
+    "limit": 100,
+    "near_misses": true
+  }
+}

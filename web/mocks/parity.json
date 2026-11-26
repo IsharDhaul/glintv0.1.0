@@ -1,0 +1,7630 @@
+{
+  "build_id": "synthetic",
+  "n": 300,
+  "cases": [
+    {
+      "screen": {
+        "dsl_version": 1,
+        "name": "preset: accruals-risk",
+        "universe": {
+          "exchanges": [
+            "NYSE",
+            "Nasdaq",
+            "NYSE American",
+            "TXSE"
+          ],
+          "sectors_include": [],
+          "sectors_exclude": [],
+          "exclude_kinds": [
+            "spac",
+            "fund",
+            "shell",
+            "no_common_equity"
+          ],
+          "include_foreign_filers": true,
+          "include_stale": false,
+          "include_no_facts": false,
+          "avg_dollar_volume_min": 1000000.0
+        },
+        "filters": {
+          "op": "and",
+          "children": [
+            {
+              "metric": "accruals_ratio",
+              "cmp": "pct_rank_gte",
+              "value": 0.95,
+              "within": "universe",
+              "missing": "fail"
+            },
+            {
+              "metric": "cash_conversion",
+              "cmp": "lt",
+              "value": 0.5,
+              "missing": "fail"
+            }
+          ]
+        },
+        "columns": [
+          "ticker",
+          "name",
+          "sector",
+          "market_cap",
+          "accruals_ratio",
+          "cash_conversion",
+          "net_margin",
+          "revenue_growth_yoy"
+        ],
+        "sort": {
+          "by": "accruals_ratio",
+          "dir": "desc",
+          "then": []
+        },
+        "limit": 1000,
+        "near_misses": true
+      },
+      "funnel": [
+        {
+          "index": 0,
+          "filter_path": null,
+          "remaining": 227,
+          "removed": 73,
+          "removed_missing": 2,
+          "binding": false
+        },
+        {
+          "index": 1,
+          "filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "remaining": 12,
+          "removed": 215,
+          "removed_missing": 6,
+          "binding": true
+        },
+        {
+          "index": 2,
+          "filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "remaining": 3,
+          "removed": 9,
+          "removed_missing": 8,
+          "binding": false
+        }
+      ],
+      "results": [
+        {
+          "ticker": "SYN0262",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0037",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0185",
+          "rank": null,
+          "rank_score": null
+        }
+      ],
+      "near_misses": [
+        {
+          "ticker": "SYN0087",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "accruals_ratio",
+          "cmp": "pct_rank_gte",
+          "value": 0.9409090909090909,
+          "threshold": 0.95,
+          "distance": 0.009090909090909038,
+          "note": null
+        },
+        {
+          "ticker": "SYN0131",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "accruals_ratio",
+          "cmp": "pct_rank_gte",
+          "value": 0.9318181818181818,
+          "threshold": 0.95,
+          "distance": 0.018181818181818188,
+          "note": null
+        },
+        {
+          "ticker": "SYN0213",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "accruals_ratio",
+          "cmp": "pct_rank_gte",
+          "value": 0.9272727272727272,
+          "threshold": 0.95,
+          "distance": 0.022727272727272707,
+          "note": null
+        },
+        {
+          "ticker": "SYN0023",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "accruals_ratio",
+          "cmp": "pct_rank_gte",
+          "value": 0.9227272727272727,
+          "threshold": 0.95,
+          "distance": 0.027272727272727226,
+          "note": null
+        },
+        {
+          "ticker": "SYN0001",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "accruals_ratio",
+          "cmp": "pct_rank_gte",
+          "value": 0.9045454545454545,
+          "threshold": 0.95,
+          "distance": 0.045454545454545414,
+          "note": null
+        },
+        {
+          "ticker": "SYN0254",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "accruals_ratio",
+          "cmp": "pct_rank_gte",
+          "value": 0.8863636363636364,
+          "threshold": 0.95,
+          "distance": 0.0636363636363636,
+          "note": null
+        },
+        {
+          "ticker": "SYN0246",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "accruals_ratio",
+          "cmp": "pct_rank_gte",
+          "value": 0.8818181818181818,
+          "threshold": 0.95,
+          "distance": 0.06818181818181812,
+          "note": null
+        },
+        {
+          "ticker": "SYN0002",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "accruals_ratio",
+          "cmp": "pct_rank_gte",
+          "value": 0.8681818181818182,
+          "threshold": 0.95,
+          "distance": 0.08181818181818179,
+          "note": null
+        },
+        {
+          "ticker": "SYN0030",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "accruals_ratio",
+          "cmp": "pct_rank_gte",
+          "value": 0.8545454545454545,
+          "threshold": 0.95,
+          "distance": 0.09545454545454546,
+          "note": null
+        },
+        {
+          "ticker": "SYN0226",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "cash_conversion",
+          "cmp": "lt",
+          "value": 0.549352,
+          "threshold": 0.5,
+          "distance": 0.0987039999999999,
+          "note": null
+        },
+        {
+          "ticker": "SYN0290",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "accruals_ratio",
+          "cmp": "pct_rank_gte",
+          "value": 0.8454545454545455,
+          "threshold": 0.95,
+          "distance": 0.1045454545454545,
+          "note": null
+        },
+        {
+          "ticker": "SYN0147",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "accruals_ratio",
+          "cmp": "pct_rank_gte",
+          "value": 0.8409090909090909,
+          "threshold": 0.95,
+          "distance": 0.10909090909090902,
+          "note": null
+        },
+        {
+          "ticker": "SYN0241",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "accruals_ratio",
+          "cmp": "pct_rank_gte",
+          "value": 0.8363636363636363,
+          "threshold": 0.95,
+          "distance": 0.11363636363636365,
+          "note": null
+        },
+        {
+          "ticker": "SYN0111",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "accruals_ratio",
+          "cmp": "pct_rank_gte",
+          "value": 0.8272727272727273,
+          "threshold": 0.95,
+          "distance": 0.12272727272727268,
+          "note": null
+        },
+        {
+          "ticker": "SYN0073",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "accruals_ratio",
+          "cmp": "pct_rank_gte",
+          "value": 0.8045454545454546,
+          "threshold": 0.95,
+          "distance": 0.1454545454545454,
+          "note": null
+        },
+        {
+          "ticker": "SYN0082",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "accruals_ratio",
+          "cmp": "pct_rank_gte",
+          "value": 0.7727272727272727,
+          "threshold": 0.95,
+          "distance": 0.17727272727272725,
+          "note": null
+        },
+        {
+          "ticker": "SYN0197",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "accruals_ratio",
+          "cmp": "pct_rank_gte",
+          "value": 0.7636363636363637,
+          "threshold": 0.95,
+          "distance": 0.1863636363636363,
+          "note": null
+        },
+        {
+          "ticker": "SYN0291",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "accruals_ratio",
+          "cmp": "pct_rank_gte",
+          "value": 0.7227272727272728,
+          "threshold": 0.95,
+          "distance": 0.22727272727272718,
+          "note": null
+        },
+        {
+          "ticker": "SYN0112",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "accruals_ratio",
+          "cmp": "pct_rank_gte",
+          "value": 0.6727272727272727,
+          "threshold": 0.95,
+          "distance": 0.2772727272727272,
+          "note": null
+        },
+        {
+          "ticker": "SYN0040",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "accruals_ratio",
+          "cmp": "pct_rank_gte",
+          "value": 0.6272727272727273,
+          "threshold": 0.95,
+          "distance": 0.32272727272727264,
+          "note": null
+        },
+        {
+          "ticker": "SYN0035",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "accruals_ratio",
+          "cmp": "pct_rank_gte",
+          "value": 0.6136363636363636,
+          "threshold": 0.95,
+          "distance": 0.3363636363636363,
+          "note": null
+        },
+        {
+          "ticker": "SYN0285",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "accruals_ratio",
+          "cmp": "pct_rank_gte",
+          "value": 0.6045454545454545,
+          "threshold": 0.95,
+          "distance": 0.34545454545454546,
+          "note": null
+        },
+        {
+          "ticker": "SYN0016",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "cash_conversion",
+          "cmp": "lt",
+          "value": null,
+          "threshold": 0.5,
+          "distance": null,
+          "note": "NEGATIVE_DENOMINATOR"
+        },
+        {
+          "ticker": "SYN0056",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "cash_conversion",
+          "cmp": "lt",
+          "value": null,
+          "threshold": 0.5,
+          "distance": null,
+          "note": "NEGATIVE_DENOMINATOR"
+        },
+        {
+          "ticker": "SYN0067",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "cash_conversion",
+          "cmp": "lt",
+          "value": null,
+          "threshold": 0.5,
+          "distance": null,
+          "note": "NEGATIVE_DENOMINATOR"
+        }
+      ]
+    },
+    {
+      "screen": {
+        "dsl_version": 1,
+        "name": "preset: cash-rich-smallcaps",
+        "universe": {
+          "exchanges": [
+            "NYSE",
+            "Nasdaq",
+            "NYSE American",
+            "TXSE"
+          ],
+          "sectors_include": [],
+          "sectors_exclude": [],
+          "exclude_kinds": [
+            "spac",
+            "fund",
+            "shell",
+            "no_common_equity"
+          ],
+          "include_foreign_filers": true,
+          "include_stale": false,
+          "include_no_facts": false,
+          "market_cap_min": 300000000.0,
+          "market_cap_max": 2000000000.0,
+          "avg_dollar_volume_min": 1000000.0
+        },
+        "filters": {
+          "op": "and",
+          "children": [
+            {
+              "metric": "cash_to_mcap",
+              "cmp": "gte",
+              "value": 0.3,
+              "missing": "fail"
+            },
+            {
+              "metric": "fcf_margin",
+              "cmp": "gt",
+              "value": 0.0,
+              "missing": "fail"
+            }
+          ]
+        },
+        "columns": [
+          "ticker",
+          "name",
+          "sector",
+          "market_cap",
+          "cash_to_mcap",
+          "net_debt",
+          "fcf_margin",
+          "fcf_yield"
+        ],
+        "sort": {
+          "by": "cash_to_mcap",
+          "dir": "desc",
+          "then": []
+        },
+        "limit": 1000,
+        "near_misses": true
+      },
+      "funnel": [
+        {
+          "index": 0,
+          "filter_path": null,
+          "remaining": 67,
+          "removed": 233,
+          "removed_missing": 25,
+          "binding": false
+        },
+        {
+          "index": 1,
+          "filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "remaining": 6,
+          "removed": 61,
+          "removed_missing": 2,
+          "binding": true
+        },
+        {
+          "index": 2,
+          "filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "remaining": 6,
+          "removed": 0,
+          "removed_missing": 0,
+          "binding": false
+        }
+      ],
+      "results": [
+        {
+          "ticker": "SYN0083",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0230",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0048",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0173",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0099",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0198",
+          "rank": null,
+          "rank_score": null
+        }
+      ],
+      "near_misses": [
+        {
+          "ticker": "SYN0246",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "cash_to_mcap",
+          "cmp": "gte",
+          "value": 0.247364,
+          "threshold": 0.3,
+          "distance": 0.1754533333333333,
+          "note": null
+        },
+        {
+          "ticker": "SYN0155",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "cash_to_mcap",
+          "cmp": "gte",
+          "value": 0.21023,
+          "threshold": 0.3,
+          "distance": 0.2992333333333333,
+          "note": null
+        },
+        {
+          "ticker": "SYN0266",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "cash_to_mcap",
+          "cmp": "gte",
+          "value": 0.167891,
+          "threshold": 0.3,
+          "distance": 0.4403633333333333,
+          "note": null
+        },
+        {
+          "ticker": "SYN0066",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "cash_to_mcap",
+          "cmp": "gte",
+          "value": 0.152232,
+          "threshold": 0.3,
+          "distance": 0.49255999999999994,
+          "note": null
+        },
+        {
+          "ticker": "SYN0068",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "cash_to_mcap",
+          "cmp": "gte",
+          "value": 0.139933,
+          "threshold": 0.3,
+          "distance": 0.5335566666666667,
+          "note": null
+        },
+        {
+          "ticker": "SYN0123",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "cash_to_mcap",
+          "cmp": "gte",
+          "value": 0.124264,
+          "threshold": 0.3,
+          "distance": 0.5857866666666667,
+          "note": null
+        },
+        {
+          "ticker": "SYN0008",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "cash_to_mcap",
+          "cmp": "gte",
+          "value": 0.111877,
+          "threshold": 0.3,
+          "distance": 0.6270766666666666,
+          "note": null
+        },
+        {
+          "ticker": "SYN0182",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "cash_to_mcap",
+          "cmp": "gte",
+          "value": 0.111815,
+          "threshold": 0.3,
+          "distance": 0.6272833333333333,
+          "note": null
+        },
+        {
+          "ticker": "SYN0205",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "cash_to_mcap",
+          "cmp": "gte",
+          "value": 0.105556,
+          "threshold": 0.3,
+          "distance": 0.6481466666666668,
+          "note": null
+        },
+        {
+          "ticker": "SYN0106",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "cash_to_mcap",
+          "cmp": "gte",
+          "value": 0.103748,
+          "threshold": 0.3,
+          "distance": 0.6541733333333333,
+          "note": null
+        },
+        {
+          "ticker": "SYN0193",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "cash_to_mcap",
+          "cmp": "gte",
+          "value": 0.103228,
+          "threshold": 0.3,
+          "distance": 0.6559066666666667,
+          "note": null
+        },
+        {
+          "ticker": "SYN0251",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "cash_to_mcap",
+          "cmp": "gte",
+          "value": 0.088485,
+          "threshold": 0.3,
+          "distance": 0.7050500000000001,
+          "note": null
+        },
+        {
+          "ticker": "SYN0120",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "cash_to_mcap",
+          "cmp": "gte",
+          "value": 0.087002,
+          "threshold": 0.3,
+          "distance": 0.7099933333333334,
+          "note": null
+        },
+        {
+          "ticker": "SYN0247",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "cash_to_mcap",
+          "cmp": "gte",
+          "value": 0.083296,
+          "threshold": 0.3,
+          "distance": 0.7223466666666667,
+          "note": null
+        },
+        {
+          "ticker": "SYN0031",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "cash_to_mcap",
+          "cmp": "gte",
+          "value": 0.066322,
+          "threshold": 0.3,
+          "distance": 0.7789266666666667,
+          "note": null
+        },
+        {
+          "ticker": "SYN0218",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "cash_to_mcap",
+          "cmp": "gte",
+          "value": 0.061246,
+          "threshold": 0.3,
+          "distance": 0.7958466666666667,
+          "note": null
+        },
+        {
+          "ticker": "SYN0118",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "cash_to_mcap",
+          "cmp": "gte",
+          "value": 0.058177,
+          "threshold": 0.3,
+          "distance": 0.8060766666666667,
+          "note": null
+        },
+        {
+          "ticker": "SYN0186",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "cash_to_mcap",
+          "cmp": "gte",
+          "value": 0.055188,
+          "threshold": 0.3,
+          "distance": 0.81604,
+          "note": null
+        },
+        {
+          "ticker": "SYN0262",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "cash_to_mcap",
+          "cmp": "gte",
+          "value": 0.053327,
+          "threshold": 0.3,
+          "distance": 0.8222433333333333,
+          "note": null
+        },
+        {
+          "ticker": "SYN0150",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "cash_to_mcap",
+          "cmp": "gte",
+          "value": 0.052142,
+          "threshold": 0.3,
+          "distance": 0.8261933333333333,
+          "note": null
+        },
+        {
+          "ticker": "SYN0234",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "cash_to_mcap",
+          "cmp": "gte",
+          "value": 0.030356,
+          "threshold": 0.3,
+          "distance": 0.8988133333333334,
+          "note": null
+        },
+        {
+          "ticker": "SYN0030",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "cash_to_mcap",
+          "cmp": "gte",
+          "value": 0.027377,
+          "threshold": 0.3,
+          "distance": 0.9087433333333333,
+          "note": null
+        },
+        {
+          "ticker": "SYN0020",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "cash_to_mcap",
+          "cmp": "gte",
+          "value": 0.020907,
+          "threshold": 0.3,
+          "distance": 0.93031,
+          "note": null
+        },
+        {
+          "ticker": "SYN0226",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "cash_to_mcap",
+          "cmp": "gte",
+          "value": 0.018238,
+          "threshold": 0.3,
+          "distance": 0.9392066666666667,
+          "note": null
+        },
+        {
+          "ticker": "SYN0024",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "cash_to_mcap",
+          "cmp": "gte",
+          "value": 0.014143,
+          "threshold": 0.3,
+          "distance": 0.9528566666666666,
+          "note": null
+        }
+      ]
+    },
+    {
+      "screen": {
+        "dsl_version": 1,
+        "name": "preset: dilution-watch",
+        "universe": {
+          "exchanges": [
+            "NYSE",
+            "Nasdaq",
+            "NYSE American",
+            "TXSE"
+          ],
+          "sectors_include": [],
+          "sectors_exclude": [],
+          "exclude_kinds": [
+            "spac",
+            "fund",
+            "shell",
+            "no_common_equity"
+          ],
+          "include_foreign_filers": true,
+          "include_stale": false,
+          "include_no_facts": false,
+          "avg_dollar_volume_min": 1000000.0
+        },
+        "filters": {
+          "op": "and",
+          "children": [
+            {
+              "op": "or",
+              "children": [
+                {
+                  "metric": "share_count_change_yoy",
+                  "cmp": "gte",
+                  "value": 0.1,
+                  "missing": "fail"
+                },
+                {
+                  "metric": "sbc_to_revenue",
+                  "cmp": "gte",
+                  "value": 0.15,
+                  "missing": "fail"
+                }
+              ]
+            }
+          ]
+        },
+        "columns": [
+          "ticker",
+          "name",
+          "sector",
+          "market_cap",
+          "share_count_change_yoy",
+          "sbc_to_revenue",
+          "fcf_margin"
+        ],
+        "sort": {
+          "by": "share_count_change_yoy",
+          "dir": "desc",
+          "then": []
+        },
+        "limit": 1000,
+        "near_misses": true
+      },
+      "funnel": [
+        {
+          "index": 0,
+          "filter_path": null,
+          "remaining": 227,
+          "removed": 73,
+          "removed_missing": 2,
+          "binding": false
+        },
+        {
+          "index": 1,
+          "filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "remaining": 17,
+          "removed": 210,
+          "removed_missing": 11,
+          "binding": true
+        }
+      ],
+      "results": [
+        {
+          "ticker": "SYN0145",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0220",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0079",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0038",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0160",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0135",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0174",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0173",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0041",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0204",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0100",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0289",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0133",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0181",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0028",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0061",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0091",
+          "rank": null,
+          "rank_score": null
+        }
+      ],
+      "near_misses": [
+        {
+          "ticker": "SYN0013",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "share_count_change_yoy",
+          "cmp": "gte",
+          "value": 0.099826,
+          "threshold": 0.1,
+          "distance": 0.0017400000000000748,
+          "note": null
+        },
+        {
+          "ticker": "SYN0244",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "sbc_to_revenue",
+          "cmp": "gte",
+          "value": 0.149576,
+          "threshold": 0.15,
+          "distance": 0.002826666666666718,
+          "note": null
+        },
+        {
+          "ticker": "SYN0286",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "share_count_change_yoy",
+          "cmp": "gte",
+          "value": 0.09918,
+          "threshold": 0.1,
+          "distance": 0.008200000000000013,
+          "note": null
+        },
+        {
+          "ticker": "SYN0227",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "share_count_change_yoy",
+          "cmp": "gte",
+          "value": 0.09174,
+          "threshold": 0.1,
+          "distance": 0.08260000000000003,
+          "note": null
+        },
+        {
+          "ticker": "SYN0022",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "sbc_to_revenue",
+          "cmp": "gte",
+          "value": 0.136923,
+          "threshold": 0.15,
+          "distance": 0.08718000000000004,
+          "note": null
+        },
+        {
+          "ticker": "SYN0223",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "share_count_change_yoy",
+          "cmp": "gte",
+          "value": 0.090369,
+          "threshold": 0.1,
+          "distance": 0.09631,
+          "note": null
+        },
+        {
+          "ticker": "SYN0075",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "sbc_to_revenue",
+          "cmp": "gte",
+          "value": 0.134193,
+          "threshold": 0.15,
+          "distance": 0.10537999999999992,
+          "note": null
+        },
+        {
+          "ticker": "SYN0082",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "sbc_to_revenue",
+          "cmp": "gte",
+          "value": 0.131716,
+          "threshold": 0.15,
+          "distance": 0.1218933333333333,
+          "note": null
+        },
+        {
+          "ticker": "SYN0253",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "share_count_change_yoy",
+          "cmp": "gte",
+          "value": 0.086729,
+          "threshold": 0.1,
+          "distance": 0.13271000000000005,
+          "note": null
+        },
+        {
+          "ticker": "SYN0002",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "share_count_change_yoy",
+          "cmp": "gte",
+          "value": 0.086028,
+          "threshold": 0.1,
+          "distance": 0.13972000000000012,
+          "note": null
+        },
+        {
+          "ticker": "SYN0064",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "sbc_to_revenue",
+          "cmp": "gte",
+          "value": 0.12699,
+          "threshold": 0.15,
+          "distance": 0.15340000000000004,
+          "note": null
+        },
+        {
+          "ticker": "SYN0216",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "sbc_to_revenue",
+          "cmp": "gte",
+          "value": 0.126929,
+          "threshold": 0.15,
+          "distance": 0.15380666666666673,
+          "note": null
+        },
+        {
+          "ticker": "SYN0147",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "sbc_to_revenue",
+          "cmp": "gte",
+          "value": 0.12504,
+          "threshold": 0.15,
+          "distance": 0.16639999999999988,
+          "note": null
+        },
+        {
+          "ticker": "SYN0294",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "share_count_change_yoy",
+          "cmp": "gte",
+          "value": 0.081696,
+          "threshold": 0.1,
+          "distance": 0.18304,
+          "note": null
+        },
+        {
+          "ticker": "SYN0146",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "share_count_change_yoy",
+          "cmp": "gte",
+          "value": 0.081676,
+          "threshold": 0.1,
+          "distance": 0.18324000000000007,
+          "note": null
+        },
+        {
+          "ticker": "SYN0118",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "sbc_to_revenue",
+          "cmp": "gte",
+          "value": 0.11951,
+          "threshold": 0.15,
+          "distance": 0.2032666666666666,
+          "note": null
+        },
+        {
+          "ticker": "SYN0149",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "sbc_to_revenue",
+          "cmp": "gte",
+          "value": 0.118752,
+          "threshold": 0.15,
+          "distance": 0.20832,
+          "note": null
+        },
+        {
+          "ticker": "SYN0056",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "share_count_change_yoy",
+          "cmp": "gte",
+          "value": 0.07825,
+          "threshold": 0.1,
+          "distance": 0.21750000000000005,
+          "note": null
+        },
+        {
+          "ticker": "SYN0255",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "sbc_to_revenue",
+          "cmp": "gte",
+          "value": 0.117304,
+          "threshold": 0.15,
+          "distance": 0.21797333333333327,
+          "note": null
+        },
+        {
+          "ticker": "SYN0176",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "sbc_to_revenue",
+          "cmp": "gte",
+          "value": 0.116459,
+          "threshold": 0.15,
+          "distance": 0.22360666666666668,
+          "note": null
+        },
+        {
+          "ticker": "SYN0247",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "share_count_change_yoy",
+          "cmp": "gte",
+          "value": 0.076856,
+          "threshold": 0.1,
+          "distance": 0.23144000000000012,
+          "note": null
+        },
+        {
+          "ticker": "SYN0030",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "share_count_change_yoy",
+          "cmp": "gte",
+          "value": 0.076342,
+          "threshold": 0.1,
+          "distance": 0.23658000000000012,
+          "note": null
+        },
+        {
+          "ticker": "SYN0157",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "sbc_to_revenue",
+          "cmp": "gte",
+          "value": 0.114297,
+          "threshold": 0.15,
+          "distance": 0.23802,
+          "note": null
+        },
+        {
+          "ticker": "SYN0107",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "sbc_to_revenue",
+          "cmp": "gte",
+          "value": 0.114241,
+          "threshold": 0.15,
+          "distance": 0.23839333333333335,
+          "note": null
+        },
+        {
+          "ticker": "SYN0016",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "sbc_to_revenue",
+          "cmp": "gte",
+          "value": 0.111046,
+          "threshold": 0.15,
+          "distance": 0.2596933333333333,
+          "note": null
+        }
+      ]
+    },
+    {
+      "screen": {
+        "dsl_version": 1,
+        "name": "preset: dividend-durability",
+        "universe": {
+          "exchanges": [
+            "NYSE",
+            "Nasdaq",
+            "NYSE American",
+            "TXSE"
+          ],
+          "sectors_include": [],
+          "sectors_exclude": [],
+          "exclude_kinds": [
+            "spac",
+            "fund",
+            "shell",
+            "no_common_equity"
+          ],
+          "include_foreign_filers": true,
+          "include_stale": false,
+          "include_no_facts": false,
+          "avg_dollar_volume_min": 1000000.0
+        },
+        "filters": {
+          "op": "and",
+          "children": [
+            {
+              "metric": "dividend_yield",
+              "cmp": "gte",
+              "value": 0.03,
+              "missing": "fail"
+            },
+            {
+              "metric": "fcf_payout_ratio",
+              "cmp": "lte",
+              "value": 0.7,
+              "missing": "fail"
+            },
+            {
+              "metric": "net_debt_to_ebitda",
+              "cmp": "lte",
+              "value": 3.0,
+              "missing": "fail"
+            },
+            {
+              "metric": "dps_no_cut_5y",
+              "cmp": "eq",
+              "value": true,
+              "missing": "fail"
+            }
+          ]
+        },
+        "columns": [
+          "ticker",
+          "name",
+          "sector",
+          "market_cap",
+          "dividend_yield",
+          "fcf_payout_ratio",
+          "net_debt_to_ebitda",
+          "dps_no_cut_5y"
+        ],
+        "sort": {
+          "by": "dividend_yield",
+          "dir": "desc",
+          "then": []
+        },
+        "limit": 1000,
+        "near_misses": true
+      },
+      "funnel": [
+        {
+          "index": 0,
+          "filter_path": null,
+          "remaining": 227,
+          "removed": 73,
+          "removed_missing": 2,
+          "binding": false
+        },
+        {
+          "index": 1,
+          "filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "remaining": 13,
+          "removed": 214,
+          "removed_missing": 26,
+          "binding": true
+        },
+        {
+          "index": 2,
+          "filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "remaining": 7,
+          "removed": 6,
+          "removed_missing": 1,
+          "binding": false
+        },
+        {
+          "index": 3,
+          "filter_path": [
+            "filters",
+            "children",
+            2
+          ],
+          "remaining": 3,
+          "removed": 4,
+          "removed_missing": 0,
+          "binding": false
+        },
+        {
+          "index": 4,
+          "filter_path": [
+            "filters",
+            "children",
+            3
+          ],
+          "remaining": 1,
+          "removed": 2,
+          "removed_missing": 0,
+          "binding": false
+        }
+      ],
+      "results": [
+        {
+          "ticker": "SYN0198",
+          "rank": null,
+          "rank_score": null
+        }
+      ],
+      "near_misses": [
+        {
+          "ticker": "SYN0218",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "dividend_yield",
+          "cmp": "gte",
+          "value": 0.024348,
+          "threshold": 0.03,
+          "distance": 0.18839999999999993,
+          "note": null
+        },
+        {
+          "ticker": "SYN0265",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "dividend_yield",
+          "cmp": "gte",
+          "value": 0.014828,
+          "threshold": 0.03,
+          "distance": 0.5057333333333334,
+          "note": null
+        },
+        {
+          "ticker": "SYN0093",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "dividend_yield",
+          "cmp": "gte",
+          "value": 0.014634,
+          "threshold": 0.03,
+          "distance": 0.5122,
+          "note": null
+        },
+        {
+          "ticker": "SYN0120",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            2
+          ],
+          "metric": "net_debt_to_ebitda",
+          "cmp": "lte",
+          "value": 4.725262,
+          "threshold": 3.0,
+          "distance": 0.5750873333333333,
+          "note": null
+        },
+        {
+          "ticker": "SYN0256",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "dividend_yield",
+          "cmp": "gte",
+          "value": 0.007044,
+          "threshold": 0.03,
+          "distance": 0.7652,
+          "note": null
+        },
+        {
+          "ticker": "SYN0020",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "dividend_yield",
+          "cmp": "gte",
+          "value": 0.005769,
+          "threshold": 0.03,
+          "distance": 0.8077,
+          "note": null
+        },
+        {
+          "ticker": "SYN0232",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "dividend_yield",
+          "cmp": "gte",
+          "value": 0.005155,
+          "threshold": 0.03,
+          "distance": 0.8281666666666667,
+          "note": null
+        },
+        {
+          "ticker": "SYN0014",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "dividend_yield",
+          "cmp": "gte",
+          "value": 0.00361,
+          "threshold": 0.03,
+          "distance": 0.8796666666666667,
+          "note": null
+        },
+        {
+          "ticker": "SYN0107",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            2
+          ],
+          "metric": "net_debt_to_ebitda",
+          "cmp": "lte",
+          "value": 13.784564,
+          "threshold": 3.0,
+          "distance": 3.5948546666666665,
+          "note": null
+        },
+        {
+          "ticker": "SYN0230",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            2
+          ],
+          "metric": "net_debt_to_ebitda",
+          "cmp": "lte",
+          "value": 31.578726,
+          "threshold": 3.0,
+          "distance": 9.526242,
+          "note": null
+        },
+        {
+          "ticker": "SYN0027",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            3
+          ],
+          "metric": "dps_no_cut_5y",
+          "cmp": "eq",
+          "value": false,
+          "threshold": true,
+          "distance": null,
+          "note": null
+        },
+        {
+          "ticker": "SYN0173",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            3
+          ],
+          "metric": "dps_no_cut_5y",
+          "cmp": "eq",
+          "value": false,
+          "threshold": true,
+          "distance": null,
+          "note": null
+        },
+        {
+          "ticker": "SYN0185",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "fcf_payout_ratio",
+          "cmp": "lte",
+          "value": null,
+          "threshold": 0.7,
+          "distance": null,
+          "note": "NEGATIVE_DENOMINATOR"
+        }
+      ]
+    },
+    {
+      "screen": {
+        "dsl_version": 1,
+        "name": "preset: magic-formula",
+        "universe": {
+          "exchanges": [
+            "NYSE",
+            "Nasdaq",
+            "NYSE American",
+            "TXSE"
+          ],
+          "sectors_include": [],
+          "sectors_exclude": [
+            "Banks",
+            "Insurance",
+            "Capital Markets",
+            "Utilities"
+          ],
+          "exclude_kinds": [
+            "spac",
+            "fund",
+            "shell",
+            "no_common_equity"
+          ],
+          "include_foreign_filers": true,
+          "include_stale": false,
+          "include_no_facts": false,
+          "market_cap_min": 1000000000.0,
+          "avg_dollar_volume_min": 1000000.0
+        },
+        "filters": {
+          "op": "and",
+          "children": []
+        },
+        "rank": {
+          "method": "rank_sum",
+          "within": "universe",
+          "factors": [
+            {
+              "metric": "ebit_ev",
+              "weight": 1.0
+            },
+            {
+              "metric": "greenblatt_roc",
+              "weight": 1.0
+            }
+          ],
+          "min_factor_coverage": 0.7
+        },
+        "columns": [
+          "ticker",
+          "name",
+          "sector",
+          "market_cap",
+          "ebit_ev",
+          "greenblatt_roc",
+          "rank_score"
+        ],
+        "sort": {
+          "by": "rank_score",
+          "dir": "desc",
+          "then": []
+        },
+        "limit": 1000,
+        "near_misses": true
+      },
+      "funnel": [
+        {
+          "index": 0,
+          "filter_path": null,
+          "remaining": 118,
+          "removed": 182,
+          "removed_missing": 22,
+          "binding": false
+        }
+      ],
+      "results": [
+        {
+          "ticker": "SYN0287",
+          "rank": 1,
+          "rank_score": 6.0
+        },
+        {
+          "ticker": "SYN0173",
+          "rank": 2,
+          "rank_score": 11.0
+        },
+        {
+          "ticker": "SYN0300",
+          "rank": 3,
+          "rank_score": 13.0
+        },
+        {
+          "ticker": "SYN0174",
+          "rank": 4,
+          "rank_score": 14.0
+        },
+        {
+          "ticker": "SYN0166",
+          "rank": 5,
+          "rank_score": 15.0
+        },
+        {
+          "ticker": "SYN0296",
+          "rank": 6,
+          "rank_score": 17.0
+        },
+        {
+          "ticker": "SYN0017",
+          "rank": 7,
+          "rank_score": 19.0
+        },
+        {
+          "ticker": "SYN0094",
+          "rank": 8,
+          "rank_score": 23.0
+        },
+        {
+          "ticker": "SYN0093",
+          "rank": 9,
+          "rank_score": 24.0
+        },
+        {
+          "ticker": "SYN0258",
+          "rank": 10,
+          "rank_score": 26.0
+        },
+        {
+          "ticker": "SYN0220",
+          "rank": 11,
+          "rank_score": 27.0
+        },
+        {
+          "ticker": "SYN0045",
+          "rank": 12,
+          "rank_score": 28.0
+        },
+        {
+          "ticker": "SYN0218",
+          "rank": 13,
+          "rank_score": 28.0
+        },
+        {
+          "ticker": "SYN0066",
+          "rank": 14,
+          "rank_score": 30.0
+        },
+        {
+          "ticker": "SYN0266",
+          "rank": 15,
+          "rank_score": 32.0
+        },
+        {
+          "ticker": "SYN0108",
+          "rank": 16,
+          "rank_score": 35.0
+        },
+        {
+          "ticker": "SYN0184",
+          "rank": 17,
+          "rank_score": 35.0
+        },
+        {
+          "ticker": "SYN0081",
+          "rank": 18,
+          "rank_score": 46.0
+        },
+        {
+          "ticker": "SYN0185",
+          "rank": 19,
+          "rank_score": 48.0
+        },
+        {
+          "ticker": "SYN0276",
+          "rank": 20,
+          "rank_score": 50.0
+        },
+        {
+          "ticker": "SYN0013",
+          "rank": 21,
+          "rank_score": 53.0
+        },
+        {
+          "ticker": "SYN0120",
+          "rank": 22,
+          "rank_score": 53.0
+        },
+        {
+          "ticker": "SYN0102",
+          "rank": 23,
+          "rank_score": 55.0
+        },
+        {
+          "ticker": "SYN0291",
+          "rank": 24,
+          "rank_score": 55.0
+        },
+        {
+          "ticker": "SYN0161",
+          "rank": 25,
+          "rank_score": 56.0
+        },
+        {
+          "ticker": "SYN0107",
+          "rank": 26,
+          "rank_score": 58.0
+        },
+        {
+          "ticker": "SYN0158",
+          "rank": 27,
+          "rank_score": 60.0
+        },
+        {
+          "ticker": "SYN0001",
+          "rank": 28,
+          "rank_score": 61.0
+        },
+        {
+          "ticker": "SYN0073",
+          "rank": 29,
+          "rank_score": 64.0
+        },
+        {
+          "ticker": "SYN0146",
+          "rank": 30,
+          "rank_score": 64.0
+        },
+        {
+          "ticker": "SYN0069",
+          "rank": 31,
+          "rank_score": 65.0
+        },
+        {
+          "ticker": "SYN0106",
+          "rank": 32,
+          "rank_score": 65.0
+        },
+        {
+          "ticker": "SYN0025",
+          "rank": 33,
+          "rank_score": 68.0
+        },
+        {
+          "ticker": "SYN0193",
+          "rank": 34,
+          "rank_score": 72.0
+        },
+        {
+          "ticker": "SYN0116",
+          "rank": 35,
+          "rank_score": 74.0
+        },
+        {
+          "ticker": "SYN0130",
+          "rank": 36,
+          "rank_score": 74.0
+        },
+        {
+          "ticker": "SYN0040",
+          "rank": 37,
+          "rank_score": 75.0
+        },
+        {
+          "ticker": "SYN0232",
+          "rank": 38,
+          "rank_score": 78.0
+        },
+        {
+          "ticker": "SYN0091",
+          "rank": 39,
+          "rank_score": 81.0
+        },
+        {
+          "ticker": "SYN0267",
+          "rank": 40,
+          "rank_score": 82.0
+        },
+        {
+          "ticker": "SYN0145",
+          "rank": 41,
+          "rank_score": 86.0
+        },
+        {
+          "ticker": "SYN0147",
+          "rank": 42,
+          "rank_score": 89.0
+        },
+        {
+          "ticker": "SYN0064",
+          "rank": 43,
+          "rank_score": 91.0
+        },
+        {
+          "ticker": "SYN0207",
+          "rank": 44,
+          "rank_score": 91.0
+        },
+        {
+          "ticker": "SYN0222",
+          "rank": 45,
+          "rank_score": 94.0
+        },
+        {
+          "ticker": "SYN0254",
+          "rank": 46,
+          "rank_score": 94.0
+        },
+        {
+          "ticker": "SYN0238",
+          "rank": 47,
+          "rank_score": 95.0
+        },
+        {
+          "ticker": "SYN0200",
+          "rank": 48,
+          "rank_score": 97.0
+        },
+        {
+          "ticker": "SYN0290",
+          "rank": 49,
+          "rank_score": 97.0
+        },
+        {
+          "ticker": "SYN0156",
+          "rank": 50,
+          "rank_score": 104.0
+        },
+        {
+          "ticker": "SYN0298",
+          "rank": 51,
+          "rank_score": 105.0
+        },
+        {
+          "ticker": "SYN0282",
+          "rank": 52,
+          "rank_score": 108.0
+        },
+        {
+          "ticker": "SYN0028",
+          "rank": 53,
+          "rank_score": 109.0
+        },
+        {
+          "ticker": "SYN0191",
+          "rank": 54,
+          "rank_score": 109.0
+        },
+        {
+          "ticker": "SYN0023",
+          "rank": 55,
+          "rank_score": 120.0
+        },
+        {
+          "ticker": "SYN0280",
+          "rank": 56,
+          "rank_score": 121.0
+        },
+        {
+          "ticker": "SYN0089",
+          "rank": 57,
+          "rank_score": 123.0
+        },
+        {
+          "ticker": "SYN0067",
+          "rank": 58,
+          "rank_score": 132.0
+        },
+        {
+          "ticker": "SYN0139",
+          "rank": 59,
+          "rank_score": 132.0
+        },
+        {
+          "ticker": "SYN0212",
+          "rank": 60,
+          "rank_score": 132.0
+        },
+        {
+          "ticker": "SYN0157",
+          "rank": 61,
+          "rank_score": 135.0
+        },
+        {
+          "ticker": "SYN0160",
+          "rank": 62,
+          "rank_score": 135.0
+        },
+        {
+          "ticker": "SYN0006",
+          "rank": 63,
+          "rank_score": 141.0
+        },
+        {
+          "ticker": "SYN0109",
+          "rank": 64,
+          "rank_score": 143.0
+        },
+        {
+          "ticker": "SYN0111",
+          "rank": 65,
+          "rank_score": 143.0
+        },
+        {
+          "ticker": "SYN0182",
+          "rank": 66,
+          "rank_score": 143.0
+        },
+        {
+          "ticker": "SYN0211",
+          "rank": 67,
+          "rank_score": 145.0
+        },
+        {
+          "ticker": "SYN0277",
+          "rank": 68,
+          "rank_score": 149.0
+        },
+        {
+          "ticker": "SYN0037",
+          "rank": 69,
+          "rank_score": 151.0
+        },
+        {
+          "ticker": "SYN0241",
+          "rank": 70,
+          "rank_score": 154.0
+        },
+        {
+          "ticker": "SYN0151",
+          "rank": 71,
+          "rank_score": 156.0
+        },
+        {
+          "ticker": "SYN0167",
+          "rank": 72,
+          "rank_score": 160.0
+        },
+        {
+          "ticker": "SYN0286",
+          "rank": 73,
+          "rank_score": 161.0
+        },
+        {
+          "ticker": "SYN0237",
+          "rank": 74,
+          "rank_score": 164.0
+        },
+        {
+          "ticker": "SYN0136",
+          "rank": 75,
+          "rank_score": 167.0
+        },
+        {
+          "ticker": "SYN0216",
+          "rank": 76,
+          "rank_score": 168.0
+        },
+        {
+          "ticker": "SYN0054",
+          "rank": 77,
+          "rank_score": 169.0
+        },
+        {
+          "ticker": "SYN0100",
+          "rank": 78,
+          "rank_score": 171.0
+        },
+        {
+          "ticker": "SYN0269",
+          "rank": 79,
+          "rank_score": 171.0
+        },
+        {
+          "ticker": "SYN0122",
+          "rank": 80,
+          "rank_score": 172.0
+        },
+        {
+          "ticker": "SYN0250",
+          "rank": 81,
+          "rank_score": 172.0
+        },
+        {
+          "ticker": "SYN0170",
+          "rank": 82,
+          "rank_score": 181.0
+        },
+        {
+          "ticker": "SYN0046",
+          "rank": 83,
+          "rank_score": 182.0
+        },
+        {
+          "ticker": "SYN0016",
+          "rank": 84,
+          "rank_score": 185.0
+        },
+        {
+          "ticker": "SYN0176",
+          "rank": 85,
+          "rank_score": 185.0
+        },
+        {
+          "ticker": "SYN0190",
+          "rank": 86,
+          "rank_score": 185.0
+        },
+        {
+          "ticker": "SYN0097",
+          "rank": 87,
+          "rank_score": 192.0
+        },
+        {
+          "ticker": "SYN0231",
+          "rank": 88,
+          "rank_score": 192.0
+        },
+        {
+          "ticker": "SYN0039",
+          "rank": 89,
+          "rank_score": 193.0
+        },
+        {
+          "ticker": "SYN0134",
+          "rank": 90,
+          "rank_score": 196.0
+        },
+        {
+          "ticker": "SYN0140",
+          "rank": 91,
+          "rank_score": 197.0
+        },
+        {
+          "ticker": "SYN0121",
+          "rank": 92,
+          "rank_score": 201.0
+        },
+        {
+          "ticker": "SYN0062",
+          "rank": 93,
+          "rank_score": 203.0
+        },
+        {
+          "ticker": "SYN0125",
+          "rank": 94,
+          "rank_score": 207.0
+        },
+        {
+          "ticker": "SYN0005",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0008",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0014",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0050",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0071",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0075",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0085",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0115",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0131",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0159",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0169",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0186",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0213",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0225",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0228",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0229",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0233",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0240",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0247",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0255",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0256",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0275",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0294",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0297",
+          "rank": null,
+          "rank_score": null
+        }
+      ],
+      "near_misses": []
+    },
+    {
+      "screen": {
+        "dsl_version": 1,
+        "name": "preset: margin-inflection",
+        "universe": {
+          "exchanges": [
+            "NYSE",
+            "Nasdaq",
+            "NYSE American",
+            "TXSE"
+          ],
+          "sectors_include": [],
+          "sectors_exclude": [],
+          "exclude_kinds": [
+            "spac",
+            "fund",
+            "shell",
+            "no_common_equity"
+          ],
+          "include_foreign_filers": true,
+          "include_stale": false,
+          "include_no_facts": false,
+          "avg_dollar_volume_min": 1000000.0
+        },
+        "filters": {
+          "op": "and",
+          "children": [
+            {
+              "metric": "operating_margin_change_yoy",
+              "cmp": "gte",
+              "value": 0.2,
+              "missing": "fail"
+            },
+            {
+              "metric": "revenue_growth_yoy",
+              "cmp": "gt",
+              "value": 0.0,
+              "missing": "fail"
+            },
+            {
+              "metric": "operating_margin",
+              "cmp": "gt",
+              "value": 0.0,
+              "missing": "fail"
+            }
+          ]
+        },
+        "columns": [
+          "ticker",
+          "name",
+          "sector",
+          "market_cap",
+          "operating_margin_change_yoy",
+          "operating_margin",
+          "revenue_growth_yoy",
+          "gross_margin_change_yoy"
+        ],
+        "sort": {
+          "by": "operating_margin_change_yoy",
+          "dir": "desc",
+          "then": []
+        },
+        "limit": 1000,
+        "near_misses": true
+      },
+      "funnel": [
+        {
+          "index": 0,
+          "filter_path": null,
+          "remaining": 227,
+          "removed": 73,
+          "removed_missing": 2,
+          "binding": false
+        },
+        {
+          "index": 1,
+          "filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "remaining": 0,
+          "removed": 227,
+          "removed_missing": 4,
+          "binding": true
+        },
+        {
+          "index": 2,
+          "filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "remaining": 0,
+          "removed": 0,
+          "removed_missing": 0,
+          "binding": false
+        },
+        {
+          "index": 3,
+          "filter_path": [
+            "filters",
+            "children",
+            2
+          ],
+          "remaining": 0,
+          "removed": 0,
+          "removed_missing": 0,
+          "binding": false
+        }
+      ],
+      "results": [],
+      "near_misses": [
+        {
+          "ticker": "SYN0159",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "operating_margin_change_yoy",
+          "cmp": "gte",
+          "value": 0.09142,
+          "threshold": 0.2,
+          "distance": 0.5429,
+          "note": null
+        },
+        {
+          "ticker": "SYN0022",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "operating_margin_change_yoy",
+          "cmp": "gte",
+          "value": 0.067056,
+          "threshold": 0.2,
+          "distance": 0.66472,
+          "note": null
+        },
+        {
+          "ticker": "SYN0107",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "operating_margin_change_yoy",
+          "cmp": "gte",
+          "value": 0.0614,
+          "threshold": 0.2,
+          "distance": 0.693,
+          "note": null
+        },
+        {
+          "ticker": "SYN0057",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "operating_margin_change_yoy",
+          "cmp": "gte",
+          "value": 0.060519,
+          "threshold": 0.2,
+          "distance": 0.697405,
+          "note": null
+        },
+        {
+          "ticker": "SYN0271",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "operating_margin_change_yoy",
+          "cmp": "gte",
+          "value": 0.059263,
+          "threshold": 0.2,
+          "distance": 0.703685,
+          "note": null
+        },
+        {
+          "ticker": "SYN0234",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "operating_margin_change_yoy",
+          "cmp": "gte",
+          "value": 0.058799,
+          "threshold": 0.2,
+          "distance": 0.7060050000000001,
+          "note": null
+        },
+        {
+          "ticker": "SYN0217",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "operating_margin_change_yoy",
+          "cmp": "gte",
+          "value": 0.056968,
+          "threshold": 0.2,
+          "distance": 0.71516,
+          "note": null
+        },
+        {
+          "ticker": "SYN0207",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "operating_margin_change_yoy",
+          "cmp": "gte",
+          "value": 0.054182,
+          "threshold": 0.2,
+          "distance": 0.72909,
+          "note": null
+        },
+        {
+          "ticker": "SYN0068",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "operating_margin_change_yoy",
+          "cmp": "gte",
+          "value": 0.044721,
+          "threshold": 0.2,
+          "distance": 0.776395,
+          "note": null
+        },
+        {
+          "ticker": "SYN0031",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "operating_margin_change_yoy",
+          "cmp": "gte",
+          "value": 0.03452,
+          "threshold": 0.2,
+          "distance": 0.8274,
+          "note": null
+        },
+        {
+          "ticker": "SYN0185",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "operating_margin_change_yoy",
+          "cmp": "gte",
+          "value": 0.032533,
+          "threshold": 0.2,
+          "distance": 0.8373349999999999,
+          "note": null
+        },
+        {
+          "ticker": "SYN0001",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "operating_margin_change_yoy",
+          "cmp": "gte",
+          "value": 0.028895,
+          "threshold": 0.2,
+          "distance": 0.855525,
+          "note": null
+        },
+        {
+          "ticker": "SYN0017",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "operating_margin_change_yoy",
+          "cmp": "gte",
+          "value": 0.028755,
+          "threshold": 0.2,
+          "distance": 0.856225,
+          "note": null
+        },
+        {
+          "ticker": "SYN0258",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "operating_margin_change_yoy",
+          "cmp": "gte",
+          "value": 0.027761,
+          "threshold": 0.2,
+          "distance": 0.8611949999999999,
+          "note": null
+        },
+        {
+          "ticker": "SYN0148",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "operating_margin_change_yoy",
+          "cmp": "gte",
+          "value": 0.027572,
+          "threshold": 0.2,
+          "distance": 0.8621400000000001,
+          "note": null
+        },
+        {
+          "ticker": "SYN0253",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "operating_margin_change_yoy",
+          "cmp": "gte",
+          "value": 0.025482,
+          "threshold": 0.2,
+          "distance": 0.87259,
+          "note": null
+        },
+        {
+          "ticker": "SYN0161",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "operating_margin_change_yoy",
+          "cmp": "gte",
+          "value": 0.025151,
+          "threshold": 0.2,
+          "distance": 0.8742449999999999,
+          "note": null
+        },
+        {
+          "ticker": "SYN0158",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "operating_margin_change_yoy",
+          "cmp": "gte",
+          "value": 0.024719,
+          "threshold": 0.2,
+          "distance": 0.8764050000000001,
+          "note": null
+        },
+        {
+          "ticker": "SYN0283",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "operating_margin_change_yoy",
+          "cmp": "gte",
+          "value": 0.02273,
+          "threshold": 0.2,
+          "distance": 0.88635,
+          "note": null
+        },
+        {
+          "ticker": "SYN0226",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "operating_margin_change_yoy",
+          "cmp": "gte",
+          "value": 0.020811,
+          "threshold": 0.2,
+          "distance": 0.895945,
+          "note": null
+        },
+        {
+          "ticker": "SYN0040",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "operating_margin_change_yoy",
+          "cmp": "gte",
+          "value": 0.020484,
+          "threshold": 0.2,
+          "distance": 0.89758,
+          "note": null
+        },
+        {
+          "ticker": "SYN0003",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "operating_margin_change_yoy",
+          "cmp": "gte",
+          "value": 0.01873,
+          "threshold": 0.2,
+          "distance": 0.90635,
+          "note": null
+        },
+        {
+          "ticker": "SYN0123",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "operating_margin_change_yoy",
+          "cmp": "gte",
+          "value": 0.018596,
+          "threshold": 0.2,
+          "distance": 0.90702,
+          "note": null
+        },
+        {
+          "ticker": "SYN0156",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "operating_margin_change_yoy",
+          "cmp": "gte",
+          "value": 0.017483,
+          "threshold": 0.2,
+          "distance": 0.912585,
+          "note": null
+        },
+        {
+          "ticker": "SYN0205",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "operating_margin_change_yoy",
+          "cmp": "gte",
+          "value": 0.016677,
+          "threshold": 0.2,
+          "distance": 0.9166150000000001,
+          "note": null
+        }
+      ]
+    },
+    {
+      "screen": {
+        "dsl_version": 1,
+        "name": "preset: net-nets",
+        "universe": {
+          "exchanges": [
+            "NYSE",
+            "Nasdaq",
+            "NYSE American",
+            "TXSE"
+          ],
+          "sectors_include": [],
+          "sectors_exclude": [],
+          "exclude_kinds": [
+            "spac",
+            "fund",
+            "shell",
+            "no_common_equity"
+          ],
+          "include_foreign_filers": true,
+          "include_stale": false,
+          "include_no_facts": false,
+          "avg_dollar_volume_min": 1000000.0
+        },
+        "filters": {
+          "op": "and",
+          "children": [
+            {
+              "metric": "ncav_to_mcap",
+              "cmp": "gte",
+              "value": 1.5,
+              "missing": "fail"
+            }
+          ]
+        },
+        "columns": [
+          "ticker",
+          "name",
+          "sector",
+          "market_cap",
+          "ncav_to_mcap",
+          "cash_to_mcap",
+          "fcf_margin",
+          "avg_dollar_volume_3m"
+        ],
+        "sort": {
+          "by": "ncav_to_mcap",
+          "dir": "desc",
+          "then": []
+        },
+        "limit": 1000,
+        "near_misses": true
+      },
+      "funnel": [
+        {
+          "index": 0,
+          "filter_path": null,
+          "remaining": 227,
+          "removed": 73,
+          "removed_missing": 2,
+          "binding": false
+        },
+        {
+          "index": 1,
+          "filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "remaining": 1,
+          "removed": 226,
+          "removed_missing": 28,
+          "binding": true
+        }
+      ],
+      "results": [
+        {
+          "ticker": "SYN0048",
+          "rank": null,
+          "rank_score": null
+        }
+      ],
+      "near_misses": [
+        {
+          "ticker": "SYN0019",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "ncav_to_mcap",
+          "cmp": "gte",
+          "value": 1.196131,
+          "threshold": 1.5,
+          "distance": 0.2025793333333333,
+          "note": null
+        },
+        {
+          "ticker": "SYN0169",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "ncav_to_mcap",
+          "cmp": "gte",
+          "value": 0.651639,
+          "threshold": 1.5,
+          "distance": 0.565574,
+          "note": null
+        },
+        {
+          "ticker": "SYN0027",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "ncav_to_mcap",
+          "cmp": "gte",
+          "value": 0.310652,
+          "threshold": 1.5,
+          "distance": 0.7928986666666668,
+          "note": null
+        },
+        {
+          "ticker": "SYN0074",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "ncav_to_mcap",
+          "cmp": "gte",
+          "value": 0.206304,
+          "threshold": 1.5,
+          "distance": 0.862464,
+          "note": null
+        },
+        {
+          "ticker": "SYN0006",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "ncav_to_mcap",
+          "cmp": "gte",
+          "value": 0.170712,
+          "threshold": 1.5,
+          "distance": 0.886192,
+          "note": null
+        },
+        {
+          "ticker": "SYN0218",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "ncav_to_mcap",
+          "cmp": "gte",
+          "value": 0.164482,
+          "threshold": 1.5,
+          "distance": 0.8903453333333333,
+          "note": null
+        },
+        {
+          "ticker": "SYN0205",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "ncav_to_mcap",
+          "cmp": "gte",
+          "value": 0.156473,
+          "threshold": 1.5,
+          "distance": 0.8956846666666666,
+          "note": null
+        },
+        {
+          "ticker": "SYN0013",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "ncav_to_mcap",
+          "cmp": "gte",
+          "value": 0.156114,
+          "threshold": 1.5,
+          "distance": 0.8959239999999999,
+          "note": null
+        },
+        {
+          "ticker": "SYN0219",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "ncav_to_mcap",
+          "cmp": "gte",
+          "value": 0.137873,
+          "threshold": 1.5,
+          "distance": 0.9080846666666668,
+          "note": null
+        },
+        {
+          "ticker": "SYN0079",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "ncav_to_mcap",
+          "cmp": "gte",
+          "value": 0.120188,
+          "threshold": 1.5,
+          "distance": 0.9198746666666667,
+          "note": null
+        },
+        {
+          "ticker": "SYN0220",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "ncav_to_mcap",
+          "cmp": "gte",
+          "value": 0.11984,
+          "threshold": 1.5,
+          "distance": 0.9201066666666667,
+          "note": null
+        },
+        {
+          "ticker": "SYN0118",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "ncav_to_mcap",
+          "cmp": "gte",
+          "value": 0.114886,
+          "threshold": 1.5,
+          "distance": 0.9234093333333333,
+          "note": null
+        },
+        {
+          "ticker": "SYN0073",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "ncav_to_mcap",
+          "cmp": "gte",
+          "value": 0.086496,
+          "threshold": 1.5,
+          "distance": 0.9423360000000001,
+          "note": null
+        },
+        {
+          "ticker": "SYN0116",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "ncav_to_mcap",
+          "cmp": "gte",
+          "value": 0.084429,
+          "threshold": 1.5,
+          "distance": 0.9437139999999999,
+          "note": null
+        },
+        {
+          "ticker": "SYN0010",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "ncav_to_mcap",
+          "cmp": "gte",
+          "value": 0.06276,
+          "threshold": 1.5,
+          "distance": 0.95816,
+          "note": null
+        },
+        {
+          "ticker": "SYN0146",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "ncav_to_mcap",
+          "cmp": "gte",
+          "value": 0.058929,
+          "threshold": 1.5,
+          "distance": 0.960714,
+          "note": null
+        },
+        {
+          "ticker": "SYN0158",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "ncav_to_mcap",
+          "cmp": "gte",
+          "value": 0.056121,
+          "threshold": 1.5,
+          "distance": 0.9625859999999999,
+          "note": null
+        },
+        {
+          "ticker": "SYN0068",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "ncav_to_mcap",
+          "cmp": "gte",
+          "value": 0.055761,
+          "threshold": 1.5,
+          "distance": 0.9628260000000001,
+          "note": null
+        },
+        {
+          "ticker": "SYN0273",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "ncav_to_mcap",
+          "cmp": "gte",
+          "value": 0.054414,
+          "threshold": 1.5,
+          "distance": 0.963724,
+          "note": null
+        },
+        {
+          "ticker": "SYN0160",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "ncav_to_mcap",
+          "cmp": "gte",
+          "value": 0.051542,
+          "threshold": 1.5,
+          "distance": 0.9656386666666666,
+          "note": null
+        },
+        {
+          "ticker": "SYN0184",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "ncav_to_mcap",
+          "cmp": "gte",
+          "value": 0.046929,
+          "threshold": 1.5,
+          "distance": 0.968714,
+          "note": null
+        },
+        {
+          "ticker": "SYN0198",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "ncav_to_mcap",
+          "cmp": "gte",
+          "value": 0.04289,
+          "threshold": 1.5,
+          "distance": 0.9714066666666666,
+          "note": null
+        },
+        {
+          "ticker": "SYN0272",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "ncav_to_mcap",
+          "cmp": "gte",
+          "value": 0.036328,
+          "threshold": 1.5,
+          "distance": 0.9757813333333334,
+          "note": null
+        },
+        {
+          "ticker": "SYN0012",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "ncav_to_mcap",
+          "cmp": "gte",
+          "value": 0.035325,
+          "threshold": 1.5,
+          "distance": 0.9764499999999999,
+          "note": null
+        },
+        {
+          "ticker": "SYN0296",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "ncav_to_mcap",
+          "cmp": "gte",
+          "value": 0.027038,
+          "threshold": 1.5,
+          "distance": 0.9819746666666668,
+          "note": null
+        }
+      ]
+    },
+    {
+      "screen": {
+        "dsl_version": 1,
+        "name": "preset: piotroski-value",
+        "universe": {
+          "exchanges": [
+            "NYSE",
+            "Nasdaq",
+            "NYSE American",
+            "TXSE"
+          ],
+          "sectors_include": [],
+          "sectors_exclude": [],
+          "exclude_kinds": [
+            "spac",
+            "fund",
+            "shell",
+            "no_common_equity"
+          ],
+          "include_foreign_filers": true,
+          "include_stale": false,
+          "include_no_facts": false,
+          "avg_dollar_volume_min": 1000000.0
+        },
+        "filters": {
+          "op": "and",
+          "children": [
+            {
+              "metric": "pb",
+              "cmp": "pct_rank_lte",
+              "value": 0.3,
+              "within": "universe",
+              "missing": "fail"
+            },
+            {
+              "metric": "piotroski_f",
+              "cmp": "gte",
+              "value": 8.0,
+              "missing": "fail"
+            }
+          ]
+        },
+        "columns": [
+          "ticker",
+          "name",
+          "sector",
+          "market_cap",
+          "pb",
+          "piotroski_f",
+          "roa",
+          "current_ratio"
+        ],
+        "sort": {
+          "by": "piotroski_f",
+          "dir": "desc",
+          "then": []
+        },
+        "limit": 1000,
+        "near_misses": true
+      },
+      "funnel": [
+        {
+          "index": 0,
+          "filter_path": null,
+          "remaining": 227,
+          "removed": 73,
+          "removed_missing": 2,
+          "binding": false
+        },
+        {
+          "index": 1,
+          "filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "remaining": 60,
+          "removed": 167,
+          "removed_missing": 29,
+          "binding": true
+        },
+        {
+          "index": 2,
+          "filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "remaining": 4,
+          "removed": 56,
+          "removed_missing": 13,
+          "binding": false
+        }
+      ],
+      "results": [
+        {
+          "ticker": "SYN0158",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0166",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0173",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0220",
+          "rank": null,
+          "rank_score": null
+        }
+      ],
+      "near_misses": [
+        {
+          "ticker": "SYN0027",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "piotroski_f",
+          "cmp": "gte",
+          "value": 7.0,
+          "threshold": 8.0,
+          "distance": 0.125,
+          "note": null
+        },
+        {
+          "ticker": "SYN0073",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "piotroski_f",
+          "cmp": "gte",
+          "value": 7.0,
+          "threshold": 8.0,
+          "distance": 0.125,
+          "note": null
+        },
+        {
+          "ticker": "SYN0100",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "piotroski_f",
+          "cmp": "gte",
+          "value": 7.0,
+          "threshold": 8.0,
+          "distance": 0.125,
+          "note": null
+        },
+        {
+          "ticker": "SYN0106",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "piotroski_f",
+          "cmp": "gte",
+          "value": 7.0,
+          "threshold": 8.0,
+          "distance": 0.125,
+          "note": null
+        },
+        {
+          "ticker": "SYN0120",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "piotroski_f",
+          "cmp": "gte",
+          "value": 7.0,
+          "threshold": 8.0,
+          "distance": 0.125,
+          "note": null
+        },
+        {
+          "ticker": "SYN0142",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "piotroski_f",
+          "cmp": "gte",
+          "value": 7.0,
+          "threshold": 8.0,
+          "distance": 0.125,
+          "note": null
+        },
+        {
+          "ticker": "SYN0235",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "piotroski_f",
+          "cmp": "gte",
+          "value": 7.0,
+          "threshold": 8.0,
+          "distance": 0.125,
+          "note": null
+        },
+        {
+          "ticker": "SYN0238",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "piotroski_f",
+          "cmp": "gte",
+          "value": 7.0,
+          "threshold": 8.0,
+          "distance": 0.125,
+          "note": null
+        },
+        {
+          "ticker": "SYN0194",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "pb",
+          "cmp": "pct_rank_lte",
+          "value": 0.5228426395939086,
+          "threshold": 0.3,
+          "distance": 0.22284263959390865,
+          "note": null
+        },
+        {
+          "ticker": "SYN0006",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "piotroski_f",
+          "cmp": "gte",
+          "value": 6.0,
+          "threshold": 8.0,
+          "distance": 0.25,
+          "note": null
+        },
+        {
+          "ticker": "SYN0019",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "piotroski_f",
+          "cmp": "gte",
+          "value": 6.0,
+          "threshold": 8.0,
+          "distance": 0.25,
+          "note": null
+        },
+        {
+          "ticker": "SYN0040",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "piotroski_f",
+          "cmp": "gte",
+          "value": 6.0,
+          "threshold": 8.0,
+          "distance": 0.25,
+          "note": null
+        },
+        {
+          "ticker": "SYN0064",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "piotroski_f",
+          "cmp": "gte",
+          "value": 6.0,
+          "threshold": 8.0,
+          "distance": 0.25,
+          "note": null
+        },
+        {
+          "ticker": "SYN0078",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "piotroski_f",
+          "cmp": "gte",
+          "value": 6.0,
+          "threshold": 8.0,
+          "distance": 0.25,
+          "note": null
+        },
+        {
+          "ticker": "SYN0119",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "piotroski_f",
+          "cmp": "gte",
+          "value": 6.0,
+          "threshold": 8.0,
+          "distance": 0.25,
+          "note": null
+        },
+        {
+          "ticker": "SYN0123",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "piotroski_f",
+          "cmp": "gte",
+          "value": 6.0,
+          "threshold": 8.0,
+          "distance": 0.25,
+          "note": null
+        },
+        {
+          "ticker": "SYN0169",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "piotroski_f",
+          "cmp": "gte",
+          "value": 6.0,
+          "threshold": 8.0,
+          "distance": 0.25,
+          "note": null
+        },
+        {
+          "ticker": "SYN0198",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "piotroski_f",
+          "cmp": "gte",
+          "value": 6.0,
+          "threshold": 8.0,
+          "distance": 0.25,
+          "note": null
+        },
+        {
+          "ticker": "SYN0241",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "piotroski_f",
+          "cmp": "gte",
+          "value": 6.0,
+          "threshold": 8.0,
+          "distance": 0.25,
+          "note": null
+        },
+        {
+          "ticker": "SYN0246",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "piotroski_f",
+          "cmp": "gte",
+          "value": 6.0,
+          "threshold": 8.0,
+          "distance": 0.25,
+          "note": null
+        },
+        {
+          "ticker": "SYN0267",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "piotroski_f",
+          "cmp": "gte",
+          "value": 6.0,
+          "threshold": 8.0,
+          "distance": 0.25,
+          "note": null
+        },
+        {
+          "ticker": "SYN0294",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "piotroski_f",
+          "cmp": "gte",
+          "value": 6.0,
+          "threshold": 8.0,
+          "distance": 0.25,
+          "note": null
+        },
+        {
+          "ticker": "SYN0146",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "pb",
+          "cmp": "pct_rank_lte",
+          "value": 0.6548223350253807,
+          "threshold": 0.3,
+          "distance": 0.3548223350253807,
+          "note": null
+        },
+        {
+          "ticker": "SYN0043",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "piotroski_f",
+          "cmp": "gte",
+          "value": 5.0,
+          "threshold": 8.0,
+          "distance": 0.375,
+          "note": null
+        },
+        {
+          "ticker": "SYN0048",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "piotroski_f",
+          "cmp": "gte",
+          "value": 5.0,
+          "threshold": 8.0,
+          "distance": 0.375,
+          "note": null
+        }
+      ]
+    },
+    {
+      "screen": {
+        "dsl_version": 1,
+        "name": "preset: qarp",
+        "universe": {
+          "exchanges": [
+            "NYSE",
+            "Nasdaq",
+            "NYSE American",
+            "TXSE"
+          ],
+          "sectors_include": [],
+          "sectors_exclude": [],
+          "exclude_kinds": [
+            "spac",
+            "fund",
+            "shell",
+            "no_common_equity"
+          ],
+          "include_foreign_filers": true,
+          "include_stale": false,
+          "include_no_facts": false,
+          "avg_dollar_volume_min": 1000000.0
+        },
+        "filters": {
+          "op": "and",
+          "children": [
+            {
+              "metric": "roic",
+              "cmp": "gte",
+              "value": 0.12,
+              "missing": "fail"
+            },
+            {
+              "metric": "fcf_yield",
+              "cmp": "gte",
+              "value": 0.04,
+              "missing": "fail"
+            },
+            {
+              "metric": "operating_margin",
+              "cmp": "pct_rank_gte",
+              "value": 0.75,
+              "within": "sector",
+              "missing": "fail"
+            }
+          ]
+        },
+        "rank": {
+          "method": "percentile_composite",
+          "within": "universe",
+          "factors": [
+            {
+              "metric": "roic",
+              "weight": 0.5
+            },
+            {
+              "metric": "fcf_yield",
+              "weight": 0.5
+            }
+          ],
+          "min_factor_coverage": 0.7
+        },
+        "columns": [
+          "ticker",
+          "name",
+          "sector",
+          "market_cap",
+          "roic",
+          "fcf_yield",
+          "operating_margin",
+          "rank_score"
+        ],
+        "sort": {
+          "by": "rank_score",
+          "dir": "desc",
+          "then": []
+        },
+        "limit": 1000,
+        "near_misses": true
+      },
+      "funnel": [
+        {
+          "index": 0,
+          "filter_path": null,
+          "remaining": 227,
+          "removed": 73,
+          "removed_missing": 2,
+          "binding": false
+        },
+        {
+          "index": 1,
+          "filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "remaining": 37,
+          "removed": 190,
+          "removed_missing": 51,
+          "binding": true
+        },
+        {
+          "index": 2,
+          "filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "remaining": 14,
+          "removed": 23,
+          "removed_missing": 5,
+          "binding": false
+        },
+        {
+          "index": 3,
+          "filter_path": [
+            "filters",
+            "children",
+            2
+          ],
+          "remaining": 8,
+          "removed": 6,
+          "removed_missing": 3,
+          "binding": false
+        }
+      ],
+      "results": [
+        {
+          "ticker": "SYN0174",
+          "rank": 1,
+          "rank_score": 0.9208327351040919
+        },
+        {
+          "ticker": "SYN0027",
+          "rank": 2,
+          "rank_score": 0.9134960516870064
+        },
+        {
+          "ticker": "SYN0234",
+          "rank": 3,
+          "rank_score": 0.8968413496051687
+        },
+        {
+          "ticker": "SYN0099",
+          "rank": 4,
+          "rank_score": 0.8818664752333094
+        },
+        {
+          "ticker": "SYN0220",
+          "rank": 5,
+          "rank_score": 0.8530940416367552
+        },
+        {
+          "ticker": "SYN0184",
+          "rank": 6,
+          "rank_score": 0.8523043790380473
+        },
+        {
+          "ticker": "SYN0123",
+          "rank": 7,
+          "rank_score": 0.8389088298636038
+        },
+        {
+          "ticker": "SYN0300",
+          "rank": 8,
+          "rank_score": 0.8382196697774587
+        }
+      ],
+      "near_misses": [
+        {
+          "ticker": "SYN0081",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "roic",
+          "cmp": "gte",
+          "value": 0.116317,
+          "threshold": 0.12,
+          "distance": 0.0306916666666666,
+          "note": null
+        },
+        {
+          "ticker": "SYN0017",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "fcf_yield",
+          "cmp": "gte",
+          "value": 0.03747,
+          "threshold": 0.04,
+          "distance": 0.06324999999999993,
+          "note": null
+        },
+        {
+          "ticker": "SYN0173",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "roic",
+          "cmp": "gte",
+          "value": 0.112305,
+          "threshold": 0.12,
+          "distance": 0.06412499999999995,
+          "note": null
+        },
+        {
+          "ticker": "SYN0045",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "roic",
+          "cmp": "gte",
+          "value": 0.10705,
+          "threshold": 0.12,
+          "distance": 0.10791666666666658,
+          "note": null
+        },
+        {
+          "ticker": "SYN0296",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "fcf_yield",
+          "cmp": "gte",
+          "value": 0.035186,
+          "threshold": 0.04,
+          "distance": 0.12034999999999997,
+          "note": null
+        },
+        {
+          "ticker": "SYN0159",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            2
+          ],
+          "metric": "operating_margin",
+          "cmp": "pct_rank_gte",
+          "value": 0.6,
+          "threshold": 0.75,
+          "distance": 0.15000000000000002,
+          "note": null
+        },
+        {
+          "ticker": "SYN0038",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            2
+          ],
+          "metric": "operating_margin",
+          "cmp": "pct_rank_gte",
+          "value": 0.5555555555555556,
+          "threshold": 0.75,
+          "distance": 0.19444444444444442,
+          "note": null
+        },
+        {
+          "ticker": "SYN0256",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "fcf_yield",
+          "cmp": "gte",
+          "value": 0.030502,
+          "threshold": 0.04,
+          "distance": 0.23745,
+          "note": null
+        },
+        {
+          "ticker": "SYN0246",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            2
+          ],
+          "metric": "operating_margin",
+          "cmp": "pct_rank_gte",
+          "value": 0.5,
+          "threshold": 0.75,
+          "distance": 0.25,
+          "note": null
+        },
+        {
+          "ticker": "SYN0247",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "roic",
+          "cmp": "gte",
+          "value": 0.075982,
+          "threshold": 0.12,
+          "distance": 0.3668166666666667,
+          "note": null
+        },
+        {
+          "ticker": "SYN0049",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "fcf_yield",
+          "cmp": "gte",
+          "value": 0.024462,
+          "threshold": 0.04,
+          "distance": 0.38844999999999996,
+          "note": null
+        },
+        {
+          "ticker": "SYN0019",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "roic",
+          "cmp": "gte",
+          "value": 0.072332,
+          "threshold": 0.12,
+          "distance": 0.3972333333333334,
+          "note": null
+        },
+        {
+          "ticker": "SYN0013",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "roic",
+          "cmp": "gte",
+          "value": 0.05912,
+          "threshold": 0.12,
+          "distance": 0.5073333333333333,
+          "note": null
+        },
+        {
+          "ticker": "SYN0094",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "roic",
+          "cmp": "gte",
+          "value": 0.058162,
+          "threshold": 0.12,
+          "distance": 0.5153166666666666,
+          "note": null
+        },
+        {
+          "ticker": "SYN0251",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "fcf_yield",
+          "cmp": "gte",
+          "value": 0.015944,
+          "threshold": 0.04,
+          "distance": 0.6014,
+          "note": null
+        },
+        {
+          "ticker": "SYN0232",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "fcf_yield",
+          "cmp": "gte",
+          "value": 0.008873,
+          "threshold": 0.04,
+          "distance": 0.7781750000000001,
+          "note": null
+        },
+        {
+          "ticker": "SYN0262",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "fcf_yield",
+          "cmp": "gte",
+          "value": 0.003353,
+          "threshold": 0.04,
+          "distance": 0.916175,
+          "note": null
+        },
+        {
+          "ticker": "SYN0007",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "roic",
+          "cmp": "gte",
+          "value": null,
+          "threshold": 0.12,
+          "distance": null,
+          "note": "NOT_APPLICABLE_SECTOR"
+        },
+        {
+          "ticker": "SYN0050",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "roic",
+          "cmp": "gte",
+          "value": null,
+          "threshold": 0.12,
+          "distance": null,
+          "note": "NEGATIVE_DENOMINATOR"
+        },
+        {
+          "ticker": "SYN0083",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "roic",
+          "cmp": "gte",
+          "value": null,
+          "threshold": 0.12,
+          "distance": null,
+          "note": "NOT_APPLICABLE_SECTOR"
+        },
+        {
+          "ticker": "SYN0092",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "roic",
+          "cmp": "gte",
+          "value": null,
+          "threshold": 0.12,
+          "distance": null,
+          "note": "NOT_APPLICABLE_SECTOR"
+        },
+        {
+          "ticker": "SYN0127",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "fcf_yield",
+          "cmp": "gte",
+          "value": null,
+          "threshold": 0.04,
+          "distance": null,
+          "note": "FOREIGN_PRICE_BASIS"
+        },
+        {
+          "ticker": "SYN0148",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "roic",
+          "cmp": "gte",
+          "value": null,
+          "threshold": 0.12,
+          "distance": null,
+          "note": "NOT_APPLICABLE_SECTOR"
+        },
+        {
+          "ticker": "SYN0166",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            2
+          ],
+          "metric": "operating_margin",
+          "cmp": "pct_rank_gte",
+          "value": null,
+          "threshold": 0.75,
+          "distance": null,
+          "note": "SMALL_PEER_GROUP"
+        },
+        {
+          "ticker": "SYN0172",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "roic",
+          "cmp": "gte",
+          "value": null,
+          "threshold": 0.12,
+          "distance": null,
+          "note": "NOT_APPLICABLE_SECTOR"
+        }
+      ]
+    },
+    {
+      "screen": {
+        "dsl_version": 1,
+        "name": "preset: quality-compounders",
+        "universe": {
+          "exchanges": [
+            "NYSE",
+            "Nasdaq",
+            "NYSE American",
+            "TXSE"
+          ],
+          "sectors_include": [],
+          "sectors_exclude": [],
+          "exclude_kinds": [
+            "spac",
+            "fund",
+            "shell",
+            "no_common_equity"
+          ],
+          "include_foreign_filers": true,
+          "include_stale": false,
+          "include_no_facts": false,
+          "avg_dollar_volume_min": 1000000.0
+        },
+        "filters": {
+          "op": "and",
+          "children": [
+            {
+              "metric": "roic",
+              "cmp": "gte",
+              "value": 0.15,
+              "missing": "fail"
+            },
+            {
+              "metric": "gross_margin",
+              "cmp": "gte",
+              "value": 0.4,
+              "missing": "fail"
+            },
+            {
+              "metric": "revenue_cagr_3y",
+              "cmp": "gte",
+              "value": 0.08,
+              "missing": "fail"
+            },
+            {
+              "metric": "net_debt_to_ebitda",
+              "cmp": "lte",
+              "value": 2.0,
+              "missing": "pass"
+            },
+            {
+              "metric": "fcf_margin",
+              "cmp": "gte",
+              "value": 0.1,
+              "missing": "fail"
+            }
+          ]
+        },
+        "rank": {
+          "method": "percentile_composite",
+          "within": "universe",
+          "factors": [
+            {
+              "metric": "roic",
+              "weight": 0.5
+            },
+            {
+              "metric": "fcf_yield",
+              "weight": 0.5
+            }
+          ],
+          "min_factor_coverage": 0.7
+        },
+        "columns": [
+          "ticker",
+          "name",
+          "sector",
+          "market_cap",
+          "roic",
+          "gross_margin",
+          "revenue_cagr_3y",
+          "net_debt_to_ebitda",
+          "fcf_margin",
+          "fcf_yield",
+          "rank_score"
+        ],
+        "sort": {
+          "by": "rank_score",
+          "dir": "desc",
+          "then": []
+        },
+        "limit": 1000,
+        "near_misses": true
+      },
+      "funnel": [
+        {
+          "index": 0,
+          "filter_path": null,
+          "remaining": 227,
+          "removed": 73,
+          "removed_missing": 2,
+          "binding": false
+        },
+        {
+          "index": 1,
+          "filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "remaining": 29,
+          "removed": 198,
+          "removed_missing": 51,
+          "binding": true
+        },
+        {
+          "index": 2,
+          "filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "remaining": 21,
+          "removed": 8,
+          "removed_missing": 0,
+          "binding": false
+        },
+        {
+          "index": 3,
+          "filter_path": [
+            "filters",
+            "children",
+            2
+          ],
+          "remaining": 11,
+          "removed": 10,
+          "removed_missing": 1,
+          "binding": false
+        },
+        {
+          "index": 4,
+          "filter_path": [
+            "filters",
+            "children",
+            3
+          ],
+          "remaining": 10,
+          "removed": 1,
+          "removed_missing": 0,
+          "binding": false
+        },
+        {
+          "index": 5,
+          "filter_path": [
+            "filters",
+            "children",
+            4
+          ],
+          "remaining": 4,
+          "removed": 6,
+          "removed_missing": 1,
+          "binding": false
+        }
+      ],
+      "results": [
+        {
+          "ticker": "SYN0186",
+          "rank": 1,
+          "rank_score": 0.8413639626704954
+        },
+        {
+          "ticker": "SYN0256",
+          "rank": 2,
+          "rank_score": 0.8217085427135677
+        },
+        {
+          "ticker": "SYN0127",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0258",
+          "rank": null,
+          "rank_score": null
+        }
+      ],
+      "near_misses": [
+        {
+          "ticker": "SYN0232",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            4
+          ],
+          "metric": "fcf_margin",
+          "cmp": "gte",
+          "value": 0.098228,
+          "threshold": 0.1,
+          "distance": 0.017720000000000097,
+          "note": null
+        },
+        {
+          "ticker": "SYN0123",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "roic",
+          "cmp": "gte",
+          "value": 0.146474,
+          "threshold": 0.15,
+          "distance": 0.023506666666666676,
+          "note": null
+        },
+        {
+          "ticker": "SYN0283",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "gross_margin",
+          "cmp": "gte",
+          "value": 0.34409,
+          "threshold": 0.4,
+          "distance": 0.13977500000000004,
+          "note": null
+        },
+        {
+          "ticker": "SYN0116",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            4
+          ],
+          "metric": "fcf_margin",
+          "cmp": "gte",
+          "value": 0.079665,
+          "threshold": 0.1,
+          "distance": 0.20335000000000006,
+          "note": null
+        },
+        {
+          "ticker": "SYN0166",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            3
+          ],
+          "metric": "net_debt_to_ebitda",
+          "cmp": "lte",
+          "value": 2.634491,
+          "threshold": 2.0,
+          "distance": 0.31724550000000007,
+          "note": null
+        },
+        {
+          "ticker": "SYN0014",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            2
+          ],
+          "metric": "revenue_cagr_3y",
+          "cmp": "gte",
+          "value": 0.050901,
+          "threshold": 0.08,
+          "distance": 0.3637375,
+          "note": null
+        },
+        {
+          "ticker": "SYN0234",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "gross_margin",
+          "cmp": "gte",
+          "value": 0.23312,
+          "threshold": 0.4,
+          "distance": 0.41720000000000007,
+          "note": null
+        },
+        {
+          "ticker": "SYN0145",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            4
+          ],
+          "metric": "fcf_margin",
+          "cmp": "gte",
+          "value": 0.054438,
+          "threshold": 0.1,
+          "distance": 0.45562,
+          "note": null
+        },
+        {
+          "ticker": "SYN0017",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            2
+          ],
+          "metric": "revenue_cagr_3y",
+          "cmp": "gte",
+          "value": 0.028644,
+          "threshold": 0.08,
+          "distance": 0.64195,
+          "note": null
+        },
+        {
+          "ticker": "SYN0099",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "gross_margin",
+          "cmp": "gte",
+          "value": 0.114589,
+          "threshold": 0.4,
+          "distance": 0.7135275,
+          "note": null
+        },
+        {
+          "ticker": "SYN0068",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            4
+          ],
+          "metric": "fcf_margin",
+          "cmp": "gte",
+          "value": 0.020942,
+          "threshold": 0.1,
+          "distance": 0.79058,
+          "note": null
+        },
+        {
+          "ticker": "SYN0095",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "roic",
+          "cmp": "gte",
+          "value": 0.031304,
+          "threshold": 0.15,
+          "distance": 0.7913066666666667,
+          "note": null
+        },
+        {
+          "ticker": "SYN0174",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            2
+          ],
+          "metric": "revenue_cagr_3y",
+          "cmp": "gte",
+          "value": 0.005997,
+          "threshold": 0.08,
+          "distance": 0.9250375,
+          "note": null
+        },
+        {
+          "ticker": "SYN0147",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            4
+          ],
+          "metric": "fcf_margin",
+          "cmp": "gte",
+          "value": -0.026424,
+          "threshold": 0.1,
+          "distance": 1.26424,
+          "note": null
+        },
+        {
+          "ticker": "SYN0220",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            2
+          ],
+          "metric": "revenue_cagr_3y",
+          "cmp": "gte",
+          "value": -0.041655,
+          "threshold": 0.08,
+          "distance": 1.5206875,
+          "note": null
+        },
+        {
+          "ticker": "SYN0093",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            2
+          ],
+          "metric": "revenue_cagr_3y",
+          "cmp": "gte",
+          "value": -0.064976,
+          "threshold": 0.08,
+          "distance": 1.8121999999999998,
+          "note": null
+        },
+        {
+          "ticker": "SYN0090",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            2
+          ],
+          "metric": "revenue_cagr_3y",
+          "cmp": "gte",
+          "value": -0.066299,
+          "threshold": 0.08,
+          "distance": 1.8287375000000001,
+          "note": null
+        },
+        {
+          "ticker": "SYN0149",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            4
+          ],
+          "metric": "fcf_margin",
+          "cmp": "gte",
+          "value": null,
+          "threshold": 0.1,
+          "distance": null,
+          "note": "MISSING_INPUT"
+        }
+      ]
+    },
+    {
+      "screen": {
+        "dsl_version": 1,
+        "name": "preset: rule-of-40",
+        "universe": {
+          "exchanges": [
+            "NYSE",
+            "Nasdaq",
+            "NYSE American",
+            "TXSE"
+          ],
+          "sectors_include": [
+            "Technology"
+          ],
+          "sectors_exclude": [],
+          "exclude_kinds": [
+            "spac",
+            "fund",
+            "shell",
+            "no_common_equity"
+          ],
+          "include_foreign_filers": true,
+          "include_stale": false,
+          "include_no_facts": false,
+          "avg_dollar_volume_min": 1000000.0
+        },
+        "filters": {
+          "op": "and",
+          "children": [
+            {
+              "metric": "rule_of_40",
+              "cmp": "gte",
+              "value": 0.4,
+              "missing": "fail"
+            },
+            {
+              "metric": "revenue_ttm",
+              "cmp": "gte",
+              "value": 500000000.0,
+              "missing": "fail"
+            }
+          ]
+        },
+        "columns": [
+          "ticker",
+          "name",
+          "market_cap",
+          "rule_of_40",
+          "revenue_growth_yoy",
+          "fcf_margin",
+          "sbc_to_revenue",
+          "revenue_ttm"
+        ],
+        "sort": {
+          "by": "rule_of_40",
+          "dir": "desc",
+          "then": []
+        },
+        "limit": 1000,
+        "near_misses": true
+      },
+      "funnel": [
+        {
+          "index": 0,
+          "filter_path": null,
+          "remaining": 47,
+          "removed": 253,
+          "removed_missing": 0,
+          "binding": false
+        },
+        {
+          "index": 1,
+          "filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "remaining": 2,
+          "removed": 45,
+          "removed_missing": 2,
+          "binding": true
+        },
+        {
+          "index": 2,
+          "filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "remaining": 1,
+          "removed": 1,
+          "removed_missing": 0,
+          "binding": false
+        }
+      ],
+      "results": [
+        {
+          "ticker": "SYN0149",
+          "rank": null,
+          "rank_score": null
+        }
+      ],
+      "near_misses": [
+        {
+          "ticker": "SYN0255",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "rule_of_40",
+          "cmp": "gte",
+          "value": 0.38747,
+          "threshold": 0.4,
+          "distance": 0.0313250000000001,
+          "note": null
+        },
+        {
+          "ticker": "SYN0073",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "rule_of_40",
+          "cmp": "gte",
+          "value": 0.38705,
+          "threshold": 0.4,
+          "distance": 0.03237500000000004,
+          "note": null
+        },
+        {
+          "ticker": "SYN0127",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "rule_of_40",
+          "cmp": "gte",
+          "value": 0.381951,
+          "threshold": 0.4,
+          "distance": 0.04512250000000009,
+          "note": null
+        },
+        {
+          "ticker": "SYN0014",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "rule_of_40",
+          "cmp": "gte",
+          "value": 0.371298,
+          "threshold": 0.4,
+          "distance": 0.07175500000000001,
+          "note": null
+        },
+        {
+          "ticker": "SYN0028",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "rule_of_40",
+          "cmp": "gte",
+          "value": 0.362004,
+          "threshold": 0.4,
+          "distance": 0.09499000000000007,
+          "note": null
+        },
+        {
+          "ticker": "SYN0248",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "rule_of_40",
+          "cmp": "gte",
+          "value": 0.356901,
+          "threshold": 0.4,
+          "distance": 0.1077475,
+          "note": null
+        },
+        {
+          "ticker": "SYN0091",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "rule_of_40",
+          "cmp": "gte",
+          "value": 0.321715,
+          "threshold": 0.4,
+          "distance": 0.19571250000000012,
+          "note": null
+        },
+        {
+          "ticker": "SYN0238",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "rule_of_40",
+          "cmp": "gte",
+          "value": 0.312736,
+          "threshold": 0.4,
+          "distance": 0.21816000000000002,
+          "note": null
+        },
+        {
+          "ticker": "SYN0040",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "rule_of_40",
+          "cmp": "gte",
+          "value": 0.308903,
+          "threshold": 0.4,
+          "distance": 0.2277425000000001,
+          "note": null
+        },
+        {
+          "ticker": "SYN0095",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "rule_of_40",
+          "cmp": "gte",
+          "value": 0.241045,
+          "threshold": 0.4,
+          "distance": 0.3973875,
+          "note": null
+        },
+        {
+          "ticker": "SYN0156",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "rule_of_40",
+          "cmp": "gte",
+          "value": 0.23137,
+          "threshold": 0.4,
+          "distance": 0.42157500000000003,
+          "note": null
+        },
+        {
+          "ticker": "SYN0041",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "rule_of_40",
+          "cmp": "gte",
+          "value": 0.220092,
+          "threshold": 0.4,
+          "distance": 0.44977,
+          "note": null
+        },
+        {
+          "ticker": "SYN0116",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "rule_of_40",
+          "cmp": "gte",
+          "value": 0.199728,
+          "threshold": 0.4,
+          "distance": 0.50068,
+          "note": null
+        },
+        {
+          "ticker": "SYN0017",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "rule_of_40",
+          "cmp": "gte",
+          "value": 0.19128,
+          "threshold": 0.4,
+          "distance": 0.5218,
+          "note": null
+        },
+        {
+          "ticker": "SYN0186",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "revenue_ttm",
+          "cmp": "gte",
+          "value": 228900377.41997,
+          "threshold": 500000000.0,
+          "distance": 0.5421992451600599,
+          "note": null
+        },
+        {
+          "ticker": "SYN0174",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "rule_of_40",
+          "cmp": "gte",
+          "value": 0.136389,
+          "threshold": 0.4,
+          "distance": 0.6590275000000001,
+          "note": null
+        },
+        {
+          "ticker": "SYN0225",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "rule_of_40",
+          "cmp": "gte",
+          "value": 0.118209,
+          "threshold": 0.4,
+          "distance": 0.7044775,
+          "note": null
+        },
+        {
+          "ticker": "SYN0184",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "rule_of_40",
+          "cmp": "gte",
+          "value": 0.115747,
+          "threshold": 0.4,
+          "distance": 0.7106325,
+          "note": null
+        },
+        {
+          "ticker": "SYN0232",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "rule_of_40",
+          "cmp": "gte",
+          "value": 0.09882,
+          "threshold": 0.4,
+          "distance": 0.75295,
+          "note": null
+        },
+        {
+          "ticker": "SYN0220",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "rule_of_40",
+          "cmp": "gte",
+          "value": 0.098382,
+          "threshold": 0.4,
+          "distance": 0.7540450000000001,
+          "note": null
+        },
+        {
+          "ticker": "SYN0237",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "rule_of_40",
+          "cmp": "gte",
+          "value": 0.089933,
+          "threshold": 0.4,
+          "distance": 0.7751675,
+          "note": null
+        },
+        {
+          "ticker": "SYN0093",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "rule_of_40",
+          "cmp": "gte",
+          "value": 0.053531,
+          "threshold": 0.4,
+          "distance": 0.8661725,
+          "note": null
+        },
+        {
+          "ticker": "SYN0115",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "rule_of_40",
+          "cmp": "gte",
+          "value": 0.016892,
+          "threshold": 0.4,
+          "distance": 0.95777,
+          "note": null
+        },
+        {
+          "ticker": "SYN0200",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "rule_of_40",
+          "cmp": "gte",
+          "value": -0.030459,
+          "threshold": 0.4,
+          "distance": 1.0761475,
+          "note": null
+        },
+        {
+          "ticker": "SYN0023",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "rule_of_40",
+          "cmp": "gte",
+          "value": -0.058934,
+          "threshold": 0.4,
+          "distance": 1.147335,
+          "note": null
+        }
+      ]
+    },
+    {
+      "screen": {
+        "dsl_version": 1,
+        "name": "preset: shareholder-yield",
+        "universe": {
+          "exchanges": [
+            "NYSE",
+            "Nasdaq",
+            "NYSE American",
+            "TXSE"
+          ],
+          "sectors_include": [],
+          "sectors_exclude": [],
+          "exclude_kinds": [
+            "spac",
+            "fund",
+            "shell",
+            "no_common_equity"
+          ],
+          "include_foreign_filers": true,
+          "include_stale": false,
+          "include_no_facts": false,
+          "avg_dollar_volume_min": 1000000.0
+        },
+        "filters": {
+          "op": "and",
+          "children": [
+            {
+              "metric": "shareholder_yield",
+              "cmp": "gte",
+              "value": 0.12,
+              "missing": "fail"
+            },
+            {
+              "metric": "fcf_yield",
+              "cmp": "gt",
+              "value": 0.0,
+              "missing": "fail"
+            }
+          ]
+        },
+        "columns": [
+          "ticker",
+          "name",
+          "sector",
+          "market_cap",
+          "shareholder_yield",
+          "dividend_yield",
+          "buyback_yield",
+          "fcf_yield",
+          "net_debt_to_ebitda"
+        ],
+        "sort": {
+          "by": "shareholder_yield",
+          "dir": "desc",
+          "then": []
+        },
+        "limit": 1000,
+        "near_misses": true
+      },
+      "funnel": [
+        {
+          "index": 0,
+          "filter_path": null,
+          "remaining": 227,
+          "removed": 73,
+          "removed_missing": 2,
+          "binding": false
+        },
+        {
+          "index": 1,
+          "filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "remaining": 4,
+          "removed": 223,
+          "removed_missing": 27,
+          "binding": true
+        },
+        {
+          "index": 2,
+          "filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "remaining": 4,
+          "removed": 0,
+          "removed_missing": 0,
+          "binding": false
+        }
+      ],
+      "results": [
+        {
+          "ticker": "SYN0083",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0230",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0173",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0166",
+          "rank": null,
+          "rank_score": null
+        }
+      ],
+      "near_misses": [
+        {
+          "ticker": "SYN0198",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "shareholder_yield",
+          "cmp": "gte",
+          "value": 0.116126,
+          "threshold": 0.12,
+          "distance": 0.03228333333333336,
+          "note": null
+        },
+        {
+          "ticker": "SYN0099",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "shareholder_yield",
+          "cmp": "gte",
+          "value": 0.109694,
+          "threshold": 0.12,
+          "distance": 0.0858833333333333,
+          "note": null
+        },
+        {
+          "ticker": "SYN0031",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "shareholder_yield",
+          "cmp": "gte",
+          "value": 0.098705,
+          "threshold": 0.12,
+          "distance": 0.1774583333333333,
+          "note": null
+        },
+        {
+          "ticker": "SYN0142",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "shareholder_yield",
+          "cmp": "gte",
+          "value": 0.097448,
+          "threshold": 0.12,
+          "distance": 0.18793333333333326,
+          "note": null
+        },
+        {
+          "ticker": "SYN0027",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "shareholder_yield",
+          "cmp": "gte",
+          "value": 0.091793,
+          "threshold": 0.12,
+          "distance": 0.2350583333333333,
+          "note": null
+        },
+        {
+          "ticker": "SYN0272",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "shareholder_yield",
+          "cmp": "gte",
+          "value": 0.068928,
+          "threshold": 0.12,
+          "distance": 0.4256,
+          "note": null
+        },
+        {
+          "ticker": "SYN0291",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "shareholder_yield",
+          "cmp": "gte",
+          "value": 0.068778,
+          "threshold": 0.12,
+          "distance": 0.42684999999999995,
+          "note": null
+        },
+        {
+          "ticker": "SYN0106",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "shareholder_yield",
+          "cmp": "gte",
+          "value": 0.064428,
+          "threshold": 0.12,
+          "distance": 0.4631,
+          "note": null
+        },
+        {
+          "ticker": "SYN0048",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "shareholder_yield",
+          "cmp": "gte",
+          "value": 0.059499,
+          "threshold": 0.12,
+          "distance": 0.5041749999999999,
+          "note": null
+        },
+        {
+          "ticker": "SYN0205",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "shareholder_yield",
+          "cmp": "gte",
+          "value": 0.057658,
+          "threshold": 0.12,
+          "distance": 0.5195166666666666,
+          "note": null
+        },
+        {
+          "ticker": "SYN0019",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "shareholder_yield",
+          "cmp": "gte",
+          "value": 0.055219,
+          "threshold": 0.12,
+          "distance": 0.5398416666666668,
+          "note": null
+        },
+        {
+          "ticker": "SYN0135",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "shareholder_yield",
+          "cmp": "gte",
+          "value": 0.04764,
+          "threshold": 0.12,
+          "distance": 0.603,
+          "note": null
+        },
+        {
+          "ticker": "SYN0120",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "shareholder_yield",
+          "cmp": "gte",
+          "value": 0.046212,
+          "threshold": 0.12,
+          "distance": 0.6149,
+          "note": null
+        },
+        {
+          "ticker": "SYN0256",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "shareholder_yield",
+          "cmp": "gte",
+          "value": 0.045092,
+          "threshold": 0.12,
+          "distance": 0.6242333333333334,
+          "note": null
+        },
+        {
+          "ticker": "SYN0194",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "shareholder_yield",
+          "cmp": "gte",
+          "value": 0.044204,
+          "threshold": 0.12,
+          "distance": 0.6316333333333334,
+          "note": null
+        },
+        {
+          "ticker": "SYN0204",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "shareholder_yield",
+          "cmp": "gte",
+          "value": 0.043569,
+          "threshold": 0.12,
+          "distance": 0.636925,
+          "note": null
+        },
+        {
+          "ticker": "SYN0064",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "shareholder_yield",
+          "cmp": "gte",
+          "value": 0.043374,
+          "threshold": 0.12,
+          "distance": 0.6385500000000001,
+          "note": null
+        },
+        {
+          "ticker": "SYN0161",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "shareholder_yield",
+          "cmp": "gte",
+          "value": 0.039934,
+          "threshold": 0.12,
+          "distance": 0.6672166666666667,
+          "note": null
+        },
+        {
+          "ticker": "SYN0280",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "shareholder_yield",
+          "cmp": "gte",
+          "value": 0.037779,
+          "threshold": 0.12,
+          "distance": 0.685175,
+          "note": null
+        },
+        {
+          "ticker": "SYN0045",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "shareholder_yield",
+          "cmp": "gte",
+          "value": 0.036295,
+          "threshold": 0.12,
+          "distance": 0.6975416666666667,
+          "note": null
+        },
+        {
+          "ticker": "SYN0223",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "shareholder_yield",
+          "cmp": "gte",
+          "value": 0.036213,
+          "threshold": 0.12,
+          "distance": 0.698225,
+          "note": null
+        },
+        {
+          "ticker": "SYN0107",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "shareholder_yield",
+          "cmp": "gte",
+          "value": 0.035474,
+          "threshold": 0.12,
+          "distance": 0.7043833333333333,
+          "note": null
+        },
+        {
+          "ticker": "SYN0253",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "shareholder_yield",
+          "cmp": "gte",
+          "value": 0.03432,
+          "threshold": 0.12,
+          "distance": 0.714,
+          "note": null
+        },
+        {
+          "ticker": "SYN0010",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "shareholder_yield",
+          "cmp": "gte",
+          "value": 0.032572,
+          "threshold": 0.12,
+          "distance": 0.7285666666666667,
+          "note": null
+        },
+        {
+          "ticker": "SYN0038",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "shareholder_yield",
+          "cmp": "gte",
+          "value": 0.032536,
+          "threshold": 0.12,
+          "distance": 0.7288666666666666,
+          "note": null
+        }
+      ]
+    },
+    {
+      "screen": {
+        "dsl_version": 1,
+        "name": "parity: OR group, between, missing pass, sector percentile",
+        "universe": {
+          "exchanges": [
+            "NYSE",
+            "Nasdaq",
+            "NYSE American",
+            "TXSE"
+          ],
+          "sectors_include": [],
+          "sectors_exclude": [],
+          "exclude_kinds": [
+            "spac",
+            "fund",
+            "shell",
+            "no_common_equity"
+          ],
+          "include_foreign_filers": true,
+          "include_stale": false,
+          "include_no_facts": false,
+          "avg_dollar_volume_min": 1000000.0
+        },
+        "filters": {
+          "op": "and",
+          "children": [
+            {
+              "metric": "roic",
+              "cmp": "gte",
+              "value": 0.1,
+              "missing": "fail"
+            },
+            {
+              "metric": "net_debt_to_ebitda",
+              "cmp": "lte",
+              "value": 2.0,
+              "missing": "pass"
+            },
+            {
+              "op": "or",
+              "children": [
+                {
+                  "metric": "revenue_growth_yoy",
+                  "cmp": "gte",
+                  "value": 0.05,
+                  "missing": "fail"
+                },
+                {
+                  "metric": "fcf_margin",
+                  "cmp": "between",
+                  "value": [
+                    0.05,
+                    0.4
+                  ],
+                  "missing": "fail"
+                }
+              ]
+            },
+            {
+              "metric": "operating_margin",
+              "cmp": "pct_rank_gte",
+              "value": 0.5,
+              "within": "sector",
+              "missing": "fail"
+            }
+          ]
+        },
+        "rank": {
+          "method": "percentile_composite",
+          "within": "universe",
+          "factors": [
+            {
+              "metric": "roic",
+              "weight": 1.0
+            },
+            {
+              "metric": "fcf_yield",
+              "weight": 1.0
+            }
+          ],
+          "min_factor_coverage": 0.7
+        },
+        "columns": [
+          "ticker",
+          "name",
+          "sector",
+          "market_cap"
+        ],
+        "limit": 1000,
+        "near_misses": true
+      },
+      "funnel": [
+        {
+          "index": 0,
+          "filter_path": null,
+          "remaining": 227,
+          "removed": 73,
+          "removed_missing": 2,
+          "binding": false
+        },
+        {
+          "index": 1,
+          "filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "remaining": 42,
+          "removed": 185,
+          "removed_missing": 51,
+          "binding": true
+        },
+        {
+          "index": 2,
+          "filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "remaining": 33,
+          "removed": 9,
+          "removed_missing": 0,
+          "binding": false
+        },
+        {
+          "index": 3,
+          "filter_path": [
+            "filters",
+            "children",
+            2
+          ],
+          "remaining": 33,
+          "removed": 0,
+          "removed_missing": 0,
+          "binding": false
+        },
+        {
+          "index": 4,
+          "filter_path": [
+            "filters",
+            "children",
+            3
+          ],
+          "remaining": 28,
+          "removed": 5,
+          "removed_missing": 4,
+          "binding": false
+        }
+      ],
+      "results": [
+        {
+          "ticker": "SYN0174",
+          "rank": 1,
+          "rank_score": 0.9208327351040919
+        },
+        {
+          "ticker": "SYN0234",
+          "rank": 2,
+          "rank_score": 0.8968413496051687
+        },
+        {
+          "ticker": "SYN0099",
+          "rank": 3,
+          "rank_score": 0.8818664752333094
+        },
+        {
+          "ticker": "SYN0220",
+          "rank": 4,
+          "rank_score": 0.8530940416367552
+        },
+        {
+          "ticker": "SYN0184",
+          "rank": 5,
+          "rank_score": 0.8523043790380473
+        },
+        {
+          "ticker": "SYN0186",
+          "rank": 6,
+          "rank_score": 0.8413639626704954
+        },
+        {
+          "ticker": "SYN0081",
+          "rank": 7,
+          "rank_score": 0.8411773151471644
+        },
+        {
+          "ticker": "SYN0123",
+          "rank": 8,
+          "rank_score": 0.8389088298636038
+        },
+        {
+          "ticker": "SYN0045",
+          "rank": 9,
+          "rank_score": 0.8250681981335248
+        },
+        {
+          "ticker": "SYN0256",
+          "rank": 10,
+          "rank_score": 0.8217085427135677
+        },
+        {
+          "ticker": "SYN0017",
+          "rank": 11,
+          "rank_score": 0.8192964824120603
+        },
+        {
+          "ticker": "SYN0090",
+          "rank": 12,
+          "rank_score": 0.8035319454414932
+        },
+        {
+          "ticker": "SYN0171",
+          "rank": 13,
+          "rank_score": 0.8015075376884422
+        },
+        {
+          "ticker": "SYN0296",
+          "rank": 14,
+          "rank_score": 0.7831873653984207
+        },
+        {
+          "ticker": "SYN0116",
+          "rank": 15,
+          "rank_score": 0.7796841349605168
+        },
+        {
+          "ticker": "SYN0251",
+          "rank": 16,
+          "rank_score": 0.7667767408470927
+        },
+        {
+          "ticker": "SYN0145",
+          "rank": 17,
+          "rank_score": 0.7328356066044508
+        },
+        {
+          "ticker": "SYN0232",
+          "rank": 18,
+          "rank_score": 0.732735104091888
+        },
+        {
+          "ticker": "SYN0068",
+          "rank": 19,
+          "rank_score": 0.7208614501076813
+        },
+        {
+          "ticker": "SYN0147",
+          "rank": 20,
+          "rank_score": 0.6996267049533381
+        },
+        {
+          "ticker": "SYN0262",
+          "rank": 21,
+          "rank_score": 0.696870064608758
+        },
+        {
+          "ticker": "SYN0161",
+          "rank": 22,
+          "rank_score": 0.6746590093323761
+        },
+        {
+          "ticker": "SYN0213",
+          "rank": 23,
+          "rank_score": 0.5827279253409907
+        },
+        {
+          "ticker": "SYN0127",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0149",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0218",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0258",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0283",
+          "rank": null,
+          "rank_score": null
+        }
+      ],
+      "near_misses": [
+        {
+          "ticker": "SYN0091",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            3
+          ],
+          "metric": "operating_margin",
+          "cmp": "pct_rank_gte",
+          "value": 0.4883720930232558,
+          "threshold": 0.5,
+          "distance": 0.011627906976744207,
+          "note": null
+        },
+        {
+          "ticker": "SYN0084",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "roic",
+          "cmp": "gte",
+          "value": 0.095415,
+          "threshold": 0.1,
+          "distance": 0.04585000000000006,
+          "note": null
+        },
+        {
+          "ticker": "SYN0041",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "roic",
+          "cmp": "gte",
+          "value": 0.090971,
+          "threshold": 0.1,
+          "distance": 0.09029000000000009,
+          "note": null
+        },
+        {
+          "ticker": "SYN0137",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "roic",
+          "cmp": "gte",
+          "value": 0.087745,
+          "threshold": 0.1,
+          "distance": 0.12255000000000002,
+          "note": null
+        },
+        {
+          "ticker": "SYN0185",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "roic",
+          "cmp": "gte",
+          "value": 0.085746,
+          "threshold": 0.1,
+          "distance": 0.14254000000000003,
+          "note": null
+        },
+        {
+          "ticker": "SYN0027",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "net_debt_to_ebitda",
+          "cmp": "lte",
+          "value": 2.316874,
+          "threshold": 2.0,
+          "distance": 0.15843699999999994,
+          "note": null
+        },
+        {
+          "ticker": "SYN0291",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "net_debt_to_ebitda",
+          "cmp": "lte",
+          "value": 2.396365,
+          "threshold": 2.0,
+          "distance": 0.19818249999999993,
+          "note": null
+        },
+        {
+          "ticker": "SYN0002",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "roic",
+          "cmp": "gte",
+          "value": 0.078514,
+          "threshold": 0.1,
+          "distance": 0.21486000000000005,
+          "note": null
+        },
+        {
+          "ticker": "SYN0106",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "roic",
+          "cmp": "gte",
+          "value": 0.075441,
+          "threshold": 0.1,
+          "distance": 0.2455900000000001,
+          "note": null
+        },
+        {
+          "ticker": "SYN0141",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "roic",
+          "cmp": "gte",
+          "value": 0.07298,
+          "threshold": 0.1,
+          "distance": 0.2702,
+          "note": null
+        },
+        {
+          "ticker": "SYN0020",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "roic",
+          "cmp": "gte",
+          "value": 0.069078,
+          "threshold": 0.1,
+          "distance": 0.30922000000000005,
+          "note": null
+        },
+        {
+          "ticker": "SYN0173",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "net_debt_to_ebitda",
+          "cmp": "lte",
+          "value": 2.953602,
+          "threshold": 2.0,
+          "distance": 0.47680100000000003,
+          "note": null
+        },
+        {
+          "ticker": "SYN0073",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "roic",
+          "cmp": "gte",
+          "value": 0.051627,
+          "threshold": 0.1,
+          "distance": 0.48373000000000005,
+          "note": null
+        },
+        {
+          "ticker": "SYN0265",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "roic",
+          "cmp": "gte",
+          "value": 0.047045,
+          "threshold": 0.1,
+          "distance": 0.5295500000000001,
+          "note": null
+        },
+        {
+          "ticker": "SYN0187",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "roic",
+          "cmp": "gte",
+          "value": 0.045268,
+          "threshold": 0.1,
+          "distance": 0.54732,
+          "note": null
+        },
+        {
+          "ticker": "SYN0221",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "roic",
+          "cmp": "gte",
+          "value": 0.044793,
+          "threshold": 0.1,
+          "distance": 0.5520700000000001,
+          "note": null
+        },
+        {
+          "ticker": "SYN0217",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "roic",
+          "cmp": "gte",
+          "value": 0.04195,
+          "threshold": 0.1,
+          "distance": 0.5805,
+          "note": null
+        },
+        {
+          "ticker": "SYN0159",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "net_debt_to_ebitda",
+          "cmp": "lte",
+          "value": 3.163646,
+          "threshold": 2.0,
+          "distance": 0.581823,
+          "note": null
+        },
+        {
+          "ticker": "SYN0300",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "net_debt_to_ebitda",
+          "cmp": "lte",
+          "value": 3.312752,
+          "threshold": 2.0,
+          "distance": 0.6563760000000001,
+          "note": null
+        },
+        {
+          "ticker": "SYN0293",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "roic",
+          "cmp": "gte",
+          "value": 0.033947,
+          "threshold": 0.1,
+          "distance": 0.66053,
+          "note": null
+        },
+        {
+          "ticker": "SYN0267",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "roic",
+          "cmp": "gte",
+          "value": 0.033474,
+          "threshold": 0.1,
+          "distance": 0.66526,
+          "note": null
+        },
+        {
+          "ticker": "SYN0049",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "net_debt_to_ebitda",
+          "cmp": "lte",
+          "value": 3.393597,
+          "threshold": 2.0,
+          "distance": 0.6967985000000001,
+          "note": null
+        },
+        {
+          "ticker": "SYN0040",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "roic",
+          "cmp": "gte",
+          "value": 0.022375,
+          "threshold": 0.1,
+          "distance": 0.77625,
+          "note": null
+        },
+        {
+          "ticker": "SYN0238",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "roic",
+          "cmp": "gte",
+          "value": 0.009243,
+          "threshold": 0.1,
+          "distance": 0.90757,
+          "note": null
+        },
+        {
+          "ticker": "SYN0139",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "roic",
+          "cmp": "gte",
+          "value": -0.024533,
+          "threshold": 0.1,
+          "distance": 1.24533,
+          "note": null
+        }
+      ]
+    },
+    {
+      "screen": {
+        "dsl_version": 1,
+        "name": "parity: vs sector median, universe rules, sort",
+        "universe": {
+          "exchanges": [
+            "NYSE",
+            "Nasdaq",
+            "NYSE American",
+            "TXSE"
+          ],
+          "sectors_include": [],
+          "sectors_exclude": [
+            "Banks"
+          ],
+          "exclude_kinds": [
+            "spac",
+            "fund",
+            "shell",
+            "no_common_equity"
+          ],
+          "include_foreign_filers": true,
+          "include_stale": true,
+          "include_no_facts": false,
+          "market_cap_min": 500000000.0,
+          "avg_dollar_volume_min": 1000000.0
+        },
+        "filters": {
+          "op": "and",
+          "children": [
+            {
+              "metric": "net_debt",
+              "cmp": "vs_sector_median_lte",
+              "value": 0.8,
+              "missing": "fail"
+            },
+            {
+              "metric": "gross_margin",
+              "cmp": "vs_sector_median_gte",
+              "value": 0.02,
+              "missing": "fail"
+            },
+            {
+              "metric": "sector",
+              "cmp": "in",
+              "value": [
+                "Technology",
+                "Health Care",
+                "Industrials"
+              ],
+              "missing": "fail"
+            }
+          ]
+        },
+        "columns": [
+          "ticker",
+          "name",
+          "sector",
+          "market_cap"
+        ],
+        "sort": {
+          "by": "market_cap",
+          "dir": "desc",
+          "then": []
+        },
+        "limit": 1000,
+        "near_misses": true
+      },
+      "funnel": [
+        {
+          "index": 0,
+          "filter_path": null,
+          "remaining": 165,
+          "removed": 135,
+          "removed_missing": 24,
+          "binding": false
+        },
+        {
+          "index": 1,
+          "filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "remaining": 47,
+          "removed": 118,
+          "removed_missing": 53,
+          "binding": true
+        },
+        {
+          "index": 2,
+          "filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "remaining": 18,
+          "removed": 29,
+          "removed_missing": 5,
+          "binding": false
+        },
+        {
+          "index": 3,
+          "filter_path": [
+            "filters",
+            "children",
+            2
+          ],
+          "remaining": 12,
+          "removed": 6,
+          "removed_missing": 0,
+          "binding": false
+        }
+      ],
+      "results": [
+        {
+          "ticker": "SYN0151",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0050",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0136",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0256",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0250",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0062",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0190",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0277",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0176",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0218",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0235",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0018",
+          "rank": null,
+          "rank_score": null
+        }
+      ],
+      "near_misses": [
+        {
+          "ticker": "SYN0071",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "gross_margin",
+          "cmp": "vs_sector_median_gte",
+          "value": 0.57728,
+          "threshold": 0.604939,
+          "distance": 0.04572196535518455,
+          "note": null
+        },
+        {
+          "ticker": "SYN0139",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "gross_margin",
+          "cmp": "vs_sector_median_gte",
+          "value": 0.567584,
+          "threshold": 0.604939,
+          "distance": 0.061750027688742215,
+          "note": null
+        },
+        {
+          "ticker": "SYN0037",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "gross_margin",
+          "cmp": "vs_sector_median_gte",
+          "value": 0.297024,
+          "threshold": 0.31702400000000003,
+          "distance": 0.06308670636923393,
+          "note": null
+        },
+        {
+          "ticker": "SYN0005",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "gross_margin",
+          "cmp": "vs_sector_median_gte",
+          "value": 0.561842,
+          "threshold": 0.604939,
+          "distance": 0.07124189381078101,
+          "note": null
+        },
+        {
+          "ticker": "SYN0213",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "gross_margin",
+          "cmp": "vs_sector_median_gte",
+          "value": 0.556924,
+          "threshold": 0.604939,
+          "distance": 0.07937163912394478,
+          "note": null
+        },
+        {
+          "ticker": "SYN0121",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "gross_margin",
+          "cmp": "vs_sector_median_gte",
+          "value": 0.553412,
+          "threshold": 0.604939,
+          "distance": 0.08517718315400394,
+          "note": null
+        },
+        {
+          "ticker": "SYN0039",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "gross_margin",
+          "cmp": "vs_sector_median_gte",
+          "value": 0.544015,
+          "threshold": 0.604939,
+          "distance": 0.10071098077657413,
+          "note": null
+        },
+        {
+          "ticker": "SYN0211",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "gross_margin",
+          "cmp": "vs_sector_median_gte",
+          "value": 0.5322,
+          "threshold": 0.604939,
+          "distance": 0.12024187562712935,
+          "note": null
+        },
+        {
+          "ticker": "SYN0134",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "gross_margin",
+          "cmp": "vs_sector_median_gte",
+          "value": 0.523621,
+          "threshold": 0.604939,
+          "distance": 0.13442347079622904,
+          "note": null
+        },
+        {
+          "ticker": "SYN0273",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "gross_margin",
+          "cmp": "vs_sector_median_gte",
+          "value": 0.502082,
+          "threshold": 0.604939,
+          "distance": 0.1700287136388958,
+          "note": null
+        },
+        {
+          "ticker": "SYN0089",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "gross_margin",
+          "cmp": "vs_sector_median_gte",
+          "value": 0.467575,
+          "threshold": 0.604939,
+          "distance": 0.22707082862900224,
+          "note": null
+        },
+        {
+          "ticker": "SYN0294",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "gross_margin",
+          "cmp": "vs_sector_median_gte",
+          "value": 0.218764,
+          "threshold": 0.31702400000000003,
+          "distance": 0.30994498839204615,
+          "note": null
+        },
+        {
+          "ticker": "SYN0140",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "gross_margin",
+          "cmp": "vs_sector_median_gte",
+          "value": 0.410815,
+          "threshold": 0.604939,
+          "distance": 0.3208984707549026,
+          "note": null
+        },
+        {
+          "ticker": "SYN0267",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "gross_margin",
+          "cmp": "vs_sector_median_gte",
+          "value": 0.206156,
+          "threshold": 0.31702400000000003,
+          "distance": 0.3497148480872111,
+          "note": null
+        },
+        {
+          "ticker": "SYN0070",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "net_debt",
+          "cmp": "vs_sector_median_lte",
+          "value": 61323621.512085,
+          "threshold": 38633028.2529948,
+          "distance": 0.587336646521652,
+          "note": null
+        },
+        {
+          "ticker": "SYN0212",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "gross_margin",
+          "cmp": "vs_sector_median_gte",
+          "value": 0.098742,
+          "threshold": 0.31702400000000003,
+          "distance": 0.6885346219844555,
+          "note": null
+        },
+        {
+          "ticker": "SYN0012",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "net_debt",
+          "cmp": "vs_sector_median_lte",
+          "value": 86481926.422582,
+          "threshold": 38633028.2529948,
+          "distance": 1.238548991195843,
+          "note": null
+        },
+        {
+          "ticker": "SYN0254",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "net_debt",
+          "cmp": "vs_sector_median_lte",
+          "value": 116580602.345837,
+          "threshold": 38633028.2529948,
+          "distance": 2.017640801606065,
+          "note": null
+        },
+        {
+          "ticker": "SYN0215",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "net_debt",
+          "cmp": "vs_sector_median_lte",
+          "value": 558815289.768945,
+          "threshold": 179235076.3067396,
+          "distance": 2.1177786250532726,
+          "note": null
+        },
+        {
+          "ticker": "SYN0258",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "net_debt",
+          "cmp": "vs_sector_median_lte",
+          "value": 708848354.77038,
+          "threshold": 179235076.3067396,
+          "distance": 2.9548528634945876,
+          "note": null
+        },
+        {
+          "ticker": "SYN0075",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "net_debt",
+          "cmp": "vs_sector_median_lte",
+          "value": 187444855.963579,
+          "threshold": 38633028.2529948,
+          "distance": 3.8519327746213743,
+          "note": null
+        },
+        {
+          "ticker": "SYN0160",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "net_debt",
+          "cmp": "vs_sector_median_lte",
+          "value": 345287414.638463,
+          "threshold": 38633028.2529948,
+          "distance": 7.937622295029297,
+          "note": null
+        },
+        {
+          "ticker": "SYN0291",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "net_debt",
+          "cmp": "vs_sector_median_lte",
+          "value": 2267719704.80395,
+          "threshold": 179235076.3067396,
+          "distance": 11.652209330516401,
+          "note": null
+        },
+        {
+          "ticker": "SYN0001",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "net_debt",
+          "cmp": "vs_sector_median_lte",
+          "value": 570834964.150393,
+          "threshold": 38633028.2529948,
+          "distance": 13.775827574586842,
+          "note": null
+        },
+        {
+          "ticker": "SYN0085",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "metric": "net_debt",
+          "cmp": "vs_sector_median_lte",
+          "value": 729337486.829003,
+          "threshold": 38633028.2529948,
+          "distance": 17.878599990992562,
+          "note": null
+        }
+      ]
+    },
+    {
+      "screen": {
+        "dsl_version": 1,
+        "name": "parity: rank sum, not_null",
+        "universe": {
+          "exchanges": [
+            "NYSE",
+            "Nasdaq",
+            "NYSE American",
+            "TXSE"
+          ],
+          "sectors_include": [],
+          "sectors_exclude": [],
+          "exclude_kinds": [
+            "spac",
+            "fund",
+            "shell",
+            "no_common_equity"
+          ],
+          "include_foreign_filers": true,
+          "include_stale": false,
+          "include_no_facts": false,
+          "avg_dollar_volume_min": 1000000.0
+        },
+        "filters": {
+          "op": "and",
+          "children": [
+            {
+              "metric": "dividend_yield",
+              "cmp": "not_null",
+              "missing": "fail"
+            },
+            {
+              "metric": "pe_ttm",
+              "cmp": "lt",
+              "value": 25.0,
+              "missing": "fail"
+            }
+          ]
+        },
+        "rank": {
+          "method": "rank_sum",
+          "within": "universe",
+          "factors": [
+            {
+              "metric": "earnings_yield",
+              "weight": 1.0
+            },
+            {
+              "metric": "roic",
+              "weight": 1.0
+            }
+          ],
+          "min_factor_coverage": 0.7
+        },
+        "columns": [
+          "ticker",
+          "name",
+          "sector",
+          "market_cap"
+        ],
+        "limit": 1000,
+        "near_misses": true
+      },
+      "funnel": [
+        {
+          "index": 0,
+          "filter_path": null,
+          "remaining": 227,
+          "removed": 73,
+          "removed_missing": 2,
+          "binding": false
+        },
+        {
+          "index": 1,
+          "filter_path": [
+            "filters",
+            "children",
+            0
+          ],
+          "remaining": 201,
+          "removed": 26,
+          "removed_missing": 26,
+          "binding": false
+        },
+        {
+          "index": 2,
+          "filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "remaining": 56,
+          "removed": 145,
+          "removed_missing": 81,
+          "binding": true
+        }
+      ],
+      "results": [
+        {
+          "ticker": "SYN0287",
+          "rank": 1,
+          "rank_score": 24.0
+        },
+        {
+          "ticker": "SYN0174",
+          "rank": 2,
+          "rank_score": 25.0
+        },
+        {
+          "ticker": "SYN0198",
+          "rank": 3,
+          "rank_score": 28.0
+        },
+        {
+          "ticker": "SYN0027",
+          "rank": 4,
+          "rank_score": 33.0
+        },
+        {
+          "ticker": "SYN0166",
+          "rank": 5,
+          "rank_score": 36.0
+        },
+        {
+          "ticker": "SYN0218",
+          "rank": 6,
+          "rank_score": 38.0
+        },
+        {
+          "ticker": "SYN0099",
+          "rank": 7,
+          "rank_score": 39.0
+        },
+        {
+          "ticker": "SYN0246",
+          "rank": 8,
+          "rank_score": 40.0
+        },
+        {
+          "ticker": "SYN0234",
+          "rank": 9,
+          "rank_score": 43.0
+        },
+        {
+          "ticker": "SYN0173",
+          "rank": 10,
+          "rank_score": 44.0
+        },
+        {
+          "ticker": "SYN0220",
+          "rank": 11,
+          "rank_score": 50.0
+        },
+        {
+          "ticker": "SYN0171",
+          "rank": 12,
+          "rank_score": 51.0
+        },
+        {
+          "ticker": "SYN0045",
+          "rank": 13,
+          "rank_score": 59.0
+        },
+        {
+          "ticker": "SYN0300",
+          "rank": 14,
+          "rank_score": 61.0
+        },
+        {
+          "ticker": "SYN0159",
+          "rank": 15,
+          "rank_score": 64.0
+        },
+        {
+          "ticker": "SYN0296",
+          "rank": 16,
+          "rank_score": 68.0
+        },
+        {
+          "ticker": "SYN0119",
+          "rank": 17,
+          "rank_score": 72.0
+        },
+        {
+          "ticker": "SYN0123",
+          "rank": 18,
+          "rank_score": 73.0
+        },
+        {
+          "ticker": "SYN0081",
+          "rank": 19,
+          "rank_score": 77.0
+        },
+        {
+          "ticker": "SYN0094",
+          "rank": 20,
+          "rank_score": 77.0
+        },
+        {
+          "ticker": "SYN0226",
+          "rank": 21,
+          "rank_score": 78.0
+        },
+        {
+          "ticker": "SYN0120",
+          "rank": 22,
+          "rank_score": 79.0
+        },
+        {
+          "ticker": "SYN0258",
+          "rank": 23,
+          "rank_score": 80.0
+        },
+        {
+          "ticker": "SYN0019",
+          "rank": 24,
+          "rank_score": 82.0
+        },
+        {
+          "ticker": "SYN0038",
+          "rank": 25,
+          "rank_score": 84.0
+        },
+        {
+          "ticker": "SYN0230",
+          "rank": 26,
+          "rank_score": 87.0
+        },
+        {
+          "ticker": "SYN0247",
+          "rank": 27,
+          "rank_score": 93.0
+        },
+        {
+          "ticker": "SYN0108",
+          "rank": 28,
+          "rank_score": 98.0
+        },
+        {
+          "ticker": "SYN0185",
+          "rank": 29,
+          "rank_score": 101.0
+        },
+        {
+          "ticker": "SYN0013",
+          "rank": 30,
+          "rank_score": 106.0
+        },
+        {
+          "ticker": "SYN0008",
+          "rank": 31,
+          "rank_score": 108.0
+        },
+        {
+          "ticker": "SYN0107",
+          "rank": 32,
+          "rank_score": 118.0
+        },
+        {
+          "ticker": "SYN0142",
+          "rank": 33,
+          "rank_score": 119.0
+        },
+        {
+          "ticker": "SYN0282",
+          "rank": 34,
+          "rank_score": 119.0
+        },
+        {
+          "ticker": "SYN0135",
+          "rank": 35,
+          "rank_score": 130.0
+        },
+        {
+          "ticker": "SYN0031",
+          "rank": 36,
+          "rank_score": 137.0
+        },
+        {
+          "ticker": "SYN0069",
+          "rank": 37,
+          "rank_score": 137.0
+        },
+        {
+          "ticker": "SYN0280",
+          "rank": 38,
+          "rank_score": 157.0
+        },
+        {
+          "ticker": "SYN0022",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0029",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0050",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0057",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0066",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0083",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0087",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0092",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0113",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0118",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0148",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0155",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0168",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0203",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0253",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0266",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0271",
+          "rank": null,
+          "rank_score": null
+        },
+        {
+          "ticker": "SYN0299",
+          "rank": null,
+          "rank_score": null
+        }
+      ],
+      "near_misses": [
+        {
+          "ticker": "SYN0214",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "pe_ttm",
+          "cmp": "lt",
+          "value": 25.258467,
+          "threshold": 25.0,
+          "distance": 0.010338679999999982,
+          "note": null
+        },
+        {
+          "ticker": "SYN0158",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "pe_ttm",
+          "cmp": "lt",
+          "value": 25.603116,
+          "threshold": 25.0,
+          "distance": 0.02412464,
+          "note": null
+        },
+        {
+          "ticker": "SYN0032",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "pe_ttm",
+          "cmp": "lt",
+          "value": 25.73347,
+          "threshold": 25.0,
+          "distance": 0.02933880000000002,
+          "note": null
+        },
+        {
+          "ticker": "SYN0161",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "pe_ttm",
+          "cmp": "lt",
+          "value": 26.530131,
+          "threshold": 25.0,
+          "distance": 0.06120524000000003,
+          "note": null
+        },
+        {
+          "ticker": "SYN0017",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "pe_ttm",
+          "cmp": "lt",
+          "value": 28.04741,
+          "threshold": 25.0,
+          "distance": 0.12189639999999997,
+          "note": null
+        },
+        {
+          "ticker": "SYN0093",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "pe_ttm",
+          "cmp": "lt",
+          "value": 28.993271,
+          "threshold": 25.0,
+          "distance": 0.15973084,
+          "note": null
+        },
+        {
+          "ticker": "SYN0040",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "pe_ttm",
+          "cmp": "lt",
+          "value": 29.204869,
+          "threshold": 25.0,
+          "distance": 0.16819475999999994,
+          "note": null
+        },
+        {
+          "ticker": "SYN0049",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "pe_ttm",
+          "cmp": "lt",
+          "value": 29.252693,
+          "threshold": 25.0,
+          "distance": 0.17010772000000002,
+          "note": null
+        },
+        {
+          "ticker": "SYN0251",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "pe_ttm",
+          "cmp": "lt",
+          "value": 29.430627,
+          "threshold": 25.0,
+          "distance": 0.17722508000000003,
+          "note": null
+        },
+        {
+          "ticker": "SYN0194",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "pe_ttm",
+          "cmp": "lt",
+          "value": 29.84154,
+          "threshold": 25.0,
+          "distance": 0.19366159999999993,
+          "note": null
+        },
+        {
+          "ticker": "SYN0001",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "pe_ttm",
+          "cmp": "lt",
+          "value": 29.974792,
+          "threshold": 25.0,
+          "distance": 0.19899168000000003,
+          "note": null
+        },
+        {
+          "ticker": "SYN0037",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "pe_ttm",
+          "cmp": "lt",
+          "value": 30.001655,
+          "threshold": 25.0,
+          "distance": 0.20006619999999997,
+          "note": null
+        },
+        {
+          "ticker": "SYN0010",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "pe_ttm",
+          "cmp": "lt",
+          "value": 30.181895,
+          "threshold": 25.0,
+          "distance": 0.20727580000000004,
+          "note": null
+        },
+        {
+          "ticker": "SYN0193",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "pe_ttm",
+          "cmp": "lt",
+          "value": 31.081727,
+          "threshold": 25.0,
+          "distance": 0.24326908000000003,
+          "note": null
+        },
+        {
+          "ticker": "SYN0132",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "pe_ttm",
+          "cmp": "lt",
+          "value": 31.650382,
+          "threshold": 25.0,
+          "distance": 0.26601528,
+          "note": null
+        },
+        {
+          "ticker": "SYN0073",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "pe_ttm",
+          "cmp": "lt",
+          "value": 32.023965,
+          "threshold": 25.0,
+          "distance": 0.2809585999999999,
+          "note": null
+        },
+        {
+          "ticker": "SYN0102",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "pe_ttm",
+          "cmp": "lt",
+          "value": 35.065734,
+          "threshold": 25.0,
+          "distance": 0.40262935999999994,
+          "note": null
+        },
+        {
+          "ticker": "SYN0267",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "pe_ttm",
+          "cmp": "lt",
+          "value": 35.342862,
+          "threshold": 25.0,
+          "distance": 0.4137144799999999,
+          "note": null
+        },
+        {
+          "ticker": "SYN0116",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "pe_ttm",
+          "cmp": "lt",
+          "value": 36.587637,
+          "threshold": 25.0,
+          "distance": 0.46350548,
+          "note": null
+        },
+        {
+          "ticker": "SYN0186",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "pe_ttm",
+          "cmp": "lt",
+          "value": 37.88822,
+          "threshold": 25.0,
+          "distance": 0.5155287999999999,
+          "note": null
+        },
+        {
+          "ticker": "SYN0238",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "pe_ttm",
+          "cmp": "lt",
+          "value": 37.911976,
+          "threshold": 25.0,
+          "distance": 0.5164790400000001,
+          "note": null
+        },
+        {
+          "ticker": "SYN0265",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "pe_ttm",
+          "cmp": "lt",
+          "value": 37.997526,
+          "threshold": 25.0,
+          "distance": 0.51990104,
+          "note": null
+        },
+        {
+          "ticker": "SYN0146",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "pe_ttm",
+          "cmp": "lt",
+          "value": 38.369545,
+          "threshold": 25.0,
+          "distance": 0.5347818000000001,
+          "note": null
+        },
+        {
+          "ticker": "SYN0204",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "pe_ttm",
+          "cmp": "lt",
+          "value": 39.509209,
+          "threshold": 25.0,
+          "distance": 0.5803683599999999,
+          "note": null
+        },
+        {
+          "ticker": "SYN0030",
+          "failed_filter_path": [
+            "filters",
+            "children",
+            1
+          ],
+          "metric": "pe_ttm",
+          "cmp": "lt",
+          "value": 40.478816,
+          "threshold": 25.0,
+          "distance": 0.61915264,
+          "note": null
+        }
+      ]
+    }
+  ]
+}

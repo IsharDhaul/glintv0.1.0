@@ -1,0 +1,124 @@
+{
+  "fixtures": [
+    {
+      "cik": "0000320193",
+      "name": "Apple Inc.",
+      "role": "Clean US-GAAP, September FY, large buybacks",
+      "ticker": "AAPL"
+    },
+    {
+      "cik": "0000789019",
+      "name": "MICROSOFT CORP",
+      "role": "June FY",
+      "ticker": "MSFT"
+    },
+    {
+      "cik": "0001045810",
+      "name": "NVIDIA CORP",
+      "role": "52/53-week FY ending late January, fast growth",
+      "ticker": "NVDA"
+    },
+    {
+      "cik": "0000021344",
+      "name": "COCA COLA CO",
+      "role": "December FY, consumer staples, dividends",
+      "ticker": "KO"
+    },
+    {
+      "cik": "0000723125",
+      "name": "MICRON TECHNOLOGY INC",
+      "role": "Cyclical, recent losses, August/September FY",
+      "ticker": "MU"
+    },
+    {
+      "cik": "0001637459",
+      "name": "Kraft Heinz Co",
+      "role": "Large goodwill and impairments",
+      "ticker": "KHC"
+    },
+    {
+      "cik": "0001874178",
+      "name": "Rivian Automotive, Inc. / DE",
+      "role": "Loss-maker: negative EBIT, NI and FCF",
+      "ticker": "RIVN"
+    },
+    {
+      "cik": "0000829224",
+      "name": "STARBUCKS CORP",
+      "role": "Negative equity",
+      "ticker": "SBUX"
+    },
+    {
+      "cik": "0002115436",
+      "name": "ExxonMobil Holdings Corp",
+      "role": "Energy, large capex",
+      "ticker": "XOM"
+    },
+    {
+      "cik": "0000037996",
+      "name": "FORD MOTOR CO",
+      "role": "Captive finance arm: debt and EV look extreme",
+      "ticker": "F"
+    },
+    {
+      "cik": "0000019617",
+      "name": "JPMORGAN CHASE & CO",
+      "role": "Bank: n/m rules",
+      "ticker": "JPM"
+    },
+    {
+      "cik": "0000726728",
+      "name": "REALTY INCOME CORP",
+      "role": "REIT",
+      "ticker": "O"
+    },
+    {
+      "cik": "0001067983",
+      "name": "BERKSHIRE HATHAWAY INC",
+      "role": "Two share classes at very different prices (with BRK.A)",
+      "ticker": "BRK.B"
+    },
+    {
+      "cik": "0001652044",
+      "name": "Alphabet Inc.",
+      "role": "Two share classes at similar prices, one CIK (with GOOG)",
+      "ticker": "GOOGL"
+    },
+    {
+      "cik": "0001046179",
+      "name": "TAIWAN SEMICONDUCTOR MANUFACTURING CO LTD",
+      "role": "20-F, IFRS, TWD, ADR",
+      "ticker": "TSM"
+    },
+    {
+      "cik": "0000937966",
+      "name": "ASML HOLDING NV",
+      "role": "20-F, EUR",
+      "ticker": "ASML"
+    },
+    {
+      "cik": "0002128115",
+      "name": "Ares Acquisition Corp III",
+      "role": "SPAC (SIC 6770)",
+      "ticker": "AAC"
+    },
+    {
+      "cik": "0001786471",
+      "name": "Aptera Motors Corp",
+      "role": "Recent IPO (< 8 quarters of XBRL history)",
+      "ticker": "SEV"
+    },
+    {
+      "cik": "0001370053",
+      "name": "ANAPTYSBIO, INC",
+      "role": "Fiscal-year change (filed a 10-KT transition report)",
+      "ticker": "ANAB"
+    }
+  ],
+  "generated_at": "2026-10-30T17:57:52+00:00",
+  "picks": [
+    "SPAC: first listed 'Acquisition' name (by ticker) with SIC 6770: AAC",
+    "recent IPO: latest qualifying 424B4 filer in 2026 Q3 listed on Nasdaq: SEV (filed 2026-08-20)",
+    "FY change: latest qualifying 10-KT filer in 2026 Q3 listed on Nasdaq: ANAB (filed 2026-09-21)"
+  ]
+}

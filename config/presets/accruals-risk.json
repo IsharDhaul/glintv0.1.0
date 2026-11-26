@@ -1,0 +1,22 @@
+{
+  "name": "Accruals risk (red flags)",
+  "summary": "Earnings running well ahead of operating cash flow: high accruals and weak cash conversion.",
+  "kind": "red_flags",
+  "how_to_read": "A risk screen, not a buy list. Two filters must both pass: an accruals ratio ((net income − operating cash flow) / average total assets) in the top 5% of the universe, and operating cash flow less than half of net income. Companies with zero or negative net income have no cash conversion, so they fail that test and don't appear. Each match is a question: why is reported profit not turning into cash? Growing receivables or inventory, capitalised costs and one-off gains are common answers, and some of them are harmless (a fast-growing business builds working capital). Sloan studied accruals across the market. This preset only applies his measure as a flag on single companies.",
+  "source": "Sloan, 'Do Stock Prices Fully Reflect Information in Accruals and Cash Flows about Future Earnings?', The Accounting Review (1996)",
+  "screen": {
+    "dsl_version": 1,
+    "name": "Accruals risk",
+    "filters": {
+      "op": "and",
+      "children": [
+        { "metric": "accruals_ratio", "cmp": "pct_rank_gte", "value": 0.95, "within": "universe" },
+        { "metric": "cash_conversion", "cmp": "lt", "value": 0.5 }
+      ]
+    },
+    "columns": ["ticker", "name", "sector", "market_cap", "accruals_ratio", "cash_conversion", "net_margin", "revenue_growth_yoy"],
+    "sort": { "by": "accruals_ratio", "dir": "desc" },
+    "limit": 100,
+    "near_misses": true
+  }
+}

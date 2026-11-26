@@ -1,0 +1,53 @@
+# Manual sector overrides (SPEC §4.4): SIC codes can be stale. WT-01 owns this file.
+# Every override shows up on the methodology page.
+# Format (sector and/or kind; reason is required):
+#   - ticker: XYZ
+#     sector: Technology
+#     reason: "SIC 3829 (instruments) but sells software"
+#   - ticker: ABC
+#     kind: shell
+#     reason: "10-K cover page checks 'shell company' (accn ...)"
+# Bulk SEC data has no shell-company signal, so `kind: shell` is set only here, by hand.
+# `review_by` (optional) marks a temporary override: after that date every build notes it in the
+# company's classification_notes, so it gets checked and removed once it's no longer needed.
+overrides:
+  - ticker: QVCG
+    kind: operating
+    reason: >-
+      Listed common stock since August 2026: CIK 1254699 was QVC, Inc. (wholly owned, cover count
+      1) until it became QVC Group, Inc. on 2026-08-04. Its 10-Q of that date (accn
+      0001254699-26-000018) still reports 1 share and no EPS, so the no_common_equity rule matches
+      it. Remove once a 10-Q reports QVC Group's real share count.
+    review_by: 2026-11-30
+  - ticker: MELI
+    sector: Consumer Discretionary
+    reason: >-
+      SIC 7389 (business services, a catch-all), but its 10-K for FY2025 (accn
+      0001099590-26-000006) calls it "the leading online commerce and fintech ecosystem in Latin
+      America". Online retail sits in Consumer Discretionary, as AMZN (SIC 5961) does.
+  - ticker: NUTX
+    sector: Health Care
+    reason: >-
+      SIC 7389 (business services, a catch-all), but its 10-K for FY2025 (accn
+      0001628280-26-015168) describes 26 hospital facilities "including micro-hospitals, specialty
+      hospitals" and physician networks. Hospitals sit in Health Care, as HCA and THC (SIC 8062) do.
+  - ticker: EBAY
+    sector: Consumer Discretionary
+    reason: >-
+      SIC 7389 (business services, a catch-all), but its 10-K for FY2025 (accn
+      0001065088-26-000027) calls it "a global commerce leader and third-party marketplace".
+      Online retail sits in Consumer Discretionary, as AMZN (SIC 5961) and MELI do.
+  - ticker: ETSY
+    sector: Consumer Discretionary
+    reason: >-
+      SIC 7389 (business services, a catch-all), but its 10-K for FY2025 (accn
+      0001370637-26-000019) says it operates "two-sided online marketplaces that connect millions
+      of creative entrepreneurs with buyers around the world". Online retail sits in Consumer
+      Discretionary, as AMZN (SIC 5961) and MELI do.
+  - ticker: PYPL
+    sector: Technology
+    reason: >-
+      SIC 7389 (business services, a catch-all), but its 10-K for FY2025 (accn
+      0001633917-26-000024) says "Our products are designed to enable digital payments". Digital
+      payments platforms sit in Technology, as XYZ (Block, SIC 7372) and TOST (SIC 7374) do; not
+      Banks, whose bank-specific rules would mark its metrics not meaningful.

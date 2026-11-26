@@ -1,0 +1,31 @@
+{
+  "name": "Cash-rich small caps",
+  "summary": "Small companies holding cash worth 30%+ of their market cap, with positive free cash flow.",
+  "kind": "screen",
+  "how_to_read": "The universe is limited to market caps between $300M and $2B. Two filters must both pass: cash and short-term investments of at least 30% of market cap, and a positive free-cash-flow margin. The FCF test is there to drop companies whose cash pile is shrinking.",
+  "misses": [
+    "Debt: the screen doesn't net it out, so a company that borrowed the cash still passes. Check net debt.",
+    "Cash held abroad, restricted, or owed to customers (deposits, client funds): it counts here like any other cash.",
+    "Whether management returns the cash or invests it well: cash only helps shareholders if it does, and this screen can't tell you which."
+  ],
+  "source": "Heuristic",
+  "screen": {
+    "dsl_version": 1,
+    "name": "Cash-rich small caps",
+    "universe": {
+      "market_cap_min": 300000000,
+      "market_cap_max": 2000000000
+    },
+    "filters": {
+      "op": "and",
+      "children": [
+        { "metric": "cash_to_mcap", "cmp": "gte", "value": 0.30 },
+        { "metric": "fcf_margin", "cmp": "gt", "value": 0 }
+      ]
+    },
+    "columns": ["ticker", "name", "sector", "market_cap", "cash_to_mcap", "net_debt", "fcf_margin", "fcf_yield"],
+    "sort": { "by": "cash_to_mcap", "dir": "desc" },
+    "limit": 100,
+    "near_misses": true
+  }
+}

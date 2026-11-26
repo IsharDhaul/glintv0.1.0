@@ -1,0 +1,33 @@
+{
+  "name": "Magic Formula",
+  "summary": "Good businesses at cheap prices: high return on capital and a high earnings yield, ranked together.",
+  "kind": "screen",
+  "how_to_read": "The universe is companies with a market cap of at least $1B. Each company gets two ranks: one for EBIT / EV (cheapness) and one for Greenblatt's return on capital (quality). The lowest sum of the two ranks is first. Financials and utilities are left out because EV and invested capital mean something different for them. It's a ranking, not a filter, so every company in the universe that has both inputs gets a place. Companies missing either input are listed last without a rank. Glint's return on capital follows the book's formula, EBIT / (net working capital + net fixed assets), with two stated differences: working capital leaves out all cash, short-term investments and short-term debt (the book removes only excess cash), and EBIT is the trailing twelve months of reported operating income. Glint shows the list. It doesn't test or claim any returns.",
+  "misses": [
+    "Early-stage growth businesses, whose value isn't in today's EBIT.",
+    "Cyclicals at a trough, whose value isn't in today's EBIT.",
+    "Companies with large one-off items, whose value isn't in today's EBIT."
+  ],
+  "source": "Greenblatt, The Little Book That Beats the Market (2005)",
+  "screen": {
+    "dsl_version": 1,
+    "name": "Magic Formula",
+    "universe": {
+      "sectors_exclude": ["Banks", "Insurance", "Capital Markets", "Utilities"],
+      "market_cap_min": 1000000000
+    },
+    "filters": { "op": "and", "children": [] },
+    "rank": {
+      "method": "rank_sum",
+      "within": "universe",
+      "factors": [
+        { "metric": "ebit_ev", "weight": 1 },
+        { "metric": "greenblatt_roc", "weight": 1 }
+      ]
+    },
+    "columns": ["ticker", "name", "sector", "market_cap", "ebit_ev", "greenblatt_roc", "rank_score"],
+    "sort": { "by": "rank_score", "dir": "desc" },
+    "limit": 30,
+    "near_misses": false
+  }
+}

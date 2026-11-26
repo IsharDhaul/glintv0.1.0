@@ -1,0 +1,644 @@
+# SIC -> Glint sector (SPEC Appendix C). SIC-based, not GICS. WT-01 owns this file after WT-00.
+# Starter ranges: WT-01 checks them against the SEC SIC list and the Appendix D tickers.
+# Where ranges overlap, the narrower range or specific code wins. Unmatched -> `default`.
+version: 1
+default: Unclassified
+ranges:
+  - sic: [[100, 999]]
+    sector: "Consumer Staples"
+    note: "Agriculture"
+  - sic: [[1000, 1099], [1400, 1499]]
+    sector: "Materials"
+    note: "Metal and nonmetal mining"
+  - sic: [[1200, 1299], [1311, 1311], [1381, 1389]]
+    sector: "Energy"
+    note: "Coal, oil and gas, field services"
+  - sic: [[1500, 1799]]
+    sector: "Industrials"
+    note: "Construction"
+  - sic: [[2000, 2199]]
+    sector: "Consumer Staples"
+    note: "Food, beverages, tobacco"
+  - sic: [[2200, 2399], [2500, 2599]]
+    sector: "Consumer Discretionary"
+    note: "Textiles, apparel, furniture"
+  - sic: [[2400, 2499], [2600, 2699]]
+    sector: "Materials"
+    note: "Lumber, paper"
+  - sic: [[2700, 2799]]
+    sector: "Communication"
+    note: "Publishing"
+  - sic: [[2800, 2829], [2850, 2899]]
+    sector: "Materials"
+    note: "Chemicals (excluding pharma, soaps)"
+  - sic: [[2833, 2836]]
+    sector: "Health Care"
+    note: "Pharma, biotech"
+  - sic: [[2840, 2844]]
+    sector: "Consumer Staples"
+    note: "Soaps, cosmetics"
+  - sic: [[2900, 2999]]
+    sector: "Energy"
+    note: "Petroleum refining"
+  - sic: [[3000, 3299]]
+    sector: "Materials"
+    note: "Rubber, plastics, glass, stone"
+  - sic: [[3300, 3399]]
+    sector: "Materials"
+    note: "Primary metals"
+  - sic: [[3400, 3569], [3580, 3599]]
+    sector: "Industrials"
+    note: "Fabricated metal, machinery"
+  - sic: [[3570, 3579]]
+    sector: "Technology"
+    note: "Computers"
+  - sic: [[3600, 3659], [3690, 3699]]
+    sector: "Industrials"
+    note: "Electrical equipment"
+  - sic: [[3660, 3679]]
+    sector: "Technology"
+    note: "Comms equipment, semiconductors, components"
+  - sic: [[3710, 3716], [3750, 3799]]
+    sector: "Consumer Discretionary"
+    note: "Motor vehicles, other transport equipment"
+  - sic: [[3720, 3729], [3760, 3769]]
+    sector: "Industrials"
+    note: "Aerospace and defense"
+  - sic: [[3800, 3839], [3860, 3899]]
+    sector: "Industrials"
+    note: "Instruments: Technology / Industrials, check case by case (WT-01)"
+  - sic: [[3840, 3851]]
+    sector: "Health Care"
+    note: "Medical devices"
+  - sic: [[3900, 3999]]
+    sector: "Consumer Discretionary"
+    note: "Misc. manufacturing"
+  - sic: [[4000, 4799]]
+    sector: "Industrials"
+    note: "Transportation"
+  - sic: [[4800, 4899]]
+    sector: "Communication"
+    note: "Telecom, broadcasting, cable"
+  - sic: [[4900, 4949], [4960, 4991]]
+    sector: "Utilities"
+    note: "Electric, gas, water"
+  - sic: [[4950, 4959]]
+    sector: "Industrials"
+    note: "Waste and sanitary services"
+  - sic: [[5000, 5199]]
+    sector: "Industrials"
+    note: "Wholesale"
+  - sic: [[5200, 5399], [5500, 5999]]
+    sector: "Consumer Discretionary"
+    note: "Retail"
+  - sic: [[5400, 5499]]
+    sector: "Consumer Staples"
+    note: "Food stores"
+  - sic: [[6000, 6199]]
+    sector: "Banks"
+    note: "Banks and credit institutions"
+  - sic: [[6200, 6299]]
+    sector: "Capital Markets"
+    note: "Brokers, exchanges, asset managers"
+  - sic: [[6300, 6411]]
+    sector: "Insurance"
+  - sic: [[6500, 6553]]
+    sector: "Real Estate"
+  - sic: [[6798, 6798]]
+    sector: "Real Estate"
+    is_reit: true
+    note: "REITs"
+  - sic: [[7000, 7099]]
+    sector: "Consumer Discretionary"
+    note: "Hotels"
+  - sic: [[7200, 7299]]
+    sector: "Consumer Discretionary"
+    note: "Personal services"
+  - sic: [[7370, 7379]]
+    sector: "Technology"
+    note: "Software and IT services"
+  - sic: [[7300, 7369], [7380, 7399]]
+    sector: "Industrials"
+    note: "Business services"
+  - sic: [[7800, 7899]]
+    sector: "Communication"
+    note: "Motion pictures, entertainment"
+  - sic: [[7900, 7999]]
+    sector: "Consumer Discretionary"
+    note: "Recreation"
+  - sic: [[8000, 8099]]
+    sector: "Health Care"
+    note: "Health services"
+  - sic: [[8700, 8799]]
+    sector: "Industrials"
+    note: "Engineering and management services (biotech labs under 8731: check)"
+  # --- Added by WT-01 (2026-10-29) for SICs on listed CIKs that Appendix C left unmapped ---
+  - sic: [[3730, 3749]]
+    sector: "Industrials"
+    note: "Ship & boat building, railroad equipment (GD, HII, WAB, TRN)"
+  - sic: [[6792, 6792]]
+    sector: "Energy"
+    note: "Oil royalty traders and trusts (TPL, SJT)"
+  - sic: [[6794, 6794]]
+    sector: "Technology"
+    note: "Patent owners & lessors (DLB, IDCC); mixed bag: check case by case"
+  - sic: [[6795, 6795]]
+    sector: "Materials"
+    note: "Mineral royalty traders (RGLD)"
+  - sic: [[6799, 6799]]
+    sector: "Capital Markets"
+    note: "Investors, NEC"
+  - sic: [[7500, 7599]]
+    sector: "Consumer Discretionary"
+    note: "Automotive repair, services and parking (MNRO, EVGO)"
+  - sic: [[7510, 7519]]
+    sector: "Industrials"
+    note: "Auto rental and truck leasing (CAR, HTZ, R, UHAL)"
+  - sic: [[7600, 7699]]
+    sector: "Industrials"
+    note: "Miscellaneous repair services"
+  - sic: [[8100, 8199]]
+    sector: "Industrials"
+    note: "Legal services"
+  - sic: [[8200, 8299]]
+    sector: "Consumer Discretionary"
+    note: "Educational services (CHGG, LRN, STRA)"
+  - sic: [[8300, 8399]]
+    sector: "Consumer Discretionary"
+    note: "Social services, child day care (BFAM)"
+# Left Unclassified on purpose: 8880 (ADRs: says nothing about the business), 8900, 9995.
+# Kinds (excluded from the default universe), by SIC code.
+kinds:
+  - {sic: [6722, 6726], kind: fund}
+  - {sic: [6770], kind: spac}
+# Funds rarely carry SIC 6722/6726 on EDGAR (0 of 8,023 listed CIKs on 2026-10-29); closed-end
+# funds have a blank SIC. A blank-SIC registrant is a fund if its entityType is "investment" or
+# its recent filings include any of these investment-company forms (WT-01 decision).
+fund_entity_types: [investment]
+fund_forms: [N-CSR, N-CSRS, NPORT-P, NPORT-EX, N-CEN, N-2, N-2/A, 485BPOS, N-PX, 24F-2NT]
+# Issuers with no listed common stock (kind no_common_equity; universe/classify.py,
+# `no_common_equity_reason`). Rule A: no ticker is common stock by symbol. Rule B: the latest
+# 10-K/10-Q/20-F/40-F reports at most `max_cover_shares` common shares on its cover page
+# (undimensioned dei:EntityCommonStockSharesOutstanding) and no diluted EPS or diluted share
+# count has a period end in the last `per_share_lookback_months`. On 2026-10-30's data: TVA,
+# NRUC, CHS (0), Qwest (1), Brookfield Property Partners (0), American National (10,000).
+# Athene (203,805, all held by Apollo) is above it on purpose: 250,000 would also catch crypto
+# ETFs (VBNB, CTWO, SOLC), which are misclassified funds, not issuers without common stock.
+no_common_equity:
+  max_cover_shares: 10000
+  per_share_lookback_months: 24
+# Up-C detection (universe/upc.py) from the latest 10-K/10-Q's own XBRL (ingest/sec/covers.py):
+# 2+ common classes on the cover page, and a class of at least `min_class_share` of the total
+# whose share is within `nci_tolerance` of the NCI ownership % the filing tags. Then market cap
+# counts every cover-page common class (financials/shares.py). On 2026-11-03's scan: 35 domestic
+# Up-Cs. min_class_share 0.04 drops ALIT, AMH, CHCI and ACN (classes of 0.03–2.2%) and keeps
+# PTLO (Class B 4.5%, NCI tagged on that class); UONEK still matches by coincidence (Reach Media
+# NCI 5.4% vs Class B 6.2%), harmlessly: its classes are all economic, so the sum is its total.
+# The NCI % is also compared with the rest of the cover (1 − one class's share): TWFG's two
+# unlisted classes (B + C) are 76.2%, NCI 76.3%. Tolerance stays 1pp: at 3pp RDDT, EZPW, CENT
+# and ZEO match by coincidence (2026-11-22 scan of 4,455 cached covers).
+# confirmed: Up-Cs the rule can't see (no NCI % tagged, or tagged at a balance-sheet date far
+#   from the cover date, or only for subsidiaries). Each quotes the filing on the 1:1 pairing of
+#   the unlisted class with exchangeable units; the count is still the sum of the latest cover's
+#   classes. `classes` (optional) names the cover members to sum, e.g. [CommonClassA, ...].
+#   `structure` (optional, default "Up-C") names what was confirmed, in the evidence text.
+# excluded: multi-class filers whose extra class has no economics and no paired unit; never an
+#   Up-C, even if the rule matches. Wins over confirmed and the rule.
+# candidate_min_ratio: `glint universe --up-c-candidates` lists a cover only if its total is at
+#   least this multiple of Glint's latest shares_outstanding (or Glint has no count). Below it,
+#   Glint's count already includes the other classes and summing would change little.
+# total_member_tolerance: with 3+ cover class members, one whose shares equal the sum of all the
+#   others within this fraction is their total, not another class (GCT, KNSA tag a
+#   CommonStockMember = the sum of their class members; ZETA a CommonClassAAndCommonClassB).
+# non_equity_symbol_words: `--up-c-candidates` drops a cover whose classes trade under 2+
+#   symbols (separately listed classes), but a cover also tags symbols on warrants, rights,
+#   preferred, depositary shares and notes. A symbol counts only if its class member's local name
+#   (after the prefix, e.g. WarrantsEachWholeWarrant...Member) contains none of these words,
+#   matched case-insensitively. From VGAS (#78): its warrant symbol VGASW hid it from the list.
+up_c:
+  nci_tolerance: 0.01
+  min_class_share: 0.04
+  candidate_min_ratio: 1.05
+  total_member_tolerance: 0.005
+  non_equity_symbol_words: [Warrant, Right, Preferred, Depositary, Note, Debenture]
+  confirmed:
+    - cik: "0001823945"
+      ticker: OWL
+      source: "10-K FY2025, accn 0001823945-26-000009"
+      quote: "Subject to certain restrictions, Common Units are exchangeable on a one -for-one basis for either Class A Shares (if exchanging Class C Shares or exchanging Class D Shares that will not continue to be held by a holder exchanging such shares) or Class B Shares"
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0001859392"
+      ticker: GLXY
+      source: "10-K FY2025, accn 0001859392-26-000016"
+      quote: "One share of Class B common stock and one LP Unit are together exchangeable for one share of Class A common stock."
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0002074176"
+      ticker: VNOM
+      source: "10-K FY2025, accn 0002074176-26-000010"
+      quote: "one OpCo Unit and one share of Class B Common Stock, together, are exchangeable for one share of Class A Common Stock"
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0001592386"
+      ticker: VIRT
+      source: "10-K FY2025, accn 0001592386-26-000009"
+      quote: "future exchanges by the Virtu Post-IPO Members of Virtu Financial Units and corresponding shares of Class C Common Stock or Class D Common Stock, as the case may be, for shares of our Class A Common Stock or Class B Common Stock, respectively"
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0001739566"
+      ticker: UTZ
+      source: "10-K FY2025, accn 0001628280-26-007757"
+      quote: "Subject to certain timing restrictions, one Common Company Unit can be exchanged, together with the forfeiture of one share of Class V Common Stock, for a share of Class A Common Stock."
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0001819404"
+      ticker: NRDY
+      source: "10-K FY2025, accn 0001819404-26-000015"
+      quote: "Upon the redemption of the OpCo Units and Class B Common Stock for shares of Class A Common Stock or the equivalent thereof, all redeemed shares of Class B Common Stock will be cancelled."
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0001891101"
+      ticker: BRCC
+      source: "10-K FY2025, accn 0001891101-26-000022"
+      quote: "Each continuing owner of Authentic Brands also holds a number of shares of Class B Common Stock in the Company equal to the number of Common Units held by such owner, which shares of Class B Common Stock have no economic value, but entitle the holder thereof to one vote per share"
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0001549966"
+      ticker: SAMG
+      source: "10-K FY2025, accn 0001193125-26-108402"
+      quote: "Class B units of SLP held by principals will be exchangeable for shares of the Company’s Class A common stock, on a one-for-one basis"
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0001845437"
+      ticker: NPWR
+      source: "10-K FY2025, accn 0001845437-26-000009"
+      quote: "In the event that a holder of Class B Common Stock elects to redeem Class B Common Stock and the corresponding Class A OpCo Units, the Company can exchange such Class B Common Stock for Class A Common Stock or cash at the sole discretion of the Company."
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0001982518"
+      ticker: SDHC
+      source: "10-K FY2025, accn 0001628280-26-017245"
+      quote: "Shares of Class B common stock are transferable only together with an equal number of LLC Interests."
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0002110029"
+      ticker: EROC
+      source: "10-Q for the period ended 2026-09-30, accn 0001193125-26-458698"
+      quote: "These unitholders have the right to periodically exchange their common units in ER Holdings (along with the cancellation of the paired shares of Class B common stock in ERock) for shares of Class A common stock on a one-to-one basis."
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0001653653"
+      ticker: RRR
+      source: "10-K FY2025, accn 0001653653-26-000004"
+      quote: "Holders of LLC Units are entitled at any time to exchange LLC Units, together with an equal number of shares of Class B common stock, for shares of Class A common stock or for cash, at the Company’s election."
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0001843973"
+      ticker: FLYX
+      source: "10-K FY2025, accn 0001843973-26-000013"
+      quote: "For each LGM Common Unit that is redeemed, one Class B Common Stock share will be automatically cancelled."
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    # 2026-11-22 triage of `glint universe --up-c-candidates` (WT-01 follow-up)
+    - cik: "0002141406"
+      ticker: ACCV
+      source: "10-Q for the period ended 2026-09-30, accn 0001628280-26-073820"
+      quote: "entitled to exchange Series B Units of Holdings LLC, together with an equal number of shares of Class B common stock of Pubco, for shares of Class A common stock of Pubco on a one -for-one basis"
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0001838615"
+      ticker: ALTI
+      source: "10-K FY2025, accn 0001628280-26-022450"
+      quote: "“Class B Paired Interest” means a Class B Unit together with a share of Class B Common Stock."
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0001866581"
+      ticker: BROS
+      source: "10-K FY2025, accn 0001866581-26-000006"
+      quote: "following the issuance of shares of Class A common stock in connection with the redemption or exchange of Dutch Bros OpCo Class A common units from our Continuing Members (together with the cancellation of any shares of our Class B common stock or Class C common stock paired with such units)"
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0001819253"
+      ticker: BTMD
+      source: "10-K FY2025, accn 0001193125-26-106099"
+      quote: "the Members may have their Holdings Units (including the Earnout Units, if any, that have vested in accordance with the Business Combination Agreement), together with the cancelation of an equal number of shares of Class V voting stock, redeemed in exchange for shares of our Class A common stock (or cash)"
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0001665988"
+      ticker: BVS
+      source: "10-K FY2025, accn 0001665988-26-000011"
+      quote: "Shares of Class B common stock are transferable only together with an equal number of LLC Interests."
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0001781755"
+      ticker: BWIN
+      source: "10-K FY2025, accn 0001781755-26-000018"
+      quote: "future exchanges of LLC Units from Baldwin Holdings’ LLC Members and the corresponding number of shares of Class B common stock for shares of Class A common stock"
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0002079999"
+      ticker: CDNL
+      source: "10-K FY2025, accn 0001193125-26-120014"
+      quote: "In connection with any such redemption or exchange of LLC Units, a corresponding number of shares of Class B Common Stock held by the relevant Continuing Equity Holder will automatically be transferred to Cardinal Group for no consideration and be canceled."
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0001669779"
+      ticker: CWH
+      source: "10-K FY2025, accn 0001104659-26-021548"
+      quote: "Shares of Class B common stock are transferable only together with an equal number of common units of CWGS, LLC."
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0001828791"
+      ticker: DSP
+      source: "10-K FY2025, accn 0001828791-26-000019"
+      quote: "noncontrolling interests exchanged 1,036,625 Class B units of Viant Technology LLC for 1,036,625 shares of the Company’s Class A common stock, which also resulted in the cancellation of 1,036,625 shares of the Company’s Class B common stock"
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0002104882"
+      ticker: EROK
+      source: "10-Q for the period ended 2026-09-30, accn 0001193125-26-458250"
+      quote: "our Existing Owners (as defined herein) and the TCW Entities (as defined herein) initially hold a majority of OpCo Units paired with our Class B shares."
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0001891856"
+      ticker: GENK
+      source: "10-K FY2025, accn 0001193125-26-134555"
+      quote: "holders of our Class B common stock have rights to require us to file registration statements covering the sale of shares of Class A common stock issuable upon exchange of the corresponding Class B units"
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0001433642"
+      ticker: HLNE
+      source: "10-K for the fiscal year ended 2026-03-31, accn 0001433642-26-000019"
+      quote: "Class B common stock may not be transferred independently of the corresponding Class B units, which are subject to significant restrictions on transfer as set forth in the HLA Operating Agreement."
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0001841925"
+      ticker: INDI
+      source: "10-K FY2025, accn 0001193125-26-082535"
+      quote: "In connection with the Transaction, the Company issued to ADK LLC Minority Holders an aggregate of 33,827,371 shares of Class V common stock of indie (the “Class V Holders”), which can be exchanged to Class A common stock at an exchange ratio of one to one."
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0002029118"
+      ticker: INR
+      source: "10-K FY2025, accn 0002029118-26-000014"
+      quote: "“INR Units” refers to units representing limited liability company interests in INR Holdings issued pursuant to the INR Holdings LLC Agreement, which shall only be held along with a corresponding number of shares of Class B common stock of INR (other than those held by INR)"
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0002100805"
+      ticker: JAN
+      source: "10-Q for the period ended 2026-09-30, accn 0001628280-26-069530"
+      quote: "Healthpeak also purchased shares of Class A-2 common stock in an amount equivalent to the common units of Janus Living OP that Healthpeak held following completion of the formation transactions described above"
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0001689796"
+      ticker: JBGS
+      source: "10-K FY2025, accn 0001104659-26-016450"
+      quote: "Class B Shares are automatically cancelled and redeemed upon the redemption of each corresponding OP Unit."
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0001692787"
+      ticker: KNTK
+      source: "10-K FY2025, accn 0001692787-26-000048"
+      quote: "During 2025, 7.9 million common units were redeemed on a one -for-one basis for shares of Class A Common Stock and a corresponding number of shares of Class C Common Stock were cancelled."
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0001657788"
+      ticker: KRP
+      source: "10-K FY2025, accn 0001104659-26-020477"
+      quote: "Our Class B units are exchangeable on a one-for-one basis, together with an equal number of common units of the Operating Company (“OpCo common units”), for common units."
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0001995807"
+      ticker: LB
+      source: "10-K FY2025, accn 0001193125-26-072404"
+      quote: "to cause OpCo to acquire all or a portion of its OpCo Units (along with the cancellation of a corresponding number of our Class B shares)"
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0002110105"
+      ticker: QNT
+      source: "10-Q for the period ended 2026-09-30, accn 0001628280-26-072454"
+      quote: "Each share of Class B common stock is cancellable upon the redemption or exchange of one Common Unit for, at Quantinuum Inc.’s election, cash or one share of Class A common stock and has no economic rights."
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0001618756"
+      ticker: QSR
+      source: "10-K FY2025, accn 0001618756-26-000017"
+      quote: "there were 109,356,045 Class B exchangeable limited partnership units of Restaurant Brands International Limited Partnership which are exchangeable, on a one for one basis, into common shares of the Registrant."
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0001644378"
+      ticker: RMR
+      source: "10-K for the fiscal year ended 2026-09-30, accn 0001644378-26-000026"
+      quote: "including the shares received on conversion of Class B-1 Common Shares or redemption of the paired Class B-2 Common Shares and Class A Units of RMR LLC"
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0001697500"
+      ticker: SEI
+      source: "10-K FY2025, accn 0001628280-26-012501"
+      quote: "Solaris LLC Units are exchangeable for shares of Class A common stock on a one -for-one basis through their associated Class B common stock"
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0001805833"
+      ticker: SST
+      source: "10-K FY2025, accn 0001805833-26-000014"
+      quote: "The non-controlling interest is comprised of certain selling equity holders of System1 Holdings that retained an economic interest through their ownership of Class B units in System1 Holdings, along with the same number of corresponding shares of Class C common stock in us."
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0001796022"
+      ticker: STEP
+      source: "10-K for the fiscal year ended 2026-03-31, accn 0001628280-26-038446"
+      quote: "certain members of management, employee and former employee owners and outside investors, all of whom own Class B units and an equivalent number of shares of Class B common stock"
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0001973266"
+      ticker: TKO
+      source: "10-K FY2025, accn 0001193125-26-071651"
+      quote: "Endeavor collectively owned approximately 63% of the voting interests of TKO through its holdings of shares of TKO Class A common stock and TKO Class B common stock which are paired with common units of TKO OpCo."
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0002064947"
+      ticker: WBI
+      source: "10-K FY2025, accn 0001193125-26-106541"
+      quote: "The Legacy Owners hold Class B shares together with an equal number of OpCo Units."
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0001699136"
+      ticker: WHD
+      source: "10-K FY2025, accn 0001628280-26-012377"
+      quote: "Since our IPO through December 31, 2025, 49.6 million CC Units (including CW Units prior to the CC Reorganization) and a corresponding number of shares of Class B common stock have been redeemed in exchange for shares of Class A common stock."
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0001921603"
+      ticker: WHK
+      source: "10-Q for the period ended 2026-09-30, accn 0001193125-26-460682"
+      quote: "The Management Contributor received one share of non-economic voting Class B Common Stock for each OpCo Interest received."
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0001693256"
+      ticker: WTTR
+      source: "10-K FY2025, accn 0001104659-26-017085"
+      quote: "Crestview and its permitted transferees may exchange their SES Holdings LLC Units (together with a corresponding number of shares of Class B common stock) for shares of Class A common stock"
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0001802156"
+      ticker: XPOF
+      source: "10-K FY2025, accn 0001802156-26-000016"
+      quote: "the Continuing Pre-IPO LLC Members are able to exchange their LLC Units for shares of Class A common stock on a one-for-one basis (simultaneously cancelling an equal number of shares of Class B common stock of the exchanging member)"
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    # 2026-11-22: two of the seven left ambiguous by the triage (WT-01 follow-up)
+    - cik: "0001574197"
+      ticker: FPH
+      source: "10-Q for the period ended 2026-09-30, accn 0001574197-26-000035"
+      quote: "holders of Class A Common Units of the Operating Company may exchange their units for, at the Company’s option, either (i) Class A common shares on a one-for-one basis (subject to adjustment in the event of share splits, distributions of shares, warrants or share rights, specified extraordinary distributions and similar events), or (ii) cash in an amount equal to the market value of such shares at the time of exchange. In either situation, an equal number of that holder’s Class B common shares will automatically convert into Class A common shares, at a ratio of 0.0003 Class A common shares for each Class B common share."
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    - cik: "0001842279"
+      ticker: OPAL
+      source: "10-K FY2025, accn 0001628280-26-017908"
+      quote: "Each Class B Unit is paired with a single share of Class B or Class D of common stock issued by the Company. Each share of Class B common stock is exchangeable for one share of Class A common stock and each share of Class D common stock is exchangeable for one share of Class C common stock."
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-22"
+    # 2026-11-23: Class B "no economic rights" (found by #62), but each share is paired 1:1 with
+    # an operating-partnership unit exchangeable 1:1 for Class A: Up-Cs (WT-01 follow-up)
+    - cik: "0002046386"
+      ticker: MDLN
+      source: "10-K FY2025, accn 0002046386-26-000009"
+      quote: "The shares of Class B common stock, together with the transfer of an identical number of Common Units, are convertible at the option of the holder into shares of Class A common stock on a one -for-one basis, subject to customary conversion rate adjustments for stock splits, stock dividends and reclassifications."
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-23"
+    - cik: "0001856525"
+      ticker: CNM
+      source: "10-K for the fiscal year ended 2026-02-01, accn 0001856525-26-000031"
+      quote: "Management Feeder (or its permitted transferees) has the right to exchange its Partnership Interests, together with the retirement of a corresponding number of shares of our Class B common stock, for shares of our Class A common stock on a one-for-one basis"
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-23"
+    - cik: "0001880661"
+      ticker: TPG
+      source: "10-K FY2025, accn 0001880661-26-000011"
+      quote: "certain holders of Common Units exchanged Common Units for an equal number of shares of Class A common stock resulting in the issuance of shares of Class A common stock and the cancellation of an equal number of shares of Class B common stock for no additional consideration"
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-23"
+    # GCMG: Class C "does not have any of the economic rights (including rights to dividends and
+    # distributions upon liquidation) associated with Class A common stock"; "GCM V held
+    # 141,665,831 shares of Class C common stock, which corresponds to the number of Common Units
+    # held by the GCMH Equityholders" (same 10-K; found by #70). Glint's diluted count was already
+    # within 1.05x of the cover total, so the rule and the candidate list both missed it.
+    - cik: "0001819796"
+      ticker: GCMG
+      source: "10-K FY2025, accn 0001819796-26-000010"
+      quote: "As of February 16, 2026, there were 60,810,959 shares of Class A common stock outstanding and 141,665,831 common units of GCMH (“Common Units”) outstanding held by the GCMH Equityholders, which may be exchanged for shares of Class A common stock on a one-to-one basis, or, at the Company’s election for cash"
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-23"
+    # 2026-11-23: five of the eight voting-only classes found by #74, each paired 1:1 with an
+    # operating-company unit exchangeable 1:1 for Class A; none tags an NCI % on its cover and
+    # each was within 1.05x of Glint's diluted count (VGAS: two cover symbols, VGAS + VGASW), so
+    # neither the rule nor `--up-c-candidates` saw them (WT-01 follow-up)
+    # IIIV: same 10-K: "including 8,297,761 shares of Class A common stock issuable, at our
+    # election, upon redemption of common units of i3 Verticals, LLC that are held by the
+    # Continuing Equity Owners" (= its 8,297,761 Class B), redeemable "on a one-for-one basis".
+    - cik: "0001728688"
+      ticker: IIIV
+      source: "10-K for the fiscal year ended 2026-09-30 (Exhibit 4.2), accn 0001728688-26-000055"
+      quote: "Shares of Class B common stock are transferable only together with an equal number of Common Units of i3 Verticals, LLC."
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-23"
+    # FNKO: units redeem for Class A "on a one -for-one basis"; Class B pairs with every
+    # Continuing Equity Owner unit "(other than common units issuable upon the exercise of options
+    # and common units that are subject to time-based vesting requirements (the “Excluded Common
+    # Units”))", so the sum leaves out unvested and option units (186,797 units vs 91,276 Class B).
+    - cik: "0001704711"
+      ticker: FNKO
+      source: "10-K FY2025, accn 0001704711-26-000020"
+      quote: "Shares of Class B common stock are transferable only together with an equal number of common units of FAH, LLC."
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-23"
+    # FOA: Class B was 12 shares (votes per holder) until the 2026 A&R Charter reclassified it;
+    # only covers from the 10-Q for Q2 2026 on carry the paired count. 10-K FY2025 (accn
+    # 0001628280-26-017692): unitholders "may elect to exchange their Class A LLC Units for shares
+    # of Class A Common Stock on a one -for-one basis".
+    - cik: "0001828937"
+      ticker: FOA
+      source: "10-Q for the period ended 2026-09-30, accn 0001628280-26-071678"
+      quote: "As a result of these amendments, the number of outstanding shares of Class B Common Stock corresponds on a one -for-one basis with the number of outstanding Class A LLC Units held by the noncontrolling interest."
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-23"
+    # VGAS: 22,500,000 Class C = the "22,500,000 Class C common units of OpCo" held by Holdings;
+    # the 3,500,000 earn-out units and shares are contingent and not on the cover.
+    - cik: "0001841425"
+      ticker: VGAS
+      source: "10-K FY2025, accn 0001628280-26-021763"
+      quote: 'Holders of Class C OpCo Units, other than Verde Clean Fuels, have the right (a "redemption right"), subject to certain limitations, to exchange all or a portion of its Class C OpCo Units and a corresponding number of shares of Class C Common Stock for, at OpCo’s election, (i) shares of Class A Common Stock on a one-for-one basis, subject to adjustment for stock splits, stock dividends, reorganizations, recapitalizations and the like, or (ii) an equivalent amount of cash.'
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-23"
+    # PRPL: Exchange Agreement (8-K Ex 10.1, accn 0001213900-18-001442): "“ Class B Paired
+    # Security ” shall mean one Class B Unit and one share of Class B Stock"; "On the date of this
+    # Agreement, the Exchange Rate shall be one (1)". Class B 2,723 = the 0.06% NCI.
+    - cik: "0001643953"
+      ticker: PRPL
+      source: "10-Q for the period ended 2026-09-30, accn 0001213900-26-115919"
+      quote: "A holder may transfer their shares of Class B common stock to any transferee (other than the Company) only if such holder also simultaneously transfers an equal number of such holder’s Class B Units to such transferee."
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-23"
+    # 2026-11-23: not Up-Cs, but the cover carries an unlisted economic class next to the listed
+    # one, and `classes` names exactly the two to sum (WT-01 follow-up)
+    # BLK: HPS consideration paid in Subco Class B-2 units (cover `ExchangeableUnitsMember`);
+    # `FullyDilutedSharesMember` is their total and is never summed.
+    - cik: "0002012383"
+      ticker: BLK
+      source: "10-K FY2025, accn 0001193125-26-071966"
+      quote: "Such Subco Units are exchangeable on a one-for-one basis into BlackRock common stock"
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-23"
+      classes: [CommonStock, ExchangeableUnits]
+      structure: "subsidiary units exchangeable 1:1 (not a classic Up-C)"
+    # SUN: Class D units (held by SunocoCorp) are summed; Class C units are never summed: "The
+    # Partnership has outstanding an aggregate of 16,410,780 Class C Units, all of which are held
+    # by wholly owned subsidiaries of the Partnership." (same 10-K; excluded until 2026-11-23)
+    - cik: "0001552275"
+      ticker: SUN
+      source: "10-K FY2025, accn 0001552275-26-000021"
+      quote: "Class D Units represent limited partner interests in the Partnership and are economically equivalent to other Partnership common units."
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-23"
+      classes: [SUN, CommonClassDUnits]
+      structure: "unlisted economically equivalent units (not an Up-C)"
+    # 2026-11-23: found once `--up-c-candidates` stopped counting warrant/right/note symbols as
+    # listed classes (WT-01 follow-up). ANNA: Class C 25,994,400 on the 10-Q cover (accn
+    # 0001845123-26-000005) = Nautilus's 25,994,400 Class C HoldCo Units; the units redeem for
+    # Class A at "the one-to-one exchange ratio applicable to the exercise of the HoldCo Holder
+    # Redemption Right" (same 10-K).
+    - cik: "0001845123"
+      ticker: ANNA
+      source: "10-K FY2025, accn 0001213900-26-036606"
+      quote: "Nautilus Resources LLC received 25,994,400 Class C HoldCo Units, together with 25,994,400 shares of Class C Common Stock, which carry voting rights but no economic interest in AleAnna, Inc."
+      keyed_by: "Claude for Ishar Dhaul, 2026-11-23"
+  excluded:
+    - cik: "0001883685"
+      ticker: DKNG
+      source: "10-K FY2025, accn 0001883685-26-000013"
+      quote: "The weighted-average number of common shares outstanding during the period includes Class A common stock but is exclusive of Class B common stock as these shares have no economic or participating rights."
+    # 2026-11-22 triage: the extra class has no economics of its own or doesn't convert 1:1
+    - cik: "0001680048"
+      ticker: MBIO
+      source: "10-K FY2025, accn 0001104659-26-032063"
+      quote: "As of March 2026, COH owns 845,385 shares of our Class A common stock, which are convertible into 1,127 shares of Common Stock."
+    - cik: "0001826470"
+      ticker: WOOF
+      source: "10-K for the fiscal year ended 2026-01-31, accn 0001193125-26-106114"
+      quote: "The rights of the holders of Class B-2 common stock differ from the rights of the holders of Class A common stock and Class B-1 common stock in that holders of Class B-2 common stock only possess the right to vote on the election or removal of the Company’s directors."
+    - cik: "0002070457"
+      ticker: XXI
+      source: "10-K FY2025, accn 0001213900-26-037460"
+      quote: "The Company measures BPS using outstanding shares of Class A Common Stock, excluding outstanding shares of Class B Common Stock, as Class B Common Stock carry no economic rights and are not entitled to receive dividends or distributions."
+    # 2026-11-22: the rest of the seven left ambiguous by the triage (WT-01 follow-up)
+    - cik: "0002065708"
+      ticker: ANDG
+      source: "10-Q for the period ended 2026-09-30, accn 0002065708-26-000009"
+      quote: "Andersen Group Inc. issued to Aggregator shares of Class B common stock equal in number to the maximum number of Class X Umbrella Units issuable upon exchange of such LTIP Units issued to Aggregator in exchange for the payment by Aggregator of the aggregate par value of the Class B common stock that is received."
+    - cik: "0002092446"
+      ticker: AVAT
+      source: "10-Q for the period ended 2026-09-30, accn 0001104659-26-126194"
+      quote: "In connection with the Company Merger, each member of Treasury LLC other than the Seller received one share of the Company’s Class A common stock, par value $0.01 per share (“Class A Stock”), for each unit held immediately prior to the effective time of the Company Merger, and the Seller received one share of Class A Stock and one share of the Company’s Class B common stock, par value $0.01 per share (“Class B Stock”), for each unit it held."
+    - cik: "0001596967"
+      ticker: MC
+      source: "10-K FY2025, accn 0001193125-26-076747"
+      quote: "The economic rights of Class B common stock are based on the ratio of the Class B subscription price to the initial public offering price of shares of Class A common stock (.00055 to 1)."
+    # 2026-11-23: Up-C-like, but the paired units aren't on the cover, so summing it is wrong
+    # (WT-01 follow-up). MBUU: one Class B share per holder (12), votes per LLC unit; the 270,419
+    # NCI units are only in the notes. ESRT: one Class B (itself economic, "may be converted to
+    # one share of Class A common stock at any time") per 49 OP units; "109,310 thousand OP Units
+    # outstanding" at 2026-09-30 (10-Q accn 0001541401-26-000037) aren't on the cover.
+    - cik: "0001590976"
+      ticker: MBUU
+      source: "10-K for the fiscal year ended 2026-06-30, accn 0001590976-26-000037"
+      quote: "Malibu Boats, Inc. issued to each pre-IPO owner, for nominal consideration, one share of Class B Common Stock of Malibu Boats, Inc., each of which provides its owner with no economic rights but entitles the holder to one vote on matters presented to stockholders of Malibu Boats, Inc. for each LLC Unit held by such holder."
+    - cik: "0001541401"
+      ticker: ESRT
+      source: "10-K FY2025, accn 0001541401-26-000008"
+      quote: "Each outstanding share of Class B common stock, when accompanied by 49 operating partnership units, entitles the holder thereof to 50 votes on all matters on which Class A common securityholders are entitled to vote, including the election of directors."
+    # 2026-11-23: found once `--up-c-candidates` stopped counting warrant/right/note symbols as
+    # listed classes (WT-01 follow-up); summing the cover would be wrong for each.
+    # SF: the cover tags its 5.20% senior notes ($225,000,000 principal) as a class member.
+    - cik: "0000720672"
+      ticker: SF
+      source: "10-K FY2025, accn 0001193125-26-067130"
+      quote: "5.20% Senior Notes due 2047 ( SFB ) New York Stock Exchange $ 225,000,000"
+    # AENT: all 60,000,000 Class E shares are contingent merger consideration held in escrow.
+    - cik: "0001823584"
+      ticker: AENT
+      source: "10-K for the fiscal year ended 2026-06-30, accn 0001493152-26-042141"
+      quote: "The 60 million contingent Class E shares are set aside in an escrow account as additional consideration contingent on triggering events occurring within 10 years after the Merger"
+    # FBYD: an Up-C (Class B moves "only if such holder also simultaneously transfers an equal
+    # number of such holder’s Falcon’s Opco Units", Ex 4.4), but the cover's 72,169,750 Class B
+    # include 24,375,000 unearned escrowed earnout shares: the 10-Q (accn 0001193125-26-456950)
+    # balance sheet has 47,794,750 Class B outstanding. A cover sum would overstate by 20%.
+    - cik: "0001937987"
+      ticker: FBYD
+      source: "10-K FY2025, accn 0001193125-26-131874"
+      quote: "a total of 1,000,000 earnout shares denominated as Class A common stock and 39,000,000 earnout shares denominated as Class B common stock and 39,000,000 earnout units are outstanding, each of which will be earned, released and delivered upon satisfaction of, or forfeited and canceled upon the failure of, certain milestones"
+    # RUM: Class C is economic through its tandem ExchangeCo Share ("exchangeable at any time by
+    # the holder on a one-to-one basis into Class A Common Stock"), but Class D (95,791,120,
+    # Mr. Pavlovski's high-vote class) has no economics and no paired unit, and 76,412,604
+    # earnout shares sit in escrow (10-Q accn 0001213900-26-118479).
+    - cik: "0001830081"
+      ticker: RUM
+      source: "10-K FY2025, accn 0001213900-26-024099"
+      quote: "The holders of shares of Class D Common Stock are not entitled to receive dividends and other distributions declared or paid by the Company."
+    # USDE: Class B is issued alongside Class A (one of each per SC Assets share, ENA
+    # contribution and RSU), not paired with units: like XXI.
+    - cik: "0002080215"
+      ticker: USDE
+      source: "10-Q for the period ended 2026-09-30, accn 0001213900-26-120713"
+      quote: "Holders of shares of Class B common stock are entitled to one vote per share held and are not entitled to participate in dividends or receipt of any of the Company’s assets in the event of any dissolution, liquidation or winding up."
+    # ZEO: an Up-C (Class B OpCo units exchange 1:1 with their Class V), but Class V 17,080,000
+    # = 15,580,000 exchangeable units + 1,500,000 paired with the Sponsor's convertible OpCo
+    # preferred units (10-Q accn 0001213900-26-120848), so the sum counts preferred: like ANDG.
+    - cik: "0001865506"
+      ticker: ZEO
+      source: "10-K FY2025, accn 0001213900-26-037791"
+      quote: "Sponsor – convertible OpCo preferred units and paired Class V shares 1,500,000"

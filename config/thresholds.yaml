@@ -1,0 +1,123 @@
+# Thresholds (principle 8: thresholds live in config, never in code).
+# All percentages are fractions. Comparisons use `float_tolerance`.
+version: 1
+
+float_tolerance: 1.0e-9
+
+# Flags (SPEC §2.10): questions, not verdicts. `{x}` is filled from the evidence; `{key}` (with an
+# optional format spec, e.g. `{sbc_to_revenue_gte:.0%}`) from the flag's own keys, so the
+# wording follows the threshold (flags/engine.py `render_question`).
+# severity: `caution` is about the business (dilution, coverage, cash); `info` is about reading
+# the data (a stale or restated filing, a changed fiscal year, a share count that lags the price).
+flags:
+  dilution:
+    severity: caution
+    share_count_change_yoy_gte: 0.05
+    question: "Share count is up {x} in a year. What's driving the dilution?"
+  earnings_without_cash:
+    severity: caution
+    consecutive_fys: 2
+    question: "Profits are reported but operating cash flow is negative. Why is cash lagging earnings?"
+  receivables_outpacing:
+    severity: caution
+    dso_change_yoy_gte: 0.20
+    revenue_growth_yoy_lt: 0.10
+    question: "Customers are taking longer to pay. Is revenue quality changing?"
+  inventory_build:
+    severity: caution
+    inventory_minus_revenue_growth_gte: 0.20
+    question: "Inventory is growing much faster than sales. Is demand slowing?"
+  goodwill_heavy:
+    severity: caution
+    goodwill_to_assets_gte: 0.50
+    question: "Goodwill and intangibles are {goodwill_to_assets_gte:.0%} or more of assets. How were the acquisitions priced?"
+  thin_coverage:
+    severity: caution
+    interest_coverage_lt: 2.0
+    question: "EBIT covers interest less than {interest_coverage_lt:g} times. How exposed is it to rates or a downturn?"
+  stale_filing:  # threshold: freshness.stale_annual_report_months (one number for the flag and the
+    # universe's stale exclusion; flags/engine.py passes it in as `annual_report_age_months_gt`)
+    severity: info
+    question: "The latest annual report is over {annual_report_age_months_gt} months old. Is the company late or delisting?"
+  late_filer:  # read by universe/submissions.py (nt_filing_12m); the flag reads that boolean
+    severity: caution
+    lookback_months: 12
+    forms: ["NT 10-K", "NT 10-Q"]
+    question: "The company filed a late-filing notice in the last {lookback_months} months. What delayed it?"
+  negative_equity:
+    severity: caution
+    equity_lte: 0
+    question: "Equity is negative. Is that buybacks or accumulated losses? (P/B and ROE are n/m.)"
+  heavy_sbc:
+    severity: caution
+    sbc_to_revenue_gte: 0.15
+    question: "Stock comp is {sbc_to_revenue_gte:.0%} or more of revenue. What are FCF and margins after SBC?"
+  restated:  # P1
+    severity: info
+    change_gt: 0.01
+    lookback_fys: 2  # the latest two fiscal years
+    items: [revenue, operating_income, net_income, cfo, total_assets, equity]
+    question: "Prior figures were revised. What changed?"
+  fy_change:  # read by universe/submissions.py (fy_end_changed); the flag reads that boolean
+    severity: info
+    lookback_years: 2
+    # Two annual reports whose period-end month-day differ by more than this are a change:
+    # 52/53-week years move the period end by up to ~7 days.
+    fy_end_drift_days: 10
+    question: "Fiscal year end changed in the last {lookback_years} years. Are periods comparable?"
+  # Market cap below the average day's dollar volume: almost always a share count that lags the
+  # price (a reverse split or new shares after the filing's count date), not a real valuation.
+  # Window: the last `adv_sessions` market sessions; a ticker missing a bar or volume on any of
+  # them isn't tested. Market cap here is the metric's value (already split-adjusted for splits
+  # the price data knows about).
+  market_cap_implausible:
+    severity: info
+    adv_sessions: 20
+    market_cap_to_adv_lt: 1.0
+    question: "Market cap is only {x} of the average day's trading over the last {adv_sessions} sessions. Is the share count out of date? Check recent 8-Ks and the latest 10-Q cover for a reverse split or new shares."
+
+# Freshness (SPEC §2.3, §2.11, R10).
+freshness:
+  stale_annual_report_months: 15  # also the stale_filing flag's threshold (flags/engine.py)
+  build_banner_after_days: 3
+  # A price-tier cell is STALE_DATA when its ticker's last bar is older than the build's price
+  # date by more than this many calendar days (thin names skip sessions; halted ones stop).
+  price_stale_days: 7
+
+# Normalization tolerances and windows (SPEC §4.3).
+normalization:
+  ttm_vs_fy_tolerance: 0.005
+  average_instant_window_days: 45
+  duration_days:
+    quarter: [80, 100]
+    half_year: [170, 190]
+    nine_months: [260, 285]
+    fiscal_year: [350, 380]
+
+# Metric constants (SPEC §2.4).
+metrics:
+  roic_tax_rate_clamp: [0.0, 0.35]
+  roic_statutory_tax_rate: 0.21
+  dps_cut_tolerance: 0.01
+  dps_no_cut_years: 5
+  history_points: {fy: 10, ttm: 12}  # metric_history: latest FY ends / TTM ends per series
+  small_peer_group_min: 5
+  adv_sessions: 63
+  return_sessions: {return_1m: 21, return_3m: 63, return_6m: 126, return_12m: 252}
+  # Diluted-share comparisons apply a split from the price provider only when the company's own
+  # later filings restated a share count by about that ratio: |restated ÷ first-filed ÷ ratio − 1|
+  # at most this (a fraction). Restatements are exact up to rounding (NFLX ×9.99997, ELVG ×0.002).
+  split_confirm_tolerance: 0.02
+
+# Audit rules (`glint audit`, SPEC §4.6): print outliers for review, never auto-fix.
+audit:
+  gross_margin_range: [-1.0, 1.0]
+  market_cap_max_usd: 6.0e+12  # signed exponent: YAML 1.1 reads 6.0e12 as a string
+  ttm_vs_fy_tolerance: 0.005
+  equity_jump_max_ratio: 10
+  share_count_jump_max_ratio: 3
+  coverage_drop_warn_pp: 0.02
+
+# Golden values (SPEC §5.8).
+golden:
+  tolerance: 0.005

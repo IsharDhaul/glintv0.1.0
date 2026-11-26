@@ -1,0 +1,31 @@
+{
+  "build_id": "synthetic",
+  "synthetic": true,
+  "db_schema_version": 4,
+  "built_at": "2026-01-02T00:00:00Z",
+  "as_of": {
+    "fundamentals": "2026-01-02T08:00:00Z",
+    "prices": "2026-01-01"
+  },
+  "universe_counts": {
+    "companies": 300,
+    "by_kind": {
+      "synthetic": 300
+    },
+    "by_exchange": {
+      "NYSE": 116,
+      "Nasdaq": 172,
+      "NYSE American": 12
+    },
+    "foreign_filers": 26,
+    "stale": 8
+  },
+  "universe_rules": {
+    "stale_annual_report_months": 15
+  },
+  "source_timestamps": {},
+  "last_run": null,
+  "warnings": [
+    "Synthetic data: not real companies or numbers."
+  ]
+}

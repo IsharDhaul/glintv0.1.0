@@ -1,0 +1,1444 @@
+cik,primary_ticker,sector,mrq,total_debt_last,debt_current_last,debt_noncurrent_last,cause,ev_after_pr2
+0000002186,BKTI,Technology,2026-06-30,2022-12-31,,2022-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000002969,APD,Materials,2026-06-30,2023-03-31,2026-06-30,2023-03-31,current debt only at MRQ,no
+0000003499,ALX,Real Estate,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000009092,BMI,Industrials,2026-09-30,,2025-12-31,,no debt tag ever,no
+0000009326,BCPC,Materials,2026-09-30,2018-12-31,2019-12-31,2018-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000010048,BRN,Energy,2026-06-30,2023-09-30,2016-09-30,2023-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000010329,BSET,Consumer Discretionary,2026-08-29,2018-11-24,2018-11-24,2018-11-24,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000010456,BAX,Health Care,2026-09-30,2025-12-31,2026-09-30,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000014707,CAL,Materials,2026-08-01,2022-07-30,2022-10-29,2022-07-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000014846,BRT,Real Estate,2026-06-30,2015-09-30,,2015-09-30,unmapped total tag at MRQ (LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities),yes
+0000016160,CALM,Consumer Staples,2026-08-29,2019-06-01,2020-08-29,2019-06-01,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000018230,CAT,Industrials,2026-06-30,2025-12-31,2025-12-31,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000018255,CATO,Consumer Discretionary,2026-08-01,,,,no debt tag ever,no
+0000019871,CVR,Industrials,2026-06-30,2024-12-31,,2024-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000023197,CMTL,Technology,2026-07-31,2026-04-30,2026-04-30,2026-04-30,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000025743,TXMD,Health Care,2026-06-30,2022-09-30,2022-09-30,2022-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000026058,CTS,Technology,2026-09-30,2013-12-31,2012-12-31,2013-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000027093,USAU,Materials,2026-07-31,,2017-07-31,,no debt tag ever,no
+0000028917,DDS,Consumer Discretionary,2026-08-01,2021-07-31,2019-05-04,2021-07-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000029989,OMC,Industrials,2026-09-30,2025-12-31,2026-09-30,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000031667,EDUC,Industrials,2026-08-31,2026-02-28,2026-02-28,2026-02-28,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000032621,MSN,Industrials,2026-06-30,2015-12-31,2013-12-31,2015-12-31,finance leases only at MRQ,no
+0000033002,EBF,Communication,2026-08-31,2019-05-31,2012-02-29,2019-05-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000033533,ESP,Technology,2026-06-30,,,,no debt tag ever,no
+0000034903,FRT,Real Estate,2026-03-31,2025-12-31,,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000034956,TENX,Health Care,2026-06-30,,,,no debt tag ever,no
+0000037472,FLXS,Consumer Discretionary,2026-09-30,,2020-03-31,,no debt tag ever,no
+0000037996,F,Consumer Discretionary,2026-09-30,2020-12-31,,2020-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000039020,FEIM,Industrials,2026-07-31,2015-01-31,2020-07-31,2015-01-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000039092,FRD,Materials,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000040211,GATX,Industrials,2026-06-30,2025-12-31,,2025-12-31,unmapped total tag at MRQ (DebtLongtermAndShorttermCombinedAmount),yes
+0000040570,JOB,Industrials,2026-06-30,2018-03-31,2021-09-30,2018-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000045919,HHS,Industrials,2026-06-30,2022-12-31,2026-06-30,2022-12-31,current debt only at MRQ,no
+0000056701,KOSS,Industrials,2026-06-30,,2020-09-30,,finance leases only at MRQ,no
+0000056978,KLIC,Technology,2026-07-04,2012-03-31,2015-03-28,2012-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000057131,LZB,Consumer Discretionary,2026-07-25,2020-04-25,2021-04-24,2020-04-25,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000061004,LGL,Technology,2026-06-30,2022-03-31,2013-12-31,2022-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000063330,MLP,Real Estate,2026-06-30,2020-03-31,2021-12-31,2020-03-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000064472,GENC,Industrials,2026-06-30,2025-09-30,,2025-09-30,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000065172,MSB,Materials,2026-07-31,,,,no debt tag ever,no
+0000066418,MXC,Energy,2026-06-30,2021-06-30,,2021-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000069422,INTG,Real Estate,2026-06-30,2026-03-31,2016-06-30,2026-03-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000069633,NSSC,Technology,2026-06-30,2021-06-30,2021-06-30,2021-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000069891,FIZZ,Consumer Staples,2026-08-01,2023-04-29,,2023-04-29,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000071691,NYT,Communication,2026-06-30,2019-09-29,2019-12-29,2019-09-29,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000072162,NL,Materials,2026-06-30,2013-12-31,2013-12-31,2013-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000072573,MOV,Industrials,2026-07-31,2010-07-31,,2010-07-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000072633,NRT,Energy,2026-07-31,,,,no debt tag ever,no
+0000073290,BMRA,Health Care,2026-08-31,,,,no debt tag ever,no
+0000075362,PCAR,Consumer Discretionary,2026-09-30,,,,no debt tag ever,no
+0000076267,PKE,Industrials,2026-08-30,2017-11-26,2017-11-26,2017-11-26,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000076282,PKOH,Industrials,2026-06-30,2021-03-31,2026-06-30,2021-03-31,unmapped total tag at MRQ (DebtAndCapitalLeaseObligations/LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities),yes
+0000078749,AGYS,Technology,2026-09-30,2026-03-31,,2026-03-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000080172,NPK,Industrials,2026-07-05,,,,"debt tags at MRQ, all zero",no
+0000080420,POWL,Industrials,2026-06-30,2022-09-30,2022-09-30,2022-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000084748,ROG,Materials,2026-09-30,2024-12-31,2017-12-31,2024-12-31,finance leases only at MRQ,no
+0000087050,NEON,Technology,2026-06-30,,2020-06-30,,finance leases only at MRQ,no
+0000093410,CVX,Energy,2026-06-30,2025-12-31,2026-06-30,2025-12-31,unmapped total tag at MRQ (LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities),yes
+0000095029,RGR,Industrials,2026-06-27,,,,no debt tag ever,no
+0000095953,ACNT,Materials,2026-06-30,2024-12-31,2023-12-31,2024-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000096536,TAYD,Industrials,2026-08-31,2013-05-31,2012-05-31,2013-05-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000096869,TRC,Real Estate,2026-06-30,2023-12-31,2023-12-31,2023-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000097210,TER,Industrials,2026-06-28,2014-12-31,2026-06-28,2014-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000099780,TRN,Industrials,2026-09-30,,,,unmapped total tag at MRQ (DebtLongtermAndShorttermCombinedAmount),yes
+0000100591,AGX,Industrials,2026-07-31,,,,no debt tag ever,no
+0000101295,UG,Consumer Staples,2026-06-30,,,,no debt tag ever,no
+0000101594,BSIN,Energy,2026-06-30,2017-12-31,2017-12-31,2017-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000101984,UEIC,Industrials,2026-06-30,,2012-12-31,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000104894,ELME,Real Estate,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000104918,AVA,Utilities,2026-06-30,2023-03-31,2026-06-30,2023-03-31,current debt only at MRQ,no
+0000105016,WSO,Industrials,2026-06-30,2026-03-31,2026-06-30,2026-03-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000105418,WMK,Consumer Staples,2026-06-27,2018-12-29,,2018-12-29,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000105634,EME,Industrials,2026-09-30,2023-12-31,2023-12-31,2023-12-31,finance leases only at MRQ,no
+0000105744,GBR,Energy,2026-06-30,2020-12-31,2021-09-30,2020-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000106040,WDC,Technology,2026-10-02,2026-07-03,2026-10-02,2026-07-03,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000106532,WEYS,Industrials,2026-06-30,,2023-06-30,,no debt tag ever,no
+0000109657,GTBP,Health Care,2026-06-30,,,,no debt tag ever,no
+0000215466,CDE,Materials,2026-06-30,2023-03-31,2026-06-30,2023-03-31,current debt only at MRQ,no
+0000217346,TXT,Industrials,2026-10-03,,,,finance leases only at MRQ,no
+0000275053,NATR,Health Care,2026-06-30,2024-03-31,2023-12-31,2024-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000278166,CVCO,Materials,2026-06-27,,,,finance leases only at MRQ,no
+0000315189,DE,Industrials,2026-08-02,2022-05-01,2026-08-02,2022-05-01,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000315213,RHI,Industrials,2026-06-30,2020-12-31,2021-12-31,2020-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000315374,HURC,Industrials,2026-07-31,,2019-07-31,,"debt tags at MRQ, all zero",no
+0000320017,LSTA,Health Care,2026-06-30,2017-12-31,2017-12-31,2017-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000320121,TLS,Technology,2026-06-30,2018-12-31,,2018-12-31,finance leases only at MRQ,no
+0000350698,AN,Consumer Discretionary,2026-06-30,2025-12-31,2026-06-30,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000351998,DAIO,Industrials,2026-06-30,,2011-12-31,,no debt tag ever,no
+0000352955,CKX,Energy,2026-06-30,,,,no debt tag ever,no
+0000355811,GNTX,Consumer Discretionary,2026-06-30,2018-06-30,2026-06-30,2018-06-30,current debt only at MRQ,no
+0000355948,RELL,Industrials,2026-08-29,,,,no debt tag ever,no
+0000356037,CSPI,Technology,2026-06-30,,2018-09-30,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000700841,RCMT,Industrials,2026-07-04,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000704440,KRMD,Health Care,2026-06-30,2013-02-28,2013-02-28,2013-02-28,finance leases only at MRQ,no
+0000704532,ONTO,Industrials,2026-06-30,2013-12-28,2013-12-28,2013-12-28,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000708781,CASS,Industrials,2026-06-30,,2019-12-31,,no debt tag ever,no
+0000712770,OLP,Real Estate,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000715446,ANIX,Health Care,2026-07-31,2015-12-31,,2015-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000716634,RDIB,Communication,2026-06-30,2025-12-31,2026-06-30,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000717954,UNF,Consumer Discretionary,2026-08-29,2015-08-29,2015-05-30,2015-08-29,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000718332,RAVE,Industrials,2026-06-28,,2023-06-25,,no debt tag ever,no
+0000718937,STAA,Health Care,2026-07-03,,,,no debt tag ever,no
+0000719413,HL,Materials,2026-06-30,2020-09-30,2025-12-31,2020-09-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000719955,WSM,Consumer Discretionary,2026-08-02,2021-10-31,2022-01-30,2021-10-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000720500,ASYS,Industrials,2026-06-30,2026-03-31,2026-03-31,2026-03-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000722572,FKWL,Technology,2026-06-30,,2016-06-30,,no debt tag ever,no
+0000723603,CULP,Consumer Discretionary,2026-08-02,2015-05-03,2020-05-03,2015-05-03,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000724910,NVEC,Technology,2026-09-30,,,,no debt tag ever,no
+0000725363,CVM,Health Care,2026-06-30,2025-09-30,2025-09-30,2025-09-30,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000726728,O,Real Estate,2026-06-30,2017-03-31,2026-06-30,2017-03-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000728385,BCHT,Industrials,2026-06-30,,2020-06-30,,no debt tag ever,no
+0000731012,HCSG,Health Care,2026-09-30,,,,"debt tags at MRQ, all zero",no
+0000733269,RAMP,Technology,2026-06-30,2019-03-31,2019-03-31,2019-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000736012,INTZ,Technology,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000740260,VTR,Real Estate,2026-09-30,2025-12-31,2026-09-30,2025-12-31,unmapped total tag at MRQ (DebtLongtermAndShorttermCombinedAmount),yes
+0000740664,RFIL,Technology,2026-07-31,2024-10-31,2024-10-31,2024-10-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000742278,RES,Energy,2026-09-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000744187,REX,Materials,2026-07-31,2014-10-31,2014-10-31,2014-10-31,finance leases only at MRQ,no
+0000744218,CLDX,Health Care,2026-06-30,,,,no debt tag ever,no
+0000746210,TWAV,Technology,2026-06-30,2021-12-31,2021-12-31,2021-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000746515,EXPD,Industrials,2026-06-30,,,,no debt tag ever,no
+0000748592,ERNA,Health Care,2026-06-30,2020-12-31,2020-12-31,2020-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000749647,IMNN,Health Care,2026-06-30,2023-03-31,,2023-03-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000751364,NNN,Real Estate,2026-06-30,2026-01-15,,2026-01-15,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000751978,VICR,Technology,2026-09-30,,,,no debt tag ever,no
+0000752642,UMH,Real Estate,2026-06-30,2023-09-30,,2023-09-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000752714,MGRC,Industrials,2026-09-30,2012-12-31,,2012-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000764401,IIIN,Materials,2026-10-03,2019-03-30,,2019-03-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000766792,CVV,Industrials,2026-06-30,2025-09-30,2025-12-31,2025-09-30,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000771266,KOPN,Technology,2026-06-27,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000771856,CSBR,Health Care,2026-07-31,,,,finance leases only at MRQ,no
+0000772406,CRUS,Technology,2026-06-27,,,,"debt tags at MRQ, all zero",no
+0000779544,ARKR,Consumer Discretionary,2026-06-27,2020-10-03,,2020-10-03,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000783324,VGZ,Materials,2026-06-30,,,,no debt tag ever,no
+0000783412,DJCO,Communication,2026-06-30,2015-09-30,,2015-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000785786,PLXS,Technology,2026-07-04,2019-09-28,2019-09-28,2019-09-28,finance leases only at MRQ,no
+0000787253,NAII,Health Care,2026-06-30,2019-09-30,,2019-09-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000788611,NTRP,Industrials,2026-08-31,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000788920,PDEX,Health Care,2026-09-30,2026-06-30,2022-03-31,2026-06-30,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000789933,NC,Energy,2026-06-30,2025-12-31,2026-06-30,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000793524,REFR,Technology,2026-06-30,,,,no debt tag ever,no
+0000794170,TOL,Industrials,2026-07-31,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000795266,KBH,Industrials,2026-08-31,,,,no debt tag ever,no
+0000796505,CLFD,Technology,2026-06-30,2025-06-30,2025-06-30,2025-06-30,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000798528,OMEX,Industrials,2026-06-30,2017-12-31,,2017-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000798783,UHT,Real Estate,2026-06-30,2025-12-31,,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000799167,MRTN,Industrials,2026-06-30,2016-12-31,2010-12-31,2016-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000799292,MHO,Industrials,2026-09-30,,,,"debt tags at MRQ, all zero",no
+0000799850,CRMT,Consumer Discretionary,2026-07-31,2020-01-31,,2020-01-31,unmapped total tag at MRQ (LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities),yes
+0000803578,AIFF,Technology,2026-06-30,2021-06-30,2021-03-31,2021-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000806172,SOTK,Industrials,2026-08-31,2021-02-28,2020-11-30,2021-02-28,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000812796,SNGX,Health Care,2026-06-30,2024-12-31,,2024-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000813298,DXLG,Consumer Discretionary,2026-08-01,2021-07-31,2021-07-31,2021-07-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000813762,IEP,Energy,2026-06-30,,,,unmapped total tag at MRQ (DebtAndCapitalLeaseObligations),yes
+0000814586,LWAY,Consumer Staples,2026-06-30,2024-03-31,2023-03-31,2024-03-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000814676,CPSH,Materials,2026-06-27,2024-12-28,2021-06-26,2024-12-28,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000818033,HRTX,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000818686,TEVA,Health Care,2026-06-30,2017-12-31,2026-06-30,2017-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000822416,PHM,Industrials,2026-09-30,2025-12-31,,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000824142,AAON,Industrials,2026-06-30,,2025-12-31,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000826675,DX,Real Estate,2026-09-30,2017-06-30,,2017-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000828146,LINK,Technology,2026-06-30,,2020-12-31,,no debt tag ever,no
+0000829323,INUV,Industrials,2026-06-30,2020-12-31,2015-12-31,2020-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000832489,GOVX,Health Care,2026-06-30,,,,no debt tag ever,no
+0000832988,SIG,Consumer Discretionary,2026-08-01,2025-11-01,2025-05-03,2025-11-01,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000833079,MTH,Industrials,2026-06-30,2013-12-31,,2013-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000833640,POWI,Technology,2026-06-30,,,,no debt tag ever,no
+0000839470,WWR,Materials,2026-06-30,2013-12-31,2013-12-31,2013-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000840715,CLRO,Technology,2026-06-30,2023-12-31,2025-06-30,2023-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000846913,FTEK,Industrials,2026-06-30,2021-12-31,2020-09-30,2021-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000849146,LFVN,Health Care,2026-06-30,2019-06-30,2020-06-30,2019-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000851205,CGNX,Industrials,2026-07-05,,,,no debt tag ever,no
+0000851520,EXPO,Industrials,2026-07-03,,,,no debt tag ever,no
+0000853816,LSTR,Industrials,2026-09-26,2026-03-28,2015-09-26,2026-03-28,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000855658,LSCC,Technology,2026-07-04,2023-12-30,2022-12-31,2023-12-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000855683,MLSS,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000860731,TYL,Technology,2026-09-30,2025-12-31,2024-12-31,2025-12-31,unmapped total tag at MRQ (DebtLongtermAndShorttermCombinedAmount),yes
+0000863894,VERU,Health Care,2026-06-30,2018-12-31,,2018-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000864240,SYPR,Industrials,2026-07-05,2018-12-31,2026-07-05,2018-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000865752,MNST,Consumer Staples,2026-06-30,2025-03-31,2025-03-31,2025-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000866273,MTRX,Industrials,2026-06-30,2020-03-31,,2020-03-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000872912,DCTH,Health Care,2026-06-30,2024-12-31,,2024-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000874015,IONS,Health Care,2026-06-30,2025-12-31,2025-12-31,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000874396,LCUT,Industrials,2026-06-30,2025-12-31,2026-06-30,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000874761,AES,Utilities,2026-06-30,,,,no debt tag ever,no
+0000875320,VRTX,Health Care,2026-06-30,2011-09-30,,2011-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000875582,NTIC,Industrials,2026-05-31,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000876343,LCTX,Health Care,2026-06-30,,2015-12-31,,finance leases only at MRQ,no
+0000877860,NHI,Real Estate,2026-06-30,2016-12-31,,2016-12-31,unmapped total tag at MRQ (DebtLongtermAndShorttermCombinedAmount),yes
+0000879101,KIM,Real Estate,2026-06-30,2025-12-31,2025-12-31,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000879169,INCY,Industrials,2026-09-30,2018-12-31,2014-12-31,2018-12-31,finance leases only at MRQ,no
+0000879407,ARWR,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000880807,AMSC,Industrials,2026-06-30,2025-12-31,2025-12-31,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000880984,ACFN,Industrials,2026-06-30,2014-09-30,2020-12-31,2014-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000882184,DHI,Industrials,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000882291,AEMD,Health Care,2026-06-30,,,,no debt tag ever,no
+0000883107,SLSN,Consumer Staples,2026-06-30,2023-09-30,2023-06-30,2023-09-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000883975,MBOT,Health Care,2026-06-30,2013-06-30,2014-06-30,2013-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000884269,APT,Health Care,2026-06-30,,,,no debt tag ever,no
+0000885245,BKE,Consumer Discretionary,2026-08-01,,,,no debt tag ever,no
+0000885307,JCTC,Consumer Discretionary,2026-05-31,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000885462,GURE,Materials,2026-06-30,,2026-06-30,,current debt only at MRQ,no
+0000886206,FC,Industrials,2026-05-31,2021-08-31,2019-02-28,2021-08-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000887359,VCEL,Health Care,2026-06-30,2018-09-30,2014-09-30,2018-09-30,finance leases only at MRQ,no
+0000887396,EP,Energy,2026-06-30,2025-09-30,2026-06-30,2025-09-30,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000888491,OHI,Real Estate,2026-06-30,2025-12-31,,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000889348,CVU,Industrials,2026-06-30,2025-12-31,2025-12-31,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000889971,LPTH,Technology,2026-06-30,2025-09-30,,2025-09-30,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000890394,PRSO,Technology,2026-06-30,2017-12-31,2020-12-31,2017-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000890821,ENVB,Health Care,2026-06-30,2019-12-31,2020-03-31,2019-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000893538,SM,Energy,2026-06-30,2022-06-30,,2022-06-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000894158,TOVX,Health Care,2026-06-30,2025-12-31,2023-12-31,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000894315,SITC,Real Estate,2026-06-30,2012-12-31,2012-12-31,2012-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000894556,CITR,Materials,2026-06-30,2025-09-30,2025-09-30,2025-09-30,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000895417,ELS,Real Estate,2026-09-30,2025-12-31,,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000895447,SHOE,Consumer Discretionary,2026-08-01,2018-08-04,,2018-08-04,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000896156,ETD,Consumer Discretionary,2026-06-30,2021-06-30,2021-06-30,2021-06-30,finance leases only at MRQ,no
+0000896264,USNA,Health Care,2026-07-04,,,,"debt tags at MRQ, all zero",no
+0000897448,AMRN,Health Care,2026-09-30,2020-09-30,2021-12-31,2020-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000898437,ANIK,Health Care,2026-06-30,2020-09-30,2013-09-30,2020-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000900075,CPRT,Consumer Discretionary,2026-07-31,2024-07-31,2021-01-31,2024-07-31,finance leases only at MRQ,no
+0000902791,BBSI,Industrials,2026-06-30,2021-06-30,2015-06-30,2021-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000903651,INOD,Technology,2026-06-30,2022-12-31,2022-12-31,2022-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000906107,VMRK,Real Estate,2026-06-30,2025-12-31,2026-06-30,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000906163,NVR,Industrials,2026-06-30,2013-12-31,,2013-12-31,finance leases only at MRQ,no
+0000906709,NKTR,Health Care,2026-06-30,2015-06-30,,2015-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000907242,MCRI,Consumer Discretionary,2026-03-31,2023-12-31,2016-03-31,2023-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000907654,ORKA,Health Care,2026-06-30,,,,no debt tag ever,no
+0000908315,WINA,Consumer Discretionary,2026-09-26,2021-12-25,,2021-12-25,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000909494,TCX,Technology,2026-06-30,2025-12-31,,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000909724,TLF,Materials,2026-06-30,2022-12-31,2022-12-31,2022-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000910329,MED,Consumer Staples,2026-09-30,2013-12-31,2014-03-31,2013-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000910521,DECK,Materials,2026-09-30,,2021-03-31,,no debt tag ever,no
+0000911216,PTN,Health Care,2026-06-30,2019-06-30,,2019-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000912061,NHTC,Industrials,2026-09-30,,,,no debt tag ever,no
+0000912093,VIAV,Technology,2026-06-27,2026-03-28,2026-06-27,2026-03-28,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000912593,SUI,Real Estate,2026-09-30,2024-12-31,,2024-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000912595,MAA,Real Estate,2026-03-31,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000912615,URBN,Consumer Discretionary,2026-07-31,2020-07-31,2020-04-30,2020-07-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000913277,CLAR,Consumer Discretionary,2026-06-30,2025-12-31,2025-09-30,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000914475,NBIX,Health Care,2026-06-30,,,,no debt tag ever,no
+0000917225,XPL,Materials,2026-06-30,2014-06-30,2015-09-30,2014-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000917251,ADC,Real Estate,2026-09-30,2022-03-31,2025-03-31,2022-03-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000917273,RMBS,Technology,2026-09-30,,,,no debt tag ever,no
+0000918251,MPAA,Consumer Discretionary,2026-06-30,2018-12-31,2018-12-31,2018-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000920760,LEN,Industrials,2026-08-31,2025-11-30,,2025-11-30,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000921082,HIW,Real Estate,2026-03-31,,,,no debt tag ever,no
+0000921114,ARMP,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000921299,KYNB,Health Care,2026-06-30,2025-08-29,,2025-08-29,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000921582,IMAX,Industrials,2026-06-30,2022-03-31,,2022-03-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000921638,SSRM,Materials,2026-06-30,2026-03-31,2026-06-30,2026-03-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000921825,FR,Real Estate,2026-06-30,2018-03-31,,2018-03-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000922864,AIV,Real Estate,2026-03-31,2025-12-31,,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000923601,RIME,Technology,2026-06-30,2016-03-31,2024-09-30,2016-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000924168,EFOI,Industrials,2026-06-30,2015-12-31,2026-06-30,2015-12-31,current debt only at MRQ,no
+0000924383,GNSS,Industrials,2026-06-30,2022-09-30,2026-06-30,2022-09-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000924719,SMID,Materials,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000925528,HDSN,Industrials,2026-06-30,2023-06-30,2023-09-30,2023-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000925741,BCDA,Health Care,2026-06-30,,,,no debt tag ever,no
+0000926282,ADTN,Technology,2026-06-30,2019-12-31,2019-12-31,2019-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000926326,OMCL,Technology,2026-06-30,2020-06-30,2018-12-31,2020-06-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000926423,MIND,Industrials,2026-07-31,2018-01-31,2018-01-31,2018-01-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000928465,DIT,Industrials,2026-06-30,2025-09-30,2026-06-30,2025-09-30,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000930236,RWT,Real Estate,2026-06-30,2024-03-31,2024-03-31,2024-03-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000930420,KFRC,Industrials,2026-09-30,,2021-06-30,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000933034,STRT,Consumer Discretionary,2026-06-28,,,,"debt tags at MRQ, all zero",no
+0000933036,UPBD,Industrials,2026-06-30,2016-12-31,,2016-12-31,unmapped total tag at MRQ (DebtAndCapitalLeaseObligations),yes
+0000933972,SCWO,Industrials,2026-06-30,2021-03-31,,2021-03-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000933974,AZTA,Industrials,2026-06-30,2021-12-31,2021-03-31,2021-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000939767,EXEL,Health Care,2026-10-02,2017-12-29,2016-12-31,2017-12-29,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000944075,SCKT,Technology,2026-06-30,2020-03-31,2012-08-31,2020-03-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000945114,GIC,Industrials,2026-06-30,2016-09-30,2023-12-31,2016-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000945394,SVC,Real Estate,2026-06-30,2025-12-31,,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000945983,CLMB,Industrials,2026-09-30,2025-12-31,2026-09-30,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000946563,RVP,Health Care,2026-06-30,2025-12-31,2025-09-30,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000948320,LFMD,Health Care,2026-06-30,2025-06-30,,2025-06-30,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0000948708,SMSI,Technology,2026-06-30,2017-12-31,,2017-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000949157,CENX,Materials,2026-06-30,2023-12-31,2023-09-30,2023-12-31,unmapped total tag at MRQ (DebtLongtermAndShorttermCombinedAmount),yes
+0000949858,ACHV,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0000949870,SAM,Consumer Staples,2026-09-26,2016-12-31,2016-12-31,2016-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0000949961,IOR,Real Estate,2026-06-30,2015-09-30,,2015-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001000230,OCC,Materials,2026-07-31,2025-04-30,2025-04-30,2025-04-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001001907,ASTC,Industrials,2026-06-30,2018-06-30,2014-06-30,2018-06-30,finance leases only at MRQ,no
+0001005284,OLED,Technology,2026-09-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001005731,IDT,Communication,2026-07-31,2015-07-31,2015-07-31,2015-07-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001006045,IRIX,Health Care,2026-07-04,2024-12-28,2024-12-28,2024-12-28,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001006281,PLX,Health Care,2026-06-30,2014-12-31,,2014-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001006655,EPM,Energy,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001007019,JVA,Consumer Staples,2026-07-31,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001007587,KVHI,Communication,2026-06-30,2021-12-31,2021-12-31,2021-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001009829,JAKK,Consumer Discretionary,2026-09-30,2022-12-31,2024-06-30,2022-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001010086,SIGA,Health Care,2026-06-30,2019-09-30,2020-12-31,2019-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001013857,PEGA,Technology,2026-09-30,,,,no debt tag ever,no
+0001013880,TTEC,Industrials,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001013934,STRA,Consumer Discretionary,2026-06-30,2024-12-31,2015-06-30,2024-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001014473,VRSN,Technology,2026-09-30,2013-12-31,,2013-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001014763,AIMD,Technology,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001015383,POWW,Industrials,2026-06-30,2023-12-29,,2023-12-29,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001015739,AWRE,Technology,2026-06-30,,,,no debt tag ever,no
+0001017303,TACT,Technology,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001018840,ANF,Consumer Discretionary,2026-08-01,2025-02-01,2020-05-02,2025-02-01,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001019034,BKYI,Technology,2026-06-30,2025-06-30,2024-03-31,2025-06-30,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001020214,CERS,Health Care,2026-06-30,2016-06-30,2011-06-30,2016-06-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001022408,PLUS,Industrials,2026-06-30,2025-03-31,,2025-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001022652,INSG,Technology,2026-06-30,2019-12-31,2024-09-30,2019-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001023128,LAD,Consumer Discretionary,2026-09-30,2025-12-31,2025-12-31,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001023994,OLOX,Industrials,2026-06-30,2025-12-31,2025-09-30,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001025996,KRC,Real Estate,2026-03-31,2015-12-31,,2015-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001031235,SELF,Real Estate,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001031316,FSP,Real Estate,2026-09-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001032975,LOGI,Technology,2026-09-30,,,,no debt tag ever,no
+0001034760,WYY,Technology,2026-06-30,2018-12-31,2018-12-31,2018-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001034842,RIGL,Health Care,2026-06-30,2026-03-31,,2026-03-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001035267,ISRG,Health Care,2026-09-30,,,,no debt tag ever,no
+0001035354,ELOX,Health Care,2026-06-30,2025-12-31,2026-06-30,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001036044,INVE,Technology,2026-06-30,2018-06-30,2024-12-31,2018-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001037540,BXP,Real Estate,2026-06-30,2021-12-31,2026-06-30,2021-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001037976,JLL,Real Estate,2026-09-30,2017-03-31,2026-09-30,2017-03-31,unmapped total tag at MRQ (DebtLongtermAndShorttermCombinedAmount),yes
+0001038074,SLAB,Technology,2026-07-04,2016-12-31,2016-07-02,2016-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001040130,PETS,Consumer Discretionary,2026-06-30,,,,no debt tag ever,no
+0001040161,PXLW,Technology,2026-06-30,2018-12-31,,2018-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001040470,AEHR,Industrials,2026-05-29,2021-05-31,2022-05-31,2021-05-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001040829,RHP,Real Estate,2026-06-30,2017-12-31,2017-03-31,2017-12-31,unmapped total tag at MRQ (DebtAndCapitalLeaseObligations),yes
+0001040896,IDN,Technology,2026-06-30,,,,no debt tag ever,no
+0001040971,SLG,Real Estate,2026-03-31,2022-12-31,2016-12-31,2022-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001041859,PLCE,Consumer Discretionary,2026-08-01,2025-11-01,2026-08-01,2025-11-01,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001042187,YHGJ,Materials,2026-06-30,2023-12-31,2023-12-31,2023-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001043186,SLNG,Utilities,2026-06-30,2025-12-31,2025-12-31,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001043219,NLY,Real Estate,2026-09-30,2020-12-31,,2020-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001043337,SRI,Consumer Discretionary,2026-06-30,2025-12-31,2025-09-30,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001044777,OSPN,Technology,2026-09-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001045742,LIVE,Consumer Discretionary,2026-06-30,2023-03-31,2023-03-31,2023-03-31,finance leases only at MRQ,no
+0001046568,PRDO,Consumer Discretionary,2026-06-30,2012-12-31,2015-12-31,2012-12-31,finance leases only at MRQ,no
+0001047862,ED,Utilities,2026-03-31,2025-12-31,2026-03-31,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001048268,IESC,Industrials,2026-06-30,2026-03-31,2026-03-31,2026-03-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001048695,FFIV,Technology,2026-06-30,2022-09-30,2023-09-30,2022-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001049521,MRCY,Technology,2026-07-03,2017-03-31,2017-06-30,2017-03-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001049606,CIX,Industrials,2026-06-30,2013-06-30,2013-06-30,2013-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001050377,CNXN,Industrials,2026-09-30,,,,no debt tag ever,no
+0001050797,COLM,Consumer Discretionary,2026-06-30,,2023-09-30,,no debt tag ever,no
+0001051627,AXTI,Technology,2026-06-30,,2026-06-30,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001053691,CRVO,Health Care,2026-06-30,,2014-09-30,,no debt tag ever,no
+0001053706,CRAI,Industrials,2026-07-04,,2018-09-29,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001054905,IOSP,Materials,2026-06-30,2021-03-31,2020-12-31,2021-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001055160,MFA,Real Estate,2026-06-30,,,,no debt tag ever,no
+0001055726,INO,Health Care,2026-06-30,2019-06-30,,2019-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001056696,MANH,Technology,2026-06-30,,,,no debt tag ever,no
+0001058090,CMG,Consumer Discretionary,2026-09-30,2025-12-31,,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001058811,IMMR,Technology,2026-07-31,2026-04-30,2026-04-30,2026-04-30,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001061630,BXMT,Real Estate,2026-09-30,2024-03-31,,2024-03-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001065078,NTIP,Technology,2026-06-30,2020-06-30,,2020-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001065696,LKQ,Industrials,2026-09-30,2015-09-30,2015-09-30,2015-09-30,unmapped total tag at MRQ (DebtAndCapitalLeaseObligations),yes
+0001066194,EGAN,Technology,2026-06-30,2016-06-30,,2016-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001066764,BESS,Utilities,2026-06-30,2016-12-31,2025-12-31,2016-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001066923,FTFT,Industrials,2026-06-30,2022-06-30,2023-09-30,2022-06-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001069258,KTOS,Industrials,2026-06-28,2025-12-28,2017-12-31,2025-12-28,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001069530,FLNA,Health Care,2026-03-31,,,,no debt tag ever,no
+0001069878,TREX,Materials,2026-06-30,2012-06-30,2012-06-30,2012-06-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001069899,PAHC,Health Care,2026-06-30,2026-03-31,2026-03-31,2026-03-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001070494,ACAD,Health Care,2026-06-30,,2012-03-31,,no debt tag ever,no
+0001070750,HST,Real Estate,2026-06-30,2025-12-31,,2025-12-31,unmapped total tag at MRQ (DebtAndCapitalLeaseObligations),yes
+0001074871,MODD,Health Care,2026-06-30,,,,no debt tag ever,no
+0001075736,CXDO,Communication,2026-06-30,2025-12-31,,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001078075,NTCT,Technology,2026-06-30,2025-03-31,2012-03-31,2025-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001080340,LOAN,Real Estate,2026-09-30,2020-09-30,2026-03-31,2020-09-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001080657,SQFT,Real Estate,2026-06-30,2018-09-30,,2018-09-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001081745,INLX,Technology,2026-06-30,2022-12-31,2017-12-31,2022-12-31,finance leases only at MRQ,no
+0001082324,VHC,Technology,2026-06-30,,,,no debt tag ever,no
+0001082554,UTHR,Health Care,2026-06-30,,,,no debt tag ever,no
+0001083743,FLUX,Industrials,2026-06-30,,2020-06-30,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001084554,LTBR,Materials,2026-06-30,2017-09-30,2017-09-30,2017-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001084765,RGP,Industrials,2026-08-29,2025-05-31,,2025-05-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001084991,NGS,Energy,2026-06-30,2024-06-30,2011-12-31,2024-06-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001085243,VTSI,Consumer Discretionary,2026-06-30,2025-12-31,,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001086222,AKAM,Industrials,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001086745,FABC,Communication,2026-06-30,2021-03-31,2021-03-31,2021-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001087294,CPIX,Health Care,2026-06-30,,2025-12-31,,"debt tags at MRQ, all zero",no
+0001088856,CORT,Health Care,2026-06-30,2017-12-31,2017-12-31,2017-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001089063,DKS,Consumer Discretionary,2026-08-01,2020-02-01,2020-02-01,2020-02-01,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001092699,SPSC,Technology,2026-09-30,,,,no debt tag ever,no
+0001092796,SWBI,Industrials,2026-07-31,,,,finance leases only at MRQ,no
+0001093557,DXCM,Health Care,2026-09-30,2015-09-30,,2015-09-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001093691,PLUG,Industrials,2026-06-30,2024-09-30,2024-12-31,2024-09-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001094038,MRKR,Health Care,2026-06-30,,2012-12-31,,no debt tag ever,no
+0001095565,HSTM,Technology,2026-06-30,2015-03-31,,2015-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001095981,CNSY,Health Care,2026-06-30,2022-12-31,2024-03-31,2022-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001097149,ALGN,Health Care,2026-06-30,,,,no debt tag ever,no
+0001106644,CPHI,Health Care,2026-06-30,2021-09-30,2026-06-30,2021-09-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001107421,TCRT,Health Care,2026-06-30,2024-12-31,2023-12-31,2024-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001107843,QLYS,Technology,2026-06-30,,,,no debt tag ever,no
+0001108205,CRIS,Health Care,2026-06-30,2021-09-30,2025-12-31,2021-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001110803,ILMN,Industrials,2026-06-28,2021-01-03,2022-04-03,2021-01-03,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001111485,RXST,Health Care,2026-06-30,2023-12-31,,2023-12-31,finance leases only at MRQ,no
+0001111928,IPGP,Technology,2026-06-30,2023-03-31,2023-12-31,2023-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001113232,ACLS,Industrials,2026-06-30,2014-09-30,2014-12-31,2014-09-30,finance leases only at MRQ,no
+0001113809,BBW,Consumer Discretionary,2026-08-01,,2018-11-03,,no debt tag ever,no
+0001116463,OSUR,Health Care,2026-06-30,,2012-06-30,,finance leases only at MRQ,no
+0001117057,PLAG,Consumer Staples,2026-06-30,2025-06-30,2022-03-31,2025-06-30,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001120970,LODE,Materials,2026-06-30,2025-12-31,2025-12-31,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001121788,GRMN,Industrials,2026-09-26,,,,no debt tag ever,no
+0001122904,NTGR,Technology,2026-06-28,,,,no debt tag ever,no
+0001124105,GYRE,Health Care,2026-06-30,2014-12-31,2014-09-30,2014-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001124524,CYRX,Health Care,2026-06-30,2013-03-31,,2013-03-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001124796,LASR,Technology,2026-06-30,2021-12-31,2021-12-31,2021-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001125345,MGNX,Health Care,2026-06-30,,,,no debt tag ever,no
+0001126741,GSIT,Technology,2026-06-30,,,,no debt tag ever,no
+0001130166,BGMS,Industrials,2026-06-30,,,,no debt tag ever,no
+0001130598,TRAW,Health Care,2026-06-30,,,,no debt tag ever,no
+0001133311,TZOO,Industrials,2026-06-30,2015-09-30,,2015-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001133416,GALT,Health Care,2026-06-30,,,,no debt tag ever,no
+0001133869,CAPR,Health Care,2026-06-30,,,,no debt tag ever,no
+0001134115,THM,Materials,2026-06-30,,,,no debt tag ever,no
+0001139685,AIDX,Industrials,2026-06-30,,,,no debt tag ever,no
+0001140102,HQI,Industrials,2026-06-30,2022-06-30,,2022-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001140215,REED,Consumer Staples,2026-06-30,2018-09-30,2018-09-30,2018-09-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001141197,PED,Energy,2026-06-30,2019-12-31,,2019-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001142750,AMN,Industrials,2026-06-30,2025-12-31,2021-12-31,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001144879,APLD,Technology,2026-08-31,2022-05-31,,2022-05-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001157075,PMCB,Health Care,2026-07-31,2012-01-31,2012-01-31,2012-01-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001158324,CCOI,Communication,2026-06-30,2025-12-31,,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001158780,PLUR,Health Care,2026-06-30,2020-06-30,2012-06-30,2020-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001158895,LMAT,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001162194,LAB,Health Care,2026-06-30,2024-12-31,2012-12-31,2024-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001162896,PROP,Energy,2026-06-30,2025-06-30,2023-09-30,2025-06-30,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001169561,CVLT,Technology,2026-09-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001171155,RLGT,Industrials,2026-06-30,2024-06-30,2024-06-30,2024-06-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001172358,DMLP,Energy,2026-06-30,,,,no debt tag ever,no
+0001173204,CNVS,Communication,2026-06-30,2020-09-30,2021-06-30,2020-09-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001173313,ABVC,Health Care,2026-06-30,2020-09-30,2026-06-30,2020-09-30,current debt only at MRQ,no
+0001173420,NG,Materials,2026-08-31,2016-08-31,2015-11-30,2016-08-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001173489,CEVA,Technology,2026-06-30,,,,no debt tag ever,no
+0001174940,OGEN,Health Care,2026-06-30,,,,no debt tag ever,no
+0001176309,ORMP,Health Care,2026-06-30,2023-09-30,2024-03-31,2023-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001177609,FIVE,Consumer Discretionary,2026-08-01,,2015-01-31,,"debt tags at MRQ, all zero",no
+0001177648,ENTA,Health Care,2026-06-30,,,,no debt tag ever,no
+0001178253,SCYX,Health Care,2026-06-30,2023-03-31,2022-09-30,2023-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001178670,ALNY,Health Care,2026-09-30,2022-06-30,,2022-06-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001178697,SONM,Technology,2026-06-30,2026-03-31,2026-03-31,2026-03-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001187953,CELZ,Health Care,2026-06-30,2021-09-30,,2021-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001191070,NEUP,Health Care,2026-06-30,,,,no debt tag ever,no
+0001192448,GKOS,Health Care,2026-09-30,2016-09-30,2016-09-30,2016-09-30,finance leases only at MRQ,no
+0001196298,NEPH,Health Care,2026-06-30,2022-12-31,2010-12-31,2022-12-31,finance leases only at MRQ,no
+0001211583,FENC,Health Care,2026-06-30,2025-09-30,2022-06-30,2025-09-30,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001213037,CRDF,Health Care,2026-06-30,2017-12-31,2018-12-31,2017-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001213809,DYAI,Health Care,2026-06-30,,,,no debt tag ever,no
+0001217234,CDNA,Health Care,2026-09-30,2024-09-30,2020-12-31,2024-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001226616,MNOV,Health Care,2026-06-30,2011-09-30,2011-09-30,2011-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001231457,GNLX,Health Care,2026-06-30,,2023-12-31,,no debt tag ever,no
+0001235468,LQDT,Industrials,2026-06-30,,,,finance leases only at MRQ,no
+0001237831,GMED,Health Care,2026-06-30,,,,finance leases only at MRQ,no
+0001253689,CBIO,Health Care,2026-06-30,,,,no debt tag ever,no
+0001261333,DOCU,Technology,2026-07-31,,2021-10-31,,no debt tag ever,no
+0001263364,COPR,Materials,2026-07-31,2026-04-30,,2026-04-30,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001266806,VANI,Health Care,2026-06-30,,2021-03-31,,no debt tag ever,no
+0001267565,COLL,Health Care,2026-06-30,2019-12-31,2015-12-31,2019-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001269026,SINT,Health Care,2026-06-30,2023-06-30,2026-06-30,2023-06-30,current debt only at MRQ,no
+0001272842,AIRG,Technology,2026-06-30,,,,no debt tag ever,no
+0001275187,ANGO,Health Care,2026-08-31,2024-05-31,2020-05-31,2024-05-31,finance leases only at MRQ,no
+0001279704,CLRB,Health Care,2026-06-30,2015-12-31,,2015-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001280263,AMBA,Technology,2026-07-31,,,,no debt tag ever,no
+0001280452,MPWR,Technology,2026-06-30,,,,no debt tag ever,no
+0001280776,IMUX,Health Care,2026-06-30,,,,no debt tag ever,no
+0001281895,RCKT,Health Care,2026-06-30,,,,finance leases only at MRQ,no
+0001282224,DLPN,Consumer Discretionary,2026-06-30,2023-06-30,2026-06-30,2023-06-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001283699,TMUS,Communication,2026-09-30,2025-12-31,2026-09-30,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001285819,OMER,Health Care,2026-06-30,2025-12-31,2019-03-31,2025-12-31,unmapped total tag at MRQ (DebtLongtermAndShorttermCombinedAmount),yes
+0001286139,LZ,Technology,2026-06-30,2021-12-31,2021-12-31,2021-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001287098,MXCT,Industrials,2026-06-30,,,,no debt tag ever,no
+0001287213,PLOW,Industrials,2026-06-30,2025-12-31,2026-06-30,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001288847,FIVN,Technology,2026-06-30,2018-12-31,2018-12-31,2018-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001289340,STXS,Health Care,2026-06-30,2021-03-31,2021-03-31,2021-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001289490,EXR,Real Estate,2026-06-30,2018-09-30,2024-12-31,2018-09-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001289945,SPOK,Communication,2026-09-30,2015-12-31,2012-03-31,2015-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001294133,INGN,Health Care,2026-06-30,2016-09-30,2016-09-30,2016-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001296445,ORA,Utilities,2026-06-30,2025-12-31,2026-06-30,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001297996,DLR,Real Estate,2026-03-31,2012-03-31,,2012-03-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001298675,CUBE,Real Estate,2026-03-31,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001299130,PACB,Industrials,2026-06-30,2023-03-31,2024-12-31,2023-03-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001299969,CHCI,Real Estate,2026-06-30,2021-12-31,2020-12-31,2021-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001304492,ATEX,Communication,2026-06-30,,,,no debt tag ever,no
+0001307579,LIQT,Industrials,2026-06-30,2022-03-31,,2022-03-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001308547,DLB,Technology,2026-06-26,,,,no debt tag ever,no
+0001314052,AVXL,Health Care,2026-06-30,2016-06-30,,2016-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001314102,EYPT,Industrials,2026-06-30,2023-09-30,2023-12-31,2023-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001314196,OLB,Industrials,2026-06-30,2022-12-31,,2022-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001314727,SONO,Industrials,2026-06-27,2021-10-02,2021-10-02,2021-10-02,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001317685,ALH,Industrials,2026-06-30,,,,no debt tag ever,no
+0001317945,OFLX,Industrials,2026-06-30,,,,no debt tag ever,no
+0001318008,ZUMZ,Consumer Discretionary,2026-08-01,2014-02-01,2018-08-04,2014-02-01,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001318484,CTRN,Consumer Discretionary,2026-08-01,2020-08-01,,2020-08-01,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001320350,LNSR,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001321655,PLTR,Technology,2026-06-30,2021-12-31,,2021-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001321732,PEN,Health Care,2026-09-30,,,,finance leases only at MRQ,no
+0001321834,QCLS,Health Care,2026-06-30,,2013-12-23,,no debt tag ever,no
+0001323468,GLP,Industrials,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001325618,IRMD,Health Care,2026-06-30,,,,no debt tag ever,no
+0001325964,LWLG,Materials,2026-06-30,,,,no debt tag ever,no
+0001326110,IBRX,Health Care,2026-06-30,,2026-03-31,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001326205,IGC,Health Care,2026-06-30,2025-12-31,2025-12-31,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001326380,GME,Consumer Discretionary,2026-08-01,2026-01-31,2026-01-31,2026-01-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001327567,PANW,Technology,2026-07-31,2023-07-31,,2023-07-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001328792,TPCS,Industrials,2026-06-30,2025-03-31,2026-06-30,2025-03-31,unmapped total tag at MRQ (LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities),yes
+0001329606,CETY,Utilities,2026-06-30,2023-12-31,2026-06-30,2023-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001334325,CODA,Industrials,2026-07-31,2020-10-31,,2020-10-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001334933,UEC,Materials,2026-07-31,2022-07-31,2023-07-31,2022-07-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001335105,NMAD,Health Care,2026-06-30,,,,no debt tag ever,no
+0001337298,FF,Materials,2026-06-30,,,,no debt tag ever,no
+0001339005,FEMY,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001339688,LCU,Materials,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001339970,ATYR,Health Care,2026-06-30,2019-09-30,2020-09-30,2019-09-30,finance leases only at MRQ,no
+0001341235,ALDX,Health Care,2026-06-30,2026-03-31,2026-06-30,2026-03-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001341439,ORCL,Technology,2026-08-31,2022-05-31,2026-05-31,2022-05-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001345016,YELP,Consumer Discretionary,2026-06-30,2016-12-31,,2016-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001346830,TVRD,Health Care,2026-06-30,,,,no debt tag ever,no
+0001347178,VNDA,Health Care,2026-09-30,,,,finance leases only at MRQ,no
+0001347858,XXII,Consumer Staples,2026-06-30,2025-12-31,2025-06-30,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001348362,LEXX,Health Care,2026-05-31,,,,no debt tag ever,no
+0001349436,SD,Energy,2026-06-30,2021-12-31,2020-12-31,2021-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001350102,ASTI,Technology,2026-06-30,2020-06-30,2023-12-31,2020-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001351636,SSTI,Technology,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001354866,BYRN,Industrials,2026-08-31,2020-08-31,,2020-08-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001355839,IPM,Technology,2026-06-30,2023-06-30,2020-12-31,2023-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001355848,TOON,Communication,2026-06-30,2013-12-31,2012-12-31,2013-12-31,finance leases only at MRQ,no
+0001356115,NXDT,Real Estate,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001356576,SUPN,Health Care,2026-09-30,2022-09-30,2022-09-30,2022-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001357459,PALI,Health Care,2026-06-30,2021-12-31,2021-12-31,2021-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001357874,DTIL,Health Care,2026-06-30,2023-03-31,,2023-03-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001359931,TARA,Health Care,2026-06-30,,2021-12-31,,no debt tag ever,no
+0001360214,HROW,Health Care,2026-06-30,2026-03-31,2019-03-31,2026-03-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001360565,WFCF,Technology,2026-06-30,2020-12-31,2020-12-31,2020-12-31,finance leases only at MRQ,no
+0001361113,VRNS,Technology,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001364954,CHGG,Consumer Discretionary,2026-06-30,,,,no debt tag ever,no
+0001367083,SNOA,Health Care,2026-06-30,2022-12-31,2026-06-30,2022-12-31,current debt only at MRQ,no
+0001370053,ANAB,Health Care,2026-06-30,,,,no debt tag ever,no
+0001372514,KPRX,Health Care,2026-06-30,2021-03-31,,2021-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001373670,GRBK,Industrials,2026-09-30,2025-12-31,2013-09-30,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001374328,FTLF,Health Care,2026-06-30,2025-09-30,2025-09-30,2025-09-30,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001374339,PMN,Health Care,2026-06-30,2023-12-31,,2023-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001374690,LRMR,Health Care,2026-06-30,2019-12-31,,2019-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001375205,URG,Materials,2026-06-30,2022-09-30,2024-09-30,2022-09-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001375365,SMCI,Technology,2026-06-30,2024-03-31,2023-06-30,2024-03-31,unmapped total tag at MRQ (DebtLongtermAndShorttermCombinedAmount),yes
+0001376321,CNET,Technology,2026-06-30,,,,no debt tag ever,no
+0001377121,PTGX,Health Care,2026-06-30,2020-03-31,,2020-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001378325,CV,Health Care,2026-06-30,,,,no debt tag ever,no
+0001378950,PRTS,Consumer Discretionary,2026-07-04,2011-12-31,2012-03-31,2011-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001379006,NNVC,Health Care,2026-06-30,2018-03-31,2017-03-31,2018-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001382101,STRO,Health Care,2026-06-30,2023-12-31,2023-12-31,2023-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001382574,SCNX,Health Care,2026-06-30,2025-09-30,2014-09-30,2025-09-30,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001384101,VCYT,Health Care,2026-06-30,2021-12-31,2022-12-31,2021-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001384195,REI,Energy,2026-06-30,2016-09-30,,2016-09-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001385280,CNK,Communication,2026-03-31,2022-09-30,2022-09-30,2022-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001386301,RSSS,Industrials,2026-06-30,,,,"debt tags at MRQ, all zero",no
+0001386570,NAGE,Health Care,2026-06-30,2016-12-31,2018-12-31,2016-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001388320,ATNM,Health Care,2026-06-30,2019-12-31,,2019-12-31,finance leases only at MRQ,no
+0001388658,IRTC,Health Care,2026-06-30,2023-12-31,2022-12-31,2023-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001390478,SLS,Health Care,2026-06-30,2018-12-31,2018-12-31,2018-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001393052,VEEV,Technology,2026-07-31,,,,no debt tag ever,no
+0001393434,OCUL,Health Care,2026-06-30,2017-09-30,,2017-09-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001393584,AMWL,Industrials,2026-06-30,,,,no debt tag ever,no
+0001394056,OSS,Technology,2026-09-30,2023-06-30,2025-09-30,2023-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001395937,SNDX,Health Care,2026-06-30,,2026-06-30,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001396536,DUOT,Technology,2026-06-30,2017-09-30,,2017-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001397016,OPXS,Industrials,2026-06-28,,,,no debt tag ever,no
+0001397187,LULU,Consumer Discretionary,2026-08-02,,2026-08-02,,"debt tags at MRQ, all zero",no
+0001398805,BEEM,Industrials,2026-06-30,2017-06-30,2019-12-31,2017-06-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001400118,SGMT,Health Care,2026-06-30,,,,no debt tag ever,no
+0001401040,DMAC,Health Care,2026-06-30,,,,finance leases only at MRQ,no
+0001401914,DARE,Health Care,2026-06-30,,2025-09-30,,finance leases only at MRQ,no
+0001402328,SBFM,Health Care,2026-06-30,2021-06-30,,2021-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001403568,ULTA,Consumer Discretionary,2026-08-01,2020-08-01,2026-08-01,2020-08-01,current debt only at MRQ,no
+0001404281,ELDN,Health Care,2026-06-30,,,,"debt tags at MRQ, all zero",yes
+0001404644,NGNE,Health Care,2026-06-30,,,,finance leases only at MRQ,no
+0001404655,HUBS,Technology,2026-06-30,,,,no debt tag ever,no
+0001406666,CALX,Communication,2026-06-27,,,,no debt tag ever,no
+0001408710,FN,Technology,2026-06-26,2023-06-30,2024-06-28,2023-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001410098,CRMD,Health Care,2026-06-30,,,,no debt tag ever,no
+0001410384,QTWO,Technology,2026-09-30,2014-12-31,,2014-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001410428,XWEL,Consumer Discretionary,2026-06-30,2022-03-31,2019-06-30,2022-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001411342,EFC,Real Estate,2026-06-30,2022-12-31,,2022-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001411685,VTGN,Health Care,2026-06-30,2016-12-31,2015-03-31,2016-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001411690,BNGO,Industrials,2026-06-30,2021-12-31,2020-12-31,2021-12-31,finance leases only at MRQ,no
+0001412486,COCP,Health Care,2026-06-30,2015-12-31,2013-09-30,2015-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001417663,SNWV,Health Care,2026-06-30,2026-03-31,2026-03-31,2026-03-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001418819,IRDM,Communication,2026-09-30,2025-12-31,2025-12-31,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001419554,BBLG,Health Care,2026-09-30,,,,no debt tag ever,no
+0001419612,SEDG,Technology,2026-06-30,2014-06-30,2014-06-30,2014-06-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001419951,DTST,Technology,2026-06-30,2021-06-30,2024-03-31,2021-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001420520,ATOM,Technology,2026-06-30,,,,no debt tag ever,no
+0001420565,RNTX,Health Care,2026-06-30,,,,no debt tag ever,no
+0001420720,IBIO,Health Care,2026-06-30,,,,no debt tag ever,no
+0001421461,IPI,Materials,2026-06-30,2021-03-31,2021-12-31,2021-03-31,finance leases only at MRQ,no
+0001421517,ERII,Industrials,2026-06-30,2018-12-31,2018-12-31,2018-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001422142,WHWK,Health Care,2026-06-30,,,,no debt tag ever,no
+0001422930,PUBM,Technology,2026-06-30,,,,finance leases only at MRQ,no
+0001423689,AGNC,Real Estate,2026-09-30,,,,"debt tags at MRQ, all zero",no
+0001425205,IOVA,Health Care,2026-06-30,,,,no debt tag ever,no
+0001426800,ASMB,Health Care,2026-06-30,,2010-12-31,,no debt tag ever,no
+0001427570,HIND,Health Care,2026-06-30,2021-09-30,2024-12-31,2021-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001427925,TLPH,Health Care,2026-06-30,2022-12-31,2023-12-31,2022-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001428205,ARR,Real Estate,2026-09-30,,,,no debt tag ever,no
+0001428439,ROKU,Communication,2026-06-30,2022-12-31,2023-12-31,2022-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001429764,BLNK,Industrials,2026-06-30,2014-09-30,2013-12-31,2014-09-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001430306,TNXP,Health Care,2026-06-30,2024-12-31,2024-12-31,2024-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001433195,APPF,Technology,2026-09-30,2019-12-31,2020-12-31,2019-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001433607,NSPR,Health Care,2026-06-30,2015-12-31,2016-12-31,2015-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001434316,FATE,Health Care,2026-06-30,2019-06-30,2019-09-30,2019-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001434524,CLIR,Industrials,2026-06-30,2021-09-30,2012-04-30,2021-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001434588,LOPE,Consumer Discretionary,2026-06-30,2020-12-31,,2020-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001436208,LEGH,Materials,2026-06-30,,,,no debt tag ever,no
+0001437071,IVR,Real Estate,2026-06-30,2020-06-30,,2020-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001437226,MHH,Industrials,2026-06-30,2022-12-31,2023-12-31,2022-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001438533,TVTX,Health Care,2026-06-30,2018-09-30,,2018-09-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001439222,AGIO,Health Care,2026-06-30,,,,no debt tag ever,no
+0001441816,MDB,Technology,2026-07-31,2019-01-31,,2019-01-31,finance leases only at MRQ,no
+0001443669,PRLB,Industrials,2026-09-30,2014-12-31,2017-12-31,2014-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001444192,GRCE,Health Care,2026-06-30,,,,no debt tag ever,no
+0001445305,WK,Technology,2026-06-30,2017-12-31,2017-12-31,2017-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001446847,IRWD,Health Care,2026-06-30,2025-09-30,2022-03-31,2025-09-30,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001449792,PPSI,Industrials,2026-06-30,2020-12-31,2020-12-31,2020-12-31,finance leases only at MRQ,no
+0001450704,VIVK,Industrials,2026-06-30,,2025-06-30,,finance leases only at MRQ,no
+0001451809,SITM,Technology,2026-06-30,,2020-06-30,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001452477,SEVN,Real Estate,2026-09-30,,,,no debt tag ever,no
+0001455365,CGTX,Health Care,2026-06-30,,,,no debt tag ever,no
+0001455863,COLD,Real Estate,2026-06-30,2020-12-31,,2020-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001459200,ALRM,Technology,2026-06-30,2020-12-31,,2020-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001462056,BLZE,Technology,2026-06-30,,2023-09-30,,finance leases only at MRQ,no
+0001462223,NIXX,Technology,2026-06-30,2025-12-31,2021-06-30,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001463972,VUZI,Technology,2026-06-30,2020-09-30,2020-09-30,2020-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001464521,HTFL,Health Care,2026-06-30,,,,no debt tag ever,no
+0001465128,STWD,Real Estate,2026-06-30,2022-09-30,,2022-09-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001467623,DBX,Technology,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001467760,ARI,Real Estate,2026-06-30,2021-09-30,,2021-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001467761,FIEE,Technology,2026-06-30,2020-12-31,2021-12-31,2020-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001467858,GM,Consumer Discretionary,2026-09-30,,,,no debt tag ever,no
+0001468748,KOD,Health Care,2026-06-30,,,,no debt tag ever,no
+0001468929,NXGL,Health Care,2026-06-30,2026-03-31,2024-09-30,2026-03-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001469443,RKDA,Energy,2026-06-30,2021-12-31,2021-12-31,2021-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001472012,IMNM,Health Care,2026-06-30,2021-03-31,2021-03-31,2021-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001472091,PDSB,Health Care,2026-06-30,2016-09-30,,2016-09-30,finance leases only at MRQ,no
+0001473334,XMAX,Consumer Discretionary,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001474432,P,Technology,2026-08-02,2025-02-02,2026-02-01,2025-02-02,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001474903,BGSF,Industrials,2026-06-28,2025-12-28,2025-12-28,2025-12-28,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001476840,EXFY,Technology,2026-06-30,2024-06-30,2024-12-31,2024-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001477333,NET,Technology,2026-06-30,,2019-12-31,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001477449,TDOC,Health Care,2026-09-30,2017-03-31,2021-12-31,2017-03-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001477720,ASAN,Technology,2026-07-31,,2026-07-31,,current debt only at MRQ,no
+0001477815,SG,Consumer Discretionary,2026-06-28,,,,no debt tag ever,no
+0001477845,ANVS,Health Care,2026-06-30,,,,no debt tag ever,no
+0001479419,KALA,Health Care,2026-06-30,2025-09-30,2025-09-30,2025-09-30,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001479615,SLN,Health Care,2026-06-30,,,,no debt tag ever,no
+0001481582,RYZ,Industrials,2026-09-30,2022-03-31,2026-09-30,2022-03-31,unmapped total tag at MRQ (DebtLongtermAndShorttermCombinedAmount),yes
+0001482512,HPP,Real Estate,2026-03-31,2018-12-31,,2018-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001482981,COCO,Consumer Staples,2026-09-30,,,,no debt tag ever,no
+0001484769,FUBO,Communication,2026-06-30,2020-06-30,2021-03-31,2020-06-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001488039,ATOS,Health Care,2026-06-30,2015-09-30,,2015-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001488917,ELMD,Health Care,2026-06-30,2017-09-30,2021-12-31,2017-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001489993,MOBI,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001490161,SOWG,Consumer Staples,2026-06-30,2021-12-31,2021-12-31,2021-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001490978,SDGR,Health Care,2026-06-30,,,,no debt tag ever,no
+0001491419,LVO,Consumer Discretionary,2026-06-30,2022-03-31,2020-06-30,2022-03-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001494891,SRTS,Health Care,2026-06-30,,,,no debt tag ever,no
+0001495231,IZEA,Industrials,2026-06-30,2026-03-31,2025-12-31,2026-03-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001495320,VRA,Materials,2026-08-01,2025-11-01,2014-02-01,2025-11-01,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001495932,AGNT,Real Estate,2026-06-30,2024-03-31,2021-09-30,2024-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001497253,VIVS,Health Care,2026-06-30,,,,no debt tag ever,no
+0001500198,NMTC,Health Care,2026-06-30,2023-09-30,2024-03-31,2023-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001500217,AAT,Real Estate,2026-03-31,2025-12-31,,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001500412,AMBQ,Technology,2026-06-30,,,,no debt tag ever,no
+0001501796,AURA,Health Care,2026-06-30,,,,no debt tag ever,no
+0001501989,CTMX,Health Care,2026-06-30,2014-12-31,2014-12-31,2014-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001503274,QTRX,Industrials,2026-06-30,2021-09-30,2021-09-30,2021-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001503802,KPTI,Health Care,2026-06-30,2021-12-31,,2021-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001504776,WRBY,Health Care,2026-06-30,,,,no debt tag ever,no
+0001505155,UPLD,Technology,2026-06-30,2025-12-31,2025-12-31,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001505497,BRTX,Health Care,2026-03-31,2021-12-31,,2021-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001506251,CTXR,Health Care,2026-06-30,,2026-06-30,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001506293,PINS,Technology,2026-09-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001506492,NUWE,Health Care,2026-06-30,2016-06-30,2016-06-30,2016-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001506983,GCTK,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001507957,IPWR,Technology,2026-06-30,2013-12-31,2013-12-31,2013-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001509261,RZLT,Health Care,2026-06-30,2022-03-31,2018-12-31,2022-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001509745,CYPH,Health Care,2026-06-30,,,,no debt tag ever,no
+0001511737,UI,Technology,2026-06-30,2025-12-31,2026-06-30,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001512228,NB,Materials,2026-06-30,2020-12-31,,2020-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001512762,CHRS,Health Care,2026-06-30,2019-12-31,,2019-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001513525,ADIL,Health Care,2026-06-30,,,,no debt tag ever,no
+0001514183,SILO,Health Care,2026-06-30,,,,no debt tag ever,no
+0001514281,MITT,Real Estate,2026-06-30,2019-09-30,,2019-09-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001515673,RARE,Health Care,2026-06-30,,,,no debt tag ever,no
+0001516513,DOCS,Technology,2026-06-30,,,,no debt tag ever,no
+0001516551,SKYE,Health Care,2026-06-30,2020-09-30,2020-09-30,2020-09-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001517375,SPT,Technology,2026-06-30,2025-12-31,,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001517681,PPCB,Health Care,2026-06-30,2026-03-31,2014-12-31,2026-03-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001518461,AMPG,Technology,2026-06-30,2024-09-30,,2024-09-30,finance leases only at MRQ,no
+0001518621,ORC,Real Estate,2026-09-30,,,,no debt tag ever,no
+0001519472,SMXT,Industrials,2026-06-30,,2026-06-30,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001520358,MAMA,Consumer Staples,2026-07-31,2026-01-31,,2026-01-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001522540,MQ,Technology,2026-06-30,,,,no debt tag ever,no
+0001524025,TLYS,Consumer Discretionary,2026-08-01,,,,no debt tag ever,no
+0001524358,VAC,Real Estate,2026-06-30,,,,unmapped total tag at MRQ (DebtAndCapitalLeaseObligations),yes
+0001526113,GNL,Real Estate,2026-06-30,2017-12-31,,2017-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001526119,VSTM,Health Care,2026-06-30,2024-12-31,2018-09-30,2024-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001526243,PPTA,Materials,2026-06-30,,,,finance leases only at MRQ,no
+0001527352,NXL,Health Care,2026-06-30,,,,no debt tag ever,no
+0001527541,WHLR,Real Estate,2026-06-30,2024-03-31,,2024-03-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001527728,LNAI,Health Care,2026-06-30,2016-06-30,2017-12-31,2016-06-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001527753,PSNL,Health Care,2026-06-30,2019-06-30,2019-06-30,2019-06-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001528115,ANNX,Health Care,2026-06-30,,,,no debt tag ever,no
+0001528396,GWRE,Technology,2026-07-31,2024-07-31,,2024-07-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001528849,RH,Consumer Discretionary,2026-08-01,2022-01-29,2023-01-28,2022-01-29,unmapped total tag at MRQ (DebtLongtermAndShorttermCombinedAmount),yes
+0001529274,ALKT,Technology,2026-09-30,2023-12-31,2023-12-31,2023-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001529377,ACRE,Real Estate,2026-06-30,2025-12-31,,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001530979,HNST,Consumer Discretionary,2026-06-30,,,,no debt tag ever,no
+0001533040,PHIO,Health Care,2026-06-30,2021-12-31,,2021-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001533615,XRN,Real Estate,2026-06-30,2025-12-31,,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001533743,PCSA,Health Care,2026-06-30,2015-09-30,2018-12-31,2015-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001533924,AMPY,Energy,2026-06-30,2025-12-31,2020-09-30,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001534120,AVTX,Health Care,2026-06-30,2019-09-30,2019-09-30,2019-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001534133,CALC,Health Care,2026-06-30,,,,no debt tag ever,no
+0001534154,AUID,Technology,2026-06-30,2023-09-30,2021-12-31,2023-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001534525,XBIO,Health Care,2026-06-30,2016-08-31,2013-11-30,2016-08-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001534969,SERA,Health Care,2026-06-30,,,,no debt tag ever,no
+0001535955,LPCN,Health Care,2026-06-30,2022-03-31,2022-03-31,2022-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001537435,TGEN,Industrials,2026-06-30,,,,finance leases only at MRQ,no
+0001538379,IBTA,Industrials,2026-06-30,2025-12-31,,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001540159,EDSA,Health Care,2026-06-30,,,,no debt tag ever,no
+0001540684,ATLX,Materials,2026-06-30,2021-12-31,,2021-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001541157,AKTX,Health Care,2026-06-30,,2024-09-30,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001541401,ESRT,Real Estate,2026-06-30,2019-09-30,,2019-09-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001543418,TMQ,Materials,2026-08-31,,,,no debt tag ever,no
+0001544227,TPST,Health Care,2026-06-30,2025-03-31,2025-12-31,2025-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001544522,FRSH,Technology,2026-06-30,,,,no debt tag ever,no
+0001546296,IPDN,Technology,2026-06-30,,,,no debt tag ever,no
+0001547546,LFT,Real Estate,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001549595,NRIX,Health Care,2026-08-31,,,,no debt tag ever,no
+0001551306,PGNY,Health Care,2026-06-30,,2018-12-31,,no debt tag ever,no
+0001553079,ESBA,Real Estate,2026-06-30,2019-09-30,,2019-09-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001553643,RLMD,Health Care,2026-06-30,,,,no debt tag ever,no
+0001553788,EDVA,Consumer Staples,2026-06-30,2026-03-31,2019-12-31,2026-03-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001554818,AUUD,Technology,2026-06-30,,,,"debt tags at MRQ, all zero",no
+0001555279,MASS,Industrials,2026-06-30,2022-12-31,2021-03-31,2022-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001557746,ACRS,Health Care,2026-06-30,2021-06-30,,2021-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001557798,CIIT,Technology,2026-04-30,,2016-07-31,,no debt tag ever,no
+0001558569,ISPC,Industrials,2026-06-30,2022-09-30,2024-10-31,2022-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001559053,PRTA,Health Care,2026-06-30,,,,no debt tag ever,no
+0001560293,TNON,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001560327,RPD,Technology,2026-06-30,2015-06-30,2015-06-30,2015-06-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001560672,EARN,Real Estate,2025-03-31,,,,no debt tag ever,no
+0001561032,NHP,Real Estate,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001561550,DDOG,Technology,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001562088,DUOL,Technology,2026-06-30,,,,no debt tag ever,no
+0001562528,FBRT,Real Estate,2026-09-30,2014-12-31,,2014-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001563880,TRVI,Health Care,2026-06-30,,,,no debt tag ever,no
+0001565687,INTA,Technology,2026-09-30,2022-03-31,,2022-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001567094,CNH,Industrials,2026-06-30,2016-09-30,,2016-09-30,unmapped total tag at MRQ (DebtAndCapitalLeaseObligations),yes
+0001567264,INTS,Health Care,2026-06-30,,,,no debt tag ever,no
+0001568100,PD,Technology,2026-07-31,2026-01-31,,2026-01-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001569345,CXM,Technology,2026-07-31,2022-01-31,2022-01-31,2022-01-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001572616,GUTS,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001573221,REAL,Consumer Discretionary,2026-09-30,2018-12-31,2019-06-30,2018-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001574094,RNXT,Health Care,2026-06-30,,,,no debt tag ever,no
+0001574235,PULM,Health Care,2026-06-30,2017-06-30,2018-12-31,2017-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001575515,SFM,Consumer Staples,2026-09-27,2023-12-31,2015-03-29,2023-12-31,finance leases only at MRQ,no
+0001575793,WATT,Technology,2026-06-30,2014-03-31,2026-06-30,2014-03-31,current debt only at MRQ,no
+0001576427,CRTO,Industrials,2026-06-30,2020-12-31,2018-09-30,2020-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001576873,ABAT,Materials,2026-06-30,2024-11-30,2025-06-30,2024-11-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001576940,CCS,Industrials,2026-09-30,2015-06-30,,2015-06-30,unmapped total tag at MRQ (DebtAndCapitalLeaseObligations),yes
+0001576942,SFIX,Consumer Discretionary,2026-08-01,,,,no debt tag ever,no
+0001577445,ODYS,Technology,2026-06-30,,2017-03-31,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001577526,AI,Technology,2026-07-31,,,,no debt tag ever,no
+0001577670,LADR,Real Estate,2026-09-30,2021-09-30,,2021-09-30,unmapped total tag at MRQ (DebtAndCapitalLeaseObligations),yes
+0001578732,MMI,Real Estate,2026-06-30,,,,no debt tag ever,no
+0001579091,CART,Industrials,2026-06-30,,,,no debt tag ever,no
+0001579878,FIG,Technology,2026-06-30,,,,no debt tag ever,no
+0001580149,BIVI,Health Care,2026-06-30,2021-03-31,,2021-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001580560,FLYW,Industrials,2026-06-30,2025-09-30,,2025-09-30,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001580670,LGIH,Industrials,2026-06-30,2025-12-31,,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001581280,TWST,Health Care,2026-06-30,2020-12-31,2022-09-30,2020-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001581760,LIF,Technology,2026-06-30,2024-03-31,,2024-03-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001582313,XENE,Health Care,2026-06-30,2019-12-31,2020-03-31,2019-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001582554,MTNB,Health Care,2026-12-31,,,,no debt tag ever,no
+0001582982,CCLD,Technology,2026-06-30,2025-12-31,2017-06-30,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001583648,PVLA,Health Care,2026-06-30,,,,no debt tag ever,no
+0001583708,S,Technology,2026-07-31,2022-01-31,,2022-01-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001585521,ZM,Technology,2026-07-31,,,,no debt tag ever,no
+0001585608,JAGX,Health Care,2026-06-30,2018-06-30,2018-09-30,2018-06-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001590750,VRDN,Health Care,2026-06-30,2025-09-30,2025-06-30,2025-09-30,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001590877,RGNX,Health Care,2026-06-30,,,,no debt tag ever,no
+0001591588,GOLD,Industrials,2026-06-30,2020-03-31,2016-03-31,2020-03-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001593899,AVIR,Health Care,2026-06-30,,,,no debt tag ever,no
+0001594805,SHOP,Technology,2026-06-30,,,,no debt tag ever,no
+0001595097,CRBP,Health Care,2026-06-30,2024-03-31,2024-03-31,2024-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001595248,GNPX,Health Care,2026-06-30,,,,no debt tag ever,no
+0001595527,NYC,Real Estate,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001596532,ANET,Technology,2026-06-30,2014-06-30,2014-06-30,2014-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001597846,GRNQ,Industrials,2026-06-30,2021-03-31,2017-09-30,2021-03-31,finance leases only at MRQ,no
+0001598428,MTUS,Materials,2026-06-30,2025-09-30,2025-09-30,2025-09-30,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001598646,NERV,Health Care,2026-06-30,2015-03-31,2015-03-31,2015-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001599298,SMMT,Health Care,2026-06-30,,,,no debt tag ever,no
+0001600620,AUPH,Health Care,2026-06-30,,,,finance leases only at MRQ,no
+0001600641,DIBS,Consumer Discretionary,2026-06-30,,,,no debt tag ever,no
+0001602409,FNGR,Technology,2026-08-31,,2023-11-30,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001603015,VIA,Technology,2026-06-30,,,,no debt tag ever,no
+0001603978,AQB,Consumer Staples,2026-06-30,2026-03-31,2025-09-30,2026-03-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001604191,GRDX,Utilities,2026-06-30,2024-03-31,2024-06-30,2024-03-31,unmapped total tag at MRQ (DebtLongtermAndShorttermCombinedAmount),yes
+0001604464,ATRA,Health Care,2026-06-30,,,,no debt tag ever,no
+0001604665,WLKP,Materials,2026-06-30,,,,no debt tag ever,no
+0001604821,NTRA,Health Care,2026-06-30,2023-12-31,2026-06-30,2023-12-31,current debt only at MRQ,no
+0001604868,GRWG,Consumer Discretionary,2026-06-30,2022-12-31,2023-12-31,2022-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001607678,VKTX,Health Care,2026-09-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001607962,LFWD,Health Care,2026-06-30,2020-09-30,2020-09-30,2020-09-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001609151,WEAV,Technology,2026-06-30,2023-09-30,2023-12-31,2023-09-30,finance leases only at MRQ,no
+0001609550,INSP,Health Care,2026-06-30,2022-06-30,,2022-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001609809,MCRB,Health Care,2026-06-30,2024-06-30,,2024-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001610250,BOOT,Consumer Discretionary,2026-09-26,2016-06-25,,2016-06-25,finance leases only at MRQ,no
+0001610820,BCTX,Health Care,2026-07-31,,,,no debt tag ever,no
+0001611052,PCOR,Technology,2026-06-30,,,,finance leases only at MRQ,no
+0001611115,OMDA,Health Care,2026-06-30,2025-12-31,,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001611547,UE,Real Estate,2026-03-31,2022-12-31,,2022-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001611647,FRPT,Consumer Staples,2026-06-30,2022-06-30,2022-09-30,2022-06-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001612630,JYNT,Technology,2026-06-30,2018-09-30,,2018-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001614806,RPT,Real Estate,2026-09-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001615165,VERI,Technology,2026-06-30,2025-09-30,,2025-09-30,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001615219,DCOY,Health Care,2026-06-30,,,,no debt tag ever,no
+0001617640,Z,Industrials,2026-06-30,2021-12-31,,2021-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001617867,AMIX,Health Care,2026-06-30,2023-12-31,2024-12-31,2023-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001618732,NTNX,Technology,2026-07-31,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001619856,CRBU,Health Care,2026-06-30,,,,no debt tag ever,no
+0001620463,LONA,Health Care,2026-06-30,,,,no debt tag ever,no
+0001621221,ARTL,Health Care,2026-06-30,,,,"debt tags at MRQ, all zero",no
+0001621672,SLE,Technology,2026-06-30,,2025-12-31,,no debt tag ever,no
+0001621832,AQMS,Materials,2026-06-30,2020-12-31,,2020-12-31,finance leases only at MRQ,no
+0001622345,POLA,Industrials,2026-06-30,2023-12-31,,2023-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001623526,STOK,Health Care,2026-06-30,,,,no debt tag ever,no
+0001624326,PAVM,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001625101,PLSE,Health Care,2026-06-30,,,,no debt tag ever,no
+0001625278,NRDS,Technology,2026-06-30,2022-09-30,,2022-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001625641,LAW,Technology,2026-06-30,,,,finance leases only at MRQ,no
+0001626878,XBIT,Health Care,2026-06-30,,,,no debt tag ever,no
+0001626971,CRVS,Health Care,2026-06-30,,,,no debt tag ever,no
+0001627282,CWD,Real Estate,2026-06-30,,,,no debt tag ever,no
+0001628063,SRG,Real Estate,2026-06-30,2018-06-30,,2018-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001628171,RVMD,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001629210,PZG,Materials,2026-06-30,2022-06-30,,2022-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001630212,CHGA,Technology,2026-06-30,2023-06-30,2024-03-31,2023-06-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001630472,TRTX,Real Estate,2026-09-30,2026-03-31,,2026-03-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001630805,BW,Industrials,2026-06-30,2021-09-30,2020-12-31,2021-09-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001631574,WVE,Health Care,2026-09-30,,,,no debt tag ever,no
+0001631596,KREF,Real Estate,2026-09-30,2018-03-31,,2018-03-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001632970,AHR,Real Estate,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001633369,CAST,Technology,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001635077,ACON,Health Care,2026-06-30,,,,no debt tag ever,no
+0001635088,ROIV,Health Care,2026-06-30,2024-06-30,2024-06-30,2024-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001636282,SYRE,Health Care,2026-06-30,,,,no debt tag ever,no
+0001636651,OVID,Health Care,2026-06-30,,,,no debt tag ever,no
+0001637715,OKUR,Health Care,2026-06-30,,,,no debt tag ever,no
+0001638097,ENTX,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001638287,MTVA,Health Care,2026-06-30,,,,no debt tag ever,no
+0001638290,MCFT,Industrials,2026-06-30,2025-06-30,2025-06-30,2025-06-30,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001638826,TTAN,Technology,2026-07-31,2026-01-31,2026-01-31,2026-01-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001638911,DUKR,Industrials,2026-06-30,,,,no debt tag ever,no
+0001639438,CAVA,Consumer Discretionary,2026-07-12,,,,no debt tag ever,no
+0001639723,NAVN,Technology,2026-07-31,2026-04-30,,2026-04-30,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001640147,SNOW,Technology,2026-07-31,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001640266,VYGR,Health Care,2026-06-30,,,,no debt tag ever,no
+0001640428,EVER,Technology,2026-06-30,2018-06-30,2017-12-31,2018-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001641281,BOLT,Health Care,2026-06-30,,,,no debt tag ever,no
+0001641398,GDC,Industrials,2026-06-30,,2020-12-31,,no debt tag ever,no
+0001641631,XAIR,Health Care,2026-06-30,2024-12-31,2017-03-31,2024-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001642380,IMDX,Health Care,2026-06-30,2017-12-31,,2017-12-31,finance leases only at MRQ,no
+0001642896,IOT,Technology,2026-08-01,,,,no debt tag ever,no
+0001643303,NNDM,Technology,2024-12-31,,2024-12-31,,no debt tag ever,no
+0001643953,PRPL,Consumer Discretionary,2026-06-30,2025-12-31,2025-09-30,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001644378,RMR,Industrials,2026-06-30,2025-09-30,,2025-09-30,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001644903,YCBD,Consumer Staples,2026-06-30,2023-12-31,,2023-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001645113,NVCR,Health Care,2026-09-30,2025-12-31,2026-09-30,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001645460,CUE,Health Care,2026-06-30,2024-12-31,2025-03-31,2024-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001645469,MNPR,Health Care,2026-06-30,,,,no debt tag ever,no
+0001646188,ONDS,Technology,2026-06-30,2024-12-31,2021-09-30,2024-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001648960,MYSE,Communication,2026-06-30,2023-09-30,2023-09-30,2023-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001649094,PCVX,Health Care,2026-06-30,,,,no debt tag ever,no
+0001649096,CLPR,Real Estate,2026-06-30,2025-03-31,2023-03-31,2025-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001649744,DLTH,Consumer Discretionary,2026-08-02,2020-02-02,2020-05-03,2020-02-02,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001649989,OTLK,Health Care,2026-06-30,2020-06-30,2020-06-30,2020-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001650101,ATXG,Industrials,2026-08-24,,2026-06-30,,no debt tag ever,no
+0001650164,TOST,Technology,2026-06-30,2021-12-31,,2021-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001650696,LSF,Consumer Staples,2026-06-30,2021-09-30,,2021-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001651562,COUR,Technology,2026-06-30,,,,no debt tag ever,no
+0001651721,GIPR,Real Estate,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001652130,NTLA,Health Care,2026-06-30,,,,no debt tag ever,no
+0001652935,ACTU,Health Care,2026-06-30,,,,no debt tag ever,no
+0001653482,GTLB,Technology,2026-07-31,,,,no debt tag ever,no
+0001653909,BIRD,Technology,2026-06-30,2026-03-31,,2026-03-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001655923,ACOG,Health Care,2026-06-30,,,,no debt tag ever,no
+0001656472,CRON,Health Care,2026-06-30,,,,no debt tag ever,no
+0001657853,HTZ,Industrials,2026-03-31,2023-12-31,,2023-12-31,unmapped total tag at MRQ (DebtAndCapitalLeaseObligations),yes
+0001658551,AMLX,Health Care,2026-06-30,,,,no debt tag ever,no
+0001659617,MBRX,Health Care,2026-06-30,,,,no debt tag ever,no
+0001660134,OKTA,Technology,2026-07-31,,,,"debt tags at MRQ, all zero",no
+0001660280,TENB,Technology,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001660334,VRCA,Health Care,2026-06-30,2025-12-31,2025-12-31,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001661053,NVNO,Health Care,2026-09-30,,,,no debt tag ever,no
+0001661059,NXTC,Health Care,2026-06-30,2022-12-31,2021-06-30,2022-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001661181,ORGO,Health Care,2026-06-30,2024-09-30,,2024-09-30,finance leases only at MRQ,no
+0001661998,QTTB,Health Care,2026-06-30,,,,"debt tags at MRQ, all zero",no
+0001662579,CCCC,Health Care,2026-06-30,2023-12-31,2023-12-31,2023-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001662684,KULR,Technology,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001662774,IRLA,Health Care,2026-06-30,2025-12-31,2026-06-30,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001662991,SEZL,Industrials,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001664710,KROS,Health Care,2026-06-30,,,,no debt tag ever,no
+0001665300,PHUN,Technology,2026-06-30,2021-12-31,2024-03-31,2021-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001666134,BL,Technology,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001667011,AIP,Technology,2026-06-30,,,,no debt tag ever,no
+0001667313,ZDGE,Technology,2026-07-31,2023-10-31,2023-10-31,2023-10-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001668397,MEDP,Industrials,2026-09-30,2019-12-31,2023-12-31,2019-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001671502,QNRX,Health Care,2026-06-30,,,,no debt tag ever,no
+0001671584,APVO,Health Care,2026-06-30,2023-12-31,2022-12-31,2023-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001671927,IMCR,Health Care,2026-06-30,2024-09-30,,2024-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001671933,TTD,Technology,2026-06-30,,,,no debt tag ever,no
+0001672619,ELVN,Health Care,2026-06-30,,,,no debt tag ever,no
+0001672688,ABSI,Industrials,2026-06-30,2024-12-31,,2024-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001672909,CPHC,Consumer Discretionary,2026-06-30,2021-06-30,,2021-06-30,finance leases only at MRQ,no
+0001673358,YUMC,Consumer Discretionary,2026-06-30,,2026-06-30,,current debt only at MRQ,no
+0001673481,SEGG,Technology,2026-03-31,,2022-09-30,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001673743,HNGE,Technology,2026-06-30,,,,no debt tag ever,no
+0001673985,ASIX,Materials,2026-06-30,2022-12-31,2018-12-31,2022-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001674227,WORX,Technology,2026-06-30,,,,no debt tag ever,no
+0001674440,YYAI,Technology,2026-07-31,,,,no debt tag ever,no
+0001674632,BBNX,Health Care,2026-09-30,,,,no debt tag ever,no
+0001674930,FLGT,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001676047,NTRB,Health Care,2026-07-31,2018-01-31,2024-01-31,2018-01-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001676163,SSII,Health Care,2026-06-30,2023-12-31,2024-03-31,2023-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001676238,BRZE,Technology,2026-07-31,,,,finance leases only at MRQ,no
+0001676725,IDYA,Health Care,2026-06-30,,,,no debt tag ever,no
+0001677077,ALZN,Health Care,2026-07-31,,,,no debt tag ever,no
+0001677576,IIPR,Real Estate,2026-06-30,2025-12-31,,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001677703,CNDT,Industrials,2026-06-30,2025-12-31,2026-06-30,2025-12-31,unmapped total tag at MRQ (DebtAndCapitalLeaseObligations),no
+0001677940,BYSI,Health Care,2026-06-30,2021-12-31,2022-12-31,2021-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001678660,PRLD,Health Care,2026-06-30,,,,no debt tag ever,no
+0001679268,TUSK,Energy,2026-06-30,2024-12-31,2024-12-31,2024-12-31,finance leases only at MRQ,no
+0001679628,JUNS,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001680048,MBIO,Health Care,2026-06-30,,2020-12-31,,no debt tag ever,no
+0001680367,STTK,Health Care,2026-06-30,,,,no debt tag ever,no
+0001680378,SNES,Materials,2026-06-30,2021-03-31,2022-12-31,2021-03-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001680581,FULC,Health Care,2026-06-30,,,,no debt tag ever,no
+0001681087,TECX,Health Care,2026-06-30,2023-03-31,,2023-03-31,finance leases only at MRQ,no
+0001681682,NDRA,Health Care,2026-06-30,2024-12-31,2024-12-31,2024-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001682149,DVLT,Industrials,2026-06-30,2021-09-30,2023-09-30,2021-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001682220,SACH,Real Estate,2026-06-30,2025-03-31,,2025-03-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001689375,TRDA,Health Care,2026-06-30,,,,no debt tag ever,no
+0001689548,PRAX,Health Care,2026-06-30,,,,no debt tag ever,no
+0001689796,JBGS,Real Estate,2026-06-30,2017-06-30,,2017-06-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001690585,DNTH,Health Care,2026-06-30,,,,no debt tag ever,no
+0001691082,LBRX,Health Care,2026-06-30,,,,no debt tag ever,no
+0001692415,CODX,Health Care,2026-06-30,2018-12-31,2018-12-31,2018-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001696556,OFRM,Consumer Staples,2026-06-30,2025-12-31,,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001698530,XCUR,Health Care,2026-06-30,2021-12-31,2024-06-30,2021-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001699031,GRAL,Health Care,2026-06-30,,,,no debt tag ever,no
+0001699039,RNGR,Energy,2026-03-31,2024-12-31,2026-03-31,2024-12-31,current debt only at MRQ,no
+0001699382,PMVP,Health Care,2026-06-30,,,,no debt tag ever,no
+0001701108,SPRO,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001701478,AZTR,Health Care,2026-06-30,,,,finance leases only at MRQ,no
+0001701541,BDTX,Health Care,2026-06-30,,,,no debt tag ever,no
+0001701758,LOVE,Consumer Discretionary,2026-08-02,2021-01-31,2021-01-31,2021-01-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001701963,VS,Technology,2026-06-30,,,,no debt tag ever,no
+0001702924,WRAP,Industrials,2026-06-30,,,,no debt tag ever,no
+0001703057,ABCL,Health Care,2026-06-30,,2020-12-31,,no debt tag ever,no
+0001703644,GPMT,Real Estate,2026-06-30,,,,no debt tag ever,no
+0001703647,KRRO,Health Care,2026-06-30,2019-12-31,2023-09-30,2019-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001704287,BJDX,Health Care,2026-06-30,,,,finance leases only at MRQ,no
+0001704292,ZLAB,Health Care,2026-06-30,,2026-06-30,,current debt only at MRQ,no
+0001706431,VIR,Health Care,2026-06-30,,,,no debt tag ever,no
+0001707502,SLDB,Health Care,2026-06-30,,,,no debt tag ever,no
+0001708341,AIFA,Consumer Discretionary,2026-06-30,2020-06-30,2025-10-23,2020-06-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001708527,ELUT,Health Care,2026-06-30,2025-09-30,2025-09-30,2025-09-30,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001708599,SER,Health Care,2026-06-30,2024-09-30,,2024-09-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001709164,HBB,Industrials,2026-06-30,2025-12-31,2020-12-31,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001709628,CSAI,Technology,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001709941,BIOA,Health Care,2026-06-30,2025-12-31,2026-06-30,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001710072,EWTX,Health Care,2026-06-30,2022-09-30,2022-09-30,2022-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001711012,VAI,Industrials,2026-06-30,,2022-03-31,,no debt tag ever,no
+0001711279,KRYS,Health Care,2026-06-30,2017-08-08,,2017-08-08,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001711754,INMB,Health Care,2026-06-30,2025-06-30,2024-09-30,2025-06-30,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001711786,RKTO,Health Care,2026-06-30,,,,no debt tag ever,no
+0001712762,BIAF,Industrials,2026-06-30,,2025-09-30,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001713210,ATPC,Health Care,2026-06-30,,,,finance leases only at MRQ,no
+0001713445,RDDT,Technology,2026-06-30,,,,no debt tag ever,no
+0001713683,ZS,Technology,2026-07-31,2025-04-30,,2025-04-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001713863,RFL,Health Care,2026-07-31,,2024-03-13,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001714562,GAME,Consumer Discretionary,2026-06-30,,2025-06-30,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001714899,DNLI,Health Care,2026-06-30,,,,finance leases only at MRQ,no
+0001716621,VJET,Health Care,2026-06-30,2025-12-31,2026-03-31,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001716947,ENSC,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001717115,TEM,Technology,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001718405,HYMC,Materials,2026-09-30,2025-12-31,2025-12-31,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001718500,AXIL,Consumer Staples,2026-08-31,2026-02-28,,2026-02-28,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001719406,NRXP,Health Care,2026-06-30,2023-12-31,2023-12-31,2023-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001719714,MREO,Health Care,2026-06-30,,,,no debt tag ever,no
+0001720116,RDVT,Technology,2026-06-30,2021-12-31,2021-12-31,2021-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001720580,ACET,Health Care,2026-06-30,,,,finance leases only at MRQ,no
+0001721484,LGVN,Health Care,2026-06-30,2021-09-30,2021-09-30,2021-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001725160,ZNTL,Health Care,2026-06-30,,,,no debt tag ever,no
+0001725430,INBS,Health Care,2026-06-30,2024-04-16,,2024-04-16,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001726126,EPSN,Energy,2026-06-30,,,,no debt tag ever,no
+0001726445,SEER,Industrials,2026-06-30,,,,no debt tag ever,no
+0001728117,GOSS,Health Care,2026-06-30,2024-12-31,2024-12-31,2024-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001728328,INM,Health Care,2026-06-30,,2022-03-31,,no debt tag ever,no
+0001729427,CNSP,Health Care,2026-06-30,,2022-11-14,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001730430,KNSA,Health Care,2026-09-30,,,,no debt tag ever,no
+0001730463,AUTL,Health Care,2026-06-30,2019-12-31,,2019-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001734722,PATH,Technology,2026-07-31,,,,no debt tag ever,no
+0001734750,MOVE,Technology,2026-06-30,,,,finance leases only at MRQ,no
+0001735041,GTEC,Industrials,2026-06-30,2022-03-31,2024-03-31,2022-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001735438,MGTX,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001736243,ACXP,Health Care,2026-06-30,,,,no debt tag ever,no
+0001736297,ALAB,Technology,2026-06-30,,,,no debt tag ever,no
+0001736730,CAMP,Health Care,2026-06-30,,,,no debt tag ever,no
+0001736946,ARLO,Industrials,2026-06-28,,,,no debt tag ever,no
+0001737287,ALLO,Health Care,2026-06-30,,,,no debt tag ever,no
+0001737523,BGLC,Health Care,2026-06-30,,,,finance leases only at MRQ,no
+0001738021,CMPX,Health Care,2026-06-30,2021-12-31,2021-12-31,2021-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001739410,RLYB,Health Care,2026-09-30,,,,no debt tag ever,no
+0001740279,INAB,Health Care,2026-06-30,,,,finance leases only at MRQ,no
+0001743725,GDYN,Technology,2026-06-30,2022-03-31,,2022-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001743745,GNLN,Industrials,2026-06-30,2024-12-31,2025-02-25,2024-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001746466,EQ,Health Care,2026-06-30,2023-03-31,2023-03-31,2023-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001746618,RVLV,Consumer Discretionary,2026-06-30,,,,no debt tag ever,no
+0001748137,NEOV,Industrials,2026-06-30,2022-06-30,2026-06-30,2022-06-30,current debt only at MRQ,no
+0001750106,AEI,Real Estate,2026-06-30,2025-03-31,,2025-03-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001750149,IKT,Health Care,2026-06-30,2023-12-31,2025-12-31,2023-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001750284,OLMA,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001752828,CELU,Health Care,2026-06-30,2025-12-31,2025-06-30,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001754068,KLRS,Health Care,2026-06-30,,,,no debt tag ever,no
+0001755237,KRSA,Health Care,2026-06-30,,2022-12-31,,no debt tag ever,no
+0001756180,NCRA,Consumer Staples,2026-06-30,2025-09-30,,2025-09-30,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001756262,TMDX,Health Care,2026-06-30,2023-03-31,2026-06-30,2023-03-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001757499,SHPH,Health Care,2026-06-30,2021-12-31,,2021-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001757715,ATER,Industrials,2026-06-30,2020-09-30,,2020-09-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001758009,QUBT,Technology,2026-06-30,2022-12-31,2023-12-31,2022-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001758021,KRT,Materials,2026-06-30,2024-03-31,2026-06-30,2024-03-31,current debt only at MRQ,no
+0001758766,STEM,Technology,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001759138,CABA,Health Care,2026-06-30,,,,finance leases only at MRQ,no
+0001759425,MIRM,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001759631,HYLN,Consumer Discretionary,2026-06-30,2021-12-31,2020-12-31,2021-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001759655,PRVA,Health Care,2026-06-30,,,,no debt tag ever,no
+0001760233,GIFT,Consumer Discretionary,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001760689,MVST,Industrials,2026-06-30,2025-12-31,2026-06-30,2025-12-31,unmapped total tag at MRQ (DebtLongtermAndShorttermCombinedAmount),yes
+0001761612,BCYC,Health Care,2026-09-30,2024-06-30,2024-06-30,2024-06-30,finance leases only at MRQ,no
+0001761918,ERAS,Health Care,2026-06-30,,,,no debt tag ever,no
+0001762303,RCEL,Health Care,2026-06-30,2025-12-31,2026-06-30,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001763950,LTRN,Health Care,2026-06-30,,,,no debt tag ever,no
+0001764013,IMVT,Health Care,2026-06-30,,,,no debt tag ever,no
+0001766140,UNCY,Health Care,2026-06-30,,,,no debt tag ever,no
+0001766368,MEC,Industrials,2026-06-30,,2019-06-30,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001768224,ARCT,Health Care,2026-06-30,2025-03-31,2022-12-31,2025-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001768446,CLYM,Health Care,2026-06-30,,,,no debt tag ever,no
+0001769628,CRWV,Technology,2026-06-30,2026-03-31,2026-03-31,2026-03-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001770069,MPLT,Health Care,2026-06-30,,,,no debt tag ever,no
+0001770121,SANA,Health Care,2026-06-30,,,,no debt tag ever,no
+0001770236,MITQ,Industrials,2026-06-30,2023-03-31,2022-06-30,2023-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001770787,TXG,Industrials,2026-06-30,2020-12-31,2020-12-31,2020-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001771910,ADCT,Health Care,2023-09-30,2022-06-30,2023-09-30,2022-06-30,no debt tag ever,no
+0001772177,KRUS,Consumer Discretionary,2026-05-31,,,,no debt tag ever,no
+0001773383,DT,Technology,2026-06-30,2023-03-31,2022-09-30,2023-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001773751,HIMS,Health Care,2026-06-30,,2020-12-31,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001774857,AARD,Health Care,2026-06-30,,,,no debt tag ever,no
+0001776111,MBX,Health Care,2026-06-30,,,,no debt tag ever,no
+0001776909,CURI,Communication,2026-06-30,,,,no debt tag ever,no
+0001777319,CISO,Industrials,2026-06-30,2025-12-31,2026-06-30,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001777921,AVPT,Technology,2026-06-30,,,,no debt tag ever,no
+0001778922,SGP,Health Care,2026-06-30,,,,no debt tag ever,no
+0001779128,SRTA,Health Care,2026-06-30,2022-12-31,,2022-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001779372,BEAT,Health Care,2026-06-30,,,,no debt tag ever,no
+0001780201,LVLU,Consumer Discretionary,2026-06-28,2023-01-01,2021-10-03,2023-01-01,finance leases only at MRQ,no
+0001781162,MNTS,Industrials,2026-06-30,,,,"debt tags at MRQ, all zero",no
+0001781174,ACRV,Health Care,2026-06-30,,,,no debt tag ever,no
+0001781983,APRE,Health Care,2026-06-30,,,,no debt tag ever,no
+0001782107,ONCO,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001782223,PYXS,Health Care,2026-06-30,,,,no debt tag ever,no
+0001782303,BOLD,Health Care,2026-06-30,,,,no debt tag ever,no
+0001784970,NXTT,Technology,2026-06-30,,2026-06-30,,current debt only at MRQ,no
+0001785056,TRNR,Industrials,2026-06-30,2025-09-30,2025-09-30,2025-09-30,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001785279,MGX,Health Care,2026-06-30,,,,no debt tag ever,no
+0001785424,KPLT,Industrials,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001785530,HOWL,Health Care,2026-06-30,2026-03-31,,2026-03-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001786248,NREF,Real Estate,2026-06-30,2025-12-31,,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001786471,SEV,Consumer Discretionary,2026-06-30,,,,no debt tag ever,no
+0001787297,PASG,Health Care,2026-06-30,,,,no debt tag ever,no
+0001787400,NKTX,Health Care,2026-06-30,,,,no debt tag ever,no
+0001787518,DFNS,Industrials,2026-06-30,2026-03-31,2026-06-30,2026-03-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001787740,VBIO,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001788028,JSPR,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001788060,VOYG,Industrials,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001789029,AEVA,Consumer Discretionary,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001789192,NXTS,Health Care,2026-06-30,2021-12-31,2026-06-30,2021-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001789769,TIL,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001789972,CGEM,Health Care,2026-06-30,,,,no debt tag ever,no
+0001790340,IMRX,Health Care,2026-09-30,,,,no debt tag ever,no
+0001792789,DASH,Industrials,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001793659,RSI,Consumer Discretionary,2026-09-30,,,,finance leases only at MRQ,no
+0001795091,OSTX,Health Care,2026-06-30,,2024-06-30,,no debt tag ever,no
+0001796280,ORIC,Health Care,2026-06-30,2021-12-31,,2021-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001798562,TMC,Materials,2026-06-30,,2025-06-30,,"debt tags at MRQ, all zero",no
+0001798749,JBIO,Health Care,2026-06-30,,,,no debt tag ever,no
+0001799011,LUCD,Health Care,2026-06-30,2021-09-30,,2021-09-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001799448,ALGS,Health Care,2026-06-30,,,,finance leases only at MRQ,no
+0001799788,GLSI,Health Care,2026-06-30,,,,no debt tag ever,no
+0001800315,DMRA,Health Care,2026-06-30,,,,no debt tag ever,no
+0001800667,FROG,Technology,2026-06-30,,,,no debt tag ever,no
+0001801169,OPEN,Real Estate,2026-06-30,2021-06-30,2021-06-30,2021-06-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001804176,BFLY,Health Care,2026-09-30,,,,no debt tag ever,no
+0001805651,MKTW,Technology,2026-06-30,2024-03-31,2021-06-30,2024-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001806952,LYEL,Health Care,2026-06-30,,,,no debt tag ever,no
+0001807120,DSGN,Health Care,2026-06-30,,,,no debt tag ever,no
+0001807166,AMST,Technology,2026-06-30,,,,no debt tag ever,no
+0001807794,CRDO,Technology,2026-08-01,,,,no debt tag ever,no
+0001807887,LASE,Industrials,2026-06-30,2020-09-30,,2020-09-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001808377,LUCY,Health Care,2026-06-30,,,,no debt tag ever,no
+0001808805,NAUT,Industrials,2026-09-30,,,,no debt tag ever,no
+0001808898,BNTC,Health Care,2026-06-30,,,,no debt tag ever,no
+0001808997,AOUT,Consumer Discretionary,2026-07-31,,,,no debt tag ever,no
+0001810560,REVB,Health Care,2026-06-30,,,,no debt tag ever,no
+0001810806,U,Technology,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001811074,TPL,Energy,2026-06-30,,,,"debt tags at MRQ, all zero",no
+0001811414,QS,Industrials,2026-09-30,,,,finance leases only at MRQ,no
+0001811935,PTRN,Consumer Discretionary,2026-06-30,,,,no debt tag ever,no
+0001812364,RLAY,Health Care,2026-06-30,,,,no debt tag ever,no
+0001812447,SKYQ,Industrials,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001814114,OBIO,Health Care,2026-06-30,2026-03-31,,2026-03-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001815442,KYMR,Health Care,2026-09-30,,,,finance leases only at MRQ,no
+0001815776,LENZ,Health Care,2026-06-30,,,,no debt tag ever,no
+0001816017,SPIR,Communication,2026-06-30,2025-03-31,2025-12-31,2025-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001816431,QSI,Industrials,2026-06-30,,,,no debt tag ever,no
+0001816581,OUST,Industrials,2026-06-30,2024-12-31,,2024-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001817004,NXXT,Consumer Discretionary,2026-06-30,2024-12-31,,2024-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001817229,VOR,Health Care,2026-06-30,,,,no debt tag ever,no
+0001817241,ARTV,Health Care,2026-06-30,,,,no debt tag ever,no
+0001817713,JANX,Health Care,2026-06-30,,,,no debt tag ever,no
+0001817760,SMTK,Technology,2026-06-30,2021-03-31,2021-03-31,2021-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001818093,SKIN,Health Care,2026-06-30,2025-09-30,,2025-09-30,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001818274,ARAI,Industrials,2026-08-13,,,,no debt tag ever,no
+0001818644,LIDR,Consumer Discretionary,2026-06-30,2022-12-31,2022-12-31,2022-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001818844,DWTX,Health Care,2026-06-30,,,,no debt tag ever,no
+0001819133,TNGX,Health Care,2026-06-30,,,,no debt tag ever,no
+0001819142,SES,Industrials,2026-06-30,,2026-06-30,,current debt only at MRQ,no
+0001819493,XOS,Consumer Discretionary,2026-06-30,,2026-06-30,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001819574,BARK,Consumer Discretionary,2026-06-30,2026-03-31,2026-03-31,2026-03-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001819576,LQDA,Health Care,2026-06-30,2022-12-31,2020-12-31,2022-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001819928,DV,Technology,2026-06-30,2021-03-31,,2021-03-31,finance leases only at MRQ,no
+0001820190,SCLX,Health Care,2026-06-30,2022-12-31,2026-06-30,2022-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001820875,CXAI,Technology,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001821175,MSGM,Technology,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001821769,NVTS,Technology,2026-06-30,2022-12-31,2022-12-31,2022-12-31,finance leases only at MRQ,no
+0001822462,FHTX,Health Care,2026-06-30,2021-12-31,2021-03-31,2021-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001822523,AFCG,Unclassified,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001822966,SMR,Industrials,2026-06-30,,,,no debt tag ever,no
+0001823584,AENT,Industrials,2026-06-30,,2024-12-31,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001823587,SKYH,Real Estate,2026-06-30,2025-12-31,,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001823878,MYPS,Technology,2026-06-30,,,,no debt tag ever,no
+0001824293,GRI,Health Care,2026-06-30,,,,no debt tag ever,no
+0001824893,SRZN,Health Care,2026-06-30,,,,no debt tag ever,no
+0001824920,IONQ,Technology,2026-06-30,,,,no debt tag ever,no
+0001825024,OPAD,Real Estate,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001825452,ONFO,Technology,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001826011,PARA,Technology,2026-06-30,,,,no debt tag ever,no
+0001826457,GLUE,Health Care,2026-06-30,,,,no debt tag ever,no
+0001826470,WOOF,Consumer Discretionary,2026-08-01,2026-01-31,2026-08-01,2026-01-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001826660,WETH,Technology,2026-06-30,,,,no debt tag ever,no
+0001826681,PDYN,Technology,2026-06-30,,,,no debt tag ever,no
+0001827635,MANE,Health Care,2026-06-30,,,,no debt tag ever,no
+0001828108,AUR,Technology,2026-09-30,,,,no debt tag ever,no
+0001828673,HCWB,Health Care,2026-06-30,2025-12-31,2026-06-30,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001828805,ALMU,Technology,2026-06-30,2023-06-30,2024-08-31,2023-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001828962,CRCT,Industrials,2026-06-30,,,,no debt tag ever,no
+0001829247,BFRG,Health Care,2026-06-30,,2025-09-30,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001829635,RNAZ,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001829802,FTH,Health Care,2026-06-30,2021-06-30,,2021-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001830033,PCT,Materials,2026-06-30,2023-03-31,2024-12-31,2023-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001830072,IPW,Consumer Discretionary,2026-06-30,2021-12-31,2025-12-31,2021-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001830081,RUM,Technology,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001830214,DNA,Health Care,2026-06-30,,,,no debt tag ever,no
+0001831096,GEGGL,Technology,2026-06-30,,2021-03-31,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001831651,SHLS,Technology,2026-06-30,2025-09-30,2025-09-30,2025-09-30,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001831868,ICU,Health Care,2026-06-30,2024-09-30,2024-12-31,2024-09-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001831915,CTKB,Industrials,2026-06-30,,,,no debt tag ever,no
+0001832038,IVVD,Health Care,2026-06-30,,,,no debt tag ever,no
+0001832483,SERV,Industrials,2026-06-30,,,,no debt tag ever,no
+0001833214,SABS,Health Care,2026-06-30,,,,finance leases only at MRQ,no
+0001834105,IBO,Health Care,2026-06-30,,2023-09-30,,no debt tag ever,no
+0001835022,COYA,Health Care,2026-06-30,,,,no debt tag ever,no
+0001835268,CNTB,Health Care,2026-06-30,,,,no debt tag ever,no
+0001835579,IMA,Health Care,2026-06-30,,2025-12-31,,no debt tag ever,no
+0001835597,PEPG,Health Care,2026-06-30,,,,no debt tag ever,no
+0001835830,KVYO,Technology,2026-06-30,,,,no debt tag ever,no
+0001836833,PL,Technology,2026-07-31,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001837014,SMRT,Technology,2026-06-30,,2021-09-30,,no debt tag ever,no
+0001837240,SYM,Industrials,2026-06-27,,,,no debt tag ever,no
+0001837607,AEON,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001838359,RGTI,Technology,2026-06-30,2024-12-31,2024-12-31,2024-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001839970,BLSM,Health Care,2026-06-30,,,,no debt tag ever,no
+0001840229,INKT,Health Care,2026-06-30,,,,no debt tag ever,no
+0001840233,XLO,Health Care,2026-06-30,,,,no debt tag ever,no
+0001840439,BMEA,Health Care,2026-06-30,,,,no debt tag ever,no
+0001840563,ELAB,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001840856,SOUN,Technology,2026-06-30,2024-12-31,2024-06-30,2024-12-31,finance leases only at MRQ,no
+0001840877,COCH,Health Care,2026-06-30,,,,no debt tag ever,no
+0001841156,PAY,Industrials,2026-06-30,,,,no debt tag ever,no
+0001841330,KTTA,Health Care,2026-06-30,,,,no debt tag ever,no
+0001841387,CADL,Health Care,2026-06-30,2024-12-31,2025-12-31,2024-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001841425,VGAS,Materials,2026-06-30,,,,no debt tag ever,no
+0001842566,AISP,Technology,2026-06-30,2023-12-31,2025-12-31,2023-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001842952,CNTX,Health Care,2026-06-30,,,,no debt tag ever,no
+0001843656,RMCO,Technology,2026-06-30,2025-06-30,,2025-06-30,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001843724,LNZA,Materials,2026-06-30,2024-06-30,,2024-06-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001844417,ESLA,Health Care,2026-06-30,,,,no debt tag ever,no
+0001844862,SLDP,Industrials,2026-06-30,2022-12-31,2022-12-31,2022-12-31,finance leases only at MRQ,no
+0001845123,ANNA,Energy,2026-06-30,,,,no debt tag ever,no
+0001845437,NPWR,Industrials,2026-06-30,,,,finance leases only at MRQ,no
+0001845815,PAYO,Industrials,2026-06-30,2024-03-31,2020-12-31,2024-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001846069,NXDR,Technology,2026-06-30,,,,no debt tag ever,no
+0001846253,OABI,Industrials,2026-06-30,,,,no debt tag ever,no
+0001846576,FIGS,Consumer Discretionary,2026-06-30,,,,no debt tag ever,no
+0001847064,PSQH,Industrials,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001847345,ASBP,Health Care,2026-06-30,,,,no debt tag ever,no
+0001847367,ALMS,Health Care,2026-06-30,,,,no debt tag ever,no
+0001850119,IPSC,Health Care,2026-06-30,2023-03-31,2023-03-31,2023-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001851484,CTOR,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001851491,AMSS,Consumer Staples,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001852131,NXT,Technology,2026-07-03,2025-03-31,2025-03-31,2025-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001852353,DC,Materials,2026-06-30,,,,finance leases only at MRQ,no
+0001852973,BRLS,Consumer Staples,2026-03-31,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001853070,SOAR,Industrials,2026-06-30,,,,no debt tag ever,no
+0001853816,DRMA,Health Care,2026-06-30,,2021-12-31,,no debt tag ever,no
+0001853825,DTCX,Technology,2026-06-30,,,,no debt tag ever,no
+0001853921,SCTX,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001854139,ZVIA,Consumer Staples,2026-06-30,,,,no debt tag ever,no
+0001854270,SNTI,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001854445,BTLN,Technology,2026-06-30,,,,no debt tag ever,no
+0001855175,CTNM,Health Care,2026-06-30,,,,no debt tag ever,no
+0001855474,AIRJ,Industrials,2026-06-30,,,,no debt tag ever,no
+0001855644,ZURA,Health Care,2026-09-30,,,,no debt tag ever,no
+0001855747,BLND,Technology,2026-06-30,2025-12-31,,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001856725,RANI,Health Care,2026-06-30,2025-12-31,2025-12-31,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001857044,INDP,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001857816,GCT,Consumer Discretionary,2026-06-30,2023-12-31,2023-12-31,2023-12-31,finance leases only at MRQ,no
+0001857853,COOK,Industrials,2026-06-30,2025-12-31,2025-12-31,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001858685,BFRI,Health Care,2026-06-30,,2024-06-30,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001858848,TNYA,Health Care,2026-06-30,,,,no debt tag ever,no
+0001859199,AIRE,Real Estate,2026-06-30,2025-06-30,2025-06-30,2025-06-30,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001859807,PFSA,Health Care,2026-06-30,2023-09-30,2023-12-31,2023-09-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001860160,FLY,Industrials,2026-06-30,2025-06-30,2026-06-30,2025-06-30,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001860657,ALLR,Health Care,2026-06-30,2023-12-31,2026-06-30,2023-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001860871,TVGN,Health Care,2026-06-30,,2022-12-31,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001861107,CBLL,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001861123,EIKN,Health Care,2026-06-30,,,,no debt tag ever,no
+0001861622,JTAI,Industrials,2026-06-30,,,,no debt tag ever,no
+0001862150,CING,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001862463,AMOD,Technology,2026-06-30,,,,"debt tags at MRQ, all zero",no
+0001863127,TYRA,Health Care,2026-06-30,,,,no debt tag ever,no
+0001863990,MSAI,Industrials,2026-06-30,2024-06-30,,2024-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001864943,FGI,Industrials,2026-06-30,,2026-06-30,,current debt only at MRQ,no
+0001865200,ANGX,Communication,2026-06-30,2025-12-31,,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001865631,NN,Industrials,2026-06-30,2026-03-31,,2026-03-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001866692,AMPL,Technology,2026-06-30,,,,no debt tag ever,no
+0001866757,BRLT,Consumer Discretionary,2026-06-30,2025-12-31,2025-12-31,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001868279,AVBP,Health Care,2026-06-30,,,,no debt tag ever,no
+0001868419,CYCU,Technology,2026-06-30,,2024-06-30,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001868941,FLNC,Industrials,2026-06-30,2024-09-30,2025-09-30,2024-09-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001869105,BBOT,Health Care,2026-06-30,,,,no debt tag ever,no
+0001870144,CDIO,Health Care,2026-06-30,,,,no debt tag ever,no
+0001871638,BZAI,Technology,2026-06-30,,,,no debt tag ever,no
+0001872525,SWAG,Industrials,2026-06-30,2023-06-30,2023-06-30,2023-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001873835,IMMX,Health Care,2026-06-30,,,,no debt tag ever,no
+0001873875,IXHL,Health Care,2026-06-30,2024-12-31,2025-03-31,2024-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001873951,XZO,Technology,2026-06-30,,,,no debt tag ever,no
+0001874097,CYN,Technology,2026-06-30,,2022-06-30,,no debt tag ever,no
+0001874252,QUCY,Health Care,2025-06-30,,2023-09-30,,no debt tag ever,no
+0001874315,SATL,Technology,2026-06-30,2024-06-30,2024-06-30,2024-06-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001874875,HOUR,Consumer Discretionary,2026-06-30,2020-12-31,2020-12-31,2020-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001875444,ARHS,Consumer Discretionary,2026-06-30,,,,finance leases only at MRQ,no
+0001875558,NVCT,Health Care,2026-06-30,,,,no debt tag ever,no
+0001877939,CTM,Industrials,2026-06-30,2024-12-31,2023-09-30,2024-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001878313,MAIA,Health Care,2026-06-30,2022-06-30,,2022-06-30,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001878897,DOUG,Real Estate,2026-06-30,2025-12-31,2022-12-31,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001879016,IE,Materials,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001879726,SIDU,Communication,2026-06-30,,,,no debt tag ever,no
+0001880438,ANTX,Health Care,2026-06-30,,,,no debt tag ever,no
+0001881551,STI,Industrials,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001882782,ODTX,Health Care,2026-06-30,,,,no debt tag ever,no
+0001883685,DKNG,Consumer Discretionary,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001888886,GPCR,Health Care,2026-06-30,,,,no debt tag ever,no
+0001891027,MNTN,Industrials,2026-06-30,,,,no debt tag ever,no
+0001892322,HTCR,Technology,2026-06-30,2026-03-31,2026-03-31,2026-03-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001892704,FBDT,Industrials,2026-06-30,,,,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001894525,APUS,Health Care,2026-06-30,,2024-07-19,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001894562,PRME,Health Care,2026-06-30,,,,no debt tag ever,no
+0001895618,GXAI,Technology,2026-06-30,,,,no debt tag ever,no
+0001896212,CDT,Health Care,2026-06-30,,,,no debt tag ever,no
+0001897245,ESYN,Industrials,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001898766,TPET,Energy,2026-07-31,,2024-07-31,,no debt tag ever,no
+0001899287,AMPX,Industrials,2026-06-30,,,,no debt tag ever,no
+0001902314,MPTI,Technology,2026-06-30,2023-03-31,,2023-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001903784,VOGX,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001904286,MIRA,Health Care,2026-06-30,,,,no debt tag ever,no
+0001905956,TGL,Industrials,2026-06-30,,2025-02-28,,no debt tag ever,no
+0001906364,BXBL,Industrials,2026-06-30,,,,no debt tag ever,no
+0001907108,LXEO,Health Care,2026-06-30,,,,finance leases only at MRQ,no
+0001907223,GRML,Health Care,2026-06-30,,2022-11-30,,no debt tag ever,no
+0001910139,MBLY,Technology,2026-09-26,,,,no debt tag ever,no
+0001911545,GITS,Technology,2026-06-30,,2024-09-30,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001918102,FISN,Utilities,2026-06-30,,,,no debt tag ever,no
+0001918414,NBRG,Technology,2026-06-30,,,,no debt tag ever,no
+0001919246,PTHS,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001923891,NNE,Utilities,2026-06-30,,,,no debt tag ever,no
+0001927958,AIRO,Industrials,2026-06-30,2026-03-31,2026-06-30,2026-03-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001933567,NRXS,Health Care,2026-06-30,2022-12-31,2026-06-30,2022-12-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001934245,NWTG,Consumer Discretionary,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001935979,BHVN,Health Care,2026-09-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001936258,NAMS,Health Care,2026-06-30,,,,no debt tag ever,no
+0001937653,ZYME,Health Care,2026-06-30,,,,no debt tag ever,no
+0001937891,AMCI,Consumer Discretionary,2026-06-30,,2024-12-31,,no debt tag ever,no
+0001937993,CVKD,Health Care,2026-06-30,,2022-12-31,,no debt tag ever,no
+0001938046,MGRX,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001940177,PODC,Technology,2026-06-30,,,,no debt tag ever,no
+0001941029,ADVB,Health Care,2026-06-30,,,,no debt tag ever,no
+0001943289,SVCO,Technology,2026-06-30,2024-03-31,,2024-03-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001943896,RBRK,Technology,2026-07-31,2025-04-30,,2025-04-30,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001944048,KVUE,Consumer Staples,2026-06-28,2023-12-31,2026-06-28,2023-12-31,unmapped total tag at MRQ (DebtLongtermAndShorttermCombinedAmount/LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities),yes
+0001944558,VTS,Energy,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001947016,FJET,Industrials,2026-06-30,,,,no debt tag ever,no
+0001947210,ROLR,Consumer Discretionary,2026-06-30,,,,no debt tag ever,no
+0001947244,USGO,Materials,2026-06-30,,,,no debt tag ever,no
+0001948455,ISPR,Consumer Staples,2026-06-30,,,,no debt tag ever,no
+0001952853,MAMO,Consumer Discretionary,2026-06-30,,2024-06-30,,finance leases only at MRQ,no
+0001952976,NLOP,Real Estate,2026-06-30,2025-12-31,,2025-12-31,unmapped total tag at MRQ (DebtLongtermAndShorttermCombinedAmount),yes
+0001953926,ZBIO,Health Care,2026-06-30,2025-12-31,,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001956439,ENHA,Consumer Discretionary,2026-06-30,,,,no debt tag ever,no
+0001956955,UMAC,Technology,2026-06-30,,,,no debt tag ever,no
+0001958777,FBLG,Health Care,2026-06-30,,2022-10-31,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001960355,EXYN,Technology,2026-08-19,2026-06-30,,2026-06-30,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001961847,INHD,Consumer Discretionary,2026-06-30,,2026-06-30,,current debt only at MRQ,no
+0001962011,KAPA,Health Care,2026-06-30,,,,no debt tag ever,no
+0001966983,LAC,Materials,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001970622,USAR,Materials,2026-06-30,,,,finance leases only at MRQ,no
+0001971387,LIMN,Health Care,2026-06-30,,2026-06-30,,current debt only at MRQ,no
+0001971532,TELO,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001972234,VHUB,Industrials,2026-06-30,,,,no debt tag ever,no
+0001972529,BTOC,Industrials,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001973062,VIDA,Technology,2026-06-30,,,,no debt tag ever,no
+0001979414,NTHI,Health Care,2026-06-30,,,,no debt tag ever,no
+0001980845,ENGN,Health Care,2026-07-31,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001981792,HHH,Real Estate,2026-06-30,2025-12-31,2023-12-31,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001982518,SDHC,Industrials,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001983736,GOAI,Technology,2026-06-30,2026-03-31,,2026-03-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001984086,SEPN,Health Care,2026-06-30,,,,no debt tag ever,no
+0001994214,NOMA,Consumer Discretionary,2026-06-30,2024-12-31,,2024-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001996192,QNME,Industrials,2026-06-30,2025-12-31,,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0001997296,MDCX,Health Care,2026-06-30,,2026-03-31,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0001997859,WBTN,Communication,2026-06-30,2024-12-31,2024-12-31,2024-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0001998781,IBAC,Industrials,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0002000775,BKHA,Health Care,2026-08-31,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0002007825,INFQ,Technology,2026-06-30,,,,no debt tag ever,no
+0002009312,PUSA,Consumer Discretionary,2026-06-30,2024-12-31,2024-12-31,2024-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0002010653,FVN,Technology,2026-06-30,,,,no debt tag ever,no
+0002010788,EXOZ,Health Care,2026-06-30,,,,finance leases only at MRQ,no
+0002012593,RAPP,Health Care,2026-06-30,,,,no debt tag ever,no
+0002012706,SUNS,Real Estate,2026-06-30,,,,no debt tag ever,no
+0002017206,MRP,Real Estate,2026-06-30,,,,unmapped total tag at MRQ (DebtLongtermAndShorttermCombinedAmount),yes
+0002017526,FRNM,Health Care,2026-06-30,,,,no debt tag ever,no
+0002017758,LHAI,Real Estate,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0002018064,TTGT,Communication,2026-06-30,2024-12-31,,2024-12-31,"mapped debt only more than a year before MRQ (paid off, or stopped tagging)",no
+0002019793,SAFX,Materials,2026-06-30,2026-03-31,2025-12-31,2026-03-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0002019804,IMSR,Industrials,2026-06-30,,2024-06-30,,finance leases only at MRQ,no
+0002020737,CABR,Consumer Staples,2026-06-30,2025-12-31,2025-09-30,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0002022308,KIDZ,Consumer Discretionary,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0002022416,SLXN,Health Care,2026-06-30,,,,no debt tag ever,no
+0002022626,UPB,Health Care,2026-06-30,,,,no debt tag ever,no
+0002023658,BCAX,Health Care,2026-06-30,,,,no debt tag ever,no
+0002023730,HDRN,Utilities,2026-06-30,,,,no debt tag ever,no
+0002025942,CURX,Health Care,2026-06-30,,,,no debt tag ever,no
+0002026353,ATHR,Technology,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0002026478,NMAX,Communication,2026-06-30,,,,finance leases only at MRQ,no
+0002026767,ALIS,Technology,2026-06-30,,,,no debt tag ever,no
+0002028027,NTWO,Industrials,2026-06-30,,,,no debt tag ever,no
+0002028336,NUAI,Energy,2026-06-30,2025-03-31,2025-03-31,2025-03-31,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0002029118,INR,Energy,2026-06-30,2025-12-31,2025-03-31,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0002030522,MWYN,Industrials,2026-07-31,2025-07-31,2025-07-31,2025-07-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0002030617,PMI,Health Care,2026-06-30,,2025-05-05,,finance leases only at MRQ,no
+0002030781,SAIL,Technology,2026-07-31,2026-01-31,,2026-01-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0002030954,XHLD,Industrials,2026-06-30,,2025-09-30,,no debt tag ever,no
+0002032341,CYAB,Technology,2026-06-30,,2026-06-30,,current debt only at MRQ,no
+0002032545,CJMB,Industrials,2026-06-30,,2024-12-31,,no debt tag ever,no
+0002033770,DAIC,Technology,2026-06-30,,2026-06-30,,current debt only at MRQ,no
+0002035832,AKTS,Health Care,2026-06-30,,,,no debt tag ever,no
+0002036042,SION,Health Care,2026-06-30,,,,no debt tag ever,no
+0002038439,VWAV,Technology,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0002039273,JAGU,Materials,2026-06-30,,,,no debt tag ever,no
+0002040127,KRMN,Industrials,2026-06-30,,2026-06-30,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0002042347,SPTX,Health Care,2026-06-30,,,,no debt tag ever,no
+0002044725,EVMN,Health Care,2026-06-30,,,,finance leases only at MRQ,no
+0002049662,FAC,Industrials,2026-06-30,,,,"debt tags at MRQ, all zero",no
+0002051985,IRHO,Industrials,2026-08-31,,,,no debt tag ever,no
+0002053641,ETS,Industrials,2026-08-31,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0002053927,WTG,Technology,2026-06-30,,,,no debt tag ever,no
+0002056611,LTGO,Health Care,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0002058707,ATTO,Health Care,2026-06-30,,,,no debt tag ever,no
+0002062583,MMED,Health Care,2026-07-31,,,,no debt tag ever,no
+0002063196,NTSK,Technology,2026-07-31,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0002063863,ELWT,Communication,2026-06-30,2025-12-31,2025-12-31,2025-12-31,"mapped non-current debt in the last year, not at MRQ (10-K only / dimensional in 10-Qs)",no
+0002066836,CNXU,Health Care,2026-07-31,,,,no debt tag ever,no
+0002067592,MKLY,Technology,2026-06-30,,,,no debt tag ever,no
+0002067627,NKLR,Industrials,2026-06-30,,,,no debt tag ever,no
+0002068385,SHAZ,Technology,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0002075320,PLYX,Health Care,2026-06-30,,,,no debt tag ever,no
+0002076192,WSTN,Health Care,2026-06-30,,,,no debt tag ever,no
+0002077033,MMTX,Technology,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0002077709,ROC,Technology,2026-06-30,,,,"debt tags at MRQ, all zero",no
+0002079272,LABT,Health Care,2026-06-30,,,,no debt tag ever,no
+0002079999,CDNL,Industrials,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0002081300,SSAC,Technology,2026-06-30,,,,no debt tag ever,no
+0002084026,QMLS,Technology,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0002086716,STDN,Materials,2026-06-30,,,,no debt tag ever,no
+0002089283,NUCL,Materials,2026-08-31,,,,no debt tag ever,no
+0002091017,SSMR,Materials,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0002091349,TRAX,Health Care,2026-06-30,,,,no debt tag ever,no
+0002092574,SWMR,Technology,2026-06-30,,,,no debt tag ever,no
+0002093101,RNA,Health Care,2026-06-30,,,,no debt tag ever,no
+0002093507,GLND,Energy,2026-06-30,,,,no debt tag ever,no
+0002095743,REA,Materials,2026-06-30,,,,no debt tag ever,no
+0002096861,SIND,Materials,2026-06-30,,,,no debt tag ever,no
+0002096997,KLRA,Health Care,2026-06-30,,,,no debt tag ever,no
+0002100161,BXDC,Real Estate,2026-06-30,,,,no debt tag ever,no
+0002100782,GENB,Health Care,2026-06-30,,,,finance leases only at MRQ,no
+0002100805,JAN,Real Estate,2026-06-30,,,,"debt tags at MRQ, all zero",no
+0002104204,ALMR,Industrials,2026-06-30,,,,no debt tag ever,no
+0002110105,QNT,Technology,2026-06-30,,,,no debt tag ever,no
+0002110117,ITG,Industrials,2026-06-30,,,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0002111846,GYGY,Technology,2026-06-30,,2026-06-30,,"components only at MRQ (notes, convertibles, loans, lines of credit)",no
+0002114044,COAG,Health Care,2026-06-30,,,,no debt tag ever,no
+0002119322,DMRC,Technology,2026-06-30,,,,no debt tag ever,no
+0002123613,KARD,Health Care,2026-06-30,,,,no debt tag ever,no
+0002130606,OBX,Health Care,2026-06-30,,,,finance leases only at MRQ,no
+0002131524,BRVE,Health Care,2026-06-30,,,,no debt tag ever,no

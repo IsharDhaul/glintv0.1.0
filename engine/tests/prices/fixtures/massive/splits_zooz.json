@@ -1,0 +1,15 @@
+{
+ "status": "OK",
+ "request_id": "recorded",
+ "results": [
+  {
+   "id": "E70346de8a42ccc665cb4d99fd4b63dff4c6181553b6ccf69ba718319e0ec459d",
+   "execution_date": "2026-06-01",
+   "split_from": 20.0,
+   "split_to": 1.0,
+   "ticker": "ZOOZ",
+   "adjustment_type": "reverse_split",
+   "historical_adjustment_factor": 20.0
+  }
+ ]
+}

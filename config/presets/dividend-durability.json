@@ -1,0 +1,29 @@
+{
+  "name": "Dividend durability",
+  "summary": "A 3%+ dividend yield, covered by free cash flow, with moderate debt and no cut in five years.",
+  "kind": "screen",
+  "how_to_read": "Four filters must all pass: a dividend yield of at least 3%, dividends at most 70% of free cash flow, net debt at most 3× EBITDA, and no cut of more than 1% in dividends per share across the last five fiscal years. Companies with fewer than five years of filings, or with negative FCF, have no value for those tests and fail them.",
+  "misses": [
+    "What comes next: every test looks backwards, and a dividend that has been safe can still be cut.",
+    "REITs, where FCF and EBITDA work differently (they pay from FFO), so few appear.",
+    "Banks, insurers and capital-markets firms, where net debt / EBITDA isn't meaningful, so none appear."
+  ],
+  "source": "Heuristic",
+  "screen": {
+    "dsl_version": 1,
+    "name": "Dividend durability",
+    "filters": {
+      "op": "and",
+      "children": [
+        { "metric": "dividend_yield", "cmp": "gte", "value": 0.03 },
+        { "metric": "fcf_payout_ratio", "cmp": "lte", "value": 0.70 },
+        { "metric": "net_debt_to_ebitda", "cmp": "lte", "value": 3.0 },
+        { "metric": "dps_no_cut_5y", "cmp": "eq", "value": true }
+      ]
+    },
+    "columns": ["ticker", "name", "sector", "market_cap", "dividend_yield", "fcf_payout_ratio", "net_debt_to_ebitda", "dps_no_cut_5y"],
+    "sort": { "by": "dividend_yield", "dir": "desc" },
+    "limit": 100,
+    "near_misses": true
+  }
+}

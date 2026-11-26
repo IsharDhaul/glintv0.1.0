@@ -1,0 +1,135 @@
+ticker,sector,period_end,net_income,eps_diluted,implied,used,ratio,nci_signals,reverse_splits_after_period_start
+WHLR,Real Estate,2026-06-30,8639000.0,0.24,35995833,53655,670.88,{},2026-04-20 3:1; 2026-06-18 4:1; 2026-07-28 5:1; 2026-08-27 4:1; 2026-09-22 9:1; 2026-10-30 6:1
+NXTT,Technology,2026-06-30,-29712672.0,-0.2,148563360,1472962,100.86,{},2026-08-10 100:1
+NFE,Utilities,2026-06-30,-371441000.0,-1.3,285723846,5712693,50.02,"{""NetIncomeLossAttributableToNoncontrollingInterest"": -2173000}",2026-09-14 50:1
+MDCX,Health Care,2026-06-30,-11617705.0,-0.21,55322405,1263612,43.78,"{""NetIncomeLossAttributableToNoncontrollingInterest"": -66890}",2026-10-12 50:1
+SMTK,Technology,2026-06-30,-3257000.0,-0.14,23264286,565275,41.16,{},2026-08-21 50:1
+ATYR,Health Care,2026-06-30,-10309000.0,-0.11,93718182,2452186,38.22,"{""NetIncomeLossAttributableToNoncontrollingInterest"": -2000}",2026-10-29 40:1
+PPCB,Health Care,2026-03-31,-6360336.0,-0.28,22715486,633112,35.88,{},2026-05-18 25:1; 2026-10-26 10:1
+MSS,Consumer Staples,2026-01-31,-5214676.0,-0.21,24831790,729337,34.05,"{""NetIncomeLossAttributableToNoncontrollingInterest"": -116630}",2026-04-24 10:1; 2026-07-22 5:1
+IHRT,Communication,2026-06-30,-82389000.0,-0.52,158440385,5039323,31.44,"{""NetIncomeLossAttributableToNoncontrollingInterest"": -542000, ""RedeemableNoncontrollingInterestEquityCarryingAmount"": 0}",
+CSAI,Technology,2026-06-30,-1731000.0,-2.32,746121,26586,28.06,{},2026-07-31 30:1
+NXL,Health Care,2026-06-30,-2239170.0,-0.11,20356091,734547,27.71,{},2026-08-31 30:1
+OPTT,Utilities,2026-07-31,-10537000.0,-1.28,8232031,300154,27.43,"{""NetIncomeLossAttributableToNoncontrollingInterest"": 45340, ""MinorityInterestOwnershipPercentageByNoncontrollingOwners"": 0}",2026-09-14 30:1
+ELAB,Health Care,2024-09-30,-1501257.0,-0.068,22077309,809579,27.27,{},2025-09-02 4:1; 2026-01-06 4:1; 2026-03-10 6:1; 2026-08-21 10:1
+PRPL,Consumer Discretionary,2026-06-30,-3230000.0,-0.74,4364865,174400,25.03,"{""NetIncomeLossAttributableToRedeemableNoncontrollingInterest"": -196000, ""NetIncomeLossAttributableToNoncontrollingInterest"": -51000, ""MinorityInterestOwnershipPercentageByNoncontrollingOwners"": 0.82}",2026-07-20 25:1
+OMEX,Industrials,2026-06-30,-9309787.0,-0.16,58186169,2347656,24.78,"{""NetIncomeLossAttributableToNoncontrollingInterest"": -289037}",2026-10-29 25:1
+SCNX,Health Care,2026-06-30,-2822371.0,-0.07,40319586,1642566,24.55,"{""NetIncomeLossAttributableToNoncontrollingInterest"": -437769}",2026-10-05 25:1
+IPDN,Technology,2023-09-30,-1316131.0,-0.12,10967758,481677,22.77,"{""NetIncomeLossAttributableToNoncontrollingInterest"": -7012}",2026-09-14 30:1
+GTBP,Health Care,2026-06-30,-4518000.0,-0.12,37650000,1804380,20.87,"{""NetIncomeLossAttributableToNoncontrollingInterest"": 0, ""MinorityInterestOwnershipPercentageByNoncontrollingOwners"": 0.4}",2026-09-08 25:1
+CTSO,Health Care,2026-06-30,-4417000.0,-0.07,63100000,3142137,20.08,{},2026-09-08 20:1
+ALIT,Industrials,2026-06-30,-10000000.0,-0.38,26315789,1317551,19.97,"{""NetIncomeLossAttributableToNoncontrollingInterest"": 0}",2026-07-01 20:1
+NXGL,Health Care,2026-06-30,-3635000.0,-0.4,9087500,487383,18.65,"{""NetIncomeLossAttributableToNoncontrollingInterest"": 85000}",2026-10-12 20:1
+CURX,Health Care,2026-06-30,-3290970.0,-0.12,27424750,1568241,17.49,{},2026-08-20 20:1
+CDT,Health Care,2026-06-30,-4641000.0,-8.71,532836,31467,16.93,{},2026-03-27 25:1; 2026-07-20 10:1; 2026-09-29 25:1
+BURU,Industrials,2026-06-30,-5714861.0,-1.46,3914288,231559,16.9,{},2026-09-02 40:1
+BTOC,Industrials,2026-03-31,-5067477.0,-0.11,46067973,2840192,16.22,{},2026-10-15 16:1
+VEEA,Technology,2026-06-30,-4025910.0,-0.08,50323875,3110708,16.18,"{""NetIncomeLossAttributableToRedeemableNoncontrollingInterest"": 0}",2026-08-31 20:1
+OBAI,Communication,2026-06-30,-4772000.0,-0.2,23860000,1498776,15.92,{},2026-10-19 20:1
+CHGA,Technology,2026-06-30,-2178812.0,-0.14,15562943,997340,15.6,"{""NetIncomeLossAttributableToNoncontrollingInterest"": 2070538}",2026-08-31 20:1
+VWAV,Technology,2026-06-30,-25930607.0,-1.19,21790426,1442103,15.11,"{""NetIncomeLossAttributableToNoncontrollingInterest"": -97058}",2026-09-22 20:1
+LEXX,Health Care,2026-05-31,-1991202.0,-0.08,24890025,1652496,15.06,"{""NetIncomeLossAttributableToRedeemableNoncontrollingInterest"": -58993, ""NetIncomeLossAttributableToNoncontrollingInterest"": -7028}",2026-08-03 15:1
+JAGX,Health Care,2026-06-30,-12701000.0,-15.7,808981,53941,15.0,"{""NetIncomeLossAttributableToNoncontrollingInterest"": -246000}",2026-04-30 35:1; 2026-09-17 15:1
+NXPL,Communication,2025-03-31,-1942000.0,-0.05,38840000,2713222,14.32,"{""NetIncomeLossAttributableToNoncontrollingInterest"": -14000}",2026-04-13 10:1
+BRTX,Health Care,2026-03-31,-2154405.0,-0.12,17953375,1273908,14.09,{},2026-09-08 20:1
+AMIX,Health Care,2023-12-31,-3113000.0,-0.23,13534783,971043,13.94,{},2026-06-24 21:1
+IPW,Consumer Discretionary,2026-03-31,-3454878.0,-2.38,1451629,105215,13.8,"{""NetIncomeLossAttributableToNoncontrollingInterest"": -320}",2026-05-22 8:1; 2026-08-07 9:1; 2026-10-26 12:1
+TRUG,Consumer Discretionary,2026-06-30,-447808.0,-0.37,1210292,91427,13.24,{},2026-03-27 10:1; 2026-09-29 10:1
+ABTC,Banks,2026-06-30,-57151000.0,-0.8,71438750,5520160,12.94,"{""NetIncomeLossAttributableToNoncontrollingInterest"": -8815}",2026-07-06 15:1
+AHT,Real Estate,2026-06-30,127993000.0,1.62,79008025,6469814,12.21,"{""NetIncomeLossAttributableToRedeemableNoncontrollingInterest"": 2800000, ""NetIncomeLossAttributableToNoncontrollingInterest"": -4028000, ""MinorityInterestOwnershipPercentageByNoncontrollingOwners"": 0.15, ""RedeemableNoncontrollingInterestEquityCarryingAmount"": 20800000}",
+GUTS,Health Care,2026-06-30,-25538000.0,-0.16,159612500,13264987,12.03,{},2026-10-05 12:1
+MCHB,Banks,2026-06-30,57701000.0,0.26,221926923,18920808,11.73,"{""RedeemableNoncontrollingInterestEquityCarryingAmount"": 52735000}",
+SBFM,Health Care,2025-06-30,-1770834.0,-0.82,2159554,193867,11.14,{},2026-06-01 10:1; 2026-10-26 20:1
+COCH,Health Care,2026-06-30,-5982000.0,-0.07,85457143,7719460,11.07,{},2026-10-26 10:1
+MYPS,Technology,2026-06-30,-13274000.0,-0.1,132740000,12761700,10.4,{},2026-10-01 10:1
+GLOO,Technology,2026-07-31,-21307000.0,-0.25,85228000,8345221,10.21,"{""NetIncomeLossAttributableToNoncontrollingInterest"": -85000}",
+LGVN,Health Care,2026-06-30,-6073000.0,-0.19,31963158,3137763,10.19,{},2026-08-27 10:1
+ENHA,Consumer Discretionary,2026-06-30,-61944898.0,-0.53,116877166,11774818,9.93,{},2026-10-29 10:1
+BIAF,Industrials,2026-06-30,-3366082.0,-0.64,5259503,540115,9.74,{},2026-08-24 15:1
+GPMT,Real Estate,2026-06-30,-58409000.0,-1.29,45278295,4819817,9.39,{},2026-10-06 10:1
+CDLX,Technology,2025-09-30,-72673000.0,-1.36,53436029,5888716,9.07,{},2026-06-08 10:1
+SKYE,Health Care,2026-06-30,-10786594.0,-0.27,39950348,4427677,9.02,{},2026-08-24 8:1
+LFT,Real Estate,2026-06-30,-8012905.0,-0.18,44516139,5248613,8.48,{},2026-09-10 10:1
+VERU,Health Care,2024-03-31,-10025948.0,-0.07,143227829,17050320,8.4,{},
+CAPS,Industrials,2025-09-30,-2014000.0,-0.35,5754286,685952,8.39,"{""NetIncomeLossAttributableToNoncontrollingInterest"": 0}",2026-10-19 30:1
+BTLN,Technology,2026-03-31,-12683231.0,-0.6,21138718,2712351,7.79,{},2026-09-28 8:1
+GAME,Consumer Discretionary,2026-06-30,-10649839.0,-0.11,96816718,12976192,7.46,"{""NetIncomeLossAttributableToNoncontrollingInterest"": -2018132}",2026-08-24 8:1
+KAPA,Health Care,2026-06-30,-1388000.0,-0.06,23133333,3385383,6.83,{},2026-09-01 7:1
+REVB,Health Care,2026-06-30,-3323384.0,-0.87,3819982,569059,6.71,{},2026-10-20 7:1
+MTNB,Health Care,2026-06-30,-1326000.0,-0.21,6314286,979520,6.45,{},2026-09-28 15:1
+BETA,Industrials,2026-06-30,-148753000.0,-0.64,232426562,37578571,6.19,{},
+PARA,Technology,2026-06-30,-4965000.0,-3.05,1627869,269058,6.05,{},2026-05-08 20:1; 2026-10-27 10:1
+RYM,Consumer Staples,2026-06-30,1184000.0,0.09,13155556,2179128,6.04,"{""NetIncomeLossAttributableToNoncontrollingInterest"": -1000}",
+IRLA,Health Care,2026-06-30,-75488000.0,-12.31,6132250,1017063,6.03,{},
+GNLN,Industrials,2026-06-30,-24833000.0,-6.06,4097855,694544,5.9,"{""NetIncomeLossAttributableToNoncontrollingInterest"": 149000, ""RedeemableNoncontrollingInterestEquityCarryingAmount"": 0}",2026-04-06 8:1
+ATXG,Industrials,2025-06-30,-392438.0,-0.06,6540633,1177974,5.55,"{""NetIncomeLossAttributableToNoncontrollingInterest"": 7223}",2026-03-30 15:1
+DFLI,Industrials,2026-06-30,-4386000.0,-0.43,10200000,1872350,5.45,{},2026-10-12 8:1
+ARTL,Health Care,2026-06-30,-2427000.0,-0.89,2726966,510563,5.34,{},2026-03-10 3:1; 2026-08-31 9:1
+LNAI,Health Care,2026-03-31,-2571394.0,-0.1,25713940,5034452,5.11,{},2026-05-22 8:1
+BLLN,Health Care,2026-06-30,8054000.0,0.15,53693333,11178467,4.8,{},
+CNSP,Health Care,2026-06-30,-2588000.0,-0.38,6810526,1461449,4.66,{},
+KITT,Industrials,2026-06-30,-11115971.0,-2.11,5268233,1245327,4.23,{},2026-04-21 8:1; 2026-09-25 6:1
+PROP,Energy,2026-06-30,109017000.0,0.23,473986957,112798010,4.2,"{""NetIncomeLossAttributableToNoncontrollingInterest"": -681, ""MinorityInterestOwnershipPercentageByNoncontrollingOwners"": 0.5}",
+SHFS,Banks,2026-06-30,-1513235.0,-0.36,4203431,1027746,4.09,{},2026-09-30 12:1
+APRE,Health Care,2026-06-30,-3591304.0,-0.07,51304343,12591136,4.07,{},
+GPUS,Industrials,2026-06-30,-19356000.0,-0.05,387120000,98908354,3.91,"{""NetIncomeLossAttributableToRedeemableNoncontrollingInterest"": 12900000, ""NetIncomeLossAttributableToNoncontrollingInterest"": -2469000, ""RedeemableNoncontrollingInterestEquityCarryingAmount"": 804000}",2026-08-25 5:1
+LIFE,Insurance,2026-06-30,19531000.0,0.3,65103333,16647000,3.91,{},
+HCTI,Technology,2026-06-30,-4415000.0,-1.56,2830128,748716,3.78,"{""NetIncomeLossAttributableToRedeemableNoncontrollingInterest"": -9428000, ""NetIncomeLossAttributableToNoncontrollingInterest"": -24000}",2026-10-26 20:1
+APC,Industrials,2026-06-30,12236000.0,0.26,47061538,12570223,3.74,{},
+NTWO,Industrials,2025-06-30,1685471.0,0.07,24078157,6866375,3.51,{},
+OPI,Real Estate,2026-03-31,-93021000.0,-1.26,73826190,21953577,3.36,{},
+MBLY,Technology,2026-09-26,-67000000.0,-0.08,837500000,252403844,3.32,{},
+AZTR,Health Care,2026-06-30,-3347660.0,-0.17,19692118,6060374,3.25,{},2026-10-26 10:1
+ARRY,Technology,2026-06-30,24346000.0,0.05,486920000,154007692,3.16,{},
+IMUX,Health Care,2026-06-30,-34099000.0,-0.8,42623750,13644467,3.12,{},2026-04-27 10:1
+SDEV,Banks,2026-09-30,50363000.0,0.23,218969565,73117016,2.99,{},
+XLO,Health Care,2026-06-30,-6373000.0,-0.33,19312121,6580149,2.93,{},2026-03-16 14:1
+LNSR,Health Care,2026-06-30,3535000.0,0.1,35350000,12285865,2.88,{},
+CYCU,Technology,2026-06-30,-3755774.0,-0.41,9160424,3230042,2.84,"{""NetIncomeLossAttributableToNoncontrollingInterest"": -717117}",2026-08-28 8:1
+HG,Insurance,2026-06-30,254803000.0,1.42,179438732,65890659,2.72,"{""NetIncomeLossAttributableToRedeemableNoncontrollingInterest"": 194515000, ""RedeemableNoncontrollingInterestEquityCarryingAmount"": 73613000}",
+FLNC,Industrials,2026-06-30,-32817000.0,-0.24,136737500,51499195,2.66,"{""NetIncomeLossAttributableToNoncontrollingInterest"": -37289000}",
+USPH,Health Care,2026-06-30,9898000.0,0.25,39592000,14922698,2.65,"{""NetIncomeLossAttributableToRedeemableNoncontrollingInterest"": 8433000, ""NetIncomeLossAttributableToNoncontrollingInterest"": 8118000, ""MinorityInterestOwnershipPercentageByNoncontrollingOwners"": 0.922, ""RedeemableNoncontrollingInterestEquityCarryingAmount"": 317491000}",
+CNTN,Banks,2026-03-31,-47343197.0,-0.23,205839987,79681361,2.58,{},
+HEI,Industrials,2026-07-31,235439000.0,1.67,140981437,55143000,2.56,"{""NetIncomeLossAttributableToNoncontrollingInterest"": 50137000, ""MinorityInterestOwnershipPercentageByNoncontrollingOwners"": 0.199}",
+ICU,Health Care,2025-06-30,-2002000.0,-0.18,11122222,4406841,2.52,{},2026-01-05 10:1
+LONA,Health Care,2026-06-30,-19007000.0,-0.8,23758750,9421663,2.52,{},
+CALC,Health Care,2026-06-30,-7652000.0,-0.45,17004444,6828292,2.49,{},2026-08-31 5:1
+LODE,Materials,2024-09-30,-14968015.0,-0.08,187100188,75993047,2.46,"{""NetIncomeLossAttributableToNoncontrollingInterest"": 0}",
+BOXL,Consumer Discretionary,2026-06-30,509000.0,0.34,1497059,667393,2.24,{},2026-06-22 6:1
+HAWK,Technology,2026-06-30,-15278000.0,-0.07,218257143,97965552,2.23,{},
+NHP,Real Estate,2026-06-30,-8141000.0,-0.13,62623077,28412000,2.2,"{""NetIncomeLossAttributableToNoncontrollingInterest"": -2000}",
+PTN,Health Care,2026-03-31,-1432987.0,-0.37,3872938,1780939,2.17,"{""RedeemableNoncontrollingInterestEquityCarryingAmount"": 263400}",
+HYPD,Banks,2026-06-30,30950963.0,0.92,33642351,15539434,2.16,{},
+PSEC,Unclassified,2026-03-31,56479000.0,0.05,1129580000,524832496,2.15,{},
+VNO,Real Estate,2026-06-30,31959000.0,0.08,399487500,186720531,2.14,"{""NetIncomeLossAttributableToRedeemableNoncontrollingInterest"": -530000, ""NetIncomeLossAttributableToNoncontrollingInterest"": 18436000, ""RedeemableNoncontrollingInterestEquityCarryingAmount"": 733687000}",
+SLQT,Insurance,2026-03-31,40197000.0,0.11,365427273,176573132,2.07,{},
+CYPH,Health Care,2026-06-30,39389000.0,0.18,218827778,107764382,2.03,{},
+IBIO,Health Care,2026-03-31,-7730000.0,-0.06,128833333,64307256,2.0,"{""NetIncomeLossAttributableToNoncontrollingInterest"": -1000}",
+INAB,Health Care,2026-06-30,-4781000.0,-0.25,19124000,9858383,1.94,{},
+OPHC,Banks,2026-06-30,6655000.0,0.28,23767857,12340785,1.93,{},
+ARI,Real Estate,2026-06-30,25779000.0,0.11,234354545,128212093,1.83,{},
+NSPR,Health Care,2026-06-30,-14324000.0,-0.17,84258824,46489118,1.81,{},
+NDRA,Health Care,2026-06-30,159944.0,0.06,2665733,1499838,1.78,{},
+FIEE,Technology,2026-06-30,2111196.0,0.14,15079971,8528598,1.77,"{""NetIncomeLossAttributableToNoncontrollingInterest"": -482}",
+CBIO,Health Care,2024-09-30,-9824333.0,-0.15,65495553,37143940,1.76,{},
+ADIL,Health Care,2026-06-30,-51989000.0,-11.25,4621244,2625890,1.76,{},
+ALGS,Health Care,2026-06-30,-1504000.0,-0.14,10742857,6236828,1.72,{},
+RPT,Real Estate,2026-09-30,3112000.0,0.23,13530435,7909947,1.71,"{""NetIncomeLossAttributableToNoncontrollingInterest"": -1000}",
+SKYA,Banks,2026-06-30,-23280798.0,-0.32,72752494,42982506,1.69,{},
+ELOX,Health Care,2026-06-30,-4502000.0,-0.66,6821212,4036459,1.69,{},2026-06-01 11:1
+FSUN,Banks,2026-06-30,-22850000.0,-0.49,46632653,27923333,1.67,{},
+PD,Technology,2026-07-31,7785000.0,0.06,129750000,78649873,1.65,"{""NetIncomeLossAttributableToRedeemableNoncontrollingInterest"": -225000, ""RedeemableNoncontrollingInterestEquityCarryingAmount"": 14943000}",
+CTNM,Health Care,2026-06-30,-15154000.0,-0.4,37885000,23099173,1.64,{},
+VIDA,Technology,2026-06-30,-1568390.0,-0.16,9802438,6084208,1.61,{},
+AKR,Real Estate,2026-06-30,11038000.0,0.05,220760000,137332722,1.61,"{""NetIncomeLossAttributableToRedeemableNoncontrollingInterest"": -1679000, ""NetIncomeLossAttributableToNoncontrollingInterest"": 122105000, ""RedeemableNoncontrollingInterestEquityCarryingAmount"": 4499000}",
+PW,Real Estate,2026-06-30,435548.0,0.74,588578,367120,1.6,{},2026-06-03 10:1
+OPTU,Communication,2026-06-30,-291761000.0,-0.67,435464179,272565547,1.6,"{""NetIncomeLossAttributableToNoncontrollingInterest"": 16727000}",
+BODI,Consumer Discretionary,2026-06-30,1384000.0,0.11,12581818,7904603,1.59,{},
+STEX,Capital Markets,2026-06-30,-14552000.0,-0.08,181900000,116465417,1.56,"{""NetIncomeLossAttributableToNoncontrollingInterest"": 1000, ""MinorityInterestOwnershipPercentageByNoncontrollingOwners"": 0.298}",
+CELH,Consumer Staples,2026-06-30,55293000.0,0.14,394950000,253035047,1.56,{},
+BOX,Technology,2026-07-31,19221000.0,0.09,213566667,137200773,1.56,{},
+GOOD,Real Estate,2026-06-30,8266000.0,0.11,75145455,48407501,1.55,"{""NetIncomeLossAttributableToNoncontrollingInterest"": 7000}",
+MITT,Real Estate,2026-06-30,14269000.0,0.29,49203448,31803475,1.55,{},
+TRTX,Real Estate,2026-09-30,9366000.0,0.08,117075000,75826954,1.54,{},
+ATRA,Health Care,2026-06-30,-4834000.0,-0.32,15106250,10037710,1.5,{},
+PNRG,Energy,2026-06-30,6529000.0,2.75,2374182,1582600,1.5,"{""NetIncomeLossAttributableToNoncontrollingInterest"": 0}",

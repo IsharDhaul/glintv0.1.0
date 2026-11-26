@@ -1,0 +1,1747 @@
+{
+  "build_id": "synthetic",
+  "metrics": [
+    {
+      "id": "price",
+      "name": "Price",
+      "category": "size_liquidity",
+      "unit": "usd",
+      "better": "neutral",
+      "tier": "price",
+      "priority": "P0",
+      "basis": "daily",
+      "definition": "Last close of the primary ticker (the most liquid common class). On its own date the unadjusted and split-adjusted closes are the same. STALE_DATA if the last bar is more than 7 days before the build's price date.",
+      "inputs": [
+        "close"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "What one share of the primary listed class last closed at.",
+      "misleads": "On its own it says nothing about value: a $5 share can be dearer than a $500 one once share count and earnings are counted."
+    },
+    {
+      "id": "market_cap",
+      "name": "Market cap",
+      "category": "size_liquidity",
+      "unit": "usd",
+      "better": "neutral",
+      "tier": "price",
+      "priority": "P0",
+      "basis": "mixed",
+      "definition": "Unadjusted close × shares outstanding (§4.3 rules 11–12), shares adjusted for splits after the count's share basis, up to the price date: a cover-page count's own date, or for a balance-sheet or diluted count the date its filing was issued (statements already reflect a split made before they're issued). Share basis: the latest cover-page total (else balance-sheet, else diluted weighted count, DERIVED_INPUT); for an Up-C, its economic count (the sum of its cover-page classes). Multi-class companies: Σ class shares × a close per class, counts from the latest 10-K/10-Q cover: each separately listed class at its own close; an unlisted class the filing confirms has the same dividend and liquidation rights (quoted in config/share_classes.yaml `unlisted_economic`) at the close of the listed class it converts into. Voting-only classes never count. STALE_DATA if the share count is more than a year older than the latest balance sheet.",
+      "inputs": [
+        "close",
+        "shares_outstanding"
+      ],
+      "applicability": {
+        "not_meaningful": [
+          "foreign_filers"
+        ],
+        "notes": {
+          "foreign_filers": "Until F20 (FX + ADR ratios): null with FOREIGN_PRICE_BASIS unless the filer files a 40-F and reports in USD (§4.3 rule 13: Canadian issuers list their ordinary shares directly; 20-F listings may be ADRs)."
+        }
+      },
+      "status": "live",
+      "tells_you": "What the market values the whole company's equity at today.",
+      "misleads": "It ignores debt and cash, so two companies with the same market cap can cost very different amounts to own outright."
+    },
+    {
+      "id": "enterprise_value",
+      "name": "Enterprise value",
+      "category": "size_liquidity",
+      "unit": "usd",
+      "better": "neutral",
+      "tier": "price",
+      "priority": "P0",
+      "basis": "mixed",
+      "definition": "market_cap + total_debt + preferred + minority_interest − cash − st_investments (MRQ balances). Preferred, minority interest and short-term investments not tagged on the balance sheet count as none (noted); total_debt must be tagged. total_debt includes finance leases where the filing presents them outside debt (when no filing says where, they're left out and the ⓘ says so: INPUT_EXCLUDES); operating leases are excluded.",
+      "inputs": [
+        "market_cap",
+        "total_debt",
+        "preferred",
+        "minority_interest",
+        "cash",
+        "st_investments"
+      ],
+      "applicability": {
+        "not_meaningful": [
+          "banks",
+          "insurance",
+          "capital_markets",
+          "foreign_filers"
+        ],
+        "notes": {
+          "foreign_filers": "Until F20 (FX + ADR ratios): null with FOREIGN_PRICE_BASIS unless the filer files a 40-F and reports in USD (§4.3 rule 13: Canadian issuers list their ordinary shares directly; 20-F listings may be ADRs).",
+          "reits": "FFO is not available; EV-based metrics use reported EBIT/EBITDA."
+        }
+      },
+      "status": "live",
+      "tells_you": "The price of the whole business: equity plus debt and other claims, minus cash.",
+      "misleads": "Operating leases, pensions, finance leases the filing doesn't place, and other debt-like items are left out, so EV understates the claims on lease-heavy or pension-heavy companies."
+    },
+    {
+      "id": "revenue_ttm",
+      "name": "Revenue (TTM)",
+      "category": "size_liquidity",
+      "unit": "usd",
+      "better": "neutral",
+      "tier": "sec",
+      "priority": "P0",
+      "basis": "ttm",
+      "definition": "Sum of the last 4 discrete quarters (contiguous), or the FY if the latest period is a fiscal year.",
+      "inputs": [
+        "revenue"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "How much the company sold over the last twelve months.",
+      "misleads": "Revenue isn't profit, and it can include pass-through amounts or one-off sales that won't repeat."
+    },
+    {
+      "id": "avg_dollar_volume_3m",
+      "name": "Avg $ volume (3m)",
+      "category": "size_liquidity",
+      "unit": "usd",
+      "better": "higher",
+      "tier": "price",
+      "priority": "P0",
+      "basis": "daily",
+      "definition": "mean(close × volume) over the last 63 sessions. Null (INSUFFICIENT_HISTORY) with fewer sessions.",
+      "inputs": [
+        "close",
+        "volume"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "How much money changes hands in the stock on a typical day, a rough guide to how easily it can be bought or sold.",
+      "misleads": "A single heavy day (an index change, news) can lift the average well above what normally trades."
+    },
+    {
+      "id": "pe_ttm",
+      "name": "P/E (TTM)",
+      "category": "valuation",
+      "unit": "x",
+      "better": "lower",
+      "tier": "price",
+      "priority": "P0",
+      "basis": "mixed",
+      "definition": "market_cap / net_income_ttm. Null (NEGATIVE_DENOMINATOR) if NI ≤ 0.",
+      "inputs": [
+        "market_cap",
+        "net_income"
+      ],
+      "applicability": {
+        "not_meaningful": [
+          "foreign_filers"
+        ],
+        "notes": {
+          "foreign_filers": "Until F20 (FX + ADR ratios): null with FOREIGN_PRICE_BASIS unless the filer files a 40-F and reports in USD (§4.3 rule 13: Canadian issuers list their ordinary shares directly; 20-F listings may be ADRs).",
+          "reits": "P/E is a weak REIT measure (FFO is not available)."
+        }
+      },
+      "status": "live",
+      "tells_you": "How many years of the last twelve months' profit the share price pays for.",
+      "misleads": "Earnings include one-off gains and charges, and a cyclical company looks cheapest on P/E exactly when its profits are at a peak."
+    },
+    {
+      "id": "earnings_yield",
+      "name": "Earnings yield",
+      "category": "valuation",
+      "unit": "frac",
+      "better": "higher",
+      "tier": "price",
+      "priority": "P0",
+      "basis": "mixed",
+      "definition": "net_income_ttm / market_cap. Keeps negatives, so losses rank last.",
+      "inputs": [
+        "net_income",
+        "market_cap"
+      ],
+      "applicability": {
+        "not_meaningful": [
+          "foreign_filers"
+        ],
+        "notes": {
+          "foreign_filers": "Until F20 (FX + ADR ratios): null with FOREIGN_PRICE_BASIS unless the filer files a 40-F and reports in USD (§4.3 rule 13: Canadian issuers list their ordinary shares directly; 20-F listings may be ADRs)."
+        }
+      },
+      "status": "live",
+      "tells_you": "Last twelve months' profit as a share of market cap, the inverse of P/E, so losses can still be ranked.",
+      "misleads": "It uses net income, which carries the same one-off items as P/E, and it ignores debt."
+    },
+    {
+      "id": "ev_ebit",
+      "name": "EV/EBIT",
+      "category": "valuation",
+      "unit": "x",
+      "better": "lower",
+      "tier": "price",
+      "priority": "P0",
+      "basis": "mixed",
+      "definition": "enterprise_value / ebit_ttm (EBIT = reported operating income). Null (NEGATIVE_DENOMINATOR) if EBIT ≤ 0.",
+      "inputs": [
+        "enterprise_value",
+        "operating_income"
+      ],
+      "applicability": {
+        "not_meaningful": [
+          "banks",
+          "insurance",
+          "capital_markets",
+          "foreign_filers"
+        ],
+        "notes": {
+          "foreign_filers": "Until F20 (FX + ADR ratios): null with FOREIGN_PRICE_BASIS unless the filer files a 40-F and reports in USD (§4.3 rule 13: Canadian issuers list their ordinary shares directly; 20-F listings may be ADRs).",
+          "reits": "FFO is not available; EV-based metrics use reported EBIT/EBITDA."
+        }
+      },
+      "status": "live",
+      "tells_you": "How many years of operating profit the whole business (equity and debt) costs.",
+      "misleads": "Operating profit can include restructuring charges or gains, and it ignores how much the business must reinvest to keep earning it."
+    },
+    {
+      "id": "ebit_ev",
+      "name": "EBIT/EV",
+      "category": "valuation",
+      "unit": "frac",
+      "better": "higher",
+      "tier": "price",
+      "priority": "P0",
+      "basis": "mixed",
+      "definition": "ebit_ttm / enterprise_value. Null (NEGATIVE_DENOMINATOR) if EV ≤ 0. Keeps negative EBIT.",
+      "inputs": [
+        "operating_income",
+        "enterprise_value"
+      ],
+      "applicability": {
+        "not_meaningful": [
+          "banks",
+          "insurance",
+          "capital_markets",
+          "foreign_filers"
+        ],
+        "notes": {
+          "foreign_filers": "Until F20 (FX + ADR ratios): null with FOREIGN_PRICE_BASIS unless the filer files a 40-F and reports in USD (§4.3 rule 13: Canadian issuers list their ordinary shares directly; 20-F listings may be ADRs).",
+          "reits": "FFO is not available; EV-based metrics use reported EBIT/EBITDA."
+        }
+      },
+      "status": "live",
+      "tells_you": "Operating profit as a share of what the whole business costs, Greenblatt's earnings yield.",
+      "misleads": "A single good year, or a company whose debt isn't fully tagged, can make it look much cheaper than it is."
+    },
+    {
+      "id": "ev_ebitda",
+      "name": "EV/EBITDA",
+      "category": "valuation",
+      "unit": "x",
+      "better": "lower",
+      "tier": "price",
+      "priority": "P0",
+      "basis": "mixed",
+      "definition": "enterprise_value / ebitda_ttm (EBITDA = operating income + D&A). Null (NEGATIVE_DENOMINATOR) if EBITDA ≤ 0.",
+      "inputs": [
+        "enterprise_value",
+        "ebitda"
+      ],
+      "applicability": {
+        "not_meaningful": [
+          "banks",
+          "insurance",
+          "capital_markets",
+          "foreign_filers"
+        ],
+        "notes": {
+          "foreign_filers": "Until F20 (FX + ADR ratios): null with FOREIGN_PRICE_BASIS unless the filer files a 40-F and reports in USD (§4.3 rule 13: Canadian issuers list their ordinary shares directly; 20-F listings may be ADRs).",
+          "reits": "FFO is not available; EV-based metrics use reported EBIT/EBITDA."
+        }
+      },
+      "status": "live",
+      "tells_you": "How many years of operating profit before depreciation the whole business costs.",
+      "misleads": "EBITDA leaves out depreciation, which is a real cost for capital-heavy businesses, so they can look cheaper than they are."
+    },
+    {
+      "id": "ev_sales",
+      "name": "EV/Sales",
+      "category": "valuation",
+      "unit": "x",
+      "better": "lower",
+      "tier": "price",
+      "priority": "P0",
+      "basis": "mixed",
+      "definition": "enterprise_value / revenue_ttm.",
+      "inputs": [
+        "enterprise_value",
+        "revenue"
+      ],
+      "applicability": {
+        "not_meaningful": [
+          "banks",
+          "insurance",
+          "capital_markets",
+          "foreign_filers"
+        ],
+        "notes": {
+          "foreign_filers": "Until F20 (FX + ADR ratios): null with FOREIGN_PRICE_BASIS unless the filer files a 40-F and reports in USD (§4.3 rule 13: Canadian issuers list their ordinary shares directly; 20-F listings may be ADRs).",
+          "reits": "FFO is not available; EV-based metrics use reported EBIT/EBITDA."
+        }
+      },
+      "status": "live",
+      "tells_you": "How much the whole business costs per dollar of yearly revenue.",
+      "misleads": "It ignores margins: a low EV/Sales is only cheap if sales turn into profit."
+    },
+    {
+      "id": "p_fcf",
+      "name": "P/FCF",
+      "category": "valuation",
+      "unit": "x",
+      "better": "lower",
+      "tier": "price",
+      "priority": "P1",
+      "basis": "mixed",
+      "definition": "market_cap / fcf_ttm (FCF = CFO − capex). Null (NEGATIVE_DENOMINATOR) if FCF ≤ 0.",
+      "inputs": [
+        "market_cap",
+        "fcf"
+      ],
+      "applicability": {
+        "not_meaningful": [
+          "foreign_filers"
+        ],
+        "notes": {
+          "foreign_filers": "Until F20 (FX + ADR ratios): null with FOREIGN_PRICE_BASIS unless the filer files a 40-F and reports in USD (§4.3 rule 13: Canadian issuers list their ordinary shares directly; 20-F listings may be ADRs)."
+        }
+      },
+      "status": "live",
+      "tells_you": "How many years of free cash flow the share price pays for.",
+      "misleads": "Free cash flow swings with working capital and the timing of capital spending, so one year can flatter or punish it."
+    },
+    {
+      "id": "fcf_yield",
+      "name": "FCF yield",
+      "category": "valuation",
+      "unit": "frac",
+      "better": "higher",
+      "tier": "price",
+      "priority": "P0",
+      "basis": "mixed",
+      "definition": "fcf_ttm / market_cap. Keeps negatives.",
+      "inputs": [
+        "fcf",
+        "market_cap"
+      ],
+      "applicability": {
+        "not_meaningful": [
+          "foreign_filers"
+        ],
+        "notes": {
+          "foreign_filers": "Until F20 (FX + ADR ratios): null with FOREIGN_PRICE_BASIS unless the filer files a 40-F and reports in USD (§4.3 rule 13: Canadian issuers list their ordinary shares directly; 20-F listings may be ADRs)."
+        }
+      },
+      "status": "live",
+      "tells_you": "Free cash flow as a share of market cap: the cash the business produced for each dollar of equity value.",
+      "misleads": "It treats stock-based pay as free, and a low-capex year (or a working-capital release) can inflate it."
+    },
+    {
+      "id": "pb",
+      "name": "P/B",
+      "category": "valuation",
+      "unit": "x",
+      "better": "lower",
+      "tier": "price",
+      "priority": "P0",
+      "basis": "mixed",
+      "definition": "market_cap / equity (MRQ). Null (NEGATIVE_DENOMINATOR) if equity ≤ 0.",
+      "inputs": [
+        "market_cap",
+        "equity"
+      ],
+      "applicability": {
+        "not_meaningful": [
+          "foreign_filers"
+        ],
+        "notes": {
+          "foreign_filers": "Until F20 (FX + ADR ratios): null with FOREIGN_PRICE_BASIS unless the filer files a 40-F and reports in USD (§4.3 rule 13: Canadian issuers list their ordinary shares directly; 20-F listings may be ADRs)."
+        }
+      },
+      "status": "live",
+      "tells_you": "How the share price compares with the accounting value of equity on the balance sheet.",
+      "misleads": "Book value misses brands, software and staff skills, and buybacks shrink it, so asset-light companies always look dear."
+    },
+    {
+      "id": "dividend_yield",
+      "name": "Dividend yield",
+      "category": "valuation",
+      "unit": "frac",
+      "better": "higher",
+      "tier": "price",
+      "priority": "P0",
+      "basis": "mixed",
+      "definition": "dividends_paid_ttm / market_cap (dividends are a positive outflow in XBRL). Untagged dividends / buybacks / issuance count as none (noted) when the period's cash-flow statement is tagged (CFO present); otherwise MISSING_INPUT.",
+      "inputs": [
+        "dividends_paid",
+        "market_cap"
+      ],
+      "applicability": {
+        "not_meaningful": [
+          "foreign_filers"
+        ],
+        "notes": {
+          "foreign_filers": "Until F20 (FX + ADR ratios): null with FOREIGN_PRICE_BASIS unless the filer files a 40-F and reports in USD (§4.3 rule 13: Canadian issuers list their ordinary shares directly; 20-F listings may be ADRs)."
+        }
+      },
+      "status": "live",
+      "tells_you": "Dividends paid over the last twelve months as a share of market cap.",
+      "misleads": "A falling share price raises the yield, so a high yield can be a sign that the market expects a cut."
+    },
+    {
+      "id": "buyback_yield",
+      "name": "Net buyback yield",
+      "category": "valuation",
+      "unit": "frac",
+      "better": "higher",
+      "tier": "price",
+      "priority": "P0",
+      "basis": "mixed",
+      "definition": "(buybacks_ttm − stock_issued_ttm) / market_cap. Untagged dividends / buybacks / issuance count as none (noted) when the period's cash-flow statement is tagged (CFO present); otherwise MISSING_INPUT.",
+      "inputs": [
+        "buybacks",
+        "stock_issued",
+        "market_cap"
+      ],
+      "applicability": {
+        "not_meaningful": [
+          "foreign_filers"
+        ],
+        "notes": {
+          "foreign_filers": "Until F20 (FX + ADR ratios): null with FOREIGN_PRICE_BASIS unless the filer files a 40-F and reports in USD (§4.3 rule 13: Canadian issuers list their ordinary shares directly; 20-F listings may be ADRs)."
+        }
+      },
+      "status": "live",
+      "tells_you": "Net money spent buying back shares (after shares issued) over the last twelve months, as a share of market cap.",
+      "misleads": "It measures cash spent, not shares retired, so buybacks that only offset stock-based pay can still look generous."
+    },
+    {
+      "id": "shareholder_yield",
+      "name": "Shareholder yield",
+      "category": "valuation",
+      "unit": "frac",
+      "better": "higher",
+      "tier": "price",
+      "priority": "P0",
+      "basis": "mixed",
+      "definition": "dividend_yield + buyback_yield. Excludes debt paydown (unlike Faber's version).",
+      "inputs": [
+        "dividend_yield",
+        "buyback_yield"
+      ],
+      "applicability": {
+        "not_meaningful": [
+          "foreign_filers"
+        ],
+        "notes": {
+          "foreign_filers": "Until F20 (FX + ADR ratios): null with FOREIGN_PRICE_BASIS unless the filer files a 40-F and reports in USD (§4.3 rule 13: Canadian issuers list their ordinary shares directly; 20-F listings may be ADRs)."
+        }
+      },
+      "status": "live",
+      "tells_you": "Dividends plus net buybacks as a share of market cap: everything handed back to shareholders in a year.",
+      "misleads": "It leaves out debt paydown, and payouts funded by new borrowing count the same as payouts funded by cash flow."
+    },
+    {
+      "id": "ncav_to_mcap",
+      "name": "NCAV / market cap",
+      "category": "valuation",
+      "unit": "frac",
+      "better": "higher",
+      "tier": "price",
+      "priority": "P0",
+      "basis": "mixed",
+      "definition": "(current_assets − total_liabilities) / market_cap (MRQ balances).",
+      "inputs": [
+        "current_assets",
+        "total_liabilities",
+        "market_cap"
+      ],
+      "applicability": {
+        "not_meaningful": [
+          "foreign_filers"
+        ],
+        "notes": {
+          "foreign_filers": "Until F20 (FX + ADR ratios): null with FOREIGN_PRICE_BASIS unless the filer files a 40-F and reports in USD (§4.3 rule 13: Canadian issuers list their ordinary shares directly; 20-F listings may be ADRs)."
+        }
+      },
+      "status": "live",
+      "tells_you": "Current assets minus all liabilities, compared with the market cap: Graham's net-net test.",
+      "misleads": "Inventory and receivables are taken at book value, which may be far more than they would fetch in a sale."
+    },
+    {
+      "id": "gross_margin",
+      "name": "Gross margin",
+      "category": "profitability",
+      "unit": "frac",
+      "better": "higher",
+      "tier": "sec",
+      "priority": "P0",
+      "basis": "ttm",
+      "definition": "gross_profit_ttm / revenue_ttm. Gross profit is derived as revenue − cost_of_revenue when untagged (DERIVED_INPUT).",
+      "inputs": [
+        "gross_profit",
+        "revenue"
+      ],
+      "applicability": {
+        "not_meaningful": [
+          "banks",
+          "insurance",
+          "capital_markets"
+        ],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "The share of revenue left after the direct cost of the goods or services sold.",
+      "misleads": "Companies draw the line between cost of sales and operating expenses differently, so margins across industries rarely compare."
+    },
+    {
+      "id": "operating_margin",
+      "name": "Operating margin",
+      "category": "profitability",
+      "unit": "frac",
+      "better": "higher",
+      "tier": "sec",
+      "priority": "P0",
+      "basis": "ttm",
+      "definition": "ebit_ttm / revenue_ttm (EBIT = reported operating income).",
+      "inputs": [
+        "operating_income",
+        "revenue"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "The share of revenue left as operating profit, after running costs but before interest and tax.",
+      "misleads": "One-off charges and gains go through operating profit, so a single year can be unusually high or low."
+    },
+    {
+      "id": "ebitda_margin",
+      "name": "EBITDA margin",
+      "category": "profitability",
+      "unit": "frac",
+      "better": "higher",
+      "tier": "sec",
+      "priority": "P1",
+      "basis": "ttm",
+      "definition": "ebitda_ttm / revenue_ttm (EBITDA = operating income + D&A from the cash-flow statement).",
+      "inputs": [
+        "ebitda",
+        "revenue"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "Operating profit before depreciation and amortisation, as a share of revenue.",
+      "misleads": "Depreciation is a real cost for asset-heavy businesses, so a high EBITDA margin can hide a low real margin."
+    },
+    {
+      "id": "net_margin",
+      "name": "Net margin",
+      "category": "profitability",
+      "unit": "frac",
+      "better": "higher",
+      "tier": "sec",
+      "priority": "P0",
+      "basis": "ttm",
+      "definition": "net_income_ttm / revenue_ttm.",
+      "inputs": [
+        "net_income",
+        "revenue"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "The share of revenue left as profit for shareholders, after every cost, interest and tax.",
+      "misleads": "It includes one-off items, tax credits and gains on investments, so it moves for reasons unrelated to the business."
+    },
+    {
+      "id": "fcf_margin",
+      "name": "FCF margin",
+      "category": "profitability",
+      "unit": "frac",
+      "better": "higher",
+      "tier": "sec",
+      "priority": "P0",
+      "basis": "ttm",
+      "definition": "fcf_ttm / revenue_ttm (FCF = CFO − capex).",
+      "inputs": [
+        "fcf",
+        "revenue"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "The share of revenue that turned into free cash flow (operating cash flow minus capital spending).",
+      "misleads": "It counts stock-based pay as free and moves with working capital, so one year can look much better than the next."
+    },
+    {
+      "id": "roe",
+      "name": "ROE",
+      "category": "profitability",
+      "unit": "frac",
+      "better": "higher",
+      "tier": "sec",
+      "priority": "P0",
+      "basis": "mixed",
+      "definition": "net_income_ttm / average equity, where average = (MRQ + instant nearest 1 year earlier, ±45 days) / 2. Null (NEGATIVE_DENOMINATOR) if average equity ≤ 0.",
+      "inputs": [
+        "net_income",
+        "equity"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "Profit as a share of shareholders' equity: how hard the equity on the books is working.",
+      "misleads": "Debt and buybacks shrink equity and raise ROE without the business improving."
+    },
+    {
+      "id": "roa",
+      "name": "ROA",
+      "category": "profitability",
+      "unit": "frac",
+      "better": "higher",
+      "tier": "sec",
+      "priority": "P0",
+      "basis": "mixed",
+      "definition": "net_income_ttm / average total_assets ((MRQ + 1 year earlier) / 2).",
+      "inputs": [
+        "net_income",
+        "total_assets"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "Profit as a share of total assets: how much profit the whole balance sheet produces.",
+      "misleads": "Comparing across industries is unfair: banks and asset-heavy businesses always score low, software companies high."
+    },
+    {
+      "id": "roic",
+      "name": "ROIC",
+      "category": "profitability",
+      "unit": "frac",
+      "better": "higher",
+      "tier": "sec",
+      "priority": "P0",
+      "basis": "mixed",
+      "definition": "nopat_ttm / average invested capital. NOPAT = EBIT × (1 − t); t = income_tax / pretax_income clamped to [0, 35%]; if pretax income ≤ 0, t = 21% with note ASSUMED_TAX_RATE. Invested capital = total_debt + equity + minority_interest − cash − st_investments, averaged over MRQ and the balance sheet about a year earlier (on the fiscal-year history: that fiscal year end and the one before) (untagged minority interest and short-term investments count as none); null (NEGATIVE_DENOMINATOR) if the average ≤ 0.",
+      "inputs": [
+        "operating_income",
+        "income_tax",
+        "pretax_income",
+        "total_debt",
+        "equity",
+        "minority_interest",
+        "cash",
+        "st_investments"
+      ],
+      "applicability": {
+        "not_meaningful": [
+          "banks",
+          "insurance",
+          "capital_markets"
+        ],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "After-tax operating profit as a share of the capital invested in the business (debt plus equity, less cash).",
+      "misleads": "Write-downs and buybacks can shrink invested capital and inflate ROIC, and the tax rate is assumed when pretax income is negative."
+    },
+    {
+      "id": "greenblatt_roc",
+      "name": "Return on capital (Greenblatt)",
+      "category": "profitability",
+      "unit": "frac",
+      "better": "higher",
+      "tier": "sec",
+      "priority": "P0",
+      "basis": "mixed",
+      "definition": "ebit_ttm / (net_working_capital + net_ppe), MRQ balances. NWC = (current_assets − cash − st_investments) − (current_liabilities − debt_current); untagged short-term investments and current debt count as none. Null (NEGATIVE_DENOMINATOR) if the denominator ≤ 0.",
+      "inputs": [
+        "operating_income",
+        "current_assets",
+        "cash",
+        "st_investments",
+        "current_liabilities",
+        "debt_current",
+        "ppe_net"
+      ],
+      "applicability": {
+        "not_meaningful": [
+          "banks",
+          "insurance",
+          "capital_markets"
+        ],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "Operating profit as a share of the working capital and fixed assets the business needs, Greenblatt's return on capital.",
+      "misleads": "It leaves out goodwill and leased assets, so acquirers and lease-heavy businesses look more capital-light than they are."
+    },
+    {
+      "id": "cash_conversion",
+      "name": "Cash conversion",
+      "category": "profitability",
+      "unit": "x",
+      "better": "higher",
+      "tier": "sec",
+      "priority": "P0",
+      "basis": "ttm",
+      "definition": "cfo_ttm / net_income_ttm. Null (NEGATIVE_DENOMINATOR) if NI ≤ 0.",
+      "inputs": [
+        "cfo",
+        "net_income"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "How much operating cash flow each dollar of reported profit brought in.",
+      "misleads": "Working-capital swings move it a lot in a single year, and it's undefined when profit is zero or negative."
+    },
+    {
+      "id": "sbc_to_revenue",
+      "name": "SBC / revenue",
+      "category": "profitability",
+      "unit": "frac",
+      "better": "lower",
+      "tier": "sec",
+      "priority": "P0",
+      "basis": "ttm",
+      "definition": "sbc_ttm / revenue_ttm.",
+      "inputs": [
+        "sbc",
+        "revenue"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "Stock-based pay as a share of revenue: a cost that doesn't show up in free cash flow.",
+      "misleads": "It doesn't show how much the share count actually grew, since buybacks can offset the new shares."
+    },
+    {
+      "id": "fcf_after_sbc_margin",
+      "name": "FCF after SBC margin",
+      "category": "profitability",
+      "unit": "frac",
+      "better": "higher",
+      "tier": "sec",
+      "priority": "P1",
+      "basis": "ttm",
+      "definition": "(fcf_ttm − sbc_ttm) / revenue_ttm.",
+      "inputs": [
+        "fcf",
+        "sbc",
+        "revenue"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "Free cash flow after treating stock-based pay as a cash cost, as a share of revenue.",
+      "misleads": "It counts all stock pay at its accounting value, which may differ from what the shares are worth when they vest."
+    },
+    {
+      "id": "revenue_growth_yoy",
+      "name": "Revenue growth (YoY)",
+      "category": "growth",
+      "unit": "frac",
+      "better": "higher",
+      "tier": "sec",
+      "priority": "P0",
+      "basis": "ttm",
+      "definition": "revenue_ttm / revenue_ttm_1y_ago − 1. Null (NEGATIVE_DENOMINATOR) if the prior value ≤ 0.",
+      "inputs": [
+        "revenue"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "How much revenue grew over the last twelve months compared with the twelve months before.",
+      "misleads": "Acquisitions, currency moves and a weak year-ago period all lift it without the business itself growing faster."
+    },
+    {
+      "id": "revenue_cagr_3y",
+      "name": "Revenue CAGR (3y)",
+      "category": "growth",
+      "unit": "frac",
+      "better": "higher",
+      "tier": "sec",
+      "priority": "P0",
+      "basis": "fy",
+      "definition": "(revenue_FY0 / revenue_FY−3)^(1/3) − 1. Null (NEGATIVE_DENOMINATOR) if the start ≤ 0; INSUFFICIENT_HISTORY with fewer than 4 FYs.",
+      "inputs": [
+        "revenue"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "Average yearly revenue growth over the last three fiscal years.",
+      "misleads": "It only looks at the start and end years, so a big acquisition or a bad starting year can dominate."
+    },
+    {
+      "id": "revenue_cagr_5y",
+      "name": "Revenue CAGR (5y)",
+      "category": "growth",
+      "unit": "frac",
+      "better": "higher",
+      "tier": "sec",
+      "priority": "P1",
+      "basis": "fy",
+      "definition": "(revenue_FY0 / revenue_FY−5)^(1/5) − 1. Null if the start ≤ 0 or fewer than 6 FYs.",
+      "inputs": [
+        "revenue"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "Average yearly revenue growth over the last five fiscal years.",
+      "misleads": "It only looks at the start and end years, and five years back the company may have been a different business."
+    },
+    {
+      "id": "eps_growth_yoy",
+      "name": "EPS growth (YoY)",
+      "category": "growth",
+      "unit": "frac",
+      "better": "higher",
+      "tier": "sec",
+      "priority": "P0",
+      "basis": "ttm",
+      "definition": "Computed from TTM net income, not reported EPS: (net_income_ttm / diluted shares) ÷ the same a year earlier − 1. Diluted shares = the weighted count for the quarter ending at the TTM end, or the fiscal-year count at a fiscal year end. Preferred dividends are not subtracted. The earlier count is adjusted for splits between the two counts that the company's own filings confirm (a later filing restated a share count by the split's ratio). Null (NEGATIVE_DENOMINATOR) if the prior EPS ≤ 0.",
+      "inputs": [
+        "net_income",
+        "diluted_shares"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "How much profit per share grew over the last twelve months, computed from net income and diluted shares.",
+      "misleads": "Buybacks raise it even when profit is flat, and one-off items in either year can swing it wildly."
+    },
+    {
+      "id": "ebit_growth_yoy",
+      "name": "EBIT growth (YoY)",
+      "category": "growth",
+      "unit": "frac",
+      "better": "higher",
+      "tier": "sec",
+      "priority": "P1",
+      "basis": "ttm",
+      "definition": "ebit_ttm / ebit_ttm_1y_ago − 1. Null (NEGATIVE_DENOMINATOR) if the prior value ≤ 0.",
+      "inputs": [
+        "operating_income"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "How much operating profit grew over the last twelve months compared with the twelve months before.",
+      "misleads": "Growth from a small or depressed base looks huge, and one-off items in either year distort it."
+    },
+    {
+      "id": "fcf_growth_yoy",
+      "name": "FCF growth (YoY)",
+      "category": "growth",
+      "unit": "frac",
+      "better": "higher",
+      "tier": "sec",
+      "priority": "P1",
+      "basis": "ttm",
+      "definition": "fcf_ttm / fcf_ttm_1y_ago − 1. Null (NEGATIVE_DENOMINATOR) if the prior value ≤ 0.",
+      "inputs": [
+        "fcf"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "How much free cash flow grew over the last twelve months compared with the twelve months before.",
+      "misleads": "Free cash flow is lumpy, so large swings are common and often reverse the next year."
+    },
+    {
+      "id": "gross_margin_change_yoy",
+      "name": "Gross margin change",
+      "category": "growth",
+      "unit": "pp",
+      "better": "higher",
+      "tier": "sec",
+      "priority": "P0",
+      "basis": "ttm",
+      "definition": "gross_margin − gross_margin_1y_ago (TTM), in percentage points stored as a fraction.",
+      "inputs": [
+        "gross_margin"
+      ],
+      "applicability": {
+        "not_meaningful": [
+          "banks",
+          "insurance",
+          "capital_markets"
+        ],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "How many percentage points the gross margin moved over the last year.",
+      "misleads": "A change in product mix or a one-off cost can move it without anything changing in the core business."
+    },
+    {
+      "id": "operating_margin_change_yoy",
+      "name": "Operating margin change",
+      "category": "growth",
+      "unit": "pp",
+      "better": "higher",
+      "tier": "sec",
+      "priority": "P0",
+      "basis": "ttm",
+      "definition": "operating_margin − operating_margin_1y_ago (TTM), in percentage points stored as a fraction.",
+      "inputs": [
+        "operating_margin"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "How many percentage points the operating margin moved over the last year.",
+      "misleads": "One-off charges in either year can make a normal year look like a big improvement."
+    },
+    {
+      "id": "share_count_change_yoy",
+      "name": "Share count change",
+      "category": "growth",
+      "unit": "frac",
+      "better": "lower",
+      "tier": "sec",
+      "priority": "P0",
+      "basis": "q",
+      "definition": "diluted_shares (latest discrete quarter) / same quarter 1 year ago − 1; on the fiscal-year history, the full-year diluted weighted average / the prior fiscal year's − 1. The earlier count is adjusted for splits between the two counts that the company's own filings confirm (a later filing restated a share count by the split's ratio).",
+      "inputs": [
+        "diluted_shares"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "How much the diluted share count changed in a year: positive means dilution, negative means buybacks.",
+      "misleads": "Diluted counts move with the share price (options in or out of the money), an acquisition paid in shares raises it for a reason, and splits the filings don't confirm (ADR ratio changes, a predecessor's comparatives) are not adjusted."
+    },
+    {
+      "id": "rule_of_40",
+      "name": "Rule of 40",
+      "category": "growth",
+      "unit": "frac",
+      "better": "higher",
+      "tier": "sec",
+      "priority": "P0",
+      "basis": "ttm",
+      "definition": "revenue_growth_yoy + fcf_margin.",
+      "inputs": [
+        "revenue_growth_yoy",
+        "fcf_margin"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "Revenue growth plus FCF margin, a quick balance test of growth against profitability.",
+      "misleads": "It was made for subscription software, and FCF margin ignores stock-based pay."
+    },
+    {
+      "id": "net_debt",
+      "name": "Net debt",
+      "category": "balance_sheet",
+      "unit": "usd",
+      "better": "lower",
+      "tier": "sec",
+      "priority": "P0",
+      "basis": "mrq",
+      "definition": "total_debt − cash − st_investments (negative = net cash; untagged short-term investments count as none). total_debt includes finance leases where the filing presents them outside debt (when no filing says where, they're left out and the ⓘ says so: INPUT_EXCLUDES); operating leases are excluded.",
+      "inputs": [
+        "total_debt",
+        "cash",
+        "st_investments"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "Debt minus cash and short-term investments; negative means the company holds more cash than debt.",
+      "misleads": "Operating leases and pensions aren't counted, and cash may be trapped abroad or owed to customers."
+    },
+    {
+      "id": "net_debt_to_ebitda",
+      "name": "Net debt / EBITDA",
+      "category": "balance_sheet",
+      "unit": "x",
+      "better": "lower",
+      "tier": "sec",
+      "priority": "P0",
+      "basis": "mixed",
+      "definition": "net_debt / ebitda_ttm. Null (NEGATIVE_DENOMINATOR) if EBITDA ≤ 0. Finance leases count in debt as for net_debt.",
+      "inputs": [
+        "net_debt",
+        "ebitda"
+      ],
+      "applicability": {
+        "not_meaningful": [
+          "banks",
+          "insurance",
+          "capital_markets",
+          "foreign_filers"
+        ],
+        "notes": {
+          "foreign_filers": "Until F20 (FX + ADR ratios): null with FOREIGN_PRICE_BASIS unless the filer files a 40-F and reports in USD (§4.3 rule 13: Canadian issuers list their ordinary shares directly; 20-F listings may be ADRs).",
+          "reits": "FFO is not available; EV-based metrics use reported EBIT/EBITDA."
+        }
+      },
+      "status": "live",
+      "tells_you": "How many years of operating profit before depreciation it would take to pay off net debt.",
+      "misleads": "EBITDA flatters asset-heavy businesses, and leases and pensions aren't counted as debt."
+    },
+    {
+      "id": "debt_to_equity",
+      "name": "Debt / equity",
+      "category": "balance_sheet",
+      "unit": "x",
+      "better": "lower",
+      "tier": "sec",
+      "priority": "P0",
+      "basis": "mrq",
+      "definition": "total_debt / equity. Null (NEGATIVE_DENOMINATOR) if equity ≤ 0. Finance leases count in total_debt as for net_debt.",
+      "inputs": [
+        "total_debt",
+        "equity"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "Total debt compared with shareholders' equity on the balance sheet.",
+      "misleads": "Buybacks and write-downs shrink equity and make the ratio jump without any new borrowing."
+    },
+    {
+      "id": "current_ratio",
+      "name": "Current ratio",
+      "category": "balance_sheet",
+      "unit": "x",
+      "better": "higher",
+      "tier": "sec",
+      "priority": "P0",
+      "basis": "mrq",
+      "definition": "current_assets / current_liabilities.",
+      "inputs": [
+        "current_assets",
+        "current_liabilities"
+      ],
+      "applicability": {
+        "not_meaningful": [
+          "banks",
+          "insurance",
+          "capital_markets"
+        ],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "Current assets compared with bills due within a year: a rough test of short-term liquidity.",
+      "misleads": "Slow-moving inventory counts as fully liquid, and some healthy businesses run below 1 on purpose."
+    },
+    {
+      "id": "quick_ratio",
+      "name": "Quick ratio",
+      "category": "balance_sheet",
+      "unit": "x",
+      "better": "higher",
+      "tier": "sec",
+      "priority": "P1",
+      "basis": "mrq",
+      "definition": "(cash + st_investments + receivables) / current_liabilities (untagged short-term investments count as none).",
+      "inputs": [
+        "cash",
+        "st_investments",
+        "receivables",
+        "current_liabilities"
+      ],
+      "applicability": {
+        "not_meaningful": [
+          "banks",
+          "insurance",
+          "capital_markets"
+        ],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "Cash, short-term investments and receivables compared with bills due within a year.",
+      "misleads": "Receivables may not all be collected, and it says nothing about cash coming in from operations."
+    },
+    {
+      "id": "interest_coverage",
+      "name": "Interest coverage",
+      "category": "balance_sheet",
+      "unit": "x",
+      "better": "higher",
+      "tier": "sec",
+      "priority": "P0",
+      "basis": "ttm",
+      "definition": "ebit_ttm / interest_expense_ttm. Null (NO_INTEREST_EXPENSE) if interest expense is zero for the TTM, or isn't tagged while total debt is zero; untagged with debt (or unknown debt) is MISSING_INPUT.",
+      "inputs": [
+        "operating_income",
+        "interest_expense"
+      ],
+      "applicability": {
+        "not_meaningful": [
+          "banks",
+          "insurance",
+          "capital_markets"
+        ],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "How many times operating profit covers the year's interest cost.",
+      "misleads": "A good year flatters it, and floating-rate debt can make next year's interest bill much higher."
+    },
+    {
+      "id": "altman_z",
+      "name": "Altman Z (1968)",
+      "category": "balance_sheet",
+      "unit": "score",
+      "better": "higher",
+      "tier": "price",
+      "priority": "P1",
+      "basis": "mixed",
+      "definition": "1.2·WC/TA + 1.4·RE/TA + 3.3·EBIT/TA + 0.6·MktCap/TL + 1.0·Sales/TA, with WC = current_assets − current_liabilities. Balances MRQ, EBIT and sales TTM. n/m for financials and REITs.",
+      "inputs": [
+        "current_assets",
+        "current_liabilities",
+        "total_assets",
+        "retained_earnings",
+        "operating_income",
+        "market_cap",
+        "total_liabilities",
+        "revenue"
+      ],
+      "applicability": {
+        "not_meaningful": [
+          "banks",
+          "insurance",
+          "capital_markets",
+          "reits",
+          "foreign_filers"
+        ],
+        "notes": {
+          "foreign_filers": "Until F20 (FX + ADR ratios): null with FOREIGN_PRICE_BASIS unless the filer files a 40-F and reports in USD (§4.3 rule 13: Canadian issuers list their ordinary shares directly; 20-F listings may be ADRs)."
+        }
+      },
+      "status": "live",
+      "tells_you": "A five-part score from balance-sheet and profit ratios, built to separate distressed manufacturers from healthy ones.",
+      "misleads": "It was built on 1960s US manufacturers and its weights don't suit service, software or financial companies."
+    },
+    {
+      "id": "cash_to_mcap",
+      "name": "Cash / market cap",
+      "category": "balance_sheet",
+      "unit": "frac",
+      "better": "higher",
+      "tier": "price",
+      "priority": "P0",
+      "basis": "mixed",
+      "definition": "(cash + st_investments) / market_cap (untagged short-term investments count as none).",
+      "inputs": [
+        "cash",
+        "st_investments",
+        "market_cap"
+      ],
+      "applicability": {
+        "not_meaningful": [
+          "foreign_filers"
+        ],
+        "notes": {
+          "foreign_filers": "Until F20 (FX + ADR ratios): null with FOREIGN_PRICE_BASIS unless the filer files a 40-F and reports in USD (§4.3 rule 13: Canadian issuers list their ordinary shares directly; 20-F listings may be ADRs)."
+        }
+      },
+      "status": "live",
+      "tells_you": "Cash and short-term investments as a share of market cap.",
+      "misleads": "It ignores debt, and cash held abroad, restricted or owed to customers counts the same as free cash."
+    },
+    {
+      "id": "goodwill_to_assets",
+      "name": "Goodwill + intangibles / assets",
+      "category": "balance_sheet",
+      "unit": "frac",
+      "better": "lower",
+      "tier": "sec",
+      "priority": "P1",
+      "basis": "mrq",
+      "definition": "(goodwill + intangibles) / total_assets.",
+      "inputs": [
+        "goodwill",
+        "intangibles",
+        "total_assets"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "Goodwill and intangibles as a share of total assets, a measure of how much of the balance sheet came from acquisitions.",
+      "misleads": "Companies that built their brands in-house carry none, so it reflects acquisition history more than real intangible value."
+    },
+    {
+      "id": "asset_turnover",
+      "name": "Asset turnover",
+      "category": "efficiency",
+      "unit": "x",
+      "better": "higher",
+      "tier": "sec",
+      "priority": "P1",
+      "basis": "mixed",
+      "definition": "revenue_ttm / average total_assets.",
+      "inputs": [
+        "revenue",
+        "total_assets"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "Revenue per dollar of assets: how much selling the balance sheet supports.",
+      "misleads": "It differs hugely by industry and rises when assets are written down, not only when the business improves."
+    },
+    {
+      "id": "dso",
+      "name": "Days sales outstanding",
+      "category": "efficiency",
+      "unit": "days",
+      "better": "lower",
+      "tier": "sec",
+      "priority": "P1",
+      "basis": "mixed",
+      "definition": "receivables (MRQ) / revenue_ttm × 365.",
+      "inputs": [
+        "receivables",
+        "revenue"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "Roughly how many days customers take to pay.",
+      "misleads": "Seasonal businesses and companies that sell receivables can look unusually good or bad at one quarter end."
+    },
+    {
+      "id": "dio",
+      "name": "Days inventory",
+      "category": "efficiency",
+      "unit": "days",
+      "better": "lower",
+      "tier": "sec",
+      "priority": "P1",
+      "basis": "mixed",
+      "definition": "inventory (MRQ) / cost_of_revenue_ttm × 365.",
+      "inputs": [
+        "inventory",
+        "cost_of_revenue"
+      ],
+      "applicability": {
+        "not_meaningful": [
+          "banks",
+          "insurance",
+          "capital_markets"
+        ],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "Roughly how many days of sales sit in inventory.",
+      "misleads": "Seasonal stock-builds before a busy period look like a warning sign when they're normal."
+    },
+    {
+      "id": "dpo",
+      "name": "Days payables",
+      "category": "efficiency",
+      "unit": "days",
+      "better": "neutral",
+      "tier": "sec",
+      "priority": "P1",
+      "basis": "mixed",
+      "definition": "accounts_payable (MRQ) / cost_of_revenue_ttm × 365.",
+      "inputs": [
+        "accounts_payable",
+        "cost_of_revenue"
+      ],
+      "applicability": {
+        "not_meaningful": [
+          "banks",
+          "insurance",
+          "capital_markets"
+        ],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "Roughly how many days the company takes to pay its suppliers.",
+      "misleads": "A rising number can mean bargaining power or cash trouble, and the ratio can't tell which."
+    },
+    {
+      "id": "cash_conversion_cycle",
+      "name": "Cash conversion cycle",
+      "category": "efficiency",
+      "unit": "days",
+      "better": "lower",
+      "tier": "sec",
+      "priority": "P1",
+      "basis": "mixed",
+      "definition": "dso + dio − dpo.",
+      "inputs": [
+        "dso",
+        "dio",
+        "dpo"
+      ],
+      "applicability": {
+        "not_meaningful": [
+          "banks",
+          "insurance",
+          "capital_markets"
+        ],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "Days of inventory plus days to collect from customers, minus days to pay suppliers: how long cash is tied up.",
+      "misleads": "Each part is a single quarter-end snapshot, so seasonal businesses swing a lot."
+    },
+    {
+      "id": "capex_to_revenue",
+      "name": "Capex / revenue",
+      "category": "efficiency",
+      "unit": "frac",
+      "better": "neutral",
+      "tier": "sec",
+      "priority": "P1",
+      "basis": "ttm",
+      "definition": "capex_ttm / revenue_ttm (capex is a positive outflow in XBRL).",
+      "inputs": [
+        "capex",
+        "revenue"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "Capital spending as a share of revenue: how much reinvestment the business needs.",
+      "misleads": "It doesn't separate spending to stand still from spending to grow."
+    },
+    {
+      "id": "capex_to_dna",
+      "name": "Capex / D&A",
+      "category": "efficiency",
+      "unit": "x",
+      "better": "neutral",
+      "tier": "sec",
+      "priority": "P1",
+      "basis": "ttm",
+      "definition": "capex_ttm / dna_ttm.",
+      "inputs": [
+        "capex",
+        "dna"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "Capital spending compared with depreciation: above 1 suggests the asset base is growing, below 1 that it's shrinking.",
+      "misleads": "Acquisitions add depreciation without capex, and inflation makes replacement cost more than old depreciation."
+    },
+    {
+      "id": "piotroski_f",
+      "name": "Piotroski F-score",
+      "category": "quality",
+      "unit": "score",
+      "better": "higher",
+      "tier": "sec",
+      "priority": "P0",
+      "basis": "fy",
+      "definition": "The 9 binary tests of Piotroski (2000), latest FY vs prior FY, scaled as in the paper by total assets at the start of each year: ROA > 0, CFO > 0, ΔROA > 0, CFO > NI, Δ(long-term debt / average assets) < 0, Δcurrent ratio > 0, diluted shares not up (prior count adjusted for filing-confirmed splits), Δgross margin > 0, Δasset turnover > 0. Null if any input is missing (long-term debt must be tagged). The 9 parts are stored in metric_history as piotroski_f.<test>. n/m for banks and insurers.",
+      "inputs": [
+        "net_income",
+        "total_assets",
+        "cfo",
+        "debt_noncurrent",
+        "current_assets",
+        "current_liabilities",
+        "diluted_shares",
+        "gross_profit",
+        "revenue"
+      ],
+      "applicability": {
+        "not_meaningful": [
+          "banks",
+          "insurance"
+        ],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "A 0–9 count of nine pass/fail tests that ask whether profitability, funding and efficiency improved over the last year.",
+      "misleads": "Every test weighs the same and only compares two years, so small changes count as much as big ones."
+    },
+    {
+      "id": "accruals_ratio",
+      "name": "Accruals ratio (Sloan-style)",
+      "category": "quality",
+      "unit": "frac",
+      "better": "lower",
+      "tier": "sec",
+      "priority": "P0",
+      "basis": "mixed",
+      "definition": "(net_income_ttm − cfo_ttm) / average total_assets.",
+      "inputs": [
+        "net_income",
+        "cfo",
+        "total_assets"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "How far reported profit ran ahead of operating cash flow, compared with the size of the balance sheet.",
+      "misleads": "Growing companies build working capital naturally, so a high value isn't always a warning."
+    },
+    {
+      "id": "payout_ratio",
+      "name": "Payout ratio",
+      "category": "quality",
+      "unit": "frac",
+      "better": "neutral",
+      "tier": "sec",
+      "priority": "P1",
+      "basis": "ttm",
+      "definition": "dividends_paid_ttm / net_income_ttm. Null (NEGATIVE_DENOMINATOR) if NI ≤ 0. Untagged dividends / buybacks / issuance count as none (noted) when the period's cash-flow statement is tagged (CFO present); otherwise MISSING_INPUT.",
+      "inputs": [
+        "dividends_paid",
+        "net_income"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "Dividends paid as a share of the last twelve months' profit.",
+      "misleads": "Profit includes non-cash items, so a payout that looks covered may not be covered by cash."
+    },
+    {
+      "id": "fcf_payout_ratio",
+      "name": "FCF payout",
+      "category": "quality",
+      "unit": "frac",
+      "better": "lower",
+      "tier": "sec",
+      "priority": "P0",
+      "basis": "ttm",
+      "definition": "dividends_paid_ttm / fcf_ttm. Null (NEGATIVE_DENOMINATOR) if FCF ≤ 0. Untagged dividends / buybacks / issuance count as none (noted) when the period's cash-flow statement is tagged (CFO present); otherwise MISSING_INPUT.",
+      "inputs": [
+        "dividends_paid",
+        "fcf"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "Dividends paid as a share of the last twelve months' free cash flow.",
+      "misleads": "Free cash flow is lumpy, so one weak year can make a safe dividend look stretched."
+    },
+    {
+      "id": "dps_no_cut_5y",
+      "name": "No dividend cut (5y)",
+      "category": "quality",
+      "unit": "bool",
+      "better": "higher",
+      "tier": "sec",
+      "priority": "P0",
+      "basis": "fy",
+      "definition": "True if dividends per share declared never fell by more than 1% year on year across the last 5 FYs (4 comparisons). Null (INSUFFICIENT_HISTORY) with fewer than 5 FYs, or (MISSING_INPUT) if a year's value is untagged.",
+      "inputs": [
+        "dps_declared"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "Whether dividends per share avoided a cut in each of the last five fiscal years.",
+      "misleads": "It looks backwards only, and it can't see special dividends or a cut announced after the last filing."
+    },
+    {
+      "id": "return_1m",
+      "name": "Price return (1m)",
+      "category": "price_momentum",
+      "unit": "frac",
+      "better": "neutral",
+      "tier": "price",
+      "priority": "P0",
+      "basis": "daily",
+      "definition": "Split-adjusted close / close 21 sessions ago − 1. Price return only (excludes dividends). Null (INSUFFICIENT_HISTORY) with fewer than 21 sessions.",
+      "inputs": [
+        "close"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "How much the share price moved over the last month, before dividends.",
+      "misleads": "One month of price movement is mostly noise."
+    },
+    {
+      "id": "return_3m",
+      "name": "Price return (3m)",
+      "category": "price_momentum",
+      "unit": "frac",
+      "better": "neutral",
+      "tier": "price",
+      "priority": "P0",
+      "basis": "daily",
+      "definition": "Split-adjusted close / close 63 sessions ago − 1. Price return only (excludes dividends). Null (INSUFFICIENT_HISTORY) with fewer than 63 sessions.",
+      "inputs": [
+        "close"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "How much the share price moved over the last three months, before dividends.",
+      "misleads": "Short-term moves often reverse and reflect market swings more than the company."
+    },
+    {
+      "id": "return_6m",
+      "name": "Price return (6m)",
+      "category": "price_momentum",
+      "unit": "frac",
+      "better": "neutral",
+      "tier": "price",
+      "priority": "P0",
+      "basis": "daily",
+      "definition": "Split-adjusted close / close 126 sessions ago − 1. Price return only (excludes dividends). Null (INSUFFICIENT_HISTORY) with fewer than 126 sessions.",
+      "inputs": [
+        "close"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "How much the share price moved over the last six months, before dividends.",
+      "misleads": "It leaves out dividends, so high-yield stocks look worse than they did for holders."
+    },
+    {
+      "id": "return_12m",
+      "name": "Price return (12m)",
+      "category": "price_momentum",
+      "unit": "frac",
+      "better": "neutral",
+      "tier": "price",
+      "priority": "P0",
+      "basis": "daily",
+      "definition": "Split-adjusted close / close 252 sessions ago − 1. Price return only (excludes dividends). Null (INSUFFICIENT_HISTORY) with fewer than 252 sessions.",
+      "inputs": [
+        "close"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "How much the share price moved over the last year, before dividends.",
+      "misleads": "It leaves out dividends and says nothing about the year ahead."
+    },
+    {
+      "id": "momentum_12_1",
+      "name": "12–1 momentum",
+      "category": "price_momentum",
+      "unit": "frac",
+      "better": "higher",
+      "tier": "price",
+      "priority": "P1",
+      "basis": "daily",
+      "definition": "close at t−21 / close at t−252 − 1 (skips the latest month). Price return only.",
+      "inputs": [
+        "close"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "Price change over the last year, leaving out the most recent month.",
+      "misleads": "Momentum can reverse sharply, especially around market turns."
+    },
+    {
+      "id": "pct_from_52w_high",
+      "name": "Off 52-week high",
+      "category": "price_momentum",
+      "unit": "frac",
+      "better": "neutral",
+      "tier": "price",
+      "priority": "P0",
+      "basis": "daily",
+      "definition": "close / max(close over 252 sessions) − 1.",
+      "inputs": [
+        "close"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "How far the price sits below its highest close of the last year.",
+      "misleads": "A big drop can be a change in the business, not a discount."
+    },
+    {
+      "id": "volatility_1y",
+      "name": "Volatility (1y)",
+      "category": "price_momentum",
+      "unit": "frac",
+      "better": "lower",
+      "tier": "price",
+      "priority": "P1",
+      "basis": "daily",
+      "definition": "stdev(daily log returns over 252 sessions) × √252.",
+      "inputs": [
+        "close"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "How much the share price typically swings, annualised from the last year of daily moves.",
+      "misleads": "Past swings don't capture rare big events, and thinly traded stocks can look calmer than they are."
+    },
+    {
+      "id": "data_coverage",
+      "name": "Coverage",
+      "category": "data_quality",
+      "unit": "frac",
+      "better": "higher",
+      "tier": "sec",
+      "priority": "P0",
+      "basis": "build",
+      "definition": "Share of the 20 core line items (§4.6) present for the latest TTM/MRQ.",
+      "inputs": [
+        "revenue",
+        "cost_of_revenue",
+        "operating_income",
+        "pretax_income",
+        "income_tax",
+        "net_income",
+        "cfo",
+        "capex",
+        "dna",
+        "sbc",
+        "cash",
+        "current_assets",
+        "total_assets",
+        "current_liabilities",
+        "total_liabilities",
+        "total_debt",
+        "equity",
+        "receivables",
+        "inventory",
+        "shares_outstanding"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "The share of the core financial line items Glint found in the company's latest filings.",
+      "misleads": "Full coverage means the items were tagged, not that they were tagged consistently with other companies."
+    },
+    {
+      "id": "days_since_filing",
+      "name": "Days since last filing",
+      "category": "data_quality",
+      "unit": "days",
+      "better": "lower",
+      "tier": "sec",
+      "priority": "P0",
+      "basis": "build",
+      "definition": "SEC data date of the build − latest 10-K/10-KT/10-Q/10-QT/20-F/40-F filing date.",
+      "inputs": [
+        "filings"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "How many days since the company's latest quarterly or annual report.",
+      "misleads": "Companies on different fiscal calendars file at different times, so a higher count isn't always a warning."
+    },
+    {
+      "id": "flag_count",
+      "name": "Flags",
+      "category": "data_quality",
+      "unit": "score",
+      "better": "lower",
+      "tier": "sec",
+      "priority": "P0",
+      "basis": "build",
+      "definition": "Number of flags raised (§2.10).",
+      "inputs": [
+        "flags"
+      ],
+      "applicability": {
+        "not_meaningful": [],
+        "notes": {}
+      },
+      "status": "live",
+      "tells_you": "How many of Glint's question flags this company raises.",
+      "misleads": "Flags are questions, not verdicts, and some are routine for certain industries (for example goodwill after a big acquisition)."
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "name": "Quality at a reasonable price",
+  "summary": "Good returns on capital, a decent free-cash-flow yield, and margins in the top 25% of the sector.",
+  "kind": "screen",
+  "how_to_read": "Three filters must all pass: ROIC of at least 12%, a free-cash-flow yield of at least 4%, and an operating margin in the top 25% of the company’s own sector. The margin test is sector-relative, so a grocer is compared with grocers rather than with software companies. A sector with fewer than 5 companies that have an operating margin has no percentile, and its companies fail that test. Results are ranked by ROIC and FCF yield, half each. A reasonable price here means a reasonable FCF yield today, nothing more.",
+  "misses": [
+    "Companies whose quality is temporarily hidden (heavy investment years, one-off charges).",
+    "Whether this year's cash flow will repeat: the screen can't tell."
+  ],
+  "source": "Common quality-at-a-reasonable-price heuristic",
+  "screen": {
+    "dsl_version": 1,
+    "name": "Quality at a reasonable price",
+    "filters": {
+      "op": "and",
+      "children": [
+        { "metric": "roic", "cmp": "gte", "value": 0.12 },
+        { "metric": "fcf_yield", "cmp": "gte", "value": 0.04 },
+        { "metric": "operating_margin", "cmp": "pct_rank_gte", "value": 0.75, "within": "sector" }
+      ]
+    },
+    "rank": {
+      "method": "percentile_composite",
+      "within": "universe",
+      "factors": [
+        { "metric": "roic", "weight": 0.5 },
+        { "metric": "fcf_yield", "weight": 0.5 }
+      ],
+      "min_factor_coverage": 0.7
+    },
+    "columns": ["ticker", "name", "sector", "market_cap", "roic", "fcf_yield", "operating_margin", "rank_score"],
+    "sort": { "by": "rank_score", "dir": "desc" },
+    "limit": 100,
+    "near_misses": true
+  }
+}

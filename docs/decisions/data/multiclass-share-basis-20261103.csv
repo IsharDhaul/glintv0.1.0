@@ -1,0 +1,502 @@
+bucket,ticker,cover_total_over_glint,glint_source,glint_shares,cover_total
+one class only,AENT,2.177,CommonStockSharesOutstanding,50979630,110979630
+one class only,ANNA,1.636,(derived),40901518,66934400
+one class only,ASTS,1.301,(derived),299061662,389167494
+one class only,AWX,1.186,EntityCommonStockSharesOutstanding,3287647,3899431
+one class only,BLK,2.097,CommonStockSharesOutstanding,154996807,324952372
+one class only,BRCC,2.124,(derived),117827656,250287463
+one class only,BTMD,1.255,(derived),28626136,35927468
+one class only,DKNG,1.793,(derived),496089000,889467999
+one class only,EROC,4.554,(derived),48174023,219400080
+one class only,FBYD,2.458,(derived),49327318,121259248
+one class only,FLYX,2.044,CommonStockSharesOutstanding,49930000,102081748
+one class only,GLXY,2.027,(derived),192869271,390889090
+one class only,GTEC,1.293,EntityCommonStockSharesOutstanding,20532482,26544222
+one class only,HEI,2.534,CommonStockSharesOutstanding,55143000,139757405
+one class only,JBGS,1.261,EntityCommonStockSharesOutstanding,59181298,74618448
+one class only,MBIO,1.125,(derived),6732970,7577506
+one class only,MDLN,1.527,(derived),860890719,1314707492
+one class only,NBRG,5.25,EntityCommonStockSharesOutstanding,1437500,7546250
+one class only,NHP,2.566,CommonStockSharesOutstanding,28412000,72904876
+one class only,NP,1.437,CommonStockSharesOutstanding,96185000,138171798
+one class only,NPWR,2.544,(derived),88405000,224858561
+one class only,NRDY,1.516,(derived),126382000,191609890
+one class only,OWL,2.264,(derived),688509841,1559092223
+one class only,QSR,1.295,CommonStockSharesOutstanding,348600694,451277010
+one class only,RELL,1.142,(derived),13024000,14876743
+one class only,RRR,1.786,(derived),58805000,105016189
+one class only,SAMG,1.506,(derived),7867831,11847767
+one class only,SATS,1.135,(derived),75275806,85441903
+one class only,SDHC,6.065,(derived),8380647,50828381
+one class only,SSAC,1.321,EntityCommonStockSharesOutstanding,18200849,24047994
+one class only,STEP,1.472,(derived),81995674,120676668
+one class only,TWFG,4.127,(derived),13096390,54051794
+one class only,UHAL.B,9.914,EntityCommonStockSharesOutstanding,19607788,194393495
+one class only,UTZ,1.626,(derived),88510845,143962213
+one class only,VGAS,2.019,(derived),22070453,44549621
+one class only,VIRT,1.772,(derived),87603606,155200227
+one class only,VLGEA,3.522,CommonStockSharesOutstanding,4204000,14806328
+one class only,VNOM,1.854,(derived),193733000,359194893
+one class only,VPG,1.087,EntityCommonStockSharesOutstanding,12256197,13320430
+one class only,XPOF,1.174,(derived),42031000,49324000
+diluted (> total),ACMR,0.97,(derived),71838908,69649196
+diluted (> total),ADT,0.802,(derived),911313000,730559248
+diluted (> total),AFRM,0.967,(derived),348846647,337421256
+diluted (> total),AMCX,0.959,(derived),43016000,41249971
+diluted (> total),AMPL,0.965,(derived),129380000,124916066
+diluted (> total),ATRO,0.924,(derived),46535000,43009064
+diluted (> total),BAND,0.807,(derived),40134189,32383411
+diluted (> total),BODI,0.922,(derived),7904603,7284736
+diluted (> total),BSY,0.947,(derived),318957692,302092889
+diluted (> total),CARG,0.978,(derived),91076449,89073478
+diluted (> total),CEPL,0.96,(derived),34335000,32944709
+diluted (> total),CHCI,0.971,(derived),10587000,10281952
+diluted (> total),CHYM,0.962,(derived),393420014,378585111
+diluted (> total),CLOV,0.974,(derived),545447735,531156263
+diluted (> total),CRCL,0.945,(derived),268637000,253875881
+diluted (> total),CRD.A,0.901,(derived),53940000,48605522
+diluted (> total),CVLG,0.954,(derived),26589000,25377778
+diluted (> total),CXM,0.976,(derived),237840000,232171340
+diluted (> total),DAVE,0.932,(derived),13679803,12755507
+diluted (> total),DBI,0.913,(derived),55974000,51123404
+diluted (> total),DDOG,0.968,(derived),371023000,359075024
+diluted (> total),DUOL,0.935,(derived),50031000,46786269
+diluted (> total),ECHO,0.826,(derived),351622000,290490708
+diluted (> total),ESBA,0.083,(derived),268947000,22302255
+diluted (> total),ESRT,0.644,(derived),268947000,173132649
+diluted (> total),EVC,0.897,(derived),102857606,92288305
+diluted (> total),EVER,0.975,(derived),36159000,35239751
+diluted (> total),EVR,0.935,(derived),41134000,38457832
+diluted (> total),EXFY,0.955,(derived),95441380,91186664
+diluted (> total),EZPW,0.737,(derived),83358000,61443377
+diluted (> total),F,0.98,(derived),4076000000,3993217466
+diluted (> total),FCNCA,0.979,(derived),11535792,11293120
+diluted (> total),FFAI,0.004,(derived),988638662,3855301
+diluted (> total),FIGR,0.909,(derived),246969949,224377872
+diluted (> total),FIGS,0.851,(derived),195139642,166140242
+diluted (> total),FNKO,0.976,(derived),57460533,56087042
+diluted (> total),FOXA,0.956,(derived),439000000,419650149
+diluted (> total),FRSH,0.956,(derived),272988000,260920772
+diluted (> total),FWONK,0.744,(derived),337000000,250708485
+diluted (> total),H,0.969,(derived),96345758,93390088
+diluted (> total),HNGE,0.967,(derived),83424000,80694417
+diluted (> total),HOV,0.929,(derived),6412000,5959890
+diluted (> total),ITG,0.776,(derived),160000000,124157219
+diluted (> total),KVYO,0.959,(derived),296851806,284727437
+diluted (> total),LBTYA,0.971,(derived),351125515,341087566
+diluted (> total),LEU,0.911,(derived),21891000,19952858
+diluted (> total),LILAK,0.974,(derived),201100000,195900000
+diluted (> total),MNTN,0.951,(derived),78643570,74803163
+diluted (> total),MOV,0.967,(derived),23085000,22312245
+diluted (> total),MQ,0.975,(derived),106797000,104098834
+diluted (> total),MSGM,0.873,(derived),5255013,4588802
+diluted (> total),MSS,0.835,(derived),36466845,30451517
+diluted (> total),MYPS,0.941,(derived),127617000,120121382
+diluted (> total),NMRK,0.72,(derived),251863000,181228627
+diluted (> total),NWSA,0.969,(derived),558400000,541052638
+diluted (> total),NXT,0.978,(derived),155141856,151729520
+diluted (> total),OKTA,0.978,(derived),178808000,174820928
+diluted (> total),OPY,0.932,(derived),11483286,10708005
+diluted (> total),OSCR,0.926,(derived),333432000,308645000
+diluted (> total),PAY,0.976,(derived),129005011,125939647
+diluted (> total),PGY,0.858,(derived),97247579,83425843
+diluted (> total),PTRN,0.979,(derived),181194000,177399089
+diluted (> total),RANI,0.745,(derived),187168000,139395319
+diluted (> total),RDDT,0.952,(derived),202029721,192396510
+diluted (> total),RDIB,0.96,(derived),23842505,22890127
+diluted (> total),REGN,0.971,(derived),106000000,102954988
+diluted (> total),RL,0.972,(derived),61300000,59582239
+diluted (> total),RNG,0.963,(derived),87687000,84460351
+diluted (> total),RNGR,0.974,(derived),24037021,23402023
+diluted (> total),ROOT,0.911,(derived),17000000,15493252
+diluted (> total),RPC,0.922,(derived),119515000,110238440
+diluted (> total),RUSHA,0.97,(derived),80215000,77820277
+diluted (> total),SERA,0.782,(derived),50476874,39449466
+diluted (> total),TAP,0.941,(derived),187700000,176681024
+diluted (> total),TBLA,0.936,(derived),288764244,270155398
+diluted (> total),TCRX,0.522,(derived),129948878,67779255
+diluted (> total),TEAM,0.973,(derived),260163000,253138815
+diluted (> total),TOST,0.98,(derived),590000000,578000000
+diluted (> total),VG,0.946,(derived),2643000000,2500092851
+diluted (> total),VICR,0.969,(derived),47609000,46148600
+diluted (> total),WDAY,0.978,(derived),246307000,241000000
+diluted (> total),WK,0.971,(derived),56056066,54416488
+diluted (> total),ZM,0.973,(derived),299746342,291783711
+≈ total,ABNB,1.003,(derived),597000000,598785682
+≈ total,AD,1.0,CommonStockSharesOutstanding,86479000,86500000
+≈ total,AGM,0.997,(derived),10882000,10853210
+≈ total,ALGS,1.001,CommonStockSharesOutstanding,6236828,6244558
+≈ total,ALMS,1.014,(derived),127690254,129435239
+≈ total,AMBO,1.001,(derived),57127524,57206434
+≈ total,AMH,0.997,(derived),360808221,359815019
+≈ total,AMRC,0.986,(derived),53835000,53066211
+≈ total,AMWL,1.005,CommonStockSharesOutstanding,16925006,17008758
+≈ total,ANGI,1.002,(derived),40459000,40556251
+≈ total,ANGX,1.001,CommonStockSharesOutstanding,186504214,186756319
+≈ total,AOS,0.987,(derived),136097723,134328956
+≈ total,APAM,1.0,CommonStockSharesOutstanding,81073742,81073742
+≈ total,APP,0.998,CommonStockSharesOutstanding,335291000,334651000
+≈ total,APPF,0.997,(derived),35578000,35455776
+≈ total,APPN,0.998,CommonStockSharesOutstanding,71800000,71627597
+≈ total,ARHS,1.0,(derived),141808253,141751733
+≈ total,ARTNA,1.0,(derived),10330000,10327121
+≈ total,ARXS,1.009,(derived),427020000,430721883
+≈ total,ASAN,0.992,(derived),230818000,228970117
+≈ total,AUR,1.003,CommonStockSharesOutstanding,2015000000,2020447857
+≈ total,BATRK,0.988,(derived),64966000,64167897
+≈ total,BBGI,1.01,(derived),1834274,1852751
+≈ total,BCYC,1.001,CommonStockSharesOutstanding,69993013,70093761
+≈ total,BETR,1.001,CommonStockSharesOutstanding,18981789,18998579
+≈ total,BF.B,0.999,(derived),459518000,458864265
+≈ total,BFLY,1.004,(derived),266497535,267461933
+≈ total,BGC,0.993,(derived),478965000,475466522
+≈ total,BIO,0.997,(derived),26814000,26738175
+≈ total,BLND,1.0,CommonStockSharesOutstanding,236513000,236513319
+≈ total,BMBL,1.007,(derived),131043166,131968331
+≈ total,BOC,0.99,(derived),30422794,30126566
+≈ total,BRC,0.982,(derived),47750000,46899214
+≈ total,BRLT,1.001,(derived),101681331,101822795
+≈ total,CBNA,1.0,(derived),6561817,6561817
+≈ total,CENTA,1.01,(derived),61947000,62592598
+≈ total,CHTR,0.984,(derived),121255667,119277493
+≈ total,CHWY,0.98,(derived),410100000,401927249
+≈ total,CMCSA,0.997,(derived),3562000000,3551006335
+≈ total,CME,0.998,(derived),358641000,357933884
+≈ total,CNK,1.012,(derived),114700000,116096003
+≈ total,CNM,0.985,(derived),193359334,190494050
+≈ total,COIN,1.0,CommonStockSharesOutstanding,264756000,264763418
+≈ total,CPNG,0.999,(derived),1799000000,1797511702
+≈ total,CRCT,1.0,CommonStockSharesOutstanding,209369360,209444416
+≈ total,CRWV,1.001,(derived),551000000,551536602
+≈ total,CTNT,1.0,CommonStockSharesOutstanding,3159391,3159391
+≈ total,CWEN,1.0,CommonStockSharesOutstanding,205267917,205274852
+≈ total,CWST,0.999,(derived),63685000,63640046
+≈ total,DASH,0.986,(derived),439345000,433295654
+≈ total,DBX,0.995,(derived),226800000,225709285
+≈ total,DDS,1.0,(derived),15619000,15619451
+≈ total,DELL,0.993,CommonStockSharesOutstanding,640000000,635812750
+≈ total,DFH,0.993,(derived),91341917,90723879
+≈ total,DKS,0.987,(derived),90131000,88926556
+≈ total,DLB,0.991,(derived),94518000,93668795
+≈ total,DOCS,0.991,CommonStockSharesOutstanding,179849000,178245980
+≈ total,EL,0.992,(derived),364800000,361798567
+≈ total,ELUT,1.001,(derived),44223722,44289230
+≈ total,ETS,1.0,EntityCommonStockSharesOutstanding,48716672,48716672
+≈ total,FAC,1.0,CommonStockSharesOutstanding,107023243,107023245
+≈ total,FIG,1.011,(derived),527460000,533009867
+≈ total,FLWS,1.004,(derived),63912000,64185096
+≈ total,FLYW,1.0,CommonStockSharesOutstanding,121609147,121667674
+≈ total,FOA,1.018,(derived),17000600,17306890
+≈ total,GAIA,1.019,(derived),24962000,25425793
+≈ total,GCMG,0.996,(derived),203583596,202792100
+≈ total,GDRX,0.98,(derived),348058000,341145388
+≈ total,GEL,0.998,(derived),122428000,122214318
+≈ total,GENC,1.0,(derived),14658000,14657702
+≈ total,GHC,0.983,(derived),4243000,4168786
+≈ total,GLIBK,0.998,(derived),40000000,39904994
+≈ total,GNE,1.006,(derived),26152000,26319623
+≈ total,GOOGL,1.0,CommonStockSharesOutstanding,12294000000,12294000000
+≈ total,GTLB,0.988,(derived),168703000,166600000
+≈ total,HBB,0.995,(derived),13512000,13442332
+≈ total,HIMS,1.007,(derived),231746126,233313413
+≈ total,HOOD,0.988,(derived),911000000,900491277
+≈ total,HRL,0.999,(derived),551074000,550350800
+≈ total,HSY,0.991,CommonStockSharesOutstanding,202839656,200980389
+≈ total,HY,1.001,(derived),17912000,17930387
+≈ total,IBKR,1.007,(derived),450088032,453078171
+≈ total,IBTA,0.995,(derived),23280652,23169614
+≈ total,IDT,0.993,(derived),25023000,24838686
+≈ total,IMRX,1.001,(derived),64714194,64763155
+≈ total,IOT,0.992,(derived),590464665,585605209
+≈ total,JBSS,0.988,(derived),11836778,11693481
+≈ total,JEF,1.0,CommonStockSharesOutstanding,229657741,229669637
+≈ total,JOUT,1.009,(derived),10388000,10479670
+≈ total,KELYA,0.987,(derived),35200000,34731943
+≈ total,KRUS,0.983,(derived),12359000,12149836
+≈ total,LADR,1.009,(derived),124885210,125992003
+≈ total,LAMR,1.0,(derived),101592453,101549684
+≈ total,LB,1.001,(derived),76991052,77085412
+≈ total,LBRT,1.0,(derived),163191000,163191416
+≈ total,LCLN,1.0,CommonStockSharesOutstanding,102191562,102191562
+≈ total,LEN,1.001,(derived),237756000,237900239
+≈ total,LEVI,0.982,(derived),390620582,383469739
+≈ total,LGVN,1.016,(derived),31377630,31881979
+≈ total,LLYVK,0.994,(derived),92604000,92005376
+≈ total,LUCK,0.998,(derived),136632162,136328020
+≈ total,MA,0.994,(derived),876000000,871176114
+≈ total,MBUU,1.017,(derived),19344924,19677276
+≈ total,MCS,0.987,(derived),31504000,31091596
+≈ total,MDIA,1.017,(derived),82586000,84019858
+≈ total,META,0.993,(derived),2573000000,2556241253
+≈ total,MKC,0.999,(derived),269400000,269064479
+≈ total,MOG.A,0.987,(derived),32075908,31671169
+≈ total,MRP,1.0,(derived),166060914,166047927
+≈ total,MSGE,0.985,(derived),48002000,47305234
+≈ total,MSGS,0.993,(derived),24252000,24079941
+≈ total,MWH,1.003,(derived),201682563,202386722
+≈ total,NAVN,1.016,(derived),256369621,260410493
+≈ total,NC,1.001,(derived),7542000,7546695
+≈ total,NET,1.005,(derived),354334000,356079715
+≈ total,NKE,1.001,(derived),1484200000,1485308829
+≈ total,NMAX,0.999,(derived),129285724,129160645
+≈ total,NNI,0.993,(derived),36037509,35779438
+≈ total,NRDS,1.001,CommonStockSharesOutstanding,63879000,63923174
+≈ total,NTSK,1.009,(derived),405045835,408587748
+≈ total,NXDR,1.015,(derived),381056000,386848402
+≈ total,NYT,0.989,(derived),163042000,161283586
+≈ total,OCTV,1.0,(derived),268438000,268437788
+≈ total,PAHC,0.991,(derived),40964000,40601603
+≈ total,PATH,0.996,(derived),523013000,521155409
+≈ total,PBF,0.988,(derived),122756464,121325140
+≈ total,PBLS,1.013,CommonStockSharesOutstanding,121938652,123533240
+≈ total,PINS,0.984,(derived),582652000,573507840
+≈ total,PL,1.012,(derived),359594052,363847989
+≈ total,PLTR,1.0,CommonStockSharesOutstanding,2402897000,2403058480
+≈ total,PPLI,0.981,(derived),75922000,74463925
+≈ total,PRPL,1.0,(derived),4360000,4359632
+≈ total,PTON,1.006,(derived),436218643,438871801
+≈ total,PUBM,0.988,(derived),46106000,45550061
+≈ total,QS,1.002,(derived),620557000,622058795
+≈ total,QSI,1.005,(derived),217802000,218883912
+≈ total,QUAD,1.01,(derived),50400000,50918871
+≈ total,RBCAA,0.988,(derived),19864000,19634151
+≈ total,RBLX,1.0,CommonStockSharesOutstanding,715696000,715713348
+≈ total,RBRK,1.006,(derived),206097000,207304433
+≈ total,RDNW,1.001,(derived),38955989,39011088
+≈ total,RFL,1.015,(derived),51393118,52184599
+≈ total,RIVN,1.0,CommonStockSharesOutstanding,1460000000,1459608638
+≈ total,RKT,0.996,(derived),2843538118,2831642421
+≈ total,ROAD,1.009,(derived),56269949,56755555
+≈ total,ROKU,1.004,CommonStockSharesOutstanding,147850000,148418969
+≈ total,RR,1.003,(derived),224320751,225101943
+≈ total,RVLV,0.987,(derived),71998000,71085420
+≈ total,S,1.019,(derived),341527623,348049117
+≈ total,SAH,0.982,(derived),32200000,31616102
+≈ total,SAM,0.993,(derived),10224000,10150058
+≈ total,SBGI,1.002,(derived),72157000,72318060
+≈ total,SDGR,0.987,(derived),75769360,74805628
+≈ total,SENEA,0.99,(derived),6840000,6770457
+≈ total,SES,1.016,CommonStockSharesOutstanding,365432329,371287400
+≈ total,SFIX,0.995,(derived),134247185,133603687
+≈ total,SG,1.001,(derived),118898524,119041315
+≈ total,SHLS,0.99,(derived),170023000,168299950
+≈ total,SHOP,0.991,(derived),1297940958,1286643932
+≈ total,SNDR,0.996,(derived),176000000,175300899
+≈ total,SNFCA,1.018,(derived),26892689,27377289
+≈ total,SOUN,1.012,(derived),438648450,444109844
+≈ total,SPG,0.999,(derived),324018022,323559515
+≈ total,SPHR,0.993,(derived),36150000,35913607
+≈ total,SPT,1.006,(derived),60242258,60592212
+≈ total,SRG,1.0,(derived),56324000,56324607
+≈ total,SSP,1.006,(derived),92090000,92668991
+≈ total,STUB,1.009,(derived),378710978,382089966
+≈ total,SYM,1.002,CommonStockSharesOutstanding,603863978,604801708
+≈ total,TASK,0.991,(derived),92495764,91687021
+≈ total,TDS,1.0,CommonStockSharesOutstanding,115116000,115100000
+≈ total,TDUP,1.0,CommonStockSharesOutstanding,131296000,131333650
+≈ total,TEM,0.989,(derived),182397000,180434756
+≈ total,TLYS,0.982,(derived),31159000,30587265
+≈ total,TPG,0.998,(derived),385468150,384524729
+≈ total,TRLV,1.001,CommonStockSharesOutstanding,192382935,192565302
+≈ total,TSN,0.991,(derived),355000000,351801512
+≈ total,TTAN,1.006,(derived),95863240,96467903
+≈ total,TTD,1.0,(derived),469948000,469880194
+≈ total,UAA,0.994,(derived),431937000,429545541
+≈ total,UHS,0.984,(derived),59910000,58936515
+≈ total,ULS,1.004,CommonStockSharesOutstanding,201025964,201898173
+≈ total,UNF,0.994,(derived),18196000,18087612
+≈ total,UPS,1.0,(derived),851000000,850781582
+≈ total,VIA,1.002,(derived),81337205,81505613
+≈ total,VSNT,0.985,(derived),141300000,139170078
+≈ total,WLY,0.999,(derived),50752000,50683930
+≈ total,WRBY,0.983,(derived),125748000,123608054
+≈ total,WTS,0.997,(derived),33500000,33383050
+≈ total,XYZ,0.987,(derived),608847000,600795000
+≈ total,Z,0.987,(derived),227896000,224874954
+other,ABTC,0.879,EntityCommonStockSharesOutstanding,82802406,72819713
+other,ACN,1.105,(derived),605283767,669023487
+other,AERT,0.108,CommonStockSharesOutstanding,48497154,5247853
+other,AI,1.037,(derived),154999000,160779856
+other,AKTS,1.041,CommonStockSharesOutstanding,53446222,55619499
+other,ALIT,1.022,(derived),26351020,26939093
+other,ALTI,1.407,(derived),110857966,155943432
+other,AMRN,1.049,CommonStockSharesOutstanding,421632722,442098855
+other,ANDG,8.52,(derived),13261049,112988453
+other,ANIP,1.021,CommonStockSharesOutstanding,22491281,22970352
+other,ARCL,1.302,(derived),4500000,5858000
+other,ARX,1.307,CommonStockSharesOutstanding,166185094,217188552
+other,AVAT,1.306,CommonStockSharesOutstanding,33466936,43720444
+other,BAM,4.028,(derived),396500000,1597251633
+other,BEAG,6.264,(derived),5000000,31318000
+other,BELFB,6.639,EntityCommonStockSharesOutstanding,2174912,14439450
+other,BENF,0.229,CommonStockSharesOutstanding,67486000,15455722
+other,BETA,6.225,CommonStockSharesOutstanding,37578571,233941060
+other,BH.A,11.247,EntityCommonStockSharesOutstanding,206864,2326550
+other,BHM,1.042,(derived),3941345,4108028
+other,BIRD,1.352,(derived),8736862,11809193
+other,BLLN,4.221,CommonStockSharesOutstanding,11178467,47187038
+other,BRCB,2.36,(derived),21219382,50072679
+other,BROS,1.296,(derived),134765000,174681716
+other,BVS,1.187,(derived),70838486,84091880
+other,BWET,0.275,EntityCommonStockSharesOutstanding,9200040,2530140
+other,BWIN,1.504,(derived),92761000,139498334
+other,BXBL,105.189,CommonStockSharesOutstanding,2295800,241493343
+other,BYFC,1.046,(derived),8874673,9278545
+other,BZFD,1.513,(derived),55089000,83334733
+other,CAST,1.285,(derived),39521011,50787414
+other,CATO,1.048,(derived),19000182,19911949
+other,CBRS,1.574,(derived),150968000,237564041
+other,CBUS,1.408,CommonStockSharesOutstanding,54264505,76428964
+other,CDNL,1.101,(derived),43127603,47473059
+other,CFBK,1.02,(derived),6363549,6492212
+other,COKE,7.069,(derived),9417000,66564294
+other,CPER,1.596,EntityCommonStockSharesOutstanding,28000000,44700000
+other,CSAI,1.088,(derived),797585,867472
+other,CTNM,1.629,EntityCommonStockSharesOutstanding,23099173,37621132
+other,CWH,2.43,(derived),42505000,103294917
+other,DAAQ,4.6,(derived),5000000,23000000
+other,DERM,1.027,(derived),27493693,28224395
+other,DLTH,1.045,(derived),36381000,38005001
+other,DNA,1.057,CommonStockSharesOutstanding,63711102,67340277
+other,EE,3.504,(derived),32362952,113402105
+other,ENHA,3.294,(derived),117748175,387810095
+other,EQPT,3.207,CommonStockSharesOutstanding,79000000,253375963
+other,EXOD,3.247,EntityCommonStockSharesOutstanding,9300739,30203258
+other,EXPE,1.048,CommonStockSharesOutstanding,114473000,120019343
+other,FACT,4.743,(derived),5128205,24321458
+other,FHI,1.038,(derived),71947000,74660281
+other,FIRY,1.034,(derived),16074260,16622257
+other,FRNM,1.157,EntityCommonStockSharesOutstanding,8911250,10313492
+other,FRVO,1.877,(derived),157003000,294763199
+other,FSUN,1.668,EntityCommonStockSharesOutstanding,27923333,46583973
+other,FUBO,0.319,CommonStockSharesOutstanding,342664855,109196795
+other,GBLI,1.069,(derived),14425836,15420614
+other,GCT,1.954,(derived),36546441,71420474
+other,GEMI,1.069,(derived),121272000,129652202
+other,GLOO,10.968,CommonStockSharesOutstanding,8345221,91531041
+other,GMRS,2.445,CommonStockSharesOutstanding,22096835,54021711
+other,GPRO,1.077,(derived),171234000,184504409
+other,GPUS,1.481,(derived),475216000,703788801
+other,GROW,1.173,EntityCommonStockSharesOutstanding,10484211,12298196
+other,GTN,1.03,(derived),100000000,102984383
+other,HIT,1.043,(derived),62829725,65534658
+other,HLI,1.034,(derived),67600000,69886500
+other,HUCK,1.023,(derived),46000000,47036161
+other,HVT,0.835,EntityCommonStockSharesOutstanding,18665189,15593626
+other,HYPR,1.063,(derived),99797156,106048669
+other,IHRT,30.716,CommonStockSharesOutstanding,5039323,154789168
+other,IIIV,1.347,(derived),19543611,26322009
+other,INDI,1.093,(derived),212010301,231808883
+other,INR,1.752,(derived),36207325,63422258
+other,IREN,1.103,EntityCommonStockSharesOutstanding,357378674,394058650
+other,JAGX,6.388,(derived),809122,5168300
+other,JAN,1.077,(derived),271033000,291890776
+other,KIDZ,10.989,EntityCommonStockSharesOutstanding,1174718,12909276
+other,KNSA,1.85,(derived),84920060,157143410
+other,KNTK,2.142,(derived),75812000,162379129
+other,KRP,4.274,EntityCommonStockSharesOutstanding,26839462,114703590
+other,KSCP,1.318,(derived),17925096,23618357
+other,LIFE,3.83,CommonStockSharesOutstanding,16647000,63759454
+other,MAIR,1.059,(derived),473974905,501722612
+other,MCHB,11.703,EntityCommonStockSharesOutstanding,18920808,221426509
+other,METC,1.436,CommonStockSharesOutstanding,44155735,63388239
+other,MIR,13.093,CommonStockSharesOutstanding,18750000,245492127
+other,MKLY,4.279,(derived),5689655,24344353
+other,MOBX,1.343,(derived),12640059,16974878
+other,MPLT,1.021,CommonStockSharesOutstanding,45436867,46377832
+other,MSTR,1.09,(derived),352534000,384225751
+other,NEN,0.037,EntityCommonStockSharesOutstanding,3108860,114438
+other,NTWO,3.512,(derived),6866375,24116375
+other,ODC,1.987,(derived),7288000,14479433
+other,OFAL,0.902,EntityCommonStockSharesOutstanding,26370521,23793676
+other,ONEW,2.651,(derived),6287000,16665619
+other,OPAL,5.896,(derived),29641216,174756581
+other,OPFI,0.976,EntityCommonStockSharesOutstanding,87306132,85208247
+other,OPHC,1.951,CommonStockSharesOutstanding,12340785,24080821
+other,OZ,1.039,(derived),3902089,4053667
+other,PARA,1.32,CommonStockSharesOutstanding,2690579,3550961
+other,PBHC,1.323,CommonStockSharesOutstanding,4745366,6278643
+other,PJT,1.031,EntityCommonStockSharesOutstanding,24800541,25564947
+other,PROK,4.913,(derived),61540231,302322655
+other,RMIX,1.088,(derived),67519137,73485834
+other,RMR,1.911,(derived),16791000,32080226
+other,RPAY,1.079,(derived),83285379,89860747
+other,RPID,1.037,(derived),48346663,50159556
+other,RPRX,1.033,(derived),556896000,575001204
+other,RUM,1.746,(derived),283916343,495810194
+other,SATL,1.021,(derived),150594308,153739911
+other,SCHL,1.046,CommonStockSharesOutstanding,17600000,18409444
+other,SEI,2964.358,(derived),25829,76566392
+other,SF,2.326,(derived),161631000,376001734
+other,SGMT,1.17,(derived),53114533,62158653
+other,SHAZ,1.909,(derived),18755220,35803505
+other,SIDU,1.187,(derived),85267410,101225326
+other,SKYD,1.047,EntityCommonStockSharesOutstanding,1071666977,1121945779
+other,SMR,1.179,(derived),364523356,429723272
+other,SNAL,17.912,CommonStockSharesOutstanding,500000,8955811
+other,SNAP,0.98,CommonStockSharesOutstanding,1725808000,1691197712
+other,SPCX,1.089,(derived),12475000000,13581063709
+other,SPIR,1.061,(derived),38295060,40622371
+other,SST,1.285,(derived),8164000,10488649
+other,STDN,5.591,(derived),28001802,156550755
+other,TKO,2.495,(derived),75870706,189269713
+other,TOP,1.191,(derived),103834673,123706506
+other,TRUG,2.104,EntityCommonStockSharesOutstanding,914267,1923707
+other,TSQ,1.023,(derived),17818000,18231639
+other,TXG,1.02,CommonStockSharesOutstanding,127691329,130291168
+other,USDE,12.147,(derived),2238201,27187129
+other,V,3.802,EntityCommonStockSharesOutstanding,469280842,1784428534
+other,VERX,6.154,EntityCommonStockSharesOutstanding,26359623,162217980
+other,VIDA,2.397,CommonStockSharesOutstanding,6084208,14582932
+other,VIP,1.023,CommonStockSharesOutstanding,18019743,18429902
+other,VOYG,1.043,(derived),58521968,61029060
+other,VSH,1.037,(derived),147901000,153379167
+other,W,1.038,(derived),132000000,136968070
+other,WBI,2.532,(derived),48757787,123456209
+other,WEAT,3.763,EntityCommonStockSharesOutstanding,7800004,29352470
+other,WHD,1.058,(derived),75774000,80179417
+other,WHK,1.607,(derived),17144000,27545450
+other,WMG,0.496,CommonStockSharesOutstanding,1055000000,523109769
+other,WOOF,1.116,(derived),290497000,324210138
+other,WSO,1.08,(derived),38192692,41252194
+other,WTTR,3.434,CommonStockSharesOutstanding,40331989,138480833
+other,XMTR,1.243,EntityCommonStockSharesOutstanding,46123556,57323573
+other,ZDGE,1.195,(derived),12993000,15522789
+other,ZEO,4.435,(derived),13252964,58783489
+other,ZETA,1.957,(derived),256581527,502027210
+other,ZIP,1.152,CommonStockSharesOutstanding,71372000,82226163
+no Glint count,BIII,,,,23000000
+no Glint count,BRUN,,,,79487441
+no Glint count,BSAA,,,,2066213
+no Glint count,BTGO,,,,117545622
+no Glint count,CCXI,,,,55700000
+no Glint count,DGICA,,,,37119282
+no Glint count,ERIE,,,,46191610
+no Glint count,EROK,,,,131519570
+no Glint count,EURK,,,,2170601
+no Glint count,FPH,,,,148016744
+no Glint count,FPS,,,,304428889
+no Glint count,FRBT,,,,50764380
+no Glint count,FTW,,,,31325815
+no Glint count,GEF,,,,46168321
+no Glint count,GRDN,,,,63342304
+no Glint count,HCAC,,,,29197293
+no Glint count,HLNE,,,,55110638
+no Glint count,IMKTA,,,,18994376
+no Glint count,IPXG,,,,31331667
+no Glint count,LPBB,,,,28750000
+no Glint count,MACI,,,,9545545
+no Glint count,MC,,,,78269068
+no Glint count,MCGA,,,,23581250
+no Glint count,MCHX,,,,44337890
+no Glint count,ONEN,,,,26023333
+no Glint count,PLMK,,,,10702491
+no Glint count,RACC,,,,9098529
+no Glint count,RAIN,,,,11704051
+no Glint count,STZ,,,,169224220
+no Glint count,SUN,,,,204824629
+no Glint count,SVAQ,,,,29320950
+no Glint count,TR,,,,75071648
+no Glint count,VTVT,,,,3954020
+no Glint count,XLAB,,,,64334789
+no Glint count,XXI,,,,562372222

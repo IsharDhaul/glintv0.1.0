@@ -1,0 +1,29 @@
+{
+  "name": "Rule of 40 (software)",
+  "summary": "Technology companies whose revenue growth plus FCF margin is at least 40%.",
+  "kind": "screen",
+  "how_to_read": "The universe is limited to Glint's Technology sector, which is SIC-based, not GICS, so it includes hardware and semiconductor companies as well as software. Two filters must both pass: revenue growth (year on year) plus FCF margin of at least 40%, and TTM revenue of at least $500M so small companies with noisy percentages drop out. Versions of the rule use EBITDA margin or other profit margins. Glint uses FCF margin.",
+  "misses": [
+    "Stock-based pay: FCF margin counts it as non-cash, so a company paying heavily in stock looks better here than it would after SBC. Check the SBC column.",
+    "Hardware and one-off sales businesses: the rule was written for subscription software and means less for them."
+  ],
+  "source": "Feld, 'The Rule of 40% For a Healthy SaaS Company' (2015); SaaS industry heuristic",
+  "screen": {
+    "dsl_version": 1,
+    "name": "Rule of 40",
+    "universe": {
+      "sectors_include": ["Technology"]
+    },
+    "filters": {
+      "op": "and",
+      "children": [
+        { "metric": "rule_of_40", "cmp": "gte", "value": 0.40 },
+        { "metric": "revenue_ttm", "cmp": "gte", "value": 500000000 }
+      ]
+    },
+    "columns": ["ticker", "name", "market_cap", "rule_of_40", "revenue_growth_yoy", "fcf_margin", "sbc_to_revenue", "revenue_ttm"],
+    "sort": { "by": "rule_of_40", "dir": "desc" },
+    "limit": 100,
+    "near_misses": true
+  }
+}

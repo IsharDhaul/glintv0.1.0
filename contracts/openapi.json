@@ -1,0 +1,4864 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Glint API",
+    "description": "Fundamentals-first US stock screener. Educational tool. Not investment advice.",
+    "version": "0.0.1"
+  },
+  "paths": {
+    "/api/health": {
+      "get": {
+        "tags": [
+          "meta"
+        ],
+        "summary": "Health",
+        "description": "Always 200 while the process is up, with or without a build.",
+        "operationId": "health_api_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "UNKNOWN_TICKER / UNKNOWN_PRESET / UNKNOWN_METRIC",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "INVALID_SCREEN / INVALID_REQUEST, with the field path",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "INTERNAL",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "NOT_IMPLEMENTED",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "NO_BUILD / SCHEMA_MISMATCH",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/meta": {
+      "get": {
+        "tags": [
+          "meta"
+        ],
+        "summary": "Meta",
+        "description": "200 with a warning when there is no build yet (the header still renders); 503 when\ncurrent.json is unreadable, points at a missing file, or the schema doesn't match.",
+        "operationId": "meta_api_meta_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MetaResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "UNKNOWN_TICKER / UNKNOWN_PRESET / UNKNOWN_METRIC",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "INVALID_SCREEN / INVALID_REQUEST, with the field path",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "INTERNAL",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "NOT_IMPLEMENTED",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "NO_BUILD / SCHEMA_MISMATCH",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/metrics": {
+      "get": {
+        "tags": [
+          "catalog"
+        ],
+        "summary": "Metrics",
+        "description": "Live metrics only, in registry order (a synthetic build treats every metric as live).",
+        "operationId": "metrics_api_metrics_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MetricsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "UNKNOWN_TICKER / UNKNOWN_PRESET / UNKNOWN_METRIC",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "INVALID_SCREEN / INVALID_REQUEST, with the field path",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "INTERNAL",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "NOT_IMPLEMENTED",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "NO_BUILD / SCHEMA_MISMATCH",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/sectors": {
+      "get": {
+        "tags": [
+          "catalog"
+        ],
+        "summary": "Sectors",
+        "description": "Every sector in enum order, with its company count in the snapshot (0 if none).",
+        "operationId": "sectors_api_sectors_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SectorsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "UNKNOWN_TICKER / UNKNOWN_PRESET / UNKNOWN_METRIC",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "INVALID_SCREEN / INVALID_REQUEST, with the field path",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "INTERNAL",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "NOT_IMPLEMENTED",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "NO_BUILD / SCHEMA_MISMATCH",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/presets": {
+      "get": {
+        "tags": [
+          "catalog"
+        ],
+        "summary": "Presets",
+        "operationId": "presets_api_presets_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PresetListResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "UNKNOWN_TICKER / UNKNOWN_PRESET / UNKNOWN_METRIC",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "INVALID_SCREEN / INVALID_REQUEST, with the field path",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "INTERNAL",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "NOT_IMPLEMENTED",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "NO_BUILD / SCHEMA_MISMATCH",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/presets/{preset_id}": {
+      "get": {
+        "tags": [
+          "catalog"
+        ],
+        "summary": "Preset",
+        "description": "The preset with its `screen`: POST that object (not the whole preset) to /api/screen.",
+        "operationId": "preset_api_presets__preset_id__get",
+        "parameters": [
+          {
+            "name": "preset_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Preset Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PresetResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "UNKNOWN_TICKER / UNKNOWN_PRESET / UNKNOWN_METRIC",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "INVALID_SCREEN / INVALID_REQUEST, with the field path",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "INTERNAL",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "NOT_IMPLEMENTED",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "NO_BUILD / SCHEMA_MISMATCH",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/snapshot/meta": {
+      "get": {
+        "tags": [
+          "catalog"
+        ],
+        "summary": "Snapshot Meta",
+        "description": "Rows and layout for `/api/snapshot/values` (same build).",
+        "operationId": "snapshot_meta_api_snapshot_meta_get",
+        "parameters": [
+          {
+            "name": "build",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Cache key: the build_id",
+              "title": "Build"
+            },
+            "description": "Cache key: the build_id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SnapshotMeta"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "UNKNOWN_TICKER / UNKNOWN_PRESET / UNKNOWN_METRIC",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "INVALID_SCREEN / INVALID_REQUEST, with the field path",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "INTERNAL",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "NOT_IMPLEMENTED",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "NO_BUILD / SCHEMA_MISMATCH",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/snapshot/values": {
+      "get": {
+        "tags": [
+          "catalog"
+        ],
+        "summary": "Snapshot Values",
+        "description": "The build's metric values and reason codes as binary columns (layout: SnapshotMeta).\nGzipped when the client accepts it. Check `X-Glint-Build` against the meta's `build_id`.",
+        "operationId": "snapshot_values_api_snapshot_values_get",
+        "parameters": [
+          {
+            "name": "build",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Cache key: the build_id",
+              "title": "Build"
+            },
+            "description": "Cache key: the build_id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "UNKNOWN_TICKER / UNKNOWN_PRESET / UNKNOWN_METRIC",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "INVALID_SCREEN / INVALID_REQUEST, with the field path",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "INTERNAL",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "NOT_IMPLEMENTED",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "NO_BUILD / SCHEMA_MISMATCH",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/screen": {
+      "post": {
+        "tags": [
+          "screen"
+        ],
+        "summary": "Run Screen",
+        "description": "422 INVALID_SCREEN (with the field path) when the screen doesn't fit this build.",
+        "operationId": "run_screen_api_screen_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Screen"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScreenResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "UNKNOWN_TICKER / UNKNOWN_PRESET / UNKNOWN_METRIC",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "INVALID_SCREEN / INVALID_REQUEST, with the field path",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "INTERNAL",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "NOT_IMPLEMENTED",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "NO_BUILD / SCHEMA_MISMATCH",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/screen/export": {
+      "post": {
+        "tags": [
+          "screen"
+        ],
+        "summary": "Export Screen",
+        "description": "The result rows (as many as `limit`) with the screen's columns, plus `rank` when\nranked, `ticker` if not already a column, the as-of dates and the null reasons.",
+        "operationId": "export_screen_api_screen_export_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Screen"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "CSV stream (§2.12)",
+            "content": {
+              "text/csv": {}
+            }
+          },
+          "404": {
+            "description": "UNKNOWN_TICKER / UNKNOWN_PRESET / UNKNOWN_METRIC",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "INVALID_SCREEN / INVALID_REQUEST, with the field path",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "INTERNAL",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "NOT_IMPLEMENTED",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "NO_BUILD / SCHEMA_MISMATCH",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/distribution": {
+      "get": {
+        "tags": [
+          "screen"
+        ],
+        "summary": "Distribution",
+        "description": "Over the default universe (§2.3), or one sector of it with `within=sector&sector=…`.",
+        "operationId": "distribution_api_distribution_get",
+        "parameters": [
+          {
+            "name": "metric",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Metric"
+            }
+          },
+          {
+            "name": "within",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/Within",
+              "default": "universe"
+            }
+          },
+          {
+            "name": "sector",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Sector"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Sector"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DistributionResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "UNKNOWN_TICKER / UNKNOWN_PRESET / UNKNOWN_METRIC",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "INVALID_SCREEN / INVALID_REQUEST, with the field path",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "INTERNAL",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "NOT_IMPLEMENTED",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "NO_BUILD / SCHEMA_MISMATCH",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/search": {
+      "get": {
+        "tags": [
+          "companies"
+        ],
+        "summary": "Search",
+        "description": "Up to 10 companies: exact ticker, then ticker prefix, then name prefix, then fuzzy name.\nEvery kind is searchable; the hit says which kind it is.",
+        "operationId": "search_api_search_get",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "title": "Q"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "UNKNOWN_TICKER / UNKNOWN_PRESET / UNKNOWN_METRIC",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "INVALID_SCREEN / INVALID_REQUEST, with the field path",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "INTERNAL",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "NOT_IMPLEMENTED",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "NO_BUILD / SCHEMA_MISMATCH",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/companies/{ticker}": {
+      "get": {
+        "tags": [
+          "companies"
+        ],
+        "summary": "Company",
+        "description": "Any kind of company is served (200), with `company.kind` saying what it is. Unknown\ntickers are 404 UNKNOWN_TICKER. With `screen`, `why_passed` lists every filter leaf.",
+        "operationId": "company_api_companies__ticker__get",
+        "parameters": [
+          {
+            "name": "ticker",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Ticker"
+            }
+          },
+          {
+            "name": "screen",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "lz-string compressed Screen JSON",
+              "title": "Screen"
+            },
+            "description": "lz-string compressed Screen JSON"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompanyResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "UNKNOWN_TICKER / UNKNOWN_PRESET / UNKNOWN_METRIC",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "INVALID_SCREEN / INVALID_REQUEST, with the field path",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "INTERNAL",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "NOT_IMPLEMENTED",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "NO_BUILD / SCHEMA_MISMATCH",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/companies/{ticker}/history": {
+      "get": {
+        "tags": [
+          "companies"
+        ],
+        "summary": "History",
+        "description": "One metric's FY and TTM series (empty if the build keeps no history for it).",
+        "operationId": "history_api_companies__ticker__history_get",
+        "parameters": [
+          {
+            "name": "ticker",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Ticker"
+            }
+          },
+          {
+            "name": "metric",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Metric"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HistoryResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "UNKNOWN_TICKER / UNKNOWN_PRESET / UNKNOWN_METRIC",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "INVALID_SCREEN / INVALID_REQUEST, with the field path",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "INTERNAL",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "NOT_IMPLEMENTED",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "NO_BUILD / SCHEMA_MISMATCH",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/screens": {
+      "get": {
+        "tags": [
+          "v1"
+        ],
+        "summary": "List Screens",
+        "operationId": "list_screens_api_screens_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SavedScreenListResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "UNKNOWN_TICKER / UNKNOWN_PRESET / UNKNOWN_METRIC",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "INVALID_SCREEN / INVALID_REQUEST, with the field path",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "INTERNAL",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "NOT_IMPLEMENTED",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "NO_BUILD / SCHEMA_MISMATCH",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "v1"
+        ],
+        "summary": "Create Screen",
+        "operationId": "create_screen_api_screens_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SavedScreenIn"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SavedScreen"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "UNKNOWN_TICKER / UNKNOWN_PRESET / UNKNOWN_METRIC",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "INVALID_SCREEN / INVALID_REQUEST, with the field path",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "INTERNAL",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "NOT_IMPLEMENTED",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "NO_BUILD / SCHEMA_MISMATCH",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/screens/{screen_id}": {
+      "get": {
+        "tags": [
+          "v1"
+        ],
+        "summary": "Get Screen",
+        "operationId": "get_screen_api_screens__screen_id__get",
+        "parameters": [
+          {
+            "name": "screen_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Screen Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SavedScreen"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "UNKNOWN_TICKER / UNKNOWN_PRESET / UNKNOWN_METRIC",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "INVALID_SCREEN / INVALID_REQUEST, with the field path",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "INTERNAL",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "NOT_IMPLEMENTED",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "NO_BUILD / SCHEMA_MISMATCH",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "v1"
+        ],
+        "summary": "Update Screen",
+        "operationId": "update_screen_api_screens__screen_id__put",
+        "parameters": [
+          {
+            "name": "screen_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Screen Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SavedScreenIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SavedScreen"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "UNKNOWN_TICKER / UNKNOWN_PRESET / UNKNOWN_METRIC",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "INVALID_SCREEN / INVALID_REQUEST, with the field path",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "INTERNAL",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "NOT_IMPLEMENTED",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "NO_BUILD / SCHEMA_MISMATCH",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "v1"
+        ],
+        "summary": "Delete Screen",
+        "operationId": "delete_screen_api_screens__screen_id__delete",
+        "parameters": [
+          {
+            "name": "screen_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Screen Id"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "404": {
+            "description": "UNKNOWN_TICKER / UNKNOWN_PRESET / UNKNOWN_METRIC",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "INVALID_SCREEN / INVALID_REQUEST, with the field path",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "INTERNAL",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "NOT_IMPLEMENTED",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "NO_BUILD / SCHEMA_MISMATCH",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/screens/{screen_id}/diff": {
+      "get": {
+        "tags": [
+          "v1"
+        ],
+        "summary": "Screen Diff",
+        "operationId": "screen_diff_api_screens__screen_id__diff_get",
+        "parameters": [
+          {
+            "name": "screen_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Screen Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ScreenRunDiffResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "UNKNOWN_TICKER / UNKNOWN_PRESET / UNKNOWN_METRIC",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "INVALID_SCREEN / INVALID_REQUEST, with the field path",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "INTERNAL",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "NOT_IMPLEMENTED",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "NO_BUILD / SCHEMA_MISMATCH",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/watchlists/{watchlist_id}": {
+      "get": {
+        "tags": [
+          "v1"
+        ],
+        "summary": "Get Watchlist",
+        "operationId": "get_watchlist_api_watchlists__watchlist_id__get",
+        "parameters": [
+          {
+            "name": "watchlist_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Watchlist Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WatchlistResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "UNKNOWN_TICKER / UNKNOWN_PRESET / UNKNOWN_METRIC",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "INVALID_SCREEN / INVALID_REQUEST, with the field path",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "INTERNAL",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "NOT_IMPLEMENTED",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "NO_BUILD / SCHEMA_MISMATCH",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/watchlists/{watchlist_id}/items": {
+      "post": {
+        "tags": [
+          "v1"
+        ],
+        "summary": "Add Watchlist Item",
+        "operationId": "add_watchlist_item_api_watchlists__watchlist_id__items_post",
+        "parameters": [
+          {
+            "name": "watchlist_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Watchlist Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WatchlistItemIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WatchlistResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "UNKNOWN_TICKER / UNKNOWN_PRESET / UNKNOWN_METRIC",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "INVALID_SCREEN / INVALID_REQUEST, with the field path",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "INTERNAL",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "NOT_IMPLEMENTED",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "NO_BUILD / SCHEMA_MISMATCH",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/watchlists/{watchlist_id}/items/{ticker}": {
+      "delete": {
+        "tags": [
+          "v1"
+        ],
+        "summary": "Remove Watchlist Item",
+        "operationId": "remove_watchlist_item_api_watchlists__watchlist_id__items__ticker__delete",
+        "parameters": [
+          {
+            "name": "watchlist_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Watchlist Id"
+            }
+          },
+          {
+            "name": "ticker",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Ticker"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WatchlistResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "UNKNOWN_TICKER / UNKNOWN_PRESET / UNKNOWN_METRIC",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "INVALID_SCREEN / INVALID_REQUEST, with the field path",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "INTERNAL",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "NOT_IMPLEMENTED",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "NO_BUILD / SCHEMA_MISMATCH",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/nl-screen": {
+      "post": {
+        "tags": [
+          "v2"
+        ],
+        "summary": "Nl Screen",
+        "operationId": "nl_screen_api_nl_screen_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NlScreenRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NlScreenResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "UNKNOWN_TICKER / UNKNOWN_PRESET / UNKNOWN_METRIC",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "INVALID_SCREEN / INVALID_REQUEST, with the field path",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "INTERNAL",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "NOT_IMPLEMENTED",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "NO_BUILD / SCHEMA_MISMATCH",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Applicability": {
+        "properties": {
+          "not_meaningful": {
+            "items": {
+              "$ref": "#/components/schemas/ApplicabilityScope"
+            },
+            "type": "array",
+            "title": "Not Meaningful"
+          },
+          "notes": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "propertyNames": {
+              "$ref": "#/components/schemas/ApplicabilityScope"
+            },
+            "type": "object",
+            "title": "Notes"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "Applicability",
+        "description": "Where a metric is not meaningful (§4.5). Anything not listed is `ok`."
+      },
+      "ApplicabilityScope": {
+        "type": "string",
+        "enum": [
+          "banks",
+          "insurance",
+          "capital_markets",
+          "reits",
+          "utilities",
+          "foreign_filers"
+        ],
+        "title": "ApplicabilityScope",
+        "description": "Columns of the applicability matrix (§4.5)."
+      },
+      "AsOf": {
+        "properties": {
+          "fundamentals": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fundamentals",
+            "description": "SEC bulk file timestamp"
+          },
+          "prices": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prices",
+            "description": "Close date of the price data"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "fundamentals",
+          "prices"
+        ],
+        "title": "AsOf"
+      },
+      "Basis": {
+        "type": "string",
+        "enum": [
+          "ttm",
+          "mrq",
+          "fy",
+          "q",
+          "daily",
+          "mixed",
+          "build"
+        ],
+        "title": "Basis"
+      },
+      "Better": {
+        "type": "string",
+        "enum": [
+          "higher",
+          "lower",
+          "neutral"
+        ],
+        "title": "Better",
+        "description": "Direction used by percentile ranking: ↑ higher, ↓ lower, · neutral."
+      },
+      "Category": {
+        "type": "string",
+        "enum": [
+          "size_liquidity",
+          "valuation",
+          "profitability",
+          "growth",
+          "balance_sheet",
+          "efficiency",
+          "quality",
+          "price_momentum",
+          "data_quality"
+        ],
+        "title": "Category"
+      },
+      "CellNote": {
+        "properties": {
+          "code": {
+            "$ref": "#/components/schemas/NoteCode"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "code",
+          "message"
+        ],
+        "title": "CellNote"
+      },
+      "CompanyHeader": {
+        "properties": {
+          "cik": {
+            "type": "string",
+            "title": "Cik"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "tickers": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Tickers"
+          },
+          "primary_ticker": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Primary Ticker"
+          },
+          "exchange": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Exchange"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "sector": {
+            "$ref": "#/components/schemas/Sector"
+          },
+          "sic": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sic"
+          },
+          "sic_description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sic Description"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/Kind"
+          },
+          "is_foreign_filer": {
+            "type": "boolean",
+            "title": "Is Foreign Filer"
+          },
+          "is_reit": {
+            "type": "boolean",
+            "title": "Is Reit"
+          },
+          "has_facts": {
+            "type": "boolean",
+            "title": "Has Facts"
+          },
+          "filer_category": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Filer Category"
+          },
+          "fiscal_year_end": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fiscal Year End"
+          },
+          "reporting_currency": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reporting Currency"
+          },
+          "last_annual_date": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Annual Date"
+          },
+          "last_quarterly_date": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Quarterly Date"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "cik",
+          "name",
+          "tickers",
+          "primary_ticker",
+          "exchange",
+          "sector",
+          "sic",
+          "sic_description",
+          "kind",
+          "is_foreign_filer",
+          "is_reit",
+          "has_facts",
+          "filer_category",
+          "fiscal_year_end",
+          "reporting_currency",
+          "last_annual_date",
+          "last_quarterly_date"
+        ],
+        "title": "CompanyHeader"
+      },
+      "CompanyResponse": {
+        "properties": {
+          "build_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Build Id",
+            "description": "Build that served this response; null if none"
+          },
+          "company": {
+            "$ref": "#/components/schemas/CompanyHeader"
+          },
+          "as_of": {
+            "$ref": "#/components/schemas/AsOf"
+          },
+          "metrics": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/MetricValue"
+            },
+            "type": "object",
+            "title": "Metrics"
+          },
+          "flags": {
+            "items": {
+              "$ref": "#/components/schemas/FlagOut"
+            },
+            "type": "array",
+            "title": "Flags"
+          },
+          "history": {
+            "additionalProperties": {
+              "items": {
+                "$ref": "#/components/schemas/HistoryPoint"
+              },
+              "type": "array"
+            },
+            "type": "object",
+            "title": "History",
+            "description": "Sparkline series by metric id"
+          },
+          "sources": {
+            "items": {
+              "$ref": "#/components/schemas/SourceFiling"
+            },
+            "type": "array",
+            "title": "Sources"
+          },
+          "why_passed": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/FilterOutcome"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Why Passed",
+            "description": "Present when ?screen= is supplied"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "build_id",
+          "company",
+          "as_of",
+          "metrics",
+          "flags",
+          "history",
+          "sources"
+        ],
+        "title": "CompanyResponse"
+      },
+      "Comparator": {
+        "type": "string",
+        "enum": [
+          "gt",
+          "gte",
+          "lt",
+          "lte",
+          "between",
+          "eq",
+          "neq",
+          "in",
+          "is_null",
+          "not_null",
+          "pct_rank_gte",
+          "pct_rank_lte",
+          "vs_sector_median_gte",
+          "vs_sector_median_lte"
+        ],
+        "title": "Comparator"
+      },
+      "Condition": {
+        "properties": {
+          "metric": {
+            "type": "string",
+            "title": "Metric"
+          },
+          "cmp": {
+            "$ref": "#/components/schemas/Comparator"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Value"
+          },
+          "within": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Within"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "missing": {
+            "$ref": "#/components/schemas/MissingPolicy",
+            "default": "fail"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "metric",
+          "cmp"
+        ],
+        "title": "Condition"
+      },
+      "DistributionResponse": {
+        "properties": {
+          "build_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Build Id",
+            "description": "Build that served this response; null if none"
+          },
+          "metric": {
+            "type": "string",
+            "title": "Metric"
+          },
+          "within": {
+            "$ref": "#/components/schemas/Within"
+          },
+          "sector": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Sector"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "count": {
+            "type": "integer",
+            "title": "Count"
+          },
+          "null_count": {
+            "type": "integer",
+            "title": "Null Count"
+          },
+          "bins": {
+            "items": {
+              "$ref": "#/components/schemas/HistogramBin"
+            },
+            "type": "array",
+            "title": "Bins"
+          },
+          "percentiles": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "type": "object",
+            "title": "Percentiles",
+            "description": "Keys p5, p25, p50, p75, p95"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "build_id",
+          "metric",
+          "within",
+          "sector",
+          "count",
+          "null_count",
+          "bins",
+          "percentiles"
+        ],
+        "title": "DistributionResponse"
+      },
+      "ErrorCode": {
+        "type": "string",
+        "enum": [
+          "UNKNOWN_TICKER",
+          "UNKNOWN_PRESET",
+          "UNKNOWN_METRIC",
+          "INVALID_SCREEN",
+          "INVALID_REQUEST",
+          "NOT_FOUND",
+          "METHOD_NOT_ALLOWED",
+          "NO_BUILD",
+          "SCHEMA_MISMATCH",
+          "NOT_IMPLEMENTED",
+          "INTERNAL"
+        ],
+        "title": "ErrorCode"
+      },
+      "ErrorResponse": {
+        "properties": {
+          "build_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Build Id",
+            "description": "Build that served this response; null if none"
+          },
+          "error": {
+            "$ref": "#/components/schemas/ErrorCode"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          },
+          "path": {
+            "anyOf": [
+              {
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "integer"
+                    }
+                  ]
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Path",
+            "description": "Field path for INVALID_SCREEN"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "build_id",
+          "error",
+          "message"
+        ],
+        "title": "ErrorResponse"
+      },
+      "Exchange": {
+        "type": "string",
+        "enum": [
+          "NYSE",
+          "Nasdaq",
+          "NYSE American",
+          "TXSE",
+          "CBOE",
+          "OTC"
+        ],
+        "title": "Exchange"
+      },
+      "Factor": {
+        "properties": {
+          "metric": {
+            "type": "string",
+            "title": "Metric"
+          },
+          "weight": {
+            "type": "number",
+            "exclusiveMinimum": 0.0,
+            "title": "Weight"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "metric",
+          "weight"
+        ],
+        "title": "Factor"
+      },
+      "FilterOutcome": {
+        "properties": {
+          "filter_path": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Filter Path"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label"
+          },
+          "passed": {
+            "type": "boolean",
+            "title": "Passed"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Value"
+          },
+          "sector_percentile": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Sector Percentile"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "filter_path",
+          "label",
+          "passed",
+          "value",
+          "sector_percentile"
+        ],
+        "title": "FilterOutcome"
+      },
+      "FlagId": {
+        "type": "string",
+        "enum": [
+          "dilution",
+          "earnings_without_cash",
+          "receivables_outpacing",
+          "inventory_build",
+          "goodwill_heavy",
+          "thin_coverage",
+          "stale_filing",
+          "late_filer",
+          "negative_equity",
+          "heavy_sbc",
+          "restated",
+          "fy_change",
+          "market_cap_implausible"
+        ],
+        "title": "FlagId",
+        "description": "Flags (§2.10). Questions, not verdicts."
+      },
+      "FlagOut": {
+        "properties": {
+          "flag_id": {
+            "$ref": "#/components/schemas/FlagId"
+          },
+          "severity": {
+            "$ref": "#/components/schemas/FlagSeverity",
+            "description": "caution: about the business; info: about reading the data (config/thresholds.yaml)"
+          },
+          "question": {
+            "type": "string",
+            "title": "Question"
+          },
+          "evidence": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Evidence"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "flag_id",
+          "severity",
+          "question",
+          "evidence"
+        ],
+        "title": "FlagOut"
+      },
+      "FlagSeverity": {
+        "type": "string",
+        "enum": [
+          "caution",
+          "info"
+        ],
+        "title": "FlagSeverity",
+        "description": "How to read a flag (`config/thresholds.yaml` `flags.<id>.severity`)."
+      },
+      "FunnelStep": {
+        "properties": {
+          "index": {
+            "type": "integer",
+            "title": "Index",
+            "description": "0 = universe, then one step per top-level AND child"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label"
+          },
+          "filter_path": {
+            "anyOf": [
+              {
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "integer"
+                    }
+                  ]
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Filter Path",
+            "description": "Path into the Screen; null = universe"
+          },
+          "remaining": {
+            "type": "integer",
+            "title": "Remaining"
+          },
+          "removed": {
+            "type": "integer",
+            "title": "Removed"
+          },
+          "removed_missing": {
+            "type": "integer",
+            "title": "Removed Missing",
+            "description": "Of `removed`, how many fell out for missing data"
+          },
+          "binding": {
+            "type": "boolean",
+            "title": "Binding",
+            "description": "The step with the largest `removed`"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "index",
+          "label",
+          "filter_path",
+          "remaining",
+          "removed",
+          "removed_missing",
+          "binding"
+        ],
+        "title": "FunnelStep"
+      },
+      "Group": {
+        "properties": {
+          "op": {
+            "$ref": "#/components/schemas/LogicOp"
+          },
+          "children": {
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/Condition"
+                },
+                {
+                  "$ref": "#/components/schemas/Group"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Children"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "op"
+        ],
+        "title": "Group"
+      },
+      "HealthResponse": {
+        "properties": {
+          "build_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Build Id",
+            "description": "Build that served this response; null if none"
+          },
+          "status": {
+            "type": "string",
+            "const": "ok",
+            "title": "Status",
+            "default": "ok"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "build_id"
+        ],
+        "title": "HealthResponse"
+      },
+      "HistogramBin": {
+        "properties": {
+          "lo": {
+            "type": "number",
+            "title": "Lo"
+          },
+          "hi": {
+            "type": "number",
+            "title": "Hi"
+          },
+          "count": {
+            "type": "integer",
+            "title": "Count"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "lo",
+          "hi",
+          "count"
+        ],
+        "title": "HistogramBin"
+      },
+      "HistoryPoint": {
+        "properties": {
+          "basis": {
+            "type": "string",
+            "enum": [
+              "fy",
+              "ttm"
+            ],
+            "title": "Basis"
+          },
+          "period_end": {
+            "type": "string",
+            "format": "date",
+            "title": "Period End"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Value"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "basis",
+          "period_end",
+          "value"
+        ],
+        "title": "HistoryPoint"
+      },
+      "HistoryResponse": {
+        "properties": {
+          "build_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Build Id",
+            "description": "Build that served this response; null if none"
+          },
+          "ticker": {
+            "type": "string",
+            "title": "Ticker"
+          },
+          "metric": {
+            "type": "string",
+            "title": "Metric"
+          },
+          "points": {
+            "items": {
+              "$ref": "#/components/schemas/HistoryPoint"
+            },
+            "type": "array",
+            "title": "Points"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "build_id",
+          "ticker",
+          "metric",
+          "points"
+        ],
+        "title": "HistoryResponse"
+      },
+      "Kind": {
+        "type": "string",
+        "enum": [
+          "operating",
+          "spac",
+          "fund",
+          "shell",
+          "no_common_equity",
+          "synthetic"
+        ],
+        "title": "Kind"
+      },
+      "LastRun": {
+        "properties": {
+          "run_id": {
+            "type": "string",
+            "title": "Run Id"
+          },
+          "status": {
+            "$ref": "#/components/schemas/RunStatus"
+          },
+          "started": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Started"
+          },
+          "finished": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Finished"
+          },
+          "warnings": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Warnings"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "run_id",
+          "status",
+          "started",
+          "finished",
+          "warnings"
+        ],
+        "title": "LastRun"
+      },
+      "LogicOp": {
+        "type": "string",
+        "enum": [
+          "and",
+          "or"
+        ],
+        "title": "LogicOp"
+      },
+      "MatchType": {
+        "type": "string",
+        "enum": [
+          "exact",
+          "ticker_prefix",
+          "name_prefix",
+          "fuzzy"
+        ],
+        "title": "MatchType"
+      },
+      "MetaResponse": {
+        "properties": {
+          "build_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Build Id",
+            "description": "Build that served this response; null if none"
+          },
+          "synthetic": {
+            "type": "boolean",
+            "title": "Synthetic",
+            "description": "True for synthetic builds; the UI shows a banner"
+          },
+          "db_schema_version": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Db Schema Version"
+          },
+          "built_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Built At"
+          },
+          "as_of": {
+            "$ref": "#/components/schemas/AsOf"
+          },
+          "universe_counts": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/UniverseCounts"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "universe_rules": {
+            "$ref": "#/components/schemas/UniverseRules"
+          },
+          "source_timestamps": {
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "type": "object",
+            "title": "Source Timestamps"
+          },
+          "last_run": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LastRun"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "warnings": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Warnings"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "build_id",
+          "synthetic",
+          "db_schema_version",
+          "built_at",
+          "as_of",
+          "universe_counts",
+          "universe_rules",
+          "source_timestamps",
+          "last_run",
+          "warnings"
+        ],
+        "title": "MetaResponse"
+      },
+      "MetricDefinition": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "category": {
+            "$ref": "#/components/schemas/Category"
+          },
+          "unit": {
+            "$ref": "#/components/schemas/Unit"
+          },
+          "better": {
+            "$ref": "#/components/schemas/Better"
+          },
+          "tier": {
+            "$ref": "#/components/schemas/Tier"
+          },
+          "priority": {
+            "$ref": "#/components/schemas/Priority"
+          },
+          "basis": {
+            "$ref": "#/components/schemas/Basis"
+          },
+          "definition": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Definition",
+            "description": "Formula and null rules, in words"
+          },
+          "inputs": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Inputs",
+            "description": "Line items, price fields or other metric ids used"
+          },
+          "applicability": {
+            "$ref": "#/components/schemas/Applicability"
+          },
+          "status": {
+            "$ref": "#/components/schemas/MetricStatus",
+            "default": "planned"
+          },
+          "tells_you": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tells You",
+            "description": "What the metric tells you, in plain words (optional)"
+          },
+          "misleads": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Misleads",
+            "description": "When the metric can mislead (optional)"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "category",
+          "unit",
+          "better",
+          "tier",
+          "priority",
+          "basis",
+          "definition",
+          "inputs"
+        ],
+        "title": "MetricDefinition"
+      },
+      "MetricStatus": {
+        "type": "string",
+        "enum": [
+          "planned",
+          "live"
+        ],
+        "title": "MetricStatus"
+      },
+      "MetricValue": {
+        "properties": {
+          "value": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Value"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CellNote"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "value"
+        ],
+        "title": "MetricValue"
+      },
+      "MetricsResponse": {
+        "properties": {
+          "build_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Build Id",
+            "description": "Build that served this response; null if none"
+          },
+          "metrics": {
+            "items": {
+              "$ref": "#/components/schemas/MetricDefinition"
+            },
+            "type": "array",
+            "title": "Metrics"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "build_id",
+          "metrics"
+        ],
+        "title": "MetricsResponse"
+      },
+      "MissingPolicy": {
+        "type": "string",
+        "enum": [
+          "fail",
+          "pass"
+        ],
+        "title": "MissingPolicy"
+      },
+      "NearMiss": {
+        "properties": {
+          "cik": {
+            "type": "string",
+            "title": "Cik"
+          },
+          "ticker": {
+            "type": "string",
+            "title": "Ticker"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "sector": {
+            "$ref": "#/components/schemas/Sector"
+          },
+          "failed_filter_path": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Failed Filter Path"
+          },
+          "failed_label": {
+            "type": "string",
+            "title": "Failed Label"
+          },
+          "metric": {
+            "type": "string",
+            "title": "Metric"
+          },
+          "cmp": {
+            "$ref": "#/components/schemas/Comparator"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Value"
+          },
+          "threshold": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Threshold"
+          },
+          "distance": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Distance",
+            "description": "|value − threshold| / |threshold|, or pct gap"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CellNote"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Why the compared value (or the percentile/median it goes through) is null; null when it is present"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "cik",
+          "ticker",
+          "name",
+          "sector",
+          "failed_filter_path",
+          "failed_label",
+          "metric",
+          "cmp",
+          "value",
+          "threshold",
+          "distance"
+        ],
+        "title": "NearMiss"
+      },
+      "NlScreenRequest": {
+        "properties": {
+          "prompt": {
+            "type": "string",
+            "maxLength": 1000,
+            "minLength": 1,
+            "title": "Prompt"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "prompt"
+        ],
+        "title": "NlScreenRequest",
+        "description": "v2 (WT-13)."
+      },
+      "NlScreenResponse": {
+        "properties": {
+          "build_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Build Id",
+            "description": "Build that served this response; null if none"
+          },
+          "screen": {
+            "$ref": "#/components/schemas/Screen"
+          },
+          "explanation": {
+            "type": "string",
+            "title": "Explanation"
+          },
+          "model": {
+            "type": "string",
+            "title": "Model"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "build_id",
+          "screen",
+          "explanation",
+          "model"
+        ],
+        "title": "NlScreenResponse",
+        "description": "v2 (WT-13). A draft for the user to confirm; never run automatically."
+      },
+      "NoteCode": {
+        "type": "string",
+        "enum": [
+          "MISSING_INPUT",
+          "NEGATIVE_DENOMINATOR",
+          "NOT_APPLICABLE_SECTOR",
+          "FOREIGN_PRICE_BASIS",
+          "INSUFFICIENT_HISTORY",
+          "STALE_DATA",
+          "NO_INTEREST_EXPENSE",
+          "SMALL_PEER_GROUP",
+          "DERIVED_INPUT",
+          "ASSUMED_TAX_RATE",
+          "INPUT_EXCLUDES"
+        ],
+        "title": "NoteCode",
+        "description": "Null reason codes (§2.4), one per null cell, stored in `metric_notes`."
+      },
+      "Preset": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "summary": {
+            "type": "string",
+            "title": "Summary"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/PresetKind",
+            "description": "Set explicitly in every preset file"
+          },
+          "how_to_read": {
+            "type": "string",
+            "title": "How To Read"
+          },
+          "misses": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Misses",
+            "description": "What this screen misses: one short plain-language line per known blind spot; empty when the preset states none"
+          },
+          "source": {
+            "type": "string",
+            "title": "Source"
+          },
+          "screen": {
+            "$ref": "#/components/schemas/Screen"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "summary",
+          "kind",
+          "how_to_read",
+          "source",
+          "screen"
+        ],
+        "title": "Preset",
+        "description": "Also the shape of `config/presets/<id>.json` (with `id` = file stem)."
+      },
+      "PresetKind": {
+        "type": "string",
+        "enum": [
+          "screen",
+          "red_flags"
+        ],
+        "title": "PresetKind"
+      },
+      "PresetListResponse": {
+        "properties": {
+          "build_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Build Id",
+            "description": "Build that served this response; null if none"
+          },
+          "presets": {
+            "items": {
+              "$ref": "#/components/schemas/PresetSummary"
+            },
+            "type": "array",
+            "title": "Presets"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "build_id",
+          "presets"
+        ],
+        "title": "PresetListResponse"
+      },
+      "PresetResponse": {
+        "properties": {
+          "build_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Build Id",
+            "description": "Build that served this response; null if none"
+          },
+          "preset": {
+            "$ref": "#/components/schemas/Preset"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "build_id",
+          "preset"
+        ],
+        "title": "PresetResponse"
+      },
+      "PresetSummary": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "summary": {
+            "type": "string",
+            "title": "Summary"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/PresetKind",
+            "description": "Set explicitly in every preset file"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "summary",
+          "kind"
+        ],
+        "title": "PresetSummary"
+      },
+      "Priority": {
+        "type": "string",
+        "enum": [
+          "P0",
+          "P1"
+        ],
+        "title": "Priority"
+      },
+      "Rank": {
+        "properties": {
+          "method": {
+            "$ref": "#/components/schemas/RankMethod",
+            "default": "percentile_composite"
+          },
+          "within": {
+            "$ref": "#/components/schemas/Within",
+            "default": "universe"
+          },
+          "factors": {
+            "items": {
+              "$ref": "#/components/schemas/Factor"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Factors"
+          },
+          "min_factor_coverage": {
+            "type": "number",
+            "maximum": 1.0,
+            "exclusiveMinimum": 0.0,
+            "title": "Min Factor Coverage",
+            "default": 0.7
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "factors"
+        ],
+        "title": "Rank"
+      },
+      "RankMethod": {
+        "type": "string",
+        "enum": [
+          "percentile_composite",
+          "rank_sum"
+        ],
+        "title": "RankMethod"
+      },
+      "ResultRow": {
+        "properties": {
+          "cik": {
+            "type": "string",
+            "title": "Cik"
+          },
+          "ticker": {
+            "type": "string",
+            "title": "Ticker"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "sector": {
+            "$ref": "#/components/schemas/Sector"
+          },
+          "rank": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rank"
+          },
+          "rank_score": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rank Score"
+          },
+          "factor_contributions": {
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "type": "object",
+            "title": "Factor Contributions"
+          },
+          "values": {
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "type": "object",
+            "title": "Values",
+            "description": "Requested columns, keyed by id"
+          },
+          "notes": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/CellNote"
+            },
+            "type": "object",
+            "title": "Notes",
+            "description": "Null reasons / info notes, keyed by id"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "cik",
+          "ticker",
+          "name",
+          "sector",
+          "rank",
+          "rank_score",
+          "factor_contributions",
+          "values",
+          "notes"
+        ],
+        "title": "ResultRow"
+      },
+      "RunStatus": {
+        "type": "string",
+        "enum": [
+          "running",
+          "ok",
+          "warn",
+          "failed"
+        ],
+        "title": "RunStatus"
+      },
+      "SavedScreen": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "screen": {
+            "$ref": "#/components/schemas/Screen"
+          },
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created"
+          },
+          "updated": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Updated"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "name",
+          "screen",
+          "id",
+          "created",
+          "updated"
+        ],
+        "title": "SavedScreen",
+        "description": "v1 (WT-12)."
+      },
+      "SavedScreenIn": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "screen": {
+            "$ref": "#/components/schemas/Screen"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "name",
+          "screen"
+        ],
+        "title": "SavedScreenIn",
+        "description": "v1 (WT-12)."
+      },
+      "SavedScreenListResponse": {
+        "properties": {
+          "build_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Build Id",
+            "description": "Build that served this response; null if none"
+          },
+          "screens": {
+            "items": {
+              "$ref": "#/components/schemas/SavedScreen"
+            },
+            "type": "array",
+            "title": "Screens"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "build_id",
+          "screens"
+        ],
+        "title": "SavedScreenListResponse",
+        "description": "v1 (WT-12)."
+      },
+      "Screen": {
+        "properties": {
+          "dsl_version": {
+            "type": "integer",
+            "const": 1,
+            "title": "Dsl Version",
+            "default": 1
+          },
+          "name": {
+            "type": "string",
+            "title": "Name",
+            "default": "Untitled screen"
+          },
+          "universe": {
+            "$ref": "#/components/schemas/Universe"
+          },
+          "filters": {
+            "$ref": "#/components/schemas/Group"
+          },
+          "rank": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Rank"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "columns": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "minItems": 1,
+            "title": "Columns"
+          },
+          "sort": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Sort"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Omitted: rank_score desc when ranked, else ticker asc"
+          },
+          "limit": {
+            "type": "integer",
+            "maximum": 1000.0,
+            "minimum": 1.0,
+            "title": "Limit",
+            "default": 100
+          },
+          "near_misses": {
+            "type": "boolean",
+            "title": "Near Misses",
+            "default": true
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "Screen"
+      },
+      "ScreenResponse": {
+        "properties": {
+          "build_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Build Id",
+            "description": "Build that served this response; null if none"
+          },
+          "as_of": {
+            "$ref": "#/components/schemas/AsOf"
+          },
+          "universe_count": {
+            "type": "integer",
+            "title": "Universe Count"
+          },
+          "funnel": {
+            "items": {
+              "$ref": "#/components/schemas/FunnelStep"
+            },
+            "type": "array",
+            "title": "Funnel"
+          },
+          "total": {
+            "type": "integer",
+            "title": "Total"
+          },
+          "results": {
+            "items": {
+              "$ref": "#/components/schemas/ResultRow"
+            },
+            "type": "array",
+            "title": "Results"
+          },
+          "near_misses": {
+            "items": {
+              "$ref": "#/components/schemas/NearMiss"
+            },
+            "type": "array",
+            "title": "Near Misses"
+          },
+          "warnings": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Warnings"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "build_id",
+          "as_of",
+          "universe_count",
+          "funnel",
+          "total",
+          "results",
+          "near_misses",
+          "warnings"
+        ],
+        "title": "ScreenResponse"
+      },
+      "ScreenRunDiff": {
+        "properties": {
+          "screen_id": {
+            "type": "string",
+            "title": "Screen Id"
+          },
+          "build_id": {
+            "type": "string",
+            "title": "Build Id"
+          },
+          "previous_build_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Previous Build Id"
+          },
+          "entered": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Entered"
+          },
+          "left": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Left"
+          },
+          "changed_filters": {
+            "additionalProperties": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "type": "object",
+            "title": "Changed Filters",
+            "description": "ticker -> filter labels that changed state"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "screen_id",
+          "build_id",
+          "previous_build_id",
+          "entered",
+          "left",
+          "changed_filters"
+        ],
+        "title": "ScreenRunDiff",
+        "description": "v1 (WT-12): \"since last run: +4 entered, −2 left\"."
+      },
+      "ScreenRunDiffResponse": {
+        "properties": {
+          "build_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Build Id",
+            "description": "Build that served this response; null if none"
+          },
+          "diff": {
+            "$ref": "#/components/schemas/ScreenRunDiff"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "build_id",
+          "diff"
+        ],
+        "title": "ScreenRunDiffResponse",
+        "description": "v1 (WT-12)."
+      },
+      "SearchHit": {
+        "properties": {
+          "cik": {
+            "type": "string",
+            "title": "Cik"
+          },
+          "ticker": {
+            "type": "string",
+            "title": "Ticker"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "exchange": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Exchange"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "sector": {
+            "$ref": "#/components/schemas/Sector"
+          },
+          "kind": {
+            "$ref": "#/components/schemas/Kind"
+          },
+          "match": {
+            "$ref": "#/components/schemas/MatchType"
+          },
+          "score": {
+            "type": "number",
+            "title": "Score"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "cik",
+          "ticker",
+          "name",
+          "exchange",
+          "sector",
+          "kind",
+          "match",
+          "score"
+        ],
+        "title": "SearchHit"
+      },
+      "SearchResponse": {
+        "properties": {
+          "build_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Build Id",
+            "description": "Build that served this response; null if none"
+          },
+          "query": {
+            "type": "string",
+            "title": "Query"
+          },
+          "results": {
+            "items": {
+              "$ref": "#/components/schemas/SearchHit"
+            },
+            "type": "array",
+            "title": "Results"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "build_id",
+          "query",
+          "results"
+        ],
+        "title": "SearchResponse"
+      },
+      "Sector": {
+        "type": "string",
+        "enum": [
+          "Technology",
+          "Communication",
+          "Consumer Discretionary",
+          "Consumer Staples",
+          "Health Care",
+          "Industrials",
+          "Materials",
+          "Energy",
+          "Utilities",
+          "Real Estate",
+          "Banks",
+          "Insurance",
+          "Capital Markets",
+          "Unclassified"
+        ],
+        "title": "Sector",
+        "description": "Glint sectors (SIC-based, Appendix C). Not GICS."
+      },
+      "SectorCount": {
+        "properties": {
+          "sector": {
+            "$ref": "#/components/schemas/Sector"
+          },
+          "count": {
+            "type": "integer",
+            "title": "Count"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "sector",
+          "count"
+        ],
+        "title": "SectorCount"
+      },
+      "SectorsResponse": {
+        "properties": {
+          "build_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Build Id",
+            "description": "Build that served this response; null if none"
+          },
+          "sectors": {
+            "items": {
+              "$ref": "#/components/schemas/SectorCount"
+            },
+            "type": "array",
+            "title": "Sectors"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "build_id",
+          "sectors"
+        ],
+        "title": "SectorsResponse"
+      },
+      "SnapshotMeta": {
+        "properties": {
+          "build_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Build Id",
+            "description": "Build that served this response; null if none"
+          },
+          "n": {
+            "type": "integer",
+            "title": "N"
+          },
+          "metrics": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Metrics",
+            "description": "Metric ids, in block order (registry order, live only)"
+          },
+          "note_codes": {
+            "items": {
+              "$ref": "#/components/schemas/NoteCode"
+            },
+            "type": "array",
+            "title": "Note Codes"
+          },
+          "rows": {
+            "$ref": "#/components/schemas/SnapshotRows"
+          },
+          "screen_config": {
+            "$ref": "#/components/schemas/SnapshotScreenConfig"
+          },
+          "values_bytes": {
+            "type": "integer",
+            "title": "Values Bytes",
+            "description": "n × len(metrics) × 8"
+          },
+          "notes_bytes": {
+            "type": "integer",
+            "title": "Notes Bytes",
+            "description": "n × len(metrics)"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "build_id",
+          "n",
+          "metrics",
+          "note_codes",
+          "rows",
+          "screen_config",
+          "values_bytes",
+          "notes_bytes"
+        ],
+        "title": "SnapshotMeta",
+        "description": "How to read `/api/snapshot/values` for the same build: the build's metric values as\ncolumns, for live screening in the browser (the server stays authoritative).\n\nThe values body is `len(metrics)` blocks of `n` little-endian float64 (NaN = null; booleans\nas 1/0), then `len(metrics)` blocks of `n` uint8 reason codes: 0 = none, k = `note_codes[k-1]`\n(info codes such as DERIVED_INPUT can sit beside a value). Note messages stay server-side."
+      },
+      "SnapshotRows": {
+        "properties": {
+          "cik": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Cik"
+          },
+          "ticker": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Ticker"
+          },
+          "name": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Name"
+          },
+          "sector": {
+            "items": {
+              "$ref": "#/components/schemas/Sector"
+            },
+            "type": "array",
+            "title": "Sector"
+          },
+          "exchange": {
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Exchange"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Exchange"
+          },
+          "kind": {
+            "items": {
+              "$ref": "#/components/schemas/Kind"
+            },
+            "type": "array",
+            "title": "Kind"
+          },
+          "is_foreign_filer": {
+            "items": {
+              "type": "boolean"
+            },
+            "type": "array",
+            "title": "Is Foreign Filer"
+          },
+          "is_stale": {
+            "items": {
+              "type": "boolean"
+            },
+            "type": "array",
+            "title": "Is Stale"
+          },
+          "has_facts": {
+            "items": {
+              "type": "boolean"
+            },
+            "type": "array",
+            "title": "Has Facts"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "cik",
+          "ticker",
+          "name",
+          "sector",
+          "exchange",
+          "kind",
+          "is_foreign_filer",
+          "is_stale",
+          "has_facts"
+        ],
+        "title": "SnapshotRows",
+        "description": "One entry per company, in the same order as every values/notes block."
+      },
+      "SnapshotScreenConfig": {
+        "properties": {
+          "float_tolerance": {
+            "type": "number",
+            "title": "Float Tolerance"
+          },
+          "small_peer_group_min": {
+            "type": "integer",
+            "title": "Small Peer Group Min"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "float_tolerance",
+          "small_peer_group_min"
+        ],
+        "title": "SnapshotScreenConfig",
+        "description": "The screen engine's settings (`config/thresholds.yaml`), so a browser preview compares\nexactly as the server does."
+      },
+      "Sort": {
+        "properties": {
+          "by": {
+            "type": "string",
+            "title": "By"
+          },
+          "dir": {
+            "$ref": "#/components/schemas/SortDir",
+            "default": "desc"
+          },
+          "then": {
+            "items": {
+              "$ref": "#/components/schemas/SortKey"
+            },
+            "type": "array",
+            "maxItems": 2,
+            "title": "Then",
+            "description": "Tie-breakers after `by`, in order; ticker ascending always breaks what's left. Nulls sort last for every key."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "by"
+        ],
+        "title": "Sort"
+      },
+      "SortDir": {
+        "type": "string",
+        "enum": [
+          "asc",
+          "desc"
+        ],
+        "title": "SortDir"
+      },
+      "SortKey": {
+        "properties": {
+          "by": {
+            "type": "string",
+            "title": "By"
+          },
+          "dir": {
+            "$ref": "#/components/schemas/SortDir",
+            "default": "desc"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "by"
+        ],
+        "title": "SortKey"
+      },
+      "SourceFiling": {
+        "properties": {
+          "accn": {
+            "type": "string",
+            "title": "Accn"
+          },
+          "form": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Form",
+            "description": "Form type (10-K, 10-Q, …); null when the build doesn't record it"
+          },
+          "filed": {
+            "type": "string",
+            "format": "date",
+            "title": "Filed"
+          },
+          "url": {
+            "type": "string",
+            "title": "Url"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "accn",
+          "form",
+          "filed",
+          "url"
+        ],
+        "title": "SourceFiling"
+      },
+      "Tier": {
+        "type": "string",
+        "enum": [
+          "sec",
+          "price"
+        ],
+        "title": "Tier"
+      },
+      "Unit": {
+        "type": "string",
+        "enum": [
+          "usd",
+          "frac",
+          "pp",
+          "x",
+          "days",
+          "score",
+          "bool",
+          "text"
+        ],
+        "title": "Unit"
+      },
+      "Universe": {
+        "properties": {
+          "exchanges": {
+            "items": {
+              "$ref": "#/components/schemas/Exchange"
+            },
+            "type": "array",
+            "title": "Exchanges"
+          },
+          "sectors_include": {
+            "items": {
+              "$ref": "#/components/schemas/Sector"
+            },
+            "type": "array",
+            "title": "Sectors Include"
+          },
+          "sectors_exclude": {
+            "items": {
+              "$ref": "#/components/schemas/Sector"
+            },
+            "type": "array",
+            "title": "Sectors Exclude"
+          },
+          "exclude_kinds": {
+            "items": {
+              "$ref": "#/components/schemas/Kind"
+            },
+            "type": "array",
+            "title": "Exclude Kinds"
+          },
+          "include_foreign_filers": {
+            "type": "boolean",
+            "title": "Include Foreign Filers",
+            "default": true
+          },
+          "include_stale": {
+            "type": "boolean",
+            "title": "Include Stale",
+            "default": false
+          },
+          "include_no_facts": {
+            "type": "boolean",
+            "title": "Include No Facts",
+            "default": false
+          },
+          "market_cap_min": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Market Cap Min"
+          },
+          "market_cap_max": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Market Cap Max"
+          },
+          "avg_dollar_volume_min": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Avg Dollar Volume Min",
+            "default": 1000000
+          },
+          "max_days_since_filing": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "exclusiveMinimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Days Since Filing"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "Universe"
+      },
+      "UniverseCounts": {
+        "properties": {
+          "companies": {
+            "type": "integer",
+            "title": "Companies"
+          },
+          "by_kind": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object",
+            "title": "By Kind"
+          },
+          "by_exchange": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object",
+            "title": "By Exchange"
+          },
+          "foreign_filers": {
+            "type": "integer",
+            "title": "Foreign Filers"
+          },
+          "stale": {
+            "type": "integer",
+            "title": "Stale"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "companies",
+          "by_kind",
+          "by_exchange",
+          "foreign_filers",
+          "stale"
+        ],
+        "title": "UniverseCounts"
+      },
+      "UniverseRules": {
+        "properties": {
+          "stale_annual_report_months": {
+            "type": "integer",
+            "title": "Stale Annual Report Months",
+            "description": "A company is stale (left out by default) when its latest annual report is older than this many months (`freshness.stale_annual_report_months`)"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "stale_annual_report_months"
+        ],
+        "title": "UniverseRules",
+        "description": "Universe rules from `config/thresholds.yaml`, so the UI states them without hard-coding\na number (principle 8)."
+      },
+      "Watchlist": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/WatchlistItem"
+            },
+            "type": "array",
+            "title": "Items"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "items"
+        ],
+        "title": "Watchlist",
+        "description": "v1 (WT-12)."
+      },
+      "WatchlistItem": {
+        "properties": {
+          "ticker": {
+            "type": "string",
+            "title": "Ticker"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          },
+          "added_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Added At"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "ticker",
+          "added_at"
+        ],
+        "title": "WatchlistItem",
+        "description": "v1 (WT-12)."
+      },
+      "WatchlistItemIn": {
+        "properties": {
+          "ticker": {
+            "type": "string",
+            "title": "Ticker"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "ticker"
+        ],
+        "title": "WatchlistItemIn",
+        "description": "v1 (WT-12)."
+      },
+      "WatchlistResponse": {
+        "properties": {
+          "build_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Build Id",
+            "description": "Build that served this response; null if none"
+          },
+          "watchlist": {
+            "$ref": "#/components/schemas/Watchlist"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "build_id",
+          "watchlist"
+        ],
+        "title": "WatchlistResponse",
+        "description": "v1 (WT-12)."
+      },
+      "Within": {
+        "type": "string",
+        "enum": [
+          "universe",
+          "sector"
+        ],
+        "title": "Within"
+      }
+    }
+  }
+}

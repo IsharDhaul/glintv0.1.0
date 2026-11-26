@@ -1,0 +1,26 @@
+{
+  "name": "Graham net-nets",
+  "summary": "Companies priced at two-thirds or less of their net current asset value. Expect a short list.",
+  "kind": "screen",
+  "how_to_read": "One filter: net current asset value (current assets minus all liabilities) of at least 1.5× market cap. That is Graham's test of a price at or below two-thirds of NCAV. Few companies pass, and a short list here is expected, not an error. The names that do pass are usually tiny and thinly traded: check average dollar volume before reading anything into the list. A market cap that looks implausibly small next to the daily trading volume usually means a share-count error in the inputs, so open the company and check the share count. Glint shows the list. It doesn't test or claim any returns.",
+  "misses": [
+    "What current assets would fetch in a sale: NCAV takes them at book value, and inventory or receivables may be worth far less.",
+    "Cash burn: a net-net that loses money every quarter can see its NCAV shrink quickly.",
+    "Most foreign filers: they have no market cap yet (price ratios need currency conversion and ADR ratios), so they don't appear."
+  ],
+  "source": "Graham and Dodd, Security Analysis (1934); Graham, The Intelligent Investor (1949)",
+  "screen": {
+    "dsl_version": 1,
+    "name": "Graham net-nets",
+    "filters": {
+      "op": "and",
+      "children": [
+        { "metric": "ncav_to_mcap", "cmp": "gte", "value": 1.5 }
+      ]
+    },
+    "columns": ["ticker", "name", "sector", "market_cap", "ncav_to_mcap", "cash_to_mcap", "fcf_margin", "avg_dollar_volume_3m"],
+    "sort": { "by": "ncav_to_mcap", "dir": "desc" },
+    "limit": 100,
+    "near_misses": true
+  }
+}

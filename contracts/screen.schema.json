@@ -1,0 +1,470 @@
+{
+  "$defs": {
+    "Comparator": {
+      "enum": [
+        "gt",
+        "gte",
+        "lt",
+        "lte",
+        "between",
+        "eq",
+        "neq",
+        "in",
+        "is_null",
+        "not_null",
+        "pct_rank_gte",
+        "pct_rank_lte",
+        "vs_sector_median_gte",
+        "vs_sector_median_lte"
+      ],
+      "title": "Comparator",
+      "type": "string"
+    },
+    "Condition": {
+      "additionalProperties": false,
+      "properties": {
+        "metric": {
+          "title": "Metric",
+          "type": "string"
+        },
+        "cmp": {
+          "$ref": "#/$defs/Comparator"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Value"
+        },
+        "within": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Within"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "missing": {
+          "$ref": "#/$defs/MissingPolicy",
+          "default": "fail"
+        }
+      },
+      "required": [
+        "metric",
+        "cmp"
+      ],
+      "title": "Condition",
+      "type": "object"
+    },
+    "Exchange": {
+      "enum": [
+        "NYSE",
+        "Nasdaq",
+        "NYSE American",
+        "TXSE",
+        "CBOE",
+        "OTC"
+      ],
+      "title": "Exchange",
+      "type": "string"
+    },
+    "Factor": {
+      "additionalProperties": false,
+      "properties": {
+        "metric": {
+          "title": "Metric",
+          "type": "string"
+        },
+        "weight": {
+          "exclusiveMinimum": 0,
+          "title": "Weight",
+          "type": "number"
+        }
+      },
+      "required": [
+        "metric",
+        "weight"
+      ],
+      "title": "Factor",
+      "type": "object"
+    },
+    "Group": {
+      "additionalProperties": false,
+      "properties": {
+        "op": {
+          "$ref": "#/$defs/LogicOp"
+        },
+        "children": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/$defs/Condition"
+              },
+              {
+                "$ref": "#/$defs/Group"
+              }
+            ]
+          },
+          "title": "Children",
+          "type": "array"
+        }
+      },
+      "required": [
+        "op"
+      ],
+      "title": "Group",
+      "type": "object"
+    },
+    "Kind": {
+      "enum": [
+        "operating",
+        "spac",
+        "fund",
+        "shell",
+        "no_common_equity",
+        "synthetic"
+      ],
+      "title": "Kind",
+      "type": "string"
+    },
+    "LogicOp": {
+      "enum": [
+        "and",
+        "or"
+      ],
+      "title": "LogicOp",
+      "type": "string"
+    },
+    "MissingPolicy": {
+      "enum": [
+        "fail",
+        "pass"
+      ],
+      "title": "MissingPolicy",
+      "type": "string"
+    },
+    "Rank": {
+      "additionalProperties": false,
+      "properties": {
+        "method": {
+          "$ref": "#/$defs/RankMethod",
+          "default": "percentile_composite"
+        },
+        "within": {
+          "$ref": "#/$defs/Within",
+          "default": "universe"
+        },
+        "factors": {
+          "items": {
+            "$ref": "#/$defs/Factor"
+          },
+          "minItems": 1,
+          "title": "Factors",
+          "type": "array"
+        },
+        "min_factor_coverage": {
+          "default": 0.7,
+          "exclusiveMinimum": 0,
+          "maximum": 1,
+          "title": "Min Factor Coverage",
+          "type": "number"
+        }
+      },
+      "required": [
+        "factors"
+      ],
+      "title": "Rank",
+      "type": "object"
+    },
+    "RankMethod": {
+      "enum": [
+        "percentile_composite",
+        "rank_sum"
+      ],
+      "title": "RankMethod",
+      "type": "string"
+    },
+    "Sector": {
+      "description": "Glint sectors (SIC-based, Appendix C). Not GICS.",
+      "enum": [
+        "Technology",
+        "Communication",
+        "Consumer Discretionary",
+        "Consumer Staples",
+        "Health Care",
+        "Industrials",
+        "Materials",
+        "Energy",
+        "Utilities",
+        "Real Estate",
+        "Banks",
+        "Insurance",
+        "Capital Markets",
+        "Unclassified"
+      ],
+      "title": "Sector",
+      "type": "string"
+    },
+    "Sort": {
+      "additionalProperties": false,
+      "properties": {
+        "by": {
+          "title": "By",
+          "type": "string"
+        },
+        "dir": {
+          "$ref": "#/$defs/SortDir",
+          "default": "desc"
+        },
+        "then": {
+          "description": "Tie-breakers after `by`, in order; ticker ascending always breaks what's left. Nulls sort last for every key.",
+          "items": {
+            "$ref": "#/$defs/SortKey"
+          },
+          "maxItems": 2,
+          "title": "Then",
+          "type": "array"
+        }
+      },
+      "required": [
+        "by"
+      ],
+      "title": "Sort",
+      "type": "object"
+    },
+    "SortDir": {
+      "enum": [
+        "asc",
+        "desc"
+      ],
+      "title": "SortDir",
+      "type": "string"
+    },
+    "SortKey": {
+      "additionalProperties": false,
+      "properties": {
+        "by": {
+          "title": "By",
+          "type": "string"
+        },
+        "dir": {
+          "$ref": "#/$defs/SortDir",
+          "default": "desc"
+        }
+      },
+      "required": [
+        "by"
+      ],
+      "title": "SortKey",
+      "type": "object"
+    },
+    "Universe": {
+      "additionalProperties": false,
+      "properties": {
+        "exchanges": {
+          "items": {
+            "$ref": "#/$defs/Exchange"
+          },
+          "title": "Exchanges",
+          "type": "array"
+        },
+        "sectors_include": {
+          "items": {
+            "$ref": "#/$defs/Sector"
+          },
+          "title": "Sectors Include",
+          "type": "array"
+        },
+        "sectors_exclude": {
+          "items": {
+            "$ref": "#/$defs/Sector"
+          },
+          "title": "Sectors Exclude",
+          "type": "array"
+        },
+        "exclude_kinds": {
+          "items": {
+            "$ref": "#/$defs/Kind"
+          },
+          "title": "Exclude Kinds",
+          "type": "array"
+        },
+        "include_foreign_filers": {
+          "default": true,
+          "title": "Include Foreign Filers",
+          "type": "boolean"
+        },
+        "include_stale": {
+          "default": false,
+          "title": "Include Stale",
+          "type": "boolean"
+        },
+        "include_no_facts": {
+          "default": false,
+          "title": "Include No Facts",
+          "type": "boolean"
+        },
+        "market_cap_min": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Market Cap Min"
+        },
+        "market_cap_max": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Market Cap Max"
+        },
+        "avg_dollar_volume_min": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 1000000,
+          "title": "Avg Dollar Volume Min"
+        },
+        "max_days_since_filing": {
+          "anyOf": [
+            {
+              "exclusiveMinimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Max Days Since Filing"
+        }
+      },
+      "title": "Universe",
+      "type": "object"
+    },
+    "Within": {
+      "enum": [
+        "universe",
+        "sector"
+      ],
+      "title": "Within",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "dsl_version": {
+      "const": 1,
+      "default": 1,
+      "title": "Dsl Version",
+      "type": "integer"
+    },
+    "name": {
+      "default": "Untitled screen",
+      "title": "Name",
+      "type": "string"
+    },
+    "universe": {
+      "$ref": "#/$defs/Universe"
+    },
+    "filters": {
+      "$ref": "#/$defs/Group"
+    },
+    "rank": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Rank"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "columns": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "title": "Columns",
+      "type": "array"
+    },
+    "sort": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Sort"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Omitted: rank_score desc when ranked, else ticker asc"
+    },
+    "limit": {
+      "default": 100,
+      "maximum": 1000,
+      "minimum": 1,
+      "title": "Limit",
+      "type": "integer"
+    },
+    "near_misses": {
+      "default": true,
+      "title": "Near Misses",
+      "type": "boolean"
+    }
+  },
+  "title": "Screen",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://glint.local/contracts/screen.schema.json"
+}

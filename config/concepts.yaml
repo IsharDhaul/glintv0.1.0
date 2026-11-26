@@ -1,0 +1,514 @@
+# XBRL concept map (SPEC Appendix B). WT-03 owns this file after WT-00.
+# Per line item: period kind, expected unit kind, tags in priority order per taxonomy.
+# Use the highest-priority tag that has a value for a company/period; never sum alternatives.
+# `verify: true` marks IFRS tags still to be checked against TSM/ASML (WT-03).
+# unit kinds: currency (ISO code, e.g. USD/TWD/EUR) · per_share (e.g. USD/shares) · shares
+# Optional keys per line item (loaded by glint/financials/concepts.py):
+#   additive: false        quarters/TTM are never derived by subtraction or summing (EPS, weighted shares)
+#   sign: positive_outflow the tag reports a payment as a positive number
+#   derive: a ± b          fallback when no tag has a value for that exact period (flagged derived)
+#   sum_groups             tags outside every group are totals, tried first; else add one value per group
+#   sum_requires           sum groups that must have a value for the sum to count
+#   includes_current       tags of this item that already include the current portion
+#   not_applicable         sectors where a missing value is n/m by design, not a gap
+#   fallback               item used for the latest value when this one has none (flagged derived)
+#   tag_notes              per-tag definition notes (shown with the source tag)
+#   note                   appended to the MISSING_INPUT message when the item has no value
+#   nonnegative: true      a negative derived quarter is logged as a warning (the value is kept)
+version: 1
+
+# §4.3 rule 2: duration classes by length in days (end − start), inclusive bounds.
+durations:
+  quarter: [80, 100]
+  half_year: [170, 190]
+  nine_months: [260, 285]
+  fiscal_year: [350, 380]
+
+# Facts are read only from these forms (amendments included). Proxy statements (DEF 14A) and
+# registration statements are excluded: their pay-versus-performance and pro-forma tables reuse
+# the same tags.
+forms: [10-K, 10-K/A, 10-KT, 10-KT/A, 10-Q, 10-Q/A, 10-QT, 10-QT/A, 20-F, 20-F/A, 40-F, 40-F/A, 6-K, 6-K/A, 8-K, 8-K/A]
+
+normalize:
+  ttm_fy_tolerance: 0.005      # §4.3 rule 6: TTM vs FY at a fiscal year end, as a fraction
+  match_tolerance: 0.005       # "same value" checks in guards.py (e.g. notes payable = current LTD)
+  quarter_gap_days: 1          # contiguous quarters: next start = previous end + this many days
+  year_ago_window_days: 45     # §4.3 rule 7: instant nearest one year earlier, ± days
+  fy_change_shift_days: 10     # §4.3 rule 14: FY ends further apart on the calendar → a FY change (52/53-week drift ≤ 7)
+  shares_stale_days: 365       # cover/balance-sheet share count older than the latest diluted count by more → fallback
+  # Share-count plausibility (glint/financials/share_checks.py). Counts ≤ 0 are always rejected;
+  # shares_min_count applies to diluted counts too.
+  shares_min_count: 10000      # a cover/balance-sheet count below this is a pre-IPO or subsidiary placeholder (1, 100, 1,000)
+  shares_placeholder_ratio: 0.01  # latest count below this × a checked diluted count (same or later period) → dropped
+  shares_class_ratio: 0.5      # any count below this × a checked diluted count for a period ending that day → one class tagged undimensioned (IHRT), dropped
+  shares_scale_band: 0.25      # diluted_shares / (net income ÷ diluted EPS) within ±25% of 1000^k (k ≠ 0) → filed value ÷ 1000^k
+  shares_scale_reject_ratio: 100  # ratio beyond this (either way) and not in a band → rejected, not rescaled
+  shares_check_min_eps: 0.05   # |diluted EPS| below this (cent rounding) → no check for that period
+  shares_check_min_net_income: 100000  # |net income| below this → no check for that period
+  shares_same_filing_max_ratio: 2  # an unchecked period takes its filing's correction if within this factor of a corrected one
+  keep: {fy: 10, q: 12, ttm: 12, instant: 12}  # periods kept per series in the financials table
+  # Zero total debt from the balance sheet (glint/financials/zero_debt.py, evidence_tags below).
+  zero_debt_interest_lookback_days: 366  # interest expense reported for a period ending this close before the balance sheet → no proof
+  zero_debt_max_lines: 22      # more candidate liability lines than this in one block → no proof (search size)
+  zero_debt_forms: [10-K, 10-K/A, 10-KT, 10-KT/A, 10-Q, 10-Q/A, 10-QT, 10-QT/A]  # the balance sheet must come from one of these
+
+# §4.6 core line items: the coverage report's headline (flows at latest TTM, instants at MRQ).
+core:
+  flows: [revenue, cost_of_revenue, operating_income, pretax_income, income_tax, net_income, cfo, capex, dna, sbc]
+  instants: [cash, current_assets, total_assets, current_liabilities, total_liabilities, total_debt, equity, receivables, inventory, shares_outstanding]
+
+# dei cover-page tags kept by extraction and fixture trimming.
+dei_cover_tags: [EntityCommonStockSharesOutstanding, EntityPublicFloat]
+
+# Tags kept by extraction and fixture trimming as evidence only: never a line item's value.
+# Read by glint/financials/zero_debt.py: total_debt = 0 (derived) at the latest balance sheet only
+# when the filing's liability lines below add up exactly to `Liabilities` (and `LiabilitiesCurrent`
+# for the current block) with no debt line among them, no debt tag (these or any debt item's) is
+# nonzero at that date, and no interest expense was reported in the year before. Custom-extension
+# and dimensional lines aren't in companyfacts, so a debt line tagged that way leaves the sum short
+# and there's no proof. A missing tag is never evidence. Lists from the 2026-11-03 diagnosis
+# (docs/decisions/data/ev-zero-debt-20261103.csv).
+evidence_tags:
+  us-gaap:
+    # Non-debt liability lines that may itemize a balance sheet. Excluded on purpose: interest
+    # payable (implies debt), supplier-finance obligations (debt-like), fair-value disclosures.
+    liability_lines: [
+      AccountsPayableCurrent, AccountsPayableTradeCurrent, AccountsPayableOtherCurrent,
+      AccountsPayableCurrentAndNoncurrent, AccountsPayableAndAccruedLiabilitiesCurrent,
+      AccountsPayableAndAccruedLiabilitiesNoncurrent, AccountsPayableAndAccruedLiabilitiesCurrentAndNoncurrent,
+      AccountsPayableAndOtherAccruedLiabilitiesCurrent, AccountsPayableAndOtherAccruedLiabilities,
+      OtherAccountsPayableAndAccruedLiabilities,
+      AccruedLiabilitiesCurrent, AccruedLiabilitiesNoncurrent, AccruedLiabilitiesCurrentAndNoncurrent,
+      AccruedLiabilitiesAndOtherLiabilities, OtherAccruedLiabilitiesCurrent, OtherAccruedLiabilitiesNoncurrent,
+      EmployeeRelatedLiabilitiesCurrent, AccruedSalariesCurrent, AccruedBonusesCurrent,
+      AccruedEmployeeBenefitsCurrent, AccruedPayrollTaxesCurrent, AccruedSalesCommissionCurrent,
+      AccruedProfessionalFeesCurrent, AccruedAdvertisingCurrent, AccruedInsuranceCurrent,
+      AccruedRoyaltiesCurrentAndNoncurrent,
+      AccruedIncomeTaxesCurrent, AccruedIncomeTaxesNoncurrent, TaxesPayableCurrent,
+      SalesAndExciseTaxPayableCurrent, AccrualForTaxesOtherThanIncomeTaxesCurrent,
+      LiabilityForUncertainTaxPositionsNoncurrent, DeferredIncomeTaxLiabilitiesNet,
+      DeferredIncomeTaxesAndOtherLiabilitiesNoncurrent, DeferredIncomeTaxesAndOtherTaxLiabilitiesNoncurrent,
+      ContractWithCustomerLiability, ContractWithCustomerLiabilityCurrent, ContractWithCustomerLiabilityNoncurrent,
+      DeferredRevenueCurrent, DeferredRevenueNoncurrent, DeferredIncomeCurrent, DeferredIncomeNoncurrent,
+      CustomerRefundLiabilityCurrent, DepositLiabilityCurrent, SecurityDepositLiability,
+      OperatingLeaseLiability, OperatingLeaseLiabilityCurrent, OperatingLeaseLiabilityNoncurrent,
+      OtherLiabilities, OtherLiabilitiesCurrent, OtherLiabilitiesNoncurrent, OtherSundryLiabilitiesNoncurrent,
+      DerivativeLiabilities, DerivativeLiabilitiesCurrent, DerivativeLiabilitiesNoncurrent,
+      WarrantsAndRightsOutstanding,
+      BusinessCombinationContingentConsiderationLiability, BusinessCombinationContingentConsiderationLiabilityCurrent,
+      BusinessCombinationContingentConsiderationLiabilityNoncurrent,
+      DeferredCompensationLiabilityCurrent, DeferredCompensationLiabilityClassifiedNoncurrent,
+      DeferredCompensationSharebasedArrangementsLiabilityClassifiedNoncurrent,
+      PensionAndOtherPostretirementDefinedBenefitPlansLiabilitiesNoncurrent, DefinedBenefitPensionPlanLiabilitiesNoncurrent,
+      ProductWarrantyAccrualClassifiedCurrent, StandardProductWarrantyAccrualCurrent,
+      DividendsPayableCurrent, GovernmentAssistanceLiabilityCurrent, GovernmentAssistanceLiabilityNoncurrent,
+      SettlementLiabilitiesCurrent, LitigationReserveCurrent, ConstructionPayableCurrent,
+      ProgramRightsObligationsNoncurrent,
+    ]
+    # Debt-like tags no line item maps: any nonzero value at the balance-sheet date (any filing)
+    # blocks the proof, even as a disclosure (maturity schedules, face amounts, facility usage).
+    debt_lines: [
+      NotesPayable, NotesPayableCurrent, LongTermNotesPayable, OtherNotesPayable, OtherNotesPayableCurrent,
+      OtherLongTermNotesPayable, NotesPayableToBank, NotesPayableToBankCurrent, NotesPayableToBankNoncurrent,
+      NotesAndLoansPayableCurrent, LongTermNotesAndLoans, ShortTermBankLoansAndNotesPayable,
+      ShortTermNonBankLoansAndNotesPayable, OtherShortTermBorrowings, OtherBorrowings, BridgeLoan,
+      LoansPayable, LoansPayableCurrent, LongTermLoansPayable, OtherLoansPayable, OtherLoansPayableCurrent,
+      LoansPayableToBank, LoansPayableToBankCurrent, LongTermLoansFromBank, WarehouseAgreementBorrowings,
+      LineOfCredit, LinesOfCreditCurrent, LongTermLineOfCredit,
+      ConvertibleDebt, ConvertibleDebtCurrent, ConvertibleDebtNoncurrent, ConvertibleNotesPayable,
+      ConvertibleNotesPayableCurrent, ConvertibleLongTermNotesPayable, ConvertibleSubordinatedDebtCurrent,
+      SecuredDebt, SecuredDebtCurrent, SecuredDebtOther, SecuredLongTermDebt, UnsecuredDebt, UnsecuredDebtCurrent,
+      SeniorNotes, SeniorNotesCurrent, SubordinatedDebtCurrent, SubordinatedLongTermDebt,
+      JuniorSubordinatedDebentureOwedToUnconsolidatedSubsidiaryTrust,
+      JuniorSubordinatedDebentureOwedToUnconsolidatedSubsidiaryTrustNoncurrent,
+      OtherLongTermDebt, OtherLongTermDebtCurrent, OtherLongTermDebtNoncurrent, CommercialPaperAtCarryingValue,
+      DebtInstrumentCarryingAmount, DebtInstrumentFaceAmount, DebtDefaultLongtermDebtAmount,
+      DebtInstrumentAnnualPrincipalPayment, DebtInstrumentCollateralAmount,
+      TransfersAccountedForAsSecuredBorrowingsAssociatedLiabilitiesCarryingAmount,
+      LongTermDebtMaturitiesRepaymentsOfPrincipalInNextTwelveMonths, LongTermDebtMaturitiesRepaymentsOfPrincipalInYearTwo,
+      LongTermDebtMaturitiesRepaymentsOfPrincipalInYearThree, LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFour,
+      LongTermDebtMaturitiesRepaymentsOfPrincipalInYearFive, LongTermDebtMaturitiesRepaymentsOfPrincipalAfterYearFive,
+      LongTermDebtMaturitiesRepaymentsOfPrincipalRemainderOfFiscalYear,
+      LongTermDebtMaturitiesRepaymentsOfPrincipalInNextRollingTwelveMonths,
+      FinanceLeaseLiability, FinanceLeaseLiabilityCurrent, FinanceLeaseLiabilityNoncurrent,
+      FinanceLeaseLiabilityPaymentsDue, FinanceLeaseLiabilityPaymentsDueNextTwelveMonths,
+      FinanceLeaseLiabilityPaymentsRemainderOfFiscalYear, FinanceLeaseLiabilityPaymentsDueYearTwo,
+      FinanceLeaseLiabilityPaymentsDueYearThree, FinanceLeaseLiabilityPaymentsDueYearFour,
+      FinanceLeaseLiabilityPaymentsDueYearFive, FinanceLeaseLiabilityPaymentsDueAfterYearFive,
+      FinanceLeaseLiabilityUndiscountedExcessAmount, CapitalLeaseObligations, CapitalLeaseObligationsCurrent,
+      CapitalLeaseObligationsNoncurrent, SupplierFinanceProgramObligationCurrent,
+      SupplierFinanceProgramObligationNoncurrent, InterestPayableCurrent, InterestAndDividendsPayableCurrent,
+    ]
+    # Interest tags no line item maps; interest_expense's own tags are checked too.
+    interest: [InterestPaidNet, InterestExpenseOperating]
+
+# Footnote breakdowns of one balance-sheet line (zero_debt.py), applied in this order. When the
+# parent is tagged, every child tagged in the same filing is dropped if together they are at most
+# the parent: a footnote contained in the line, not a line of its own. All present children are
+# dropped, never a chosen few (dropping only lowers the sum, so it can't hide debt; if a child was
+# really a face line the sum falls short: no proof). Children above the parent stay (the sum then
+# overshoots: no proof). Parents and children must be liability_lines. Lines often on the face of
+# the balance sheet (income taxes, leases, warranties) aren't children.
+liability_breakdowns:
+  AccruedLiabilitiesCurrent: &accrued_parts [
+    EmployeeRelatedLiabilitiesCurrent, AccruedSalariesCurrent, AccruedBonusesCurrent,
+    AccruedEmployeeBenefitsCurrent, AccruedPayrollTaxesCurrent, AccruedProfessionalFeesCurrent,
+    AccruedAdvertisingCurrent, AccruedInsuranceCurrent, AccruedSalesCommissionCurrent,
+    OtherAccruedLiabilitiesCurrent, AccrualForTaxesOtherThanIncomeTaxesCurrent,
+  ]
+  AccruedLiabilitiesAndOtherLiabilities: *accrued_parts
+  AccountsPayableAndAccruedLiabilitiesCurrent: [
+    AccountsPayableCurrent, AccountsPayableTradeCurrent, AccruedLiabilitiesCurrent,
+    EmployeeRelatedLiabilitiesCurrent, AccruedSalariesCurrent, AccruedBonusesCurrent,
+    AccruedEmployeeBenefitsCurrent, AccruedPayrollTaxesCurrent, AccruedProfessionalFeesCurrent,
+    AccruedAdvertisingCurrent, AccruedInsuranceCurrent, AccruedSalesCommissionCurrent,
+    OtherAccruedLiabilitiesCurrent, AccrualForTaxesOtherThanIncomeTaxesCurrent,
+  ]
+
+line_items:
+  revenue:
+    kind: duration
+    nonnegative: true
+    unit: currency
+    tags:
+      us-gaap: [Revenues, RevenueFromContractWithCustomerExcludingAssessedTax, RevenueFromContractWithCustomerIncludingAssessedTax, SalesRevenueNet, SalesRevenueGoodsNet, RevenuesNetOfInterestExpense]
+      ifrs-full: [Revenue, RevenueFromContractsWithCustomers]
+  cost_of_revenue:
+    kind: duration
+    nonnegative: true
+    unit: currency
+    not_applicable: [Banks, Insurance, Capital Markets]
+    tags:
+      us-gaap: [CostOfRevenue, CostOfGoodsAndServicesSold, CostOfGoodsSold, CostOfServices, CostOfGoodsAndServiceExcludingDepreciationDepletionAndAmortization]
+      ifrs-full: [CostOfSales]
+    tag_notes:
+      CostOfGoodsAndServiceExcludingDepreciationDepletionAndAmortization: excludes D&A, so gross margin is higher than for peers whose cost of revenue includes it
+  gross_profit:
+    kind: duration
+    unit: currency
+    not_applicable: [Banks, Insurance, Capital Markets]
+    tags:
+      us-gaap: [GrossProfit]
+      ifrs-full: [GrossProfit]
+    derive: revenue - cost_of_revenue
+  operating_income:
+    kind: duration
+    unit: currency
+    tags:
+      us-gaap: [OperatingIncomeLoss]
+      ifrs-full: [ProfitLossFromOperatingActivities]
+  pretax_income:
+    kind: duration
+    unit: currency
+    tags:
+      us-gaap: [IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest, IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments]
+      ifrs-full: [ProfitLossBeforeTax]
+  income_tax:
+    kind: duration
+    unit: currency
+    tags:
+      us-gaap: [IncomeTaxExpenseBenefit]
+      ifrs-full: [IncomeTaxExpenseContinuingOperations]
+  net_income:
+    kind: duration
+    unit: currency
+    tags:
+      us-gaap: [NetIncomeLoss, NetIncomeLossAvailableToCommonStockholdersBasic, ProfitLoss]
+      ifrs-full: [ProfitLossAttributableToOwnersOfParent, ProfitLoss]
+    tag_notes:
+      ProfitLoss: includes minority interest; flag it
+  interest_expense:
+    kind: duration
+    nonnegative: true
+    unit: currency
+    tags:
+      us-gaap: [InterestExpense, InterestExpenseNonoperating, InterestExpenseDebt, InterestAndDebtExpense, InterestExpenseBorrowings]
+      ifrs-full: [FinanceCosts]
+  dna:
+    kind: duration
+    nonnegative: true
+    unit: currency
+    tags:
+      us-gaap: [DepreciationDepletionAndAmortization, DepreciationAndAmortization, DepreciationAmortizationAndAccretionNet, Depreciation, AmortizationOfIntangibleAssets]
+      ifrs-full: [DepreciationAndAmortisationExpense, DepreciationExpense, AmortisationExpense]
+    sum_groups:  # no combined tag (MSFT, GOOGL, TSM): depreciation + amortization of intangibles
+      depreciation: [Depreciation, DepreciationExpense]
+      amortization: [AmortizationOfIntangibleAssets, AmortisationExpense]
+    sum_requires: [depreciation]  # amortization alone is never D&A
+  sbc:
+    kind: duration
+    nonnegative: true
+    unit: currency
+    tags:
+      us-gaap: [ShareBasedCompensation, AllocatedShareBasedCompensationExpense]
+      ifrs-full: [AdjustmentsForSharebasedPayments]
+  rnd:
+    kind: duration
+    nonnegative: true
+    unit: currency
+    tags:
+      us-gaap: [ResearchAndDevelopmentExpense]
+      ifrs-full: [ResearchAndDevelopmentExpense]
+  sga:
+    kind: duration
+    nonnegative: true
+    unit: currency
+    tags:
+      us-gaap: [SellingGeneralAndAdministrativeExpense]
+      ifrs-full: [SellingGeneralAndAdministrativeExpense]
+  eps_diluted:
+    kind: duration
+    unit: per_share
+    additive: false
+    tags:
+      us-gaap: [EarningsPerShareDiluted]
+      ifrs-full: [DilutedEarningsLossPerShare]
+  diluted_shares:
+    kind: duration
+    unit: shares
+    additive: false
+    tags:
+      us-gaap: [WeightedAverageNumberOfDilutedSharesOutstanding]
+      ifrs-full: [AdjustedWeightedAverageShares]
+  cfo:
+    kind: duration
+    unit: currency
+    tags:
+      us-gaap: [NetCashProvidedByUsedInOperatingActivities, NetCashProvidedByUsedInOperatingActivitiesContinuingOperations]
+      ifrs-full: [CashFlowsFromUsedInOperatingActivities]
+  capex:
+    kind: duration
+    nonnegative: true
+    unit: currency
+    sign: positive_outflow
+    tags:
+      us-gaap: [PaymentsToAcquirePropertyPlantAndEquipment, PaymentsToAcquireProductiveAssets]
+      ifrs-full: [PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities]
+  dividends_paid:
+    kind: duration
+    nonnegative: true
+    unit: currency
+    sign: positive_outflow
+    tags:
+      us-gaap: [PaymentsOfDividends, PaymentsOfDividendsCommonStock]
+      ifrs-full: [DividendsPaidClassifiedAsFinancingActivities]
+  buybacks:
+    kind: duration
+    nonnegative: true
+    unit: currency
+    sign: positive_outflow
+    tags:
+      us-gaap: [PaymentsForRepurchaseOfCommonStock]
+      ifrs-full: [PaymentsToAcquireOrRedeemEntitysShares]
+  stock_issued:
+    kind: duration
+    nonnegative: true
+    unit: currency
+    tags:
+      us-gaap: [ProceedsFromIssuanceOfCommonStock, ProceedsFromStockOptionsExercised]
+      ifrs-full: [ProceedsFromIssuingShares]
+  dps_declared:
+    kind: duration
+    unit: per_share
+    tags:
+      us-gaap: [CommonStockDividendsPerShareDeclared, CommonStockDividendsPerShareCashPaid]
+      ifrs-full: []  # none reliable; null
+  cash:
+    kind: instant
+    unit: currency
+    tags:
+      us-gaap: [CashAndCashEquivalentsAtCarryingValue, CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents]
+      ifrs-full: [CashAndCashEquivalents]
+    tag_notes:
+      CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents: includes restricted cash; flag it
+  st_investments:
+    kind: instant
+    unit: currency
+    tags:
+      us-gaap: [ShortTermInvestments, MarketableSecuritiesCurrent, AvailableForSaleSecuritiesDebtSecuritiesCurrent, DebtSecuritiesCurrent, EquitySecuritiesFvNi]
+      ifrs-full: [CurrentFinancialAssetsAtFairValueThroughProfitOrLoss, CurrentFinancialAssetsAtAmortisedCost, CurrentFinancialAssetsAtFairValueThroughOtherComprehensiveIncome]
+    # IFRS amortised-cost and FVOCI current financial assets are components only: for banks the
+    # amortised-cost line is loans (BSAC, BCH: ~40 trillion), and filers that tag a total alongside
+    # them would be double counted. They count only in a company's cik_sums, with the filing line
+    # (WT-03.md 2026-11-24).
+    # EquitySecuritiesFvNi is often a long-term stake (it equals the non-current tag in 64 cases and a
+    # current-equity tag in none since 2023), so it is never a value on its own: only inside a
+    # company's current line, listed in cik_sums with the filing evidence.
+    component_only: [EquitySecuritiesFvNi, CurrentFinancialAssetsAtAmortisedCost, CurrentFinancialAssetsAtFairValueThroughOtherComprehensiveIncome]
+    cik_sums:
+      "0001045810":  # NVIDIA: the FY2026 10-K tags no single concept for its marketable securities
+        tags: [DebtSecuritiesCurrent, EquitySecuritiesFvNi]
+        evidence: "10-K FY2026 (0001045810-26-000021) balance sheet: marketable securities 51,951M = DebtSecuritiesCurrent 39,065M + EquitySecuritiesFvNi 12,886M (cash, cash equivalents and marketable securities 62,556M − cash 10,605M). Q1 FY2027 release, 2026-04-26: 67,335M = 37,098 + 30,237. Q2 FY2027 release, 2026-07-26: 76,926M = 34,143 + 42,783. Both balance sheets list them as current marketable securities."
+        keyed_by: "Ishar Dhaul, 2026-10-30 (FY2026 hand-check; Q1 and Q2 FY2027 verified against the releases)"
+      "0001046179":  # TSMC: three current financial-asset lines on the balance sheet, no total
+        tags: [CurrentFinancialAssetsAtFairValueThroughProfitOrLoss, CurrentFinancialAssetsAtAmortisedCost, CurrentFinancialAssetsAtFairValueThroughOtherComprehensiveIncome]
+        evidence: "20-F FY2024 (0001193125-25-083423) consolidated balance sheet (R2.htm), current assets, NT$ millions: Financial assets at fair value through profit or loss 207.7, at fair value through other comprehensive income 192,202.7, at amortized cost 101,971.3 (2023: 924.6, 154,530.8, 66,761.2), each its own line; no subtotal."
+        keyed_by: "claude-code from 20-F R2.htm via core/http, 2026-11-24; confirmed by Ishar Dhaul against R2.htm, 2026-11-24 (all six lines, NT$ millions)"
+    verify: true
+  receivables:
+    kind: instant
+    unit: currency
+    tags:
+      us-gaap: [AccountsReceivableNetCurrent]
+      ifrs-full: [TradeAndOtherCurrentReceivables, CurrentTradeReceivables]
+  inventory:
+    kind: instant
+    unit: currency
+    not_applicable: [Banks, Insurance, Capital Markets]
+    tags:
+      us-gaap: [InventoryNet]
+      ifrs-full: [Inventories]
+  current_assets:
+    kind: instant
+    unit: currency
+    not_applicable: [Banks, Insurance, Capital Markets]
+    tags:
+      us-gaap: [AssetsCurrent]
+      ifrs-full: [CurrentAssets]
+  total_assets:
+    kind: instant
+    unit: currency
+    tags:
+      us-gaap: [Assets]
+      ifrs-full: [Assets]
+  ppe_net:
+    kind: instant
+    unit: currency
+    tags:
+      us-gaap: [PropertyPlantAndEquipmentNet]
+      ifrs-full: [PropertyPlantAndEquipment]
+  goodwill:
+    kind: instant
+    unit: currency
+    tags:
+      us-gaap: [Goodwill]
+      ifrs-full: [Goodwill]
+  intangibles:
+    kind: instant
+    unit: currency
+    tags:
+      us-gaap: [IntangibleAssetsNetExcludingGoodwill]
+      ifrs-full: [IntangibleAssetsOtherThanGoodwill]
+  accounts_payable:
+    kind: instant
+    unit: currency
+    tags:
+      us-gaap: [AccountsPayableCurrent]
+      ifrs-full: [TradeAndOtherCurrentPayables]
+  current_liabilities:
+    kind: instant
+    unit: currency
+    not_applicable: [Banks, Insurance, Capital Markets]
+    tags:
+      us-gaap: [LiabilitiesCurrent]
+      ifrs-full: [CurrentLiabilities]
+  total_liabilities:
+    kind: instant
+    unit: currency
+    tags:
+      us-gaap: [Liabilities]
+      ifrs-full: [Liabilities]
+    derive: liabilities_and_equity - equity_incl_nci
+  debt_current:
+    kind: instant
+    unit: currency
+    tags:
+      us-gaap: [DebtCurrent, LongTermDebtCurrent, LongTermDebtAndCapitalLeaseObligationsCurrent, ShortTermBorrowings, CommercialPaper, NotesAndLoansPayable]
+      ifrs-full: [CurrentPortionOfLongtermBorrowings, ShorttermBorrowings]
+    sum_groups:  # DebtCurrent is a total; else current LTD + short-term borrowings (CP only if no STB)
+      # IFRS current bonds / notes issued are not read: a tag here would be summed with the
+      # short_term pick, and short-term borrowings often already include them (TX 604, GRAB 1,680
+      # equal the current-borrowings total; TLX 13 vs 12 of bonds). TSMC's current portion line
+      # (59,858) includes its 57,148 of current bonds (WT-03.md 2026-11-24).
+      current_ltd: [LongTermDebtCurrent, LongTermDebtAndCapitalLeaseObligationsCurrent, CurrentPortionOfLongtermBorrowings]
+      short_term: [ShortTermBorrowings, CommercialPaper, ShorttermBorrowings]
+    # NotesAndLoansPayable replaces the short-term pick only under guards.py's checks (≥ that pick,
+    # < tagged long-term debt, ≠ current maturities): often it is a total of all notes instead.
+    guarded_short_term: [NotesAndLoansPayable]
+  debt_noncurrent:
+    kind: instant
+    unit: currency
+    tags:
+      us-gaap: [LongTermDebtNoncurrent, LongTermDebtAndCapitalLeaseObligations, LongTermDebt, LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities]
+      ifrs-full: [LongtermBorrowings, NoncurrentPortionOfNoncurrentBondsIssued, NoncurrentPortionOfNoncurrentNotesAndDebenturesIssued]
+    # IFRS bonds / notes issued are fallbacks, used only where LongtermBorrowings isn't tagged:
+    # where both are tagged, borrowings usually include them (equal in SRL, ARBK, OTLY, WIT; NVO's
+    # 118,941 includes 111,373 of bonds), so they're never summed except per company in cik_sums
+    # with the balance-sheet lines (WT-03.md 2026-11-24).
+    cik_sums:
+      "0001046179":  # TSMC: bonds payable and long-term bank loans are separate balance-sheet lines
+        tags: [LongtermBorrowings, NoncurrentPortionOfNoncurrentBondsIssued]
+        evidence: "20-F FY2024 (0001193125-25-083423) consolidated balance sheet (R2.htm), noncurrent liabilities, NT$ millions: Bonds payable 926,604.5 and Long-term bank loans 31,824.4 (2023: 913,899.8 and 4,383.0), separate lines. The current portion of both is one line, 'Long-term liabilities - current portion' 59,857.9 (CurrentPortionOfLongtermBorrowings), so the current side needs no sum."
+        keyed_by: "claude-code from 20-F R2.htm via core/http, 2026-11-24; confirmed by Ishar Dhaul against R2.htm, 2026-11-24 (all six lines, NT$ millions)"
+    includes_current: [LongTermDebt, LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities]
+    tag_notes:
+      LongTermDebt: includes the current portion; don't add debt_current on top
+      LongTermDebtAndCapitalLeaseObligationsIncludingCurrentMaturities: long-term debt and finance leases, current portion included (last resort; within ±10% of the component sum on 94% of 1,994 non-financial dates since 2023)
+  preferred:
+    kind: instant
+    unit: currency
+    tags:
+      us-gaap: [PreferredStockValue]
+      ifrs-full: []
+  minority_interest:
+    kind: instant
+    unit: currency
+    tags:
+      us-gaap: [MinorityInterest]
+      ifrs-full: [NoncontrollingInterests]
+  equity:
+    kind: instant
+    unit: currency
+    tags:
+      us-gaap: [StockholdersEquity]
+      ifrs-full: [EquityAttributableToOwnersOfParent]
+    derive: equity_incl_nci - minority_interest  # RIVN tags only equity incl. NCI since 2024-12
+  equity_incl_nci:
+    kind: instant
+    unit: currency
+    tags:
+      us-gaap: [StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest]
+      ifrs-full: [Equity]
+  liabilities_and_equity:
+    kind: instant
+    unit: currency
+    tags:
+      us-gaap: [LiabilitiesAndStockholdersEquity]
+      ifrs-full: [EquityAndLiabilities]
+  retained_earnings:
+    kind: instant
+    unit: currency
+    tags:
+      us-gaap: [RetainedEarningsAccumulatedDeficit]
+      ifrs-full: [RetainedEarnings]
+  shares_outstanding:
+    kind: instant
+    unit: shares
+    tags:
+      dei: [EntityCommonStockSharesOutstanding]
+      us-gaap: [CommonStockSharesOutstanding]
+      ifrs-full: []
+    fallback: diluted_shares  # flagged DERIVED_INPUT (§4.3 rule 11)
+  # Derived only (§4.3 rule 9), always flagged DERIVED_INPUT.
+  total_debt:
+    kind: instant
+    unit: currency
+    tags:
+      us-gaap: [DebtLongtermAndShorttermCombinedAmount, DebtAndCapitalLeaseObligations]
+      ifrs-full: []
+    derive: debt_current + debt_noncurrent  # no double count when only LongTermDebt exists; finance leases: financials/leases.py
+    prefer_derived: true  # the filer's combined total only where the components give no total
+    tag_notes:
+      DebtLongtermAndShorttermCombinedAmount: the filer's total of all debt, current and non-current (fallback; within ±10% of the component sum on 84% of 1,974 non-financial dates since 2023)
+      DebtAndCapitalLeaseObligations: all debt plus finance leases (fallback; within ±10% of the component sum on 81% of 1,635 non-financial dates since 2023)
+    note: debt reported only as components (notes, convertibles, loans, credit lines) without a debt total isn't summed, because components often overlap. Finance leases are added where the filing presents them outside debt; operating leases never
+  ebitda:
+    kind: duration
+    unit: currency
+    tags: {}
+    derive: operating_income + dna
+  fcf:
+    kind: duration
+    unit: currency
+    tags: {}
+    derive: cfo - capex

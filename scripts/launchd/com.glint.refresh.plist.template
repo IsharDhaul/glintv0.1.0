@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Glint nightly refresh (optional; WT-07). Installed by `make schedule-install`, removed by
+  `make schedule-remove`. Never installed automatically.
+
+  09:15 in the Mac's local time, which should be Europe/London: SEC rebuilds the bulk files
+  about 03:00 ET (08:00 London) and Massive serves yesterday's bars after midnight ET (SPEC §4.8).
+  `make schedule-install` substitutes __REPO__, __UV__ and __HOME__.
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.glint.refresh</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>-c</string>
+        <string>cd '__REPO__/engine' &amp;&amp; exec '__UV__' run glint refresh</string>
+    </array>
+
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>9</integer>
+        <key>Minute</key>
+        <integer>15</integer>
+    </dict>
+
+    <key>StandardOutPath</key>
+    <string>__HOME__/GlintData/logs/refresh.out.log</string>
+    <key>StandardErrorPath</key>
+    <string>__HOME__/GlintData/logs/refresh.err.log</string>
+
+    <key>RunAtLoad</key>
+    <false/>
+    <key>ProcessType</key>
+    <string>Background</string>
+    <key>LowPriorityIO</key>
+    <true/>
+</dict>
+</plist>

@@ -1,0 +1,39 @@
+# Data (raw lives outside the repo; builds and user DB are per checkout)
+data/
+!web/src/lib/data/
+*.duckdb
+*.duckdb.wal
+
+# Secrets
+.env*
+!.env.example
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.cache/
+
+# Web
+node_modules/
+web/.next/
+web/test-results/
+web/playwright-report/
+web/next-env.d.ts
+*.tsbuildinfo
+
+# Claude Code
+.claude/worktrees/
+
+# Local scratch
+.pr.md
+.DS_Store
+!.env.local.example
+
+# Claude Code per-user settings
+.claude/settings.local.json
+
+# Test coverage data
+.coverage

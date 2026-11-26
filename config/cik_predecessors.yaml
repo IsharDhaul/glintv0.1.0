@@ -1,0 +1,19 @@
+# Successor → predecessor CIK links (WT-01). A company whose listed registrant changed CIK
+# (e.g. a holding-company reorganization) keeps its financial history under the old CIK.
+# WT-03 merges predecessor facts by period; where both CIKs report the same period, the
+# successor's value wins. Every entry names the filings that show the link.
+#
+# Format:
+#   - successor_cik: "0002115436"     # the CIK the ticker maps to now
+#     predecessor_cik: "0000034088"   # where the history lives
+#     name: "..."
+#     reason: "..."
+#     evidence: "..."                 # filings / dates a reader can check on EDGAR
+#     added: 2026-10-29
+links:
+  - successor_cik: "0002115436"
+    predecessor_cik: "0000034088"
+    name: "ExxonMobil Holdings Corp ← Exxon Mobil Corp"
+    reason: "Holding-company reorganization; XOM now maps to the holding company, history is under the old registrant."
+    evidence: "company_tickers_exchange.json (2026-10-29) maps XOM → 2115436; CIK 34088 has no tickers, filed 25-NSE on 2026-07-02 and its last 10-Q on 2026-08-03; CIK 2115436's first 10-Q was filed 2026-08-03. Both SIC 2911."
+    added: 2026-10-29

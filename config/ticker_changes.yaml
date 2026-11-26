@@ -1,0 +1,21 @@
+# Ticker changes for the same company (same CIK). Price bars and splits are stored under the
+# symbol that traded that day; once a change is effective in the price data (a bar on or after
+# `effective` is on disk), reads relabel the old symbol's earlier history to the new symbol, so
+# price stats see one continuous series. See engine/glint/ingest/prices/ticker_changes.py.
+#
+# Format:
+#   - cik: "0001077428"          # 10 digits, zero-padded; the company that keeps its CIK
+#     old: "TCBI"                # canonical symbols (BRK.B style)
+#     new: "TXCP"
+#     effective: 2026-11-09      # first session under the new symbol
+#     name: "..."
+#     evidence: "..."            # what a reader can check
+#     added: 2026-10-29
+changes:
+  - cik: "0001077428"
+    old: "TCBI"
+    new: "TXCP"
+    effective: 2026-11-09
+    name: "Texas Capital Bancshares"
+    evidence: "User-verified 2026-10-29: Texas Capital (TXSE-listed since Oct 2026) trades as TXCP from 2026-11-09, same company and CIK. SEC company_tickers_exchange.json of 2026-10-29 still lists TCBI and TCBI-PB under CIK 1077428."
+    added: 2026-10-29

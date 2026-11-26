@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Trimmed from SEC accession 0000003570-26-000005 (values unchanged). -->
+<xbrl xmlns="http://www.xbrl.org/2003/instance" xmlns:link="http://www.xbrl.org/2003/linkbase" xmlns:us-gaap="http://fasb.org/us-gaap/2025" xmlns:xbrldi="http://xbrl.org/2006/xbrldi" xmlns:xlink="http://www.w3.org/1999/xlink" xml:lang="en-US">
+    <link:schemaRef xlink:href="lng-20251231.xsd" xlink:type="simple" />
+    <context id="c-15">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000003570</identifier>
+        </entity>
+        <period>
+            <instant>2025-12-31</instant>
+        </period>
+    </context>
+    <context id="c-16">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000003570</identifier>
+        </entity>
+        <period>
+            <instant>2024-12-31</instant>
+        </period>
+    </context>
+    <context id="c-17">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000003570</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="srt:ConsolidatedEntitiesAxis">us-gaap:VariableInterestEntityPrimaryBeneficiaryMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <instant>2025-12-31</instant>
+        </period>
+    </context>
+    <context id="c-193">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000003570</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="srt:ConsolidatedEntitiesAxis">us-gaap:VariableInterestEntityPrimaryBeneficiaryMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <instant>2024-12-31</instant>
+        </period>
+    </context>
+    <unit id="usd">
+        <measure>iso4217:USD</measure>
+    </unit>
+    <us-gaap:FinanceLeaseRightOfUseAssetStatementOfFinancialPositionExtensibleList contextRef="c-16" id="f-1090">http://fasb.org/us-gaap/2025#PropertyPlantAndEquipmentNet</us-gaap:FinanceLeaseRightOfUseAssetStatementOfFinancialPositionExtensibleList>
+    <us-gaap:FinanceLeaseRightOfUseAssetStatementOfFinancialPositionExtensibleList contextRef="c-15" id="f-1091">http://fasb.org/us-gaap/2025#PropertyPlantAndEquipmentNet</us-gaap:FinanceLeaseRightOfUseAssetStatementOfFinancialPositionExtensibleList>
+    <us-gaap:OperatingLeaseLiabilityCurrentStatementOfFinancialPositionExtensibleList contextRef="c-15" id="f-1096">http://fasb.org/us-gaap/2025#OperatingLeaseLiabilityCurrent</us-gaap:OperatingLeaseLiabilityCurrentStatementOfFinancialPositionExtensibleList>
+    <us-gaap:OperatingLeaseLiabilityCurrentStatementOfFinancialPositionExtensibleList contextRef="c-16" id="f-1097">http://fasb.org/us-gaap/2025#OperatingLeaseLiabilityCurrent</us-gaap:OperatingLeaseLiabilityCurrentStatementOfFinancialPositionExtensibleList>
+    <us-gaap:FinanceLeaseLiabilityCurrentStatementOfFinancialPositionExtensibleList contextRef="c-16" id="f-1100">http://fasb.org/us-gaap/2025#OtherLiabilitiesCurrent</us-gaap:FinanceLeaseLiabilityCurrentStatementOfFinancialPositionExtensibleList>
+    <us-gaap:FinanceLeaseLiabilityCurrentStatementOfFinancialPositionExtensibleList contextRef="c-15" id="f-1101">http://fasb.org/us-gaap/2025#OtherLiabilitiesCurrent</us-gaap:FinanceLeaseLiabilityCurrentStatementOfFinancialPositionExtensibleList>
+    <us-gaap:OperatingLeaseLiabilityNoncurrentStatementOfFinancialPositionExtensibleList contextRef="c-15" id="f-1104">http://fasb.org/us-gaap/2025#OperatingLeaseLiabilityNoncurrent</us-gaap:OperatingLeaseLiabilityNoncurrentStatementOfFinancialPositionExtensibleList>
+    <us-gaap:OperatingLeaseLiabilityNoncurrentStatementOfFinancialPositionExtensibleList contextRef="c-16" id="f-1105">http://fasb.org/us-gaap/2025#OperatingLeaseLiabilityNoncurrent</us-gaap:OperatingLeaseLiabilityNoncurrentStatementOfFinancialPositionExtensibleList>
+    <us-gaap:FinanceLeaseLiabilityNoncurrentStatementOfFinancialPositionExtensibleList contextRef="c-15" id="f-1108">http://fasb.org/us-gaap/2025#OtherLiabilitiesNoncurrent</us-gaap:FinanceLeaseLiabilityNoncurrentStatementOfFinancialPositionExtensibleList>
+    <us-gaap:FinanceLeaseLiabilityNoncurrentStatementOfFinancialPositionExtensibleList contextRef="c-16" id="f-1109">http://fasb.org/us-gaap/2025#OtherLiabilitiesNoncurrent</us-gaap:FinanceLeaseLiabilityNoncurrentStatementOfFinancialPositionExtensibleList>
+    <us-gaap:LongTermDebtNoncurrent contextRef="c-15" decimals="-6" id="f-171" unitRef="usd">22507000000</us-gaap:LongTermDebtNoncurrent>
+    <us-gaap:LongTermDebtNoncurrent contextRef="c-16" decimals="-6" id="f-172" unitRef="usd">22554000000</us-gaap:LongTermDebtNoncurrent>
+    <us-gaap:OtherLiabilitiesNoncurrent contextRef="c-15" decimals="-6" id="f-179" unitRef="usd">1312000000</us-gaap:OtherLiabilitiesNoncurrent>
+    <us-gaap:OtherLiabilitiesNoncurrent contextRef="c-16" decimals="-6" id="f-180" unitRef="usd">992000000</us-gaap:OtherLiabilitiesNoncurrent>
+    <us-gaap:LongTermDebtNoncurrent contextRef="c-17" decimals="-6" id="f-868" unitRef="usd">14161000000</us-gaap:LongTermDebtNoncurrent>
+    <us-gaap:LongTermDebtNoncurrent contextRef="c-193" decimals="-6" id="f-869" unitRef="usd">14761000000</us-gaap:LongTermDebtNoncurrent>
+    <us-gaap:OtherLiabilitiesNoncurrent contextRef="c-17" decimals="-6" id="f-874" unitRef="usd">159000000</us-gaap:OtherLiabilitiesNoncurrent>
+    <us-gaap:OtherLiabilitiesNoncurrent contextRef="c-193" decimals="-6" id="f-875" unitRef="usd">176000000</us-gaap:OtherLiabilitiesNoncurrent>
+    <us-gaap:LongTermDebtCurrent contextRef="c-15" decimals="-6" id="f-976" unitRef="usd">306000000</us-gaap:LongTermDebtCurrent>
+    <us-gaap:LongTermDebtCurrent contextRef="c-16" decimals="-6" id="f-977" unitRef="usd">351000000</us-gaap:LongTermDebtCurrent>
+    <us-gaap:FinanceLeaseLiabilityCurrent contextRef="c-15" decimals="-6" id="f-1102" unitRef="usd">88000000</us-gaap:FinanceLeaseLiabilityCurrent>
+    <us-gaap:FinanceLeaseLiabilityCurrent contextRef="c-16" decimals="-6" id="f-1103" unitRef="usd">44000000</us-gaap:FinanceLeaseLiabilityCurrent>
+    <us-gaap:FinanceLeaseLiabilityNoncurrent contextRef="c-15" decimals="-6" id="f-1110" unitRef="usd">843000000</us-gaap:FinanceLeaseLiabilityNoncurrent>
+    <us-gaap:FinanceLeaseLiabilityNoncurrent contextRef="c-16" decimals="-6" id="f-1111" unitRef="usd">486000000</us-gaap:FinanceLeaseLiabilityNoncurrent>
+    <us-gaap:FinanceLeaseLiability contextRef="c-15" decimals="-6" id="f-1151" unitRef="usd">931000000</us-gaap:FinanceLeaseLiability>
+    </xbrl>

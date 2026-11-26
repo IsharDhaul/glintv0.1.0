@@ -1,0 +1,370 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Trimmed from SEC accession 0000018230-26-000057 (values unchanged). -->
+<xbrl xmlns="http://www.xbrl.org/2003/instance" xmlns:link="http://www.xbrl.org/2003/linkbase" xmlns:us-gaap="http://fasb.org/us-gaap/2026" xmlns:xbrldi="http://xbrl.org/2006/xbrldi" xmlns:xlink="http://www.w3.org/1999/xlink" xml:lang="en-US">
+    <link:schemaRef xlink:href="cat-20260930.xsd" xlink:type="simple" />
+    <context id="c-4">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000018230</identifier>
+        </entity>
+        <period>
+            <instant>2026-09-30</instant>
+        </period>
+    </context>
+    <context id="c-20">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000018230</identifier>
+        </entity>
+        <period>
+            <instant>2025-12-31</instant>
+        </period>
+    </context>
+    <context id="c-21">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000018230</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="srt:ProductOrServiceAxis">cat:FinancialProductsMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <instant>2026-09-30</instant>
+        </period>
+    </context>
+    <context id="c-22">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000018230</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="srt:ProductOrServiceAxis">cat:FinancialProductsMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <instant>2025-12-31</instant>
+        </period>
+    </context>
+    <context id="c-23">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000018230</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="srt:ProductOrServiceAxis">cat:MachineryPowerEnergyMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <instant>2026-09-30</instant>
+        </period>
+    </context>
+    <context id="c-24">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000018230</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="srt:ProductOrServiceAxis">cat:MachineryPowerEnergyMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <instant>2025-12-31</instant>
+        </period>
+    </context>
+    <context id="c-191">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000018230</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="srt:ConsolidatedEntitiesAxis">us-gaap:VariableInterestEntityPrimaryBeneficiaryMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <instant>2026-09-30</instant>
+        </period>
+    </context>
+    <context id="c-192">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000018230</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="srt:ConsolidatedEntitiesAxis">us-gaap:VariableInterestEntityPrimaryBeneficiaryMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <instant>2025-12-31</instant>
+        </period>
+    </context>
+    <context id="c-489">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000018230</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="srt:ConsolidationItemsAxis">us-gaap:OperatingSegmentsMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="us-gaap:StatementBusinessSegmentsAxis">cat:PowerEnergyMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <instant>2026-09-30</instant>
+        </period>
+    </context>
+    <context id="c-490">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000018230</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="srt:ConsolidationItemsAxis">us-gaap:OperatingSegmentsMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="us-gaap:StatementBusinessSegmentsAxis">cat:PowerEnergyMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <instant>2025-12-31</instant>
+        </period>
+    </context>
+    <context id="c-491">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000018230</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="srt:ConsolidationItemsAxis">us-gaap:OperatingSegmentsMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="us-gaap:StatementBusinessSegmentsAxis">cat:ConstructionIndustriesMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <instant>2026-09-30</instant>
+        </period>
+    </context>
+    <context id="c-492">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000018230</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="srt:ConsolidationItemsAxis">us-gaap:OperatingSegmentsMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="us-gaap:StatementBusinessSegmentsAxis">cat:ConstructionIndustriesMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <instant>2025-12-31</instant>
+        </period>
+    </context>
+    <context id="c-493">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000018230</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="srt:ConsolidationItemsAxis">us-gaap:OperatingSegmentsMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="us-gaap:StatementBusinessSegmentsAxis">cat:ResourceIndustriesMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <instant>2026-09-30</instant>
+        </period>
+    </context>
+    <context id="c-494">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000018230</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="srt:ConsolidationItemsAxis">us-gaap:OperatingSegmentsMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="us-gaap:StatementBusinessSegmentsAxis">cat:ResourceIndustriesMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <instant>2025-12-31</instant>
+        </period>
+    </context>
+    <context id="c-495">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000018230</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="srt:ConsolidationItemsAxis">us-gaap:OperatingSegmentsMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="us-gaap:StatementBusinessSegmentsAxis">cat:FinancialProductsSegmentMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <instant>2026-09-30</instant>
+        </period>
+    </context>
+    <context id="c-496">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000018230</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="srt:ConsolidationItemsAxis">us-gaap:OperatingSegmentsMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="us-gaap:StatementBusinessSegmentsAxis">cat:FinancialProductsSegmentMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <instant>2025-12-31</instant>
+        </period>
+    </context>
+    <context id="c-497">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000018230</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="srt:ConsolidationItemsAxis">us-gaap:OperatingSegmentsMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <instant>2026-09-30</instant>
+        </period>
+    </context>
+    <context id="c-498">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000018230</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="srt:ConsolidationItemsAxis">us-gaap:OperatingSegmentsMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <instant>2025-12-31</instant>
+        </period>
+    </context>
+    <context id="c-499">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000018230</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="srt:ConsolidationItemsAxis">us-gaap:OperatingSegmentsMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="us-gaap:StatementBusinessSegmentsAxis">us-gaap:AllOtherSegmentsMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <instant>2026-09-30</instant>
+        </period>
+    </context>
+    <context id="c-500">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000018230</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="srt:ConsolidationItemsAxis">us-gaap:OperatingSegmentsMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="us-gaap:StatementBusinessSegmentsAxis">us-gaap:AllOtherSegmentsMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <instant>2025-12-31</instant>
+        </period>
+    </context>
+    <context id="c-780">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000018230</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="srt:ProductOrServiceAxis">cat:MachineryPowerEnergyMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="us-gaap:FairValueByMeasurementBasisAxis">us-gaap:CarryingReportedAmountFairValueDisclosureMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <instant>2026-09-30</instant>
+        </period>
+    </context>
+    <context id="c-781">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000018230</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="srt:ProductOrServiceAxis">cat:MachineryPowerEnergyMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="us-gaap:FairValueByFairValueHierarchyLevelAxis">us-gaap:FairValueInputsLevel2Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="us-gaap:FairValueByMeasurementBasisAxis">us-gaap:EstimateOfFairValueFairValueDisclosureMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <instant>2026-09-30</instant>
+        </period>
+    </context>
+    <context id="c-782">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000018230</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="srt:ProductOrServiceAxis">cat:MachineryPowerEnergyMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="us-gaap:FairValueByMeasurementBasisAxis">us-gaap:CarryingReportedAmountFairValueDisclosureMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <instant>2025-12-31</instant>
+        </period>
+    </context>
+    <context id="c-783">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000018230</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="srt:ProductOrServiceAxis">cat:MachineryPowerEnergyMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="us-gaap:FairValueByFairValueHierarchyLevelAxis">us-gaap:FairValueInputsLevel2Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="us-gaap:FairValueByMeasurementBasisAxis">us-gaap:EstimateOfFairValueFairValueDisclosureMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <instant>2025-12-31</instant>
+        </period>
+    </context>
+    <context id="c-784">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000018230</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="srt:ProductOrServiceAxis">cat:FinancialProductsMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="us-gaap:FairValueByMeasurementBasisAxis">us-gaap:CarryingReportedAmountFairValueDisclosureMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <instant>2026-09-30</instant>
+        </period>
+    </context>
+    <context id="c-785">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000018230</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="srt:ProductOrServiceAxis">cat:FinancialProductsMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="us-gaap:FairValueByFairValueHierarchyLevelAxis">us-gaap:FairValueInputsLevel2Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="us-gaap:FairValueByMeasurementBasisAxis">us-gaap:EstimateOfFairValueFairValueDisclosureMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <instant>2026-09-30</instant>
+        </period>
+    </context>
+    <context id="c-786">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000018230</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="srt:ProductOrServiceAxis">cat:FinancialProductsMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="us-gaap:FairValueByMeasurementBasisAxis">us-gaap:CarryingReportedAmountFairValueDisclosureMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <instant>2025-12-31</instant>
+        </period>
+    </context>
+    <context id="c-787">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000018230</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="srt:ProductOrServiceAxis">cat:FinancialProductsMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="us-gaap:FairValueByFairValueHierarchyLevelAxis">us-gaap:FairValueInputsLevel2Member</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="us-gaap:FairValueByMeasurementBasisAxis">us-gaap:EstimateOfFairValueFairValueDisclosureMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <instant>2025-12-31</instant>
+        </period>
+    </context>
+    <unit id="usd">
+        <measure>iso4217:USD</measure>
+    </unit>
+    <us-gaap:NotesAndLoansReceivableNetCurrent contextRef="c-4" decimals="-6" id="f-166" unitRef="usd">11051000000</us-gaap:NotesAndLoansReceivableNetCurrent>
+    <us-gaap:NotesAndLoansReceivableNetCurrent contextRef="c-20" decimals="-6" id="f-167" unitRef="usd">10649000000</us-gaap:NotesAndLoansReceivableNetCurrent>
+    <us-gaap:Assets contextRef="c-4" decimals="-6" id="f-188" unitRef="usd">106843000000</us-gaap:Assets>
+    <us-gaap:Assets contextRef="c-20" decimals="-6" id="f-189" unitRef="usd">98585000000</us-gaap:Assets>
+    <us-gaap:ShortTermBorrowings contextRef="c-21" decimals="-6" id="f-190" unitRef="usd">4855000000</us-gaap:ShortTermBorrowings>
+    <us-gaap:ShortTermBorrowings contextRef="c-22" decimals="-6" id="f-191" unitRef="usd">5514000000</us-gaap:ShortTermBorrowings>
+    <us-gaap:LongTermDebtAndCapitalLeaseObligationsCurrent contextRef="c-23" decimals="-6" id="f-204" unitRef="usd">36000000</us-gaap:LongTermDebtAndCapitalLeaseObligationsCurrent>
+    <us-gaap:LongTermDebtAndCapitalLeaseObligationsCurrent contextRef="c-24" decimals="-6" id="f-205" unitRef="usd">35000000</us-gaap:LongTermDebtAndCapitalLeaseObligationsCurrent>
+    <us-gaap:LongTermDebtAndCapitalLeaseObligationsCurrent contextRef="c-21" decimals="-6" id="f-206" unitRef="usd">8144000000</us-gaap:LongTermDebtAndCapitalLeaseObligationsCurrent>
+    <us-gaap:LongTermDebtAndCapitalLeaseObligationsCurrent contextRef="c-22" decimals="-6" id="f-207" unitRef="usd">7085000000</us-gaap:LongTermDebtAndCapitalLeaseObligationsCurrent>
+    <us-gaap:LongTermDebtAndCapitalLeaseObligations contextRef="c-23" decimals="-6" id="f-210" unitRef="usd">10614000000</us-gaap:LongTermDebtAndCapitalLeaseObligations>
+    <us-gaap:LongTermDebtAndCapitalLeaseObligations contextRef="c-24" decimals="-6" id="f-211" unitRef="usd">10678000000</us-gaap:LongTermDebtAndCapitalLeaseObligations>
+    <us-gaap:LongTermDebtAndCapitalLeaseObligations contextRef="c-21" decimals="-6" id="f-212" unitRef="usd">21552000000</us-gaap:LongTermDebtAndCapitalLeaseObligations>
+    <us-gaap:LongTermDebtAndCapitalLeaseObligations contextRef="c-22" decimals="-6" id="f-213" unitRef="usd">20018000000</us-gaap:LongTermDebtAndCapitalLeaseObligations>
+    <us-gaap:Assets contextRef="c-191" decimals="-7" id="f-1013" unitRef="usd">1260000000</us-gaap:Assets>
+    <us-gaap:Assets contextRef="c-192" decimals="-7" id="f-1014" unitRef="usd">1190000000</us-gaap:Assets>
+    <us-gaap:Assets contextRef="c-489" decimals="-6" id="f-1659" unitRef="usd">7352000000</us-gaap:Assets>
+    <us-gaap:Assets contextRef="c-490" decimals="-6" id="f-1660" unitRef="usd">8438000000</us-gaap:Assets>
+    <us-gaap:Assets contextRef="c-491" decimals="-6" id="f-1661" unitRef="usd">6383000000</us-gaap:Assets>
+    <us-gaap:Assets contextRef="c-492" decimals="-6" id="f-1662" unitRef="usd">5442000000</us-gaap:Assets>
+    <us-gaap:Assets contextRef="c-493" decimals="-6" id="f-1663" unitRef="usd">10000000000</us-gaap:Assets>
+    <us-gaap:Assets contextRef="c-494" decimals="-6" id="f-1664" unitRef="usd">9036000000</us-gaap:Assets>
+    <us-gaap:Assets contextRef="c-495" decimals="-6" id="f-1665" unitRef="usd">44782000000</us-gaap:Assets>
+    <us-gaap:Assets contextRef="c-496" decimals="-6" id="f-1666" unitRef="usd">41476000000</us-gaap:Assets>
+    <us-gaap:Assets contextRef="c-497" decimals="-6" id="f-1667" unitRef="usd">68517000000</us-gaap:Assets>
+    <us-gaap:Assets contextRef="c-498" decimals="-6" id="f-1668" unitRef="usd">64392000000</us-gaap:Assets>
+    <us-gaap:Assets contextRef="c-499" decimals="-6" id="f-1669" unitRef="usd">1562000000</us-gaap:Assets>
+    <us-gaap:Assets contextRef="c-500" decimals="-6" id="f-1670" unitRef="usd">1516000000</us-gaap:Assets>
+    <us-gaap:Assets contextRef="c-4" decimals="-6" id="f-1685" unitRef="usd">106843000000</us-gaap:Assets>
+    <us-gaap:Assets contextRef="c-20" decimals="-6" id="f-1686" unitRef="usd">98585000000</us-gaap:Assets>
+    <us-gaap:LongTermDebtFairValue contextRef="c-780" decimals="-6" id="f-2760" unitRef="usd">10650000000</us-gaap:LongTermDebtFairValue>
+    <us-gaap:LongTermDebtFairValue contextRef="c-781" decimals="-6" id="f-2761" unitRef="usd">9441000000</us-gaap:LongTermDebtFairValue>
+    <us-gaap:LongTermDebtFairValue contextRef="c-782" decimals="-6" id="f-2762" unitRef="usd">10713000000</us-gaap:LongTermDebtFairValue>
+    <us-gaap:LongTermDebtFairValue contextRef="c-783" decimals="-6" id="f-2763" unitRef="usd">10363000000</us-gaap:LongTermDebtFairValue>
+    <us-gaap:LongTermDebtFairValue contextRef="c-784" decimals="-6" id="f-2764" unitRef="usd">29696000000</us-gaap:LongTermDebtFairValue>
+    <us-gaap:LongTermDebtFairValue contextRef="c-785" decimals="-6" id="f-2765" unitRef="usd">29536000000</us-gaap:LongTermDebtFairValue>
+    <us-gaap:LongTermDebtFairValue contextRef="c-786" decimals="-6" id="f-2766" unitRef="usd">27103000000</us-gaap:LongTermDebtFairValue>
+    <us-gaap:LongTermDebtFairValue contextRef="c-787" decimals="-6" id="f-2767" unitRef="usd">27204000000</us-gaap:LongTermDebtFairValue>
+    </xbrl>

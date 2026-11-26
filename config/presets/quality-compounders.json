@@ -1,0 +1,42 @@
+{
+  "name": "Quality compounders",
+  "summary": "High returns on capital, fat margins, steady growth and little debt.",
+  "kind": "screen",
+  "how_to_read": "Every filter must pass: ROIC of at least 15%, a gross margin of at least 40%, revenue growth of at least 8% a year over 3 years, an FCF margin of at least 10%, and net debt at most 2× EBITDA. A company with no net debt / EBITDA (for example, negative EBITDA or a sector where it's n/m) still passes that last test, so check the debt columns. Results are ranked by ROIC and FCF yield, half each. A high rank says nothing about price beyond the FCF yield.",
+  "misses": [
+    "Young companies still investing heavily.",
+    "Asset-heavy businesses with naturally low gross margins.",
+    "Anything whose quality shows only over longer periods than these trailing numbers."
+  ],
+  "source": "Common quality-investing heuristics",
+  "screen": {
+    "dsl_version": 1,
+    "name": "Quality compounders",
+    "filters": {
+      "op": "and",
+      "children": [
+        { "metric": "roic", "cmp": "gte", "value": 0.15 },
+        { "metric": "gross_margin", "cmp": "gte", "value": 0.40 },
+        { "metric": "revenue_cagr_3y", "cmp": "gte", "value": 0.08 },
+        { "metric": "net_debt_to_ebitda", "cmp": "lte", "value": 2.0, "missing": "pass" },
+        { "metric": "fcf_margin", "cmp": "gte", "value": 0.10 }
+      ]
+    },
+    "rank": {
+      "method": "percentile_composite",
+      "within": "universe",
+      "factors": [
+        { "metric": "roic", "weight": 0.5 },
+        { "metric": "fcf_yield", "weight": 0.5 }
+      ],
+      "min_factor_coverage": 0.7
+    },
+    "columns": [
+      "ticker", "name", "sector", "market_cap", "roic", "gross_margin", "revenue_cagr_3y",
+      "net_debt_to_ebitda", "fcf_margin", "fcf_yield", "rank_score"
+    ],
+    "sort": { "by": "rank_score", "dir": "desc" },
+    "limit": 100,
+    "near_misses": true
+  }
+}

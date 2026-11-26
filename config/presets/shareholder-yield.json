@@ -1,0 +1,27 @@
+{
+  "name": "Shareholder yield",
+  "summary": "Companies paying out 12%+ of their market cap a year through dividends and buybacks, with positive free cash flow.",
+  "kind": "screen",
+  "how_to_read": "Two filters must both pass: shareholder yield (dividend yield plus net buyback yield, trailing twelve months) of at least 12%, and a positive free-cash-flow yield. Glint's version leaves out debt paydown, which Faber includes, so a company paying down debt instead of buying back shares scores lower here than in the book. The FCF test asks whether payouts are covered by cash the business made.",
+  "misses": [
+    "Payouts funded by new debt: the screen doesn't check, so look at net debt too.",
+    "Buybacks that just offset stock pay: net buybacks subtract only cash raised from issuing shares, not shares handed out as stock-based pay, so they still count in full. Check the share-count change.",
+    "Why the yield is high: it can mean a falling share price as easily as a generous company."
+  ],
+  "source": "Faber, Shareholder Yield: A Better Approach to Dividend Investing (2013). Glint's version excludes debt paydown",
+  "screen": {
+    "dsl_version": 1,
+    "name": "Shareholder yield",
+    "filters": {
+      "op": "and",
+      "children": [
+        { "metric": "shareholder_yield", "cmp": "gte", "value": 0.12 },
+        { "metric": "fcf_yield", "cmp": "gt", "value": 0 }
+      ]
+    },
+    "columns": ["ticker", "name", "sector", "market_cap", "shareholder_yield", "dividend_yield", "buyback_yield", "fcf_yield", "net_debt_to_ebitda"],
+    "sort": { "by": "shareholder_yield", "dir": "desc" },
+    "limit": 100,
+    "near_misses": true
+  }
+}

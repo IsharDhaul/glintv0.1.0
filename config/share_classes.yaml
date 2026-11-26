@@ -1,0 +1,2453 @@
+# Share classes for market cap (SPEC §4.3 rule 11). WT-01 owns this file.
+# Market cap = Σ class shares_outstanding × that class's own close (WT-06, metrics/share_classes.py).
+# Three sources, all read from the latest 10-K/10-Q cover by the universe build
+# (companies.parquet `listed_classes`, universe/listed_classes.py) unless keyed in `companies`:
+#   1. Every cover-page common class has its own trading symbol (BRK.A/BRK.B, HEI/HEI.A,
+#      LEN/LEN.B): no entry needed.
+#   2. `unlisted_economic` (below): a class with no symbol of its own whose economics the filing
+#      says, in the quoted words, are the same as a listed class's (dividends, liquidation; votes
+#      and conversion aside). It is priced at the close of the listed class it converts into
+#      (`priced_at`). Counts are never keyed here: each build sums the cover's classes. A named
+#      member missing from the latest cover gives no entry (logged) and the single count stays.
+#   2b. `cover_symbols` (below): for a cover whose XBRL gives no class a symbol Glint reads (NC
+#      and RPC tag `dei:TradingSymbol` only by listing exchange), each class's symbol from the 10-K cover's "Title of each class / Trading
+#      Symbol(s)" table, quoted verbatim. A class the cover tags no symbol for takes the configured
+#      one (the cover's own tag wins). It only says which class is listed: an unlisted class still
+#      needs its `unlisted_economic` entry. A configured member missing from the cover is logged.
+#   3. `companies`: hand-keyed counts, only when neither the cover nor a quote can supply them.
+#      None today; an entry here wins for its CIK.
+# Never assume an unlisted class is economic (user decision, 2026-11-22): no quote, no entry.
+# Voting-only classes (DKNG's or ACN's Class X, MDLN's Class B) are never added; see
+# docs/decisions/WT-01.md 2026-11-22. Up-Cs (companies.parquet `is_up_c`) are out of scope: their
+# economic count comes from the up_c rules in config/sectors.yaml.
+# Berkshire Hathaway (CIK 0001067983) was keyed in `companies` until 2026-11-22; both its classes are
+# listed on the cover, so it comes from there. Hub Group and Duolingo were keyed there until
+# 2026-11-22 (feat-unlisted-economic-classes); their quotes moved to `unlisted_economic`.
+companies: []
+
+# unlisted_economic format:
+#   - cik: "0000000000"
+#     ticker: the company's primary listing
+#     source: the filing and section the quote comes from
+#     accn: that filing's accession number
+#     quote: verbatim; the classes' economic rights are the same apart from voting/conversion
+#     conversion: verbatim, when the filing states one (never invented); optional
+#     classes: [{member: <StatementClassOfStockAxis member>, priced_at: <listed ticker>}]
+#     non_economic: [{member, quote}]  # optional: cover classes with no economic rights, never summed
+#     checked_by: who read the filing, and when
+unlisted_economic:
+  - cik: "0001652044"
+    ticker: GOOGL
+    source: "Alphabet 10-K FY2025, Note 11 (Stockholders' Equity)"
+    accn: "0001652044-26-000018"
+    quote: >-
+      The rights of the holders of each class of our common and capital stock are identical,
+      except with respect to voting. [...] In accordance with our certificate of incorporation,
+      the rights, including the liquidation and dividend rights, of the holders of our Class A,
+      Class B, and Class C stock are identical, except with respect to voting.
+    conversion: >-
+      Shares of Class B common stock may be converted at any time at the option of the
+      stockholder and automatically convert upon sale or transfer to Class A common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: GOOGL}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0001336917"
+    ticker: UAA
+    source: "Under Armour 10-K FY ended 2026-03-31, Stockholders' Equity note"
+    accn: "0001336917-26-000073"
+    quote: >-
+      Holders of Class A Common Stock and Class B Convertible Common Stock have identical rights,
+      including liquidation preferences, except that the holders of Class A Common Stock are
+      entitled to one vote per share and holders of Class B Convertible Common Stock are entitled
+      to 10 votes per share on all matters submitted to a stockholder vote.
+    conversion: >-
+      Upon the transfer of shares of Class B Convertible Common Stock to a person other than
+      Mr. Plank or a related party of Mr. Plank, the shares automatically convert into shares of
+      Class A Common Stock on a one -for-one basis.
+    classes:
+      - {member: "us-gaap:ConvertibleCommonStockMember", priced_at: UAA}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0001617640"
+    ticker: Z
+    source: "Zillow Group 10-K FY2025, Net income (loss) per share and Shareholders' Equity notes"
+    accn: "0001617640-26-000015"
+    quote: >-
+      In the event of liquidation, dissolution, distribution of assets or winding-up of the
+      Company, the holders of all classes of common and capital stock have equal rights to receive
+      all the assets of the Company after the rights of the holders of preferred stock have been
+      satisfied. [...] it would be the same for each class due to equal dividend and liquidation
+      rights for each class.
+    conversion: >-
+      At any time after the date of issuance, each share of Class B common stock, at the option of
+      the holder, may be converted into one share of Class A common stock, or automatically
+      converted into Class A common stock upon the affirmative vote by or written consent of
+      holders of a majority of the shares of the Class B common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: ZG}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0001560385"
+    ticker: FWONK
+    source: "Liberty Media 10-K FY2025, Stockholders' Equity note; conversion from Exhibit 4.4"
+    accn: "0001104659-26-020653"
+    quote: >-
+      All series of our common stock participate on an equal basis with respect to dividends and
+      distributions.
+    conversion: >-
+      Each share of Series B Liberty Formula One common stock is convertible, at the option of the
+      holder, into one fully paid and non-assessable share of Series A Liberty Formula One common
+      stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: FWONA}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0000887733"
+    ticker: CENT
+    source: "Central Garden & Pet 10-K FY ended 2025-09-27, note 15 (Shareholders' Equity)"
+    accn: "0000887733-25-000041"
+    quote: >-
+      The voting powers, preferences and relative rights of the Class B stock are identical to
+      common stock in all respects except that (i) the holders of common stock are entitled to one
+      vote per share and the holders of Class B stock are entitled to the lesser of ten votes per
+      share or 49 % of the total votes cast, (ii) stock dividends on common stock may be paid only
+      in shares of common stock and stock dividends on Class B stock may be paid only in shares of
+      Class B stock and (iii) shares of Class B stock have certain conversion rights and are
+      subject to certain restrictions on ownership and transfer.
+    conversion: >-
+      Each share of Class B stock is convertible into one share of common stock, at the option of
+      the holder.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: CENT}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0000940942"
+    ticker: HUBG
+    source: "Hub Group 10-K FY2024, Item 5 / capital stock (keyed in `companies` 2026-11-03 to 2026-11-22)"
+    accn: "0000950170-25-026866"
+    quote: >-
+      The rights of holders of Class A Common Stock and Class B Common Stock are identical, except
+      each share of Class B Common Stock entitles its holder to approximately 84 votes, while each
+      share of Class A Common Stock entitles its holder to one vote. [...] Our certificate of
+      incorporation requires that any cash dividends must be paid equally on each outstanding share
+      of Class A Common Stock and Class B Common Stock.
+    conversion: >-
+      Each share of Class B Common Stock is convertible into one share of Class A Common Stock at
+      any time at the option of and without cost to the holder thereof.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: HUBG}
+    checked_by: "Claude (fix-universe-classes), 2026-11-03; re-read 2026-11-22 (feat-unlisted-economic-classes)"
+  - cik: "0001562088"
+    ticker: DUOL
+    source: "Duolingo 10-K FY2025, Stockholders' Equity note (keyed in `companies` 2026-11-03 to 2026-11-22)"
+    accn: "0001628280-26-012494"
+    quote: >-
+      The rights, including the liquidation and dividend rights, of the holders of Class A and
+      Class B common stock are identical, except with respect to voting and conversion.
+    conversion: >-
+      Each share of Class B common stock is convertible into a share of Class A common stock
+      voluntarily at any time by the holder, and automatically upon certain events.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: DUOL}
+    checked_by: "Claude (fix-universe-classes), 2026-11-03; re-read 2026-11-22 (feat-unlisted-economic-classes)"
+  - cik: "0001326801"
+    ticker: META
+    source: "Meta Platforms 10-K FY2025, Earnings per Share note"
+    accn: "0001628280-26-003942"
+    quote: >-
+      The holders of our Class A and Class B common stock (together, "common stock") have identical
+      liquidation and dividend rights but different voting rights.
+    conversion: >-
+      Shares of our Class B common stock are convertible into an equivalent number of shares of our
+      Class A common stock and generally convert into shares of our Class A common stock upon
+      transfer.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: META}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0001594805"
+    ticker: SHOP
+    source: "Shopify 10-K FY2025, Net Income per Share note and risk factors"
+    accn: "0001594805-26-000007"
+    quote: >-
+      The Company applies the two-class method to calculate its basic and diluted net loss per
+      share as Class A subordinate voting shares and Class B restricted voting shares are
+      participating securities with equal participation rights and are entitled to receive
+      dividends on a share for share basis.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: SHOP}
+    non_economic:
+      - member: "shop:FounderShareMember"
+        quote: >-
+          There are no economic rights associated with the Founder Share, and in certain
+          circumstances, Tobias Lütke could have voting power that is substantially greater than
+          his economic interests and the percentage of shares that he holds.
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0000872589"
+    ticker: REGN
+    source: "Regeneron 10-K FY2025, Stockholders' Equity note"
+    accn: "0000872589-26-000008"
+    quote: >-
+      Holders of Class A Stock have rights and privileges identical to Common Stockholders except
+      that each share of Class A is entitled to ten votes per share, while each share of Common
+      Stock is entitled to one vote per share.
+    conversion: >-
+      Shares of Class A Stock are convertible, at any time, at the option of the holder into shares
+      of Common Stock on a share-for-share basis.
+    classes:
+      - {member: "us-gaap:CommonClassAMember", priced_at: REGN}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0001090727"
+    ticker: UPS
+    source: "United Parcel Service 10-K FY2025, Earnings per Share note and Item 5"
+    accn: "0001628280-26-008432"
+    quote: >-
+      The earnings per share amounts are the same for class A and class B common shares as the
+      holders of each class are legally entitled to equal per share distributions whether through
+      dividends or in liquidation.
+    conversion: >-
+      The registrant’s class A common stock is not listed on a national securities exchange or
+      traded in an organized over-the-counter market, but each share of the registrant’s class A
+      common stock is convertible into one share of the registrant’s class B common stock.
+    classes:
+      - {member: "us-gaap:CommonClassAMember", priced_at: UPS}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0001166691"
+    ticker: CMCSA
+    source: "Comcast 10-K FY2025, Exhibit 4.15 (Description of Securities)"
+    accn: "0001628280-26-004994"
+    quote: >-
+      holders of our Class A common stock and Class B common stock are entitled to receive, from
+      time to time, when, as and if declared, in the discretion of our Board, such cash dividends
+      as our Board may from time to time determine, out of such funds as are legally available
+      therefor, in proportion to the number of shares held by them, respectively, without regard
+      to class. [...] In the event of our liquidation, dissolution or winding up, either voluntary
+      or involuntary, the holders of Class A common stock and Class B common stock are entitled to
+      receive, subject to any liquidation preference of any preferred stock then outstanding, our
+      remaining assets, if any, in proportion to the number of shares held by them without regard
+      to class.
+    conversion: >-
+      The Class B common stock is convertible share for share into Class A common stock, subject to
+      certain restrictions.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: CMCSA}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0001792789"
+    ticker: DASH
+    source: "DoorDash 10-K FY2025, Stockholders' Equity note"
+    accn: "0001792789-26-000013"
+    quote: >-
+      The rights, including the liquidation and dividend rights, of the Class A common stock and
+      Class B common stock are identical, other than voting rights.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: DASH}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0001561550"
+    ticker: DDOG
+    source: "Datadog 10-K FY2025, Stockholders' Equity note and Item 5"
+    accn: "0001628280-26-008819"
+    quote: >-
+      The rights of the holders of Class A and Class B common stock are identical, except with
+      respect to voting and conversion.
+    conversion: >-
+      Our Class B common stock is not listed or traded on any exchange, but each share of Class B
+      common stock is convertible at any time at the option of the holder into one share of Class A
+      common stock, and is automatically converted upon sale or transfer into one share of Class A
+      common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: DDOG}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0001783879"
+    ticker: HOOD
+    source: "Robinhood Markets 10-K FY2025, Net Income per Share note and Exhibit 4 text"
+    accn: "0001783879-26-000023"
+    quote: >-
+      The rights, including the liquidation and dividend rights, of the holders of Class A common
+      stock and Class B common stock are identical, except with respect to voting.
+    conversion: >-
+      Each share of Class B common stock is convertible at any time at the option of the holder
+      into one share of Class A common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: HOOD}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0000037996"
+    ticker: F
+    source: "Ford Motor 10-K FY2025, Capital Stock note; conversion from Exhibit 4-B"
+    accn: "0000037996-26-000015"
+    quote: >-
+      Shares of Common Stock and Class B Stock share equally in dividends when and as paid, with
+      stock dividends payable in shares of stock of the class held. [...] (Exhibit 4-B) Each share
+      of Common Stock and Class B Stock is entitled to share equally in dividends (other than
+      dividends declared with respect to any outstanding preferred stock) when and as declared by
+      our board of directors, except as stated below under the subheading “Stock Dividends.”
+    conversion: >-
+      A holder of shares of Class B Stock can convert those shares into an equal number of shares
+      of Common Stock for the purpose of selling or disposing of those shares.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: F}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0001327811"
+    ticker: WDAY
+    source: "Workday 10-K FY ended 2026-01-31, Net Income per Share note"
+    accn: "0001327811-26-000014"
+    quote: >-
+      The holders of our Class A and Class B common stock have identical liquidation and dividend
+      rights but different voting rights.
+    conversion: >-
+      Future transfers by holders of Class B common stock will generally result in those shares
+      converting to Class A common stock, subject to limited exceptions, such as certain transfers
+      effected for estate planning purposes.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: WDAY}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0001512673"
+    ticker: XYZ
+    source: "Block 10-K FY2025, Net Income per Share note"
+    accn: "0001628280-26-012254"
+    quote: >-
+      The holders of our Class A and Class B common stock (together, "common stock") have identical
+      liquidation and dividend rights but different voting rights.
+    conversion: >-
+      Shares of the Company's Class B common stock are convertible into an equivalent number of
+      shares of its Class A common stock and generally convert into shares of its Class A common
+      stock upon transfer.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: XYZ}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0001805284"
+    ticker: RKT
+    source: "Rocket Companies 10-K FY2025, Stockholders' Equity note; conversion from Exhibit 4.2"
+    accn: "0001628280-26-013283"
+    quote: >-
+      Class A common stock and Class L common stock have identical rights with respect to
+      dividends and residual net assets on a per share basis, and each carry one vote per share.
+    conversion: >-
+      Following the expiration or waiver of the applicable lock-up period, each share of Class L
+      common stock may be converted at any time, at the option of the holder, into one share of
+      Class A common stock or will be automatically converted into one share of Class A common
+      stock immediately prior to any transfer of such share except for certain transfers that will
+      be described in the Company’s certificate of incorporation.
+    classes:
+      - {member: "rkt:CommonClassLMember", priced_at: RKT}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0001650372"
+    ticker: TEAM
+    source: "Atlassian 10-K FY ended 2026-06-30, Stockholders' Equity and Net Loss per Share notes"
+    accn: "0001650372-26-000036"
+    quote: >-
+      Any dividend declared by the Company must be paid on the Class A Common Stock and the Class B
+      Common Stock pari passu as if they were all stock of the same class. [...] As the liquidation
+      and dividend rights for both Class A and Class B Common Stock are identical, the net loss is
+      allocated on a proportionate basis to the weighted-average number of shares of common stock
+      outstanding [...] for the period.
+    conversion: >-
+      Each share of Class B Common Stock will convert automatically into one share of Class A
+      Common Stock in the following circumstances: (1) upon the written consent of the holders of
+      at least 66.66 % of the total number of outstanding shares of Class B Common Stock; (2) if the
+      aggregate number of shares of Class B Common Stock then outstanding comprises less than ten
+      percent ( 10 %) of the total number of shares of Class A Common Stock and Class B Common Stock
+      then outstanding; and (3) upon any transfer to a person that is not a permitted transferee
+      described in the Company’s amended and restated certificate of incorporation.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: TEAM}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0001660134"
+    ticker: OKTA
+    source: "Okta 10-K FY ended 2026-01-31, Common Stock and Stockholders' Equity note"
+    accn: "0001660134-26-000020"
+    quote: >-
+      Holders of Class A and Class B common stock are entitled to one vote per share and ten votes
+      per share, respectively, and the shares of Class A common stock and Class B common stock are
+      identical, except for voting and conversion rights.
+    conversion: >-
+      Future transfers by holders of Class B common stock will generally result in those shares
+      converting to Class A common stock, subject to limited exceptions, such as certain transfers
+      effected for estate planning purposes.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: OKTA}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0001050446"
+    ticker: MSTR
+    source: "Strategy 10-K FY2025, Item 5 / equity note; liquidation from Exhibit 4.2"
+    accn: "0001050446-26-000020"
+    quote: >-
+      Holders of class A common stock generally have the same rights, including rights to
+      dividends, as holders of class B common stock, except that holders of class A common stock
+      have one vote per share while holders of class B common stock have ten votes per share.
+      [...] (Exhibit 4.2) Upon the Company’s dissolution or liquidation, holders of each class of
+      common stock will be entitled to receive ratably all of the Company’s assets available for
+      distribution to stockholders, subject to any preferential rights, powers, and preferences of
+      any then-outstanding preferred stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: MSTR}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0002007855"
+    ticker: VG
+    source: "Venture Global 10-K FY2025, Note 20 (Earnings per Share)"
+    accn: "0002007855-26-000013"
+    quote: >-
+      Earnings per share is calculated using the two-class method and presented on a combined basis
+      since the Class A common stock and the Class B common stock have identical rights and
+      privileges, except for voting rights.
+    conversion: >-
+      Additionally, shares of our Class B common stock are convertible into shares of our Class A
+      common stock on a one-for-one basis at the option of the holder.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: VG}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0001834584"
+    ticker: CPNG
+    source: "Coupang 10-K FY2025, Stockholders' Equity note"
+    accn: "0001834584-26-000024"
+    quote: >-
+      The shares of Class A common stock and Class B common stock are identical, except with
+      respect to voting, conversion, and transfer rights. [...] We have two classes of common
+      stock outstanding, Class A common stock and Class B common stock (collectively “common
+      stock”), with equal rights to dividends and income.
+    conversion: >-
+      Each share of our Class B common stock is convertible at any time at the option of the holder
+      into one share of our Class A common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: CPNG}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0001585521"
+    ticker: ZM
+    source: "Zoom Communications 10-K FY ended 2026-01-31, Exhibit 4.2 (Description of Securities)"
+    accn: "0001585521-26-000030"
+    quote: >-
+      Our amended and restated certificate of incorporation provides that, except with respect to
+      voting rights and conversion rights, the Class A common stock and Class B common stock are
+      treated equally and identically.
+    conversion: >-
+      Each share of our Class B common stock is convertible at any time at the option of the holder
+      into one share of our Class A common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: ZM}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0001037038"
+    ticker: RL
+    source: "Ralph Lauren 10-K FY ended 2026-03-28, Capital Stock note"
+    accn: "0001628280-26-037074"
+    quote: >-
+      Shares of Class A and Class B common stock have substantially identical rights, except with
+      respect to voting rights.
+    conversion: >-
+      Shares of our Class B common stock may be converted immediately into Class A common stock on
+      a one-for-one basis by the holder.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: RL}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0001642896"
+    ticker: IOT
+    source: "Samsara 10-K FY ended 2026-01-31, Net Loss per Share note"
+    accn: "0001628280-26-018167"
+    quote: >-
+      The rights, including the liquidation and dividend rights, of the holders of Class A, Class
+      B, and Class C common stock are identical, except with respect to voting and conversion
+      rights.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: IOT}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0001769628"
+    ticker: CRWV
+    source: "CoreWeave 10-K FY2025, Exhibit 4.13 (Description of Securities)"
+    accn: "0001769628-26-000104"
+    quote: >-
+      The rights of holders of shares of our Class A common stock, Class B common stock, and Class
+      C common stock are identical, except with respect to voting and conversion rights.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: CRWV}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0001820953"
+    ticker: AFRM
+    source: >-
+      Affirm Holdings Exhibit 4.1 (Description of Capital Stock), filed with accn
+      0001820953-25-000080 and incorporated in the 10-K FY ended 2026-06-30 (accn
+      0001628280-26-059279), which gives the conversion
+    accn: "0001820953-25-000080"
+    quote: >-
+      The rights of the holders of Class A common stock and Class B common stock are identical,
+      except with respect to voting, conversion and transfer rights.
+    conversion: >-
+      In addition, all shares of Class B common stock will automatically convert into shares of
+      Class A common stock upon the occurrence of certain events described in our articles of
+      incorporation.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: AFRM}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0001650164"
+    ticker: TOST
+    source: "Toast 10-K FY2025, Exhibit 4.3 (Description of Capital Stock) and Net Income per Share note"
+    accn: "0001650164-26-000057"
+    quote: >-
+      the holders of our Class A common stock and Class B common stock are entitled to share
+      equally, identically, and ratably, on a per share basis, with respect to any dividend or
+      distribution of cash or property paid or distributed by us [...] Our Class A common stock and
+      Class B common stock share proportionately, on a per share basis, in our net income (losses)
+      and participate equally in the dividends on common stock, if declared.
+    conversion: >-
+      Each outstanding share of our Class B common stock is convertible at any time at the option
+      of the holder into one share of our Class A common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: TOST}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0001468174"
+    ticker: H
+    source: "Hyatt Hotels 10-K FY2025, Exhibit 4.24 (Description of Securities)"
+    accn: "0001468174-26-000007"
+    quote: >-
+      The holders of our Class A common stock and Class B common stock are entitled to share
+      equally in any dividends that our board of directors may declare from time to time from
+      legally available funds [...] the holders of our Class A common stock and Class B common
+      stock are entitled to share equally, on a per share basis, in all our assets available for
+      distribution [...] Otherwise, the rights of the two classes of our common stock are
+      identical.
+    conversion: >-
+      Any holder of Class B common stock may convert his or her shares at any time into shares of
+      Class A common stock on a share-for-share basis and, under certain circumstances, including
+      upon any transfer (except for certain permitted transfers described in our amended and
+      restated certificate of incorporation), the shares of Class B common stock will be
+      automatically converted into shares of Class A common stock on a share-for-share basis.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: H}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0001713445"
+    ticker: RDDT
+    source: "Reddit 10-K FY2025, Exhibit 4.4 (Description of Securities)"
+    accn: "0001713445-26-000022"
+    quote: >-
+      The rights of holders of Class A common stock, Class B common stock, and Class C common stock
+      are identical, except with respect to voting and conversion rights.
+    conversion: >-
+      Each outstanding share of Class B common stock is convertible at any time at the option of
+      the holder into one share of Class A common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: RDDT}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0001090425"
+    ticker: LAMR
+    source: "Lamar Advertising 10-K FY2025, Stockholders' Equity note"
+    accn: "0001090425-26-000008"
+    quote: >-
+      The rights of the Class A and Class B common stock are equal in all respects, except holders
+      of Class B common stock have ten votes per share on all matters in which the holders of
+      common stock are entitled to vote and holders of Class A common stock have one vote per share
+      on such matters.
+    conversion: >-
+      The Class B common stock will convert automatically into Class A common stock upon the sale
+      or transfer to persons other than permitted transferees (as defined in the Company’s
+      certificate of incorporation, as amended).
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: LAMR}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0001616707"
+    ticker: W
+    source: "Wayfair 10-K FY2025, Stockholders' Equity note"
+    accn: "0001616707-26-000027"
+    quote: >-
+      The rights of the holders of Class A common stock and Class B common stock are identical,
+      except with respect to voting and conversion rights.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: W}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0001031308"
+    ticker: BSY
+    source: "Bentley Systems 10-K FY2025, Stockholders' Equity note (Class B is the listed class)"
+    accn: "0001031308-26-000007"
+    quote: >-
+      Except with respect to voting and conversion, the rights of the holders of the Company’s
+      Class A and Class B common stock are identical.
+    conversion: >-
+      Each share of Class B common stock is entitled to one vote per share, while each share of
+      Class A common stock is entitled to 29 votes per share and is convertible at any time into
+      one share of Class B common stock.
+    classes:
+      - {member: "us-gaap:CommonClassAMember", priced_at: BSY}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0001795586"
+    ticker: CHYM
+    source: "Chime Financial 10-K FY2025, Exhibit 4.3 (Description of Securities)"
+    accn: "0001795586-26-000013"
+    quote: >-
+      The rights of the holders of Class A common stock, Class B common stock, and Class C common
+      stock are identical, except with respect to voting and conversion.
+    conversion: >-
+      Each share of Class B common stock is convertible at any time at the option of the holder
+      into one share of Class A common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: CHYM}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0001089063"
+    ticker: DKS
+    source: "DICK'S Sporting Goods 10-K FY ended 2026-01-31, Stockholders' Equity note"
+    accn: "0001089063-26-000007"
+    quote: >-
+      Holders of common stock generally have rights identical to holders of Class B common stock,
+      except that holders of common stock are entitled to one vote per share and holders of Class B
+      common stock are entitled to ten votes per share.
+    conversion: >-
+      Shares of our Class B common stock can be converted on a one-for-one basis to shares of our
+      common stock at any time at the holder’s option and are automatically converted upon the
+      occurrence of certain events.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: DKS}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0000795403"
+    ticker: WTS
+    source: "Watts Water Technologies 10-K FY2025, Exhibit 4 (Description of Securities)"
+    accn: "0001104659-26-018541"
+    quote: >-
+      Subject to the preferential rights of any other class or series of stock, all shares of
+      common stock have equal dividend, distribution, liquidation and other rights, and have no
+      preference, appraisal or exchange rights, except for any appraisal rights provided by
+      Delaware law.
+    conversion: >-
+      Each share of our class B common stock is convertible into one share of our class A common
+      stock at any time at the holder’s option.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: WTS}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0001001250"
+    ticker: EL
+    source: >-
+      Estée Lauder Exhibit 4.1 (Description of Securities), filed with accn 0001001250-25-000099
+      and incorporated in the 10-K FY ended 2026-06-30 (accn 0001001250-26-000041), which gives
+      the conversion
+    accn: "0001001250-25-000099"
+    quote: >-
+      The shares of Class A Common Stock and Class B Common Stock are identical in all respects,
+      except for voting rights, certain conversion rights and transfer restrictions in respect of
+      the shares of the Class B Common Stock, as described below.
+    conversion: >-
+      Class B Common Stock is convertible into Class A Common Stock, in whole or in part, at any
+      time and from time to time at the option of the holder, on the basis of one share of Class A
+      Common Stock for each share of Class B Common Stock converted.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: EL}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0000071691"
+    ticker: NYT
+    source: "New York Times 10-K FY2025, Stockholders' Equity note; conversion from Exhibit 4.1"
+    accn: "0000071691-26-000011"
+    quote: >-
+      Shares of our Company’s Class A and Class B Common Stock are entitled to equal participation
+      in the event of liquidation and in dividend declarations.
+    conversion: >-
+      Each share of Class B common stock may at any time be converted, at the option of the holder,
+      into one fully paid and non-assessable (except to the extent provided in Section 630 of the
+      New York Business Corporation Law) share of Class A common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: NYT}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0002078416"
+    ticker: LLYVK
+    source: "Liberty Live Holdings 10-K FY2025, Stockholders' Equity note; conversion from Exhibit 4.5"
+    accn: "0001104659-26-020657"
+    quote: >-
+      All series of our common stock participate on an equal basis with respect to dividends and
+      distributions.
+    conversion: >-
+      Each share of Series B Liberty Live Group common stock is convertible, at the option of the
+      holder, into one share of Series A Liberty Live Group common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: LLYVA}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0001506293"
+    ticker: PINS
+    source: "Pinterest 10-K FY2025, Net Income (Loss) per Share note"
+    accn: "0001506293-26-000021"
+    quote: >-
+      Holders of our Class A and Class B common stock have identical rights except with respect to
+      voting, conversion and transfer rights and therefore share equally in our net income or
+      losses.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: PINS}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0001673743"
+    ticker: HNGE
+    source: "Hinge Health 10-K FY2025, Stockholders' Equity note; conversion from Exhibit 4.3"
+    accn: "0001628280-26-013808"
+    quote: >-
+      The rights, including the liquidation and dividend rights, of the holders of the Company’s
+      Class A common stock and Class B common stock are identical, except with respect to voting.
+    conversion: >-
+      Each outstanding share of Class B common stock is convertible at any time at the option of
+      the holder into one share of Class A common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: HNGE}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0001568651"
+    ticker: OSCR
+    source: "Oscar Health 10-K FY2025, Stockholders' Equity note"
+    accn: "0001568651-26-000011"
+    quote: >-
+      The rights of the holders of Class A common stock and Class B common stock are identical,
+      except with respect to voting, conversion, and transfer rights. [...] the Company's Class A
+      and Class B common stock are considered one single class of common stock because both
+      classes have the same dividend and liquidation rights.
+    conversion: >-
+      Each outstanding share of Class B common stock is convertible at any time at the option of
+      the holder into one share of Class A common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: OSCR}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0001766502"
+    ticker: CHWY
+    source: "Chewy 10-K FY ended 2026-02-01, Stockholders' Equity note"
+    accn: "0001766502-26-000034"
+    quote: >-
+      Subject to the preferences applicable to any series of preferred stock, if any, outstanding,
+      holders of Class A and Class B common stock are entitled to share equally, on a per share
+      basis, in dividends and other distributions of cash, property or securities of the Company.
+    conversion: >-
+      Each share of Class B common stock is convertible into one fully paid and nonassessable share
+      of Class A common stock at the option of the holder thereof with the prior written consent of
+      the Company.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: CHWY}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0001467623"
+    ticker: DBX
+    source: "Dropbox 10-K FY2025, Stockholders' Equity note; conversion from Exhibit 4.8"
+    accn: "0001467623-26-000008"
+    quote: >-
+      The rights, including the liquidation and dividend rights, of the Class A common stock and
+      Class B common stock are substantially identical, other than voting rights.
+    conversion: >-
+      Each share of Class B common stock is convertible at any time at the option of the holder
+      into one fully paid and nonassessable share of Class A common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: DBX}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0001636519"
+    ticker: MSGK
+    source: "Madison Square Garden Sports 10-K FY ended 2026-06-30, Exhibit 4.5 (Description of Securities)"
+    accn: "0001628280-26-056812"
+    quote: >-
+      Holders of Class A Common Stock and Class B Common Stock are entitled to receive dividends and
+      other distributions equally on a per share basis if and when such dividends and other
+      distributions are declared by the Board of Directors from funds legally available therefor.
+      [...] Holders of Class A Common Stock and Class B Common Stock share with each other on a
+      ratable basis as a single class in the net assets available for distribution in respect of
+      Class A Common Stock and Class B Common Stock in the event of a liquidation.
+    conversion: >-
+      The Class B Common Stock is convertible into Class A Common Stock in whole or in part at any
+      time and from time to time on the basis of one share of Class A Common Stock for each share of
+      Class B Common Stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: MSGK}
+    checked_by: "Claude (feat-unlisted-economic-classes), 2026-11-22"
+  - cik: "0001319161"
+    ticker: WMG
+    source: >-
+      Warner Music Group Exhibit 4.25 (Description of the Capital Stock), filed with accn
+      0001319161-20-000032 and incorporated in the 10-K FY ended 2026-09-30 (accn
+      0001319161-26-000042)
+    accn: "0001319161-20-000032"
+    quote: >-
+      our Class A Common Stock and Class B common stock, par value $0.001 per share (the “Class B
+      Common Stock”), which is not registered under Section 12 of the Exchange Act, have the same
+      rights, are equal in all respects and are treated by us as if they were one class of shares.
+      [...] Any dividend paid or payable to the holders of shares of Class A Common Stock and Class
+      B Common Stock will be paid on an equal priority, pari passu basis, on a per share basis to
+      the holders of shares of Class A Common Stock and Class B Common Stock [...] our remaining
+      assets legally available for distribution, if any, will be distributed among the holders of
+      the shares of Class A Common Stock and Class B Common Stock, treated as a single class, pro
+      rata based on the number of shares held by each such holder
+    conversion: >-
+      Each outstanding share of Class B Common Stock may at any time, at the option of the holder,
+      be converted into one share of Class A Common Stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: WMG}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0001141391"
+    ticker: MA
+    source: "Mastercard 10-K FY2025, Exhibit 4.38 (Description of Securities)"
+    accn: "0001141391-26-000013"
+    quote: >-
+      Dividend Rights. Our Class A common stock and Class B common stock share equally (on a per
+      share basis) in any dividend declared by our board of directors, subject to any preferential
+      or other rights of any outstanding preferred stock [...] Liquidation Rights. Upon
+      liquidation, dissolution or winding up, our Class A common stock and Class B common stock
+      will be entitled to receive ratably the assets available for distribution to the
+      stockholders after payment of liabilities and payment of preferential and other amounts, if
+      any, payable on any outstanding preferred stock.
+    conversion: >-
+      each share of Class B common stock will be convertible, at the holder’s option, into a share
+      of Class A common stock on a one-for-one basis.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: MA}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0000352915"
+    ticker: UHS
+    source: >-
+      Universal Health Services Exhibit 4.5 (Description of Securities), filed with accn
+      0001564590-20-006793 and incorporated in the 10-K FY2025 (accn 0001193125-26-071676)
+    accn: "0001564590-20-006793"
+    quote: >-
+      Class A common stock, class B common stock, class C common stock and class D common stock are
+      substantially similar except that each class has different voting rights. [...] All common
+      shares participate equally in distributions payable to shareholders when and as declared by
+      our Board of Directors.
+    conversion: >-
+      Shares of class A, C and D common stock may be converted into class B common stock on a
+      share-for-share basis.
+    classes:
+      - {member: "us-gaap:CommonClassAMember", priced_at: UHS}
+      - {member: "us-gaap:CommonClassCMember", priced_at: UHS}
+      - {member: "uhs:CommonClassDMember", priced_at: UHS}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0000094845"
+    ticker: LEVI
+    source: >-
+      Levi Strauss & Co. Exhibit 4.8 (Description of the Registrant's Securities), filed with accn
+      0000094845-25-000005 and incorporated in the 10-K FY ended 2025-11-30 (accn
+      0000094845-26-000008)
+    accn: "0000094845-25-000005"
+    quote: >-
+      Except as otherwise expressly provided in our amended and restated certificate of
+      incorporation or required by applicable law, shares of Class A common stock and Class B
+      common stock have the same rights and privileges and rank equally, share ratably and are
+      identical in all respects as to all matters, including, without limitation, those described
+      below [...] Dividends. Any dividend or distribution paid or payable to the holders of shares
+      of Class A common stock and Class B common stock are paid pro rata, on an equal priority,
+      pari passu basis [...] Liquidation. In the event of our liquidation, dissolution or
+      winding-up, upon the completion of any distributions required with respect to any shares of
+      preferred stock that may then be outstanding, our remaining assets legally available for
+      distribution to common stockholders shall be distributed on an equal priority, pro rata basis
+      to the holders of Class A common stock and Class B common stock.
+    conversion: >-
+      Each share of Class B common stock is convertible at any time at the option of the holder
+      into one share of Class A common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: LEVI}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0001415404"
+    ticker: ECHO
+    source: >-
+      EchoStar Exhibit 4.25 (Description of our Capital Stock), filed with accn
+      0001415404-20-000005 and incorporated in the 10-K FY2025 (accn 0001104659-26-021817)
+    accn: "0001415404-20-000005"
+    quote: >-
+      Each share of Class B common stock is entitled to receive dividends and distributions upon
+      liquidation on a basis equivalent to that of the Class A common stock and Class C common
+      stock.
+    conversion: >-
+      Each share of Class B common stock is convertible, at the option of the holder, into one
+      share of Class A common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: ECHO}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0001876042"
+    ticker: CRCL
+    source: >-
+      Circle Internet Group Exhibit 3.1 (Amended and Restated Certificate of Incorporation), filed
+      with accn 0000950103-25-007107 and incorporated in the 10-K FY2025 (accn
+      0001876042-26-000062)
+    accn: "0000950103-25-007107"
+    quote: >-
+      Identical Rights. Except as otherwise expressly provided by this Certificate of Incorporation
+      or required by applicable law, shares of Class A Common Stock, Class B Common Stock, and Class
+      C Common Stock shall have the same rights, powers, and privileges and rank equally (including
+      as to dividends and distributions, and any liquidation, dissolution, or winding up of the
+      Corporation), share ratably and be identical in all respects as to all matters.
+    conversion: >-
+      each share of Class B Common Stock shall be voluntarily convertible into one fully paid and
+      non-assessable share of Class A Common Stock at the option of the holder of such share of
+      Class B Common Stock at any time and from time to time and without payment of additional
+      consideration by such holder.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: CRCL}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0001653482"
+    ticker: GTLB
+    source: >-
+      GitLab Exhibit 3.1 (Restated Certificate of Incorporation), filed with accn
+      0001628280-24-039196 and incorporated in the 10-K FY ended 2026-01-31 (accn
+      0001628280-26-018731); conversion from Exhibit 4.4 (accn 0001628280-22-008836)
+    accn: "0001628280-24-039196"
+    quote: >-
+      Except as otherwise provided in this Restated Certificate of Incorporation or required by
+      applicable law, shares of Class A Common Stock and Class B Common Stock shall have the same
+      rights and powers, rank equally (including as to dividends and distributions, and upon any
+      liquidation, dissolution or winding up of the Corporation, but excluding voting and other
+      matters as described in Article IV Section 3.2 below), share ratably and be identical in all
+      respects and as to all matters.
+    conversion: >-
+      In addition, each share of our Class B common stock is convertible into one share of our
+      Class A common stock upon transfers that are not permitted transfers under our restated
+      certificate of incorporation.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: GTLB}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0001433195"
+    ticker: APPF
+    source: >-
+      AppFolio Exhibit 4.3 (Description of Securities), filed with accn 0001433195-25-000013 and
+      incorporated in the 10-K FY2025 (accn 0001433195-26-000011)
+    accn: "0001433195-25-000013"
+    quote: >-
+      Except as described in the section entitled "-Voting Rights" , or as otherwise required by
+      applicable law, the shares of our Class A common stock and Class B common stock have the same
+      powers, preferences and rights and rank equally, share ratably and are identical in all
+      respects as to all matters.
+    conversion: >-
+      Each share of our Class B common stock is convertible at any time at the option of the holder
+      into one share of our Class A common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: APPF}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0001835830"
+    ticker: KVYO
+    source: "Klaviyo 10-K FY2025, Stockholders' Equity note; conversion from Exhibit 4.21"
+    accn: "0001835830-26-000007"
+    quote: >-
+      The rights, including the liquidation and dividend rights, of the holders of Series A and
+      Series B common stock are identical, except with respect to voting and conversion.
+    conversion: >-
+      Each outstanding share of Series B common stock is convertible at any time at the option of
+      the holder into one share of Series A common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: KVYO}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0001657573"
+    ticker: XMTR
+    source: "Xometry 10-K FY2025, Stockholders' Equity note and Item 5"
+    accn: "0001193125-26-066959"
+    quote: >-
+      The rights, including the liquidation and dividend rights, of the Class A common stock and
+      Class B common stock are substantially identical, other than voting rights.
+    conversion: >-
+      each share of Class B common stock is convertible at any time at the option of the holder
+      into one share of Class A common stock and is automatically converted upon sale or transfer
+      into one share of Class A common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: XMTR}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0000751978"
+    ticker: VICR
+    source: >-
+      Vicor Exhibit 4.2 (Description of the Registrant's Securities), filed with accn
+      0001193125-21-063132 and incorporated in the 10-K FY2025 (accn 0001193125-26-085102), which
+      gives the conversion
+    accn: "0001193125-21-063132"
+    quote: >-
+      Such dividends, when, as and if declared and paid, shall be so declared and paid to such
+      holders pro rata according to the number of shares of Common Stock and Class B Common Stock
+      held by each such holder (with the number of shares of outstanding Common Stock and Class B
+      Common Stock being aggregated and considered a single class for this purpose). [...] holders
+      of shares of Common Stock will be entitled to share ratably as one class with the holders of
+      shares of Class B Common Stock in the remaining assets of the Company.
+    conversion: >-
+      Class B Common Stock is convertible at the option of the holder thereof at any time and
+      without cost to the stockholder into shares of Common Stock on a one-for-one basis.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: VICR}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0001384905"
+    ticker: RNG
+    source: "RingCentral 10-K FY2025, Stockholders' Equity note"
+    accn: "0001384905-26-000021"
+    quote: >-
+      Subject to preferences that may apply to any shares of preferred stock outstanding at the
+      time, holders of Class A and Class B Common Stock share equally, identically and ratably, on
+      a per share basis, with respect to any dividend or distribution of cash, property or shares
+      of the Company’s capital stock. [...] Holders of Class A and Class B Common Stock also share
+      equally, identically, and ratably in all assets remaining after the payment of any
+      liabilities and liquidation preferences and any accrued or declared but unpaid dividends, if
+      any, with respect to any outstanding preferred stock at the time.
+    conversion: >-
+      Each share of Class B Common Stock is convertible at any time at the option of the holder
+      into one share of Class A Common Stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: RNG}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0001734722"
+    ticker: PATH
+    source: "UiPath 10-K FY ended 2026-01-31, Stockholders' Equity note and Item 5"
+    accn: "0001734722-26-000012"
+    quote: >-
+      The rights of the holders of our Class A and Class B common stock, including liquidation and
+      dividend rights, are identical except with regard to voting and conversion rights.
+    conversion: >-
+      each share of Class B common stock is convertible at any time at the option of the holder
+      into one share of Class A common stock, and is automatically converted upon sale or transfer
+      into one share of Class A common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: PATH}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0000104889"
+    ticker: GHC
+    source: >-
+      Graham Holdings Exhibit 3.1 (Restated Certificate of Incorporation), filed with accn
+      0000950133-04-000785, and Exhibit 4.2 (Description of Securities, accn 0000104889-20-000007)
+      for the conversion, both incorporated in the 10-K FY2025 (accn 0001628280-26-011405). Class B
+      is the listed class (GHC); Class A is unlisted.
+    accn: "0000950133-04-000785"
+    quote: >-
+      the holders of Class A Stock and the holders of Class B Stock shall be entitled to share
+      equally, share for share, in such dividends. [...] the holders of Common Stock shall be
+      entitled, to the exclusion of the holders of the Preferred Stock of any and all series, to
+      share, ratably according to the number of shares of Common Stock held by them, in all
+      remaining assets of the Company available for distribution to its stockholders.
+    conversion: >-
+      Shares of Class A Common Stock are convertible into an equal number of shares of Class B
+      Common Stock in whole or in part, at any time and from time to time, at the option of the
+      individual holders thereof
+    classes:
+      - {member: "us-gaap:CommonClassAMember", priced_at: GHC}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0001308547"
+    ticker: DLB
+    source: >-
+      Dolby Laboratories 10-K FY ended 2026-09-25, Stockholders' Equity note; conversion from
+      Exhibit 4.3 (accn 0001628280-19-014472)
+    accn: "0001308547-26-000017"
+    quote: >-
+      Holders of our Class A and Class B common stock have identical rights, except that holders of
+      our Class A common stock are entitled to one vote per share and holders of our Class B common
+      stock are entitled to ten votes per share.
+    conversion: >-
+      Each share of our Class B common stock is convertible into one share of Class A common stock
+      at any time at the option of the holder or upon the affirmative vote of the holders of
+      majority of the outstanding shares of Class B common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: DLB}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0001094831"
+    ticker: BGC
+    source: "BGC Group 10-K FY2025, Exhibit 4.1 (Description of Securities)"
+    accn: "0001628280-26-013162"
+    quote: >-
+      Each share of Class A common stock is equivalent to a share of Class B common stock for
+      purposes of economic rights. [...] the holders of shares of Class A common stock and Class B
+      common stock are entitled to receive ratably such dividends, if any, as may be declared from
+      time to time by our board of directors out of funds legally available therefor. [...] In the
+      event of our liquidation, dissolution or winding up, the holders of shares of Class A common
+      stock and Class B common stock are entitled to share ratably in all assets remaining after
+      payment of liabilities, subject to prior distribution rights of preferred stock, if any, then
+      outstanding.
+    conversion: >-
+      The certificate of incorporation provides that each share of Class B common stock is
+      convertible at any time, at the option of the holder, into one share of Class A common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: BGC}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0001692063"
+    ticker: SNDR
+    source: >-
+      Schneider National 10-K FY2025, Item 5 and Shareholders' Equity note. Class B is the listed
+      class (SNDR); Class A is unlisted.
+    accn: "0001692063-26-000013"
+    quote: >-
+      Our Amended and Restated Articles of Incorporation provide that holders of our Class A and
+      Class B common stock will be treated equally and ratably on a per share basis with respect to
+      dividends, unless disparate treatment is approved in advance by the vote of the holders of a
+      majority of the outstanding shares of our Class A and Class B common stock, each voting as a
+      separate group. [...] In the event of a dissolution, liquidation, or winding up of the
+      company, the holders of Class A and Class B common stock are entitled to share ratably in all
+      assets and funds remaining after payment of liabilities
+    conversion: >-
+      Each share of Class A common stock is convertible into one share of Class B common stock.
+    classes:
+      - {member: "us-gaap:CommonClassAMember", priced_at: SNDR}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0002067876"
+    ticker: VSNT
+    source: "Versant Media Group 10-K FY2025, Stockholders' Equity note"
+    accn: "0002067876-26-000010"
+    quote: >-
+      Class A and Class B common stock have substantially identical rights, except with respect to
+      voting rights.
+    conversion: >-
+      Each share of Class B common stock is convertible at the option of the holder into one share
+      of Class A common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: VSNT}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0001795250"
+    ticker: SPHR
+    source: "Sphere Entertainment 10-K FY2025, Exhibit 4.1 (Description of Securities) and EPS note"
+    accn: "0001628280-26-007760"
+    quote: >-
+      Holders of Class A Common Stock and Class B Common Stock are entitled to receive dividends and
+      other distributions equally on a per share basis if and when such dividends and other
+      distributions are declared by the Board of Directors from funds legally available therefor.
+      [...] As the holders of Class A and Class B common stock are entitled to identical dividend
+      and liquidation rights
+    conversion: >-
+      The Class B Common Stock is convertible into Class A Common Stock in whole or in part at any
+      time and from time to time on the basis of one share of Class A Common Stock for each share of
+      Class B Common Stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: SPHR}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0001258602"
+    ticker: NNI
+    source: "Nelnet 10-K FY2025, Shareholders' Equity note and cover"
+    accn: "0001258602-26-000014"
+    quote: >-
+      With the exception of the voting rights and the conversion feature, the Class A and Class B
+      shares are identical in terms of other rights, including dividend and liquidation rights.
+    conversion: >-
+      shares of Class B Common Stock are convertible into shares of Class A Common Stock at any time
+      on a share-for-share basis.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: NNI}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0001841156"
+    ticker: PAY
+    source: >-
+      Paymentus 10-K FY2025, Stockholders' Equity and EPS notes; conversion from Exhibit 4.3 (accn
+      0000950170-23-005995)
+    accn: "0001193125-26-064510"
+    quote: >-
+      The rights of the holders of Class A and Class B common stock are identical, except with
+      respect to voting and conversion. [...] As the liquidation and dividend rights are identical
+    conversion: >-
+      Each share of our Class B common stock is convertible at any time at the option of the holder
+      into one share of our Class A common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: PAY}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0002017206"
+    ticker: MRP
+    source: "Millrose Properties 10-K FY2025, Exhibit 4.1 (Description of Securities)"
+    accn: "0002017206-26-000002"
+    quote: >-
+      The two classes are identical, except that (a) holders of Class A common stock are entitled
+      to one vote per share and holders of Class B common stock are entitled to ten votes for each
+      share of Class B common stock held in the holder’s name [...] If we are liquidated at a time
+      when there are outstanding shares of preferred stock, the holders of our Class A common stock
+      and Class B common stock will be entitled to share equally on a per share basis, without
+      regard to class, in the assets available for distribution after we have satisfied our debts
+      and liabilities and made any distributions we are required to make with regard to the
+      preferred stock.
+    conversion: >-
+      Our Class B common stock will convert automatically into Class A common stock in whole, but
+      not in part, on a one-for-one basis, upon approval of the conversion by the holders of a
+      majority of the outstanding shares of Class B common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: MRP}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0001846576"
+    ticker: FIGS
+    source: "FIGS 10-K FY2025, Stockholders' Equity and EPS notes"
+    accn: "0001628280-26-012333"
+    quote: >-
+      The rights of the holders of Class A and Class B common stock are identical, except with
+      respect to voting, conversion, and transfer rights. [...] As the economic rights of Class A
+      and Class B common stock are identical
+    conversion: >-
+      Each share of Class B common stock is convertible at any time at the option of the
+      stockholder into one share of Class A common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: FIGS}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0001952073"
+    ticker: MSGE
+    source: >-
+      Madison Square Garden Entertainment 10-K FY ended 2026-06-30, Exhibit 4.3 (Description of
+      Securities) and EPS note
+    accn: "0001628280-26-056286"
+    quote: >-
+      Holders of Class A Common Stock and Class B Common Stock are entitled to receive dividends and
+      other distributions equally on a per share basis if and when such dividends and other
+      distributions are declared by the Board of Directors from funds legally available therefor.
+      [...] As the holders of Class A and Class B common stock are entitled to identical dividend
+      and liquidation rights
+    conversion: >-
+      The Class B Common Stock is convertible into Class A Common Stock in whole or in part at any
+      time and from time to time on the basis of one share of Class A Common Stock for each share of
+      Class B Common Stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: MSGE}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0001445305"
+    ticker: WK
+    source: "Workiva 10-K FY2025, Stockholders' Equity note; conversion from Exhibit 4.04"
+    accn: "0001445305-26-000016"
+    quote: >-
+      The rights of the holders of our Class A common stock and our Class B common stock are
+      identical, except with respect to voting and conversion.
+    conversion: >-
+      Each outstanding share of Class B common stock is convertible at any time at the option of
+      the holder into one share of Class A common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: WK}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0001811935"
+    ticker: PTRN
+    source: "Pattern Group 10-K FY2025, Stockholders' Equity note; conversion from Exhibit 4.1"
+    accn: "0001811935-26-000013"
+    quote: >-
+      The rights, including the liquidation and dividend rights, of the holders of Series A and
+      Series B common stock are identical, except with respect to voting, conversion and transfer
+      rights.
+    conversion: >-
+      Each outstanding share of Series B common stock is convertible at any time at the option of
+      the holder into one share of Series A common stock.
+    classes:
+      - {member: "ptrn:SeriesBCommonStockMember", priced_at: PTRN}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0001958140"
+    ticker: BATRA
+    source: >-
+      Atlanta Braves Holdings 10-K FY2025, Item 5 and Stockholders' Equity note. Series B is quoted
+      OTC as BATRB but the filing says "There is no established public trading market for our
+      Series B common stock", so it is priced at BATRA, the series it converts into.
+    accn: "0001104659-26-020650"
+    quote: >-
+      All series of our common stock participate on an equal basis with respect to dividends and
+      distributions.
+    conversion: >-
+      Each share of Series B common stock is convertible at the option of the holder for one share
+      of Series A common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: BATRA}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0001544522"
+    ticker: FRSH
+    source: >-
+      Freshworks 10-K FY2025, Stockholders' Equity note; conversion from Exhibit 4.4 (accn
+      0001628280-22-003537)
+    accn: "0001544522-26-000036"
+    quote: >-
+      The rights, including the liquidation and dividend rights, of the holders of Class A and Class
+      B common stock are identical, except with respect to voting, conversion, and transfer rights.
+    conversion: >-
+      Each share of Class B common stock is convertible at any time at the option of the holder
+      into one share of Class A common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: FRSH}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0001841408"
+    ticker: DAVE
+    source: "Dave 10-K FY2025, Stockholders' Equity note and Item 12"
+    accn: "0001193125-26-085370"
+    quote: >-
+      The rights, including the liquidation and dividend rights, of the holders of the Class A
+      common stock and Class V common stock are identical, except with respect to voting.
+    conversion: >-
+      Class V Common Stock are convertible into shares of Class A Common Stock on a one-to-one basis
+      at the option of the holders of Class V Common Stock at any time upon written notice to the
+      Company.
+    classes:
+      - {member: "dave:CommonClassVMember", priced_at: DAVE}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0001800227"
+    ticker: PPLI
+    source: "People Inc. (formerly IAC) 10-K FY2025, Note 7 (Shareholders' Equity)"
+    accn: "0001628280-26-009997"
+    quote: >-
+      Except as described herein, shares of IAC common stock and IAC Class B common stock are
+      identical. [...] The holders of shares of IAC common stock and the holders of shares of IAC
+      Class B common stock are entitled to receive, share for share, such dividends as may be
+      declared by IAC’s board of directors out of funds legally available therefor. In the event of
+      a liquidation, dissolution, distribution of assets or winding-up of IAC, the holders of shares
+      of IAC common stock and the holders of shares of IAC Class B common stock are entitled to
+      receive, share for share, all the assets of IAC available for distribution to its
+      stockholders
+    conversion: >-
+      Shares of IAC Class B common stock are convertible into shares of IAC common stock at the
+      option of the holder thereof, at any time, on a share-for-share basis.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: PPLI}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0001802255"
+    ticker: GRDN
+    source: "Guardian Pharmacy Services 10-K FY2025, Stockholders' Equity note and Item 5"
+    accn: "0001193125-26-102172"
+    quote: >-
+      The Class A common stock and Class B common stock are identical in their rights and
+      privileges, except that shares of Class B common stock are subject to transfer restrictions
+      prior to their conversion into shares of Class A common stock.
+    conversion: >-
+      Our Class B common stock is not publicly traded, but such shares automatically convert into
+      one share of our Class A common stock over a two-year period following their date of issuance
+      pursuant to the terms of our certificate of incorporation.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: GRDN}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0001680062"
+    ticker: ACMR
+    source: "ACM Research 10-K FY2025, Stockholders' Equity note; dividends from Exhibit 4.02"
+    accn: "0001628280-26-013231"
+    quote: >-
+      The two classes of common stock are substantially identical in all material respects, except
+      for voting rights. [...] The holders of Class A common stock and Class B common stock are
+      entitled to share equally, identically and ratably, on a per share basis, with respect to any
+      dividend or distribution unless different treatment of the shares of each such class is
+      approved by the affirmative vote of the holders of a majority of the outstanding shares of
+      Class A common stock and Class B common stock, each voting separately as a class.
+    conversion: >-
+      each share of Class B common stock is entitled to twenty votes and is convertible at any time
+      into one share of Class A common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: ACMR}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0001504776"
+    ticker: WRBY
+    source: >-
+      Warby Parker Exhibit 4.3 (Description of Securities), filed with accn 0001504776-22-000007 and
+      incorporated in the 10-K FY2025 (accn 0001504776-26-000006), which gives the conversion
+    accn: "0001504776-22-000007"
+    quote: >-
+      Our Certificate of Incorporation provides that, except with respect to voting rights and
+      conversion rights, the Class A common stock, Class B common stock and Class C common stock
+      are treated equally and identically.
+    conversion: >-
+      Each share of Class B common stock is convertible into one share of Class A common stock at
+      the option of the holder thereof with the prior written consent of the Company.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: WRBY}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0001494259"
+    ticker: CARG
+    source: "CarGurus 10-K FY2025, Stockholders' Equity note"
+    accn: "0001193125-26-059435"
+    quote: >-
+      The rights of the holders of Class A and Class B common stock are identical, except with
+      respect to voting and conversion.
+    conversion: >-
+      Each share of Class B common stock is convertible into one share of Class A common stock at
+      the option of the holder at any time or automatically upon certain events described in the
+      Company’s fourth amended and restated certificate of incorporation
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: CARG}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0001639825"
+    ticker: PTON
+    source: >-
+      Peloton Interactive Exhibit 3.1 (Restated Certificate of Incorporation), filed with accn
+      0001639825-19-000018, and Exhibit 4.3 (Description of Securities, accn 0001639825-20-000122)
+      for the conversion, both incorporated in the 10-K FY ended 2026-06-30 (accn
+      0001639825-26-000038)
+    accn: "0001639825-19-000018"
+    quote: >-
+      Except as otherwise provided in this Restated Certificate of Incorporation or required by
+      applicable law, shares of Class A Common Stock and Class B Common Stock shall have the same
+      rights and powers, rank equally (including as to dividends and distributions, and upon any
+      liquidation, dissolution or winding up of the Corporation), share ratably and be identical in
+      all respects and as to all matters.
+    conversion: >-
+      Each outstanding share of Class B common stock is convertible at any time at the option of
+      the holder into one share of Class A common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: PTON}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0000949870"
+    ticker: SAM
+    source: >-
+      Boston Beer 10-K FY ended 2025-12-27, Item 5 and Common Stock note; liquidation from Exhibit
+      4.2 (Description of Securities, accn 0001193125-20-041944)
+    accn: "0001193125-26-067467"
+    quote: >-
+      The holders of the Class A and Class B Common Stock are entitled to dividends, on a
+      share-for-share basis, only if and when declared by the Board of Directors of the Company out
+      of funds legally available for payment thereof. [...] Holders of Class A Common Stock will
+      share ratably in all assets legally available for distribution to stockholders in the event
+      of dissolution. [...] Holders of Class B Common Stock will share ratably in all assets legally
+      available for distribution to stockholders in the event of dissolution.
+    conversion: >-
+      Each share of Class B Common Stock is freely convertible into one share of Class A Common
+      Stock, upon request of any Class B holder, and participates equally in earnings.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: SAM}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0001801170"
+    ticker: CLOV
+    source: >-
+      Clover Health Exhibit 3.1 (Certificate of Incorporation), filed with accn
+      0001193125-21-007348 and incorporated in the 10-K FY2025 (accn 0001801170-26-000057)
+    accn: "0001193125-21-007348"
+    quote: >-
+      shares of Class A Common Stock and Class B Common Stock shall have the same rights and powers,
+      rank equally (including as to dividends and distributions, and upon any liquidation,
+      dissolution or winding up of the Corporation), share ratably and be identical in all respects
+      and as to all matters.
+    conversion: >-
+      each of the outstanding shares of Class B common stock will convert automatically into one
+      share of Class A common stock upon the earliest of
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: CLOV}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0001477720"
+    ticker: ASAN
+    source: "Asana 10-K FY ended 2026-01-31, Stockholders' Equity and EPS notes"
+    accn: "0001477720-26-000021"
+    quote: >-
+      The rights, including the liquidation and dividend rights, of the holders of Class A and Class
+      B common stock are identical, except with respect to voting.
+    conversion: >-
+      Each share of Class B common stock is entitled to 10 votes per share and is convertible into
+      one share of Class A common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: ASAN}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0001043509"
+    ticker: SAH
+    source: "Sonic Automotive 10-K FY2025, Exhibit 4.1 (Description of Securities)"
+    accn: "0001628280-26-010570"
+    quote: >-
+      The Amended and Restated Certificate of Incorporation provides that if there is any dividend,
+      subdivision, combination or reclassification in respect of either class of common stock, an
+      identical dividend, subdivision, combination or reclassification in respect of the other class
+      of common stock must be made at the same time. [...] In the event of the liquidation,
+      dissolution or winding up of Sonic, holders of Class A Common Stock are entitled to share
+      ratably in all assets available for distribution to holders of common stock after payment in
+      full of creditors.
+    conversion: >-
+      Each share of Class B Common Stock may be converted, at the option of the holder thereof, into
+      one fully paid and non-assessable share of Class A Common Stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: SAH}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0001875444"
+    ticker: ARHS
+    source: >-
+      Arhaus Exhibit 3.1 (Amended and Restated Certificate of Incorporation), filed with accn
+      0001875444-21-000004 and incorporated in the 10-K FY2025 (accn 0001875444-26-000010)
+    accn: "0001875444-21-000004"
+    quote: >-
+      Except as otherwise expressly provided herein or required by applicable law, shares of Class A
+      Common Stock and Class B Common Stock shall have the same rights and privileges and rank
+      equally, share ratably and be identical in all respects as to all matters, including, without
+      limitation: (a) Dividends and Distributions.
+    conversion: >-
+      Each one (1) share of Class B Common Stock shall be convertible into one (1) share of Class A
+      Common Stock at the option of the holder thereof at any time upon written notice to the
+      transfer agent of the Corporation
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: ARHS}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0001005731"
+    ticker: IDT
+    source: >-
+      IDT 10-K FY ended 2026-07-31, Note 20 (Equity). Class B is the listed class (IDT); Class A is
+      unlisted.
+    accn: "0001437749-26-031469"
+    quote: >-
+      The rights of holders of Class A common stock and Class B common stock are identical except
+      for certain voting and conversion rights and restrictions on transferability. The holders of
+      Class A common stock and Class B common stock receive identical dividends per share when and
+      if declared by the Company’s Board of Directors. In addition, the holders of Class A common
+      stock and Class B common stock have identical and equal priority rights per share in
+      liquidation.
+    conversion: >-
+      Each share of Class A common stock may be converted into one share of Class B common stock,
+      at any time, at the option of the holder.
+    classes:
+      - {member: "us-gaap:CommonClassAMember", priced_at: IDT}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0001065059"
+    ticker: LEU
+    source: "Centrus Energy 10-K FY2025, Item 5 and Stockholders' Equity note"
+    accn: "0001628280-26-007117"
+    quote: >-
+      The Class B Common Stock was issued to Toshiba America Nuclear Energy Corporation and Babcock
+      & Wilcox Investment Company and has the same rights, powers, preferences and restrictions and
+      ranks equally in all matters with the Class A Common Stock, except voting.
+    conversion: >-
+      Shares of Class B Common Stock that are sold in the market are automatically converted to
+      shares of Class A Common Stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: LEU}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+  - cik: "0001712184"
+    ticker: LILA
+    source: >-
+      Liberty Latin America Exhibit 3.2 (Bye-laws), filed with accn 0001193125-18-004514 and
+      incorporated in the 10-K FY2025 (accn 0001712184-26-000023), which gives the conversion.
+      Class B is quoted OTC as LILAB but the filing says it does "not have an established public
+      trading market", so it is priced at LILA, the class it converts into.
+    accn: "0001193125-18-004514"
+    quote: >-
+      Each Class A Common Share, each Class B Common Share and each Class C Common Share shall,
+      except as otherwise provided in these Bye-laws, be identical in all respects and shall have
+      equal rights, powers and privileges. [...] the Company shall also pay to the holders of each
+      other classes of Common Shares a dividend per share equal to the dividend per share paid to
+      the holders of such first one or more classes of Common Shares, such that the dividend paid on
+      each Common Share, regardless of class, is the same.
+    conversion: >-
+      Each Class B common share is convertible, at any time at the option of the holder, into one
+      Class A common share.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: LILA}
+    checked_by: "Claude (feat-unlisted-classes-2), 2026-11-23"
+
+  - cik: "0001337634"
+    ticker: STUB
+    source: >-
+      StubHub Holdings 10-K FY2025, notes (Stockholders' Equity); the conversion is from its Exhibit
+      3.1 (Amended and Restated Certificate of Incorporation), filed with accn 0001193125-25-207371
+      and incorporated in the 10-K
+    accn: "0001628280-26-014844"
+    quote: >-
+      The rights, including the liquidation and dividend rights, of the holders of the Company's
+      Class A, Class B and Class C common stock are identical, except with respect to voting.
+    conversion: >-
+      Each share of Class B Common Stock shall be convertible into one (1) validly issued, fully
+      paid and nonassessable share of Class A Common Stock at the option of the holder thereof at
+      any time upon written notice to the Corporation.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: STUB}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0001522540"
+    ticker: MQ
+    source: >-
+      Marqeta Exhibit 4.8 (Description of Securities), filed with accn 0001522540-22-000013 and
+      incorporated in the 10-K FY2025 (accn 0001522540-26-000017)
+    accn: "0001522540-22-000013"
+    quote: >-
+      The rights of the holders of Class A common stock and Class B common stock are identical,
+      except with respect to voting, conversion and transfer rights. [...] If we become subject to
+      a liquidation, dissolution or winding-up, the assets legally available for distribution to
+      our stockholders would be distributable ratably among the holders of our Class A common stock
+      and Class B common stock and any participating preferred stock outstanding at that time
+    conversion: >-
+      Each outstanding share of Class B common stock is convertible at any time at the option of
+      the holder into one share of Class A common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: MQ}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0001569345"
+    ticker: CXM
+    source: "Sprinklr 10-K FY ended 2026-01-31, notes (Stockholders' Equity, Net Income Per Share) and Item 5"
+    accn: "0001569345-26-000015"
+    quote: >-
+      The rights of the holders of Class A common stock and Class B common stock are identical,
+      except with respect to voting and conversion rights. [...] As the liquidation and dividend
+      rights are identical, the undistributed earnings are allocated on a proportionate basis
+    conversion: >-
+      There currently is no established public trading market for our Class B common stock, but
+      each share of Class B common stock is convertible at any time at the option of the holder
+      into one share of Class A common stock and is automatically converted upon sale or transfer
+      into one share of Class A common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: CXM}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0001514416"
+    ticker: BAND
+    source: "Bandwidth 10-K FY2025, Exhibit 4.1 (Description of Securities)"
+    accn: "0001514416-26-000017"
+    quote: >-
+      shares of Class A common stock and Class B common stock have the same rights and privileges
+      and rank equally, share ratably and are identical in all respects as to all matters,
+      including, without limitation, those described below. [...] Liquidation In the event of our
+      liquidation, dissolution or winding-up, upon the completion of the distributions required
+      with respect to any series of preferred stock that may then be outstanding, our remaining
+      assets legally available for distribution to stockholders shall be distributed on an equal
+      priority, pro rata basis to the holders of Class A common stock and Class B common stock.
+    conversion: >-
+      Each share of Class B common stock is convertible at any time at the option of the holder
+      into one share of Class A common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: BAND}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0001069899"
+    ticker: PAHC
+    source: >-
+      Phibro Animal Health Exhibit 3.1 (Amended and Restated Certificate of Incorporation), filed
+      with accn 0001571049-14-001787 and incorporated in the 10-K FY ended 2026-06-30 (accn
+      0001104659-26-101493), which gives the conversion
+    accn: "0001571049-14-001787"
+    quote: >-
+      holders of Class A Common Stock and Class B Common Stock shall be entitled to receive
+      equally, on a per share basis, such dividends and other distributions in cash, securities or
+      other property of the Corporation as may be declared thereon by the Board of Directors from
+      time to time out of assets or funds of the Corporation legally available therefor [...] the
+      remaining assets of the Corporation available for distribution to stockholders shall be
+      distributed among holders of shares of Class A Common Stock and Class B Common Stock equally
+      on a per share basis
+    conversion: >-
+      Each share of Class B common stock is convertible at any time at the option of the holder
+      into one share of Class A common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: PAHC}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0001883085"
+    ticker: PGY
+    source: >-
+      Pagaya Technologies 10-K FY2025, notes (Net Income (Loss) Per Share); the conversion is from
+      its Exhibit 4.9 (Description of Securities), same accn
+    accn: "0001883085-26-000018"
+    quote: >-
+      The rights, including the liquidation and dividend rights, of the holders of the Company’s
+      Class A Ordinary Shares and Class B Ordinary Shares are identical, except with respect to
+      voting.
+    conversion: >-
+      Each Class B Ordinary Share shall be convertible into one Class A Ordinary Share at the
+      option of the holder, at any time.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: PGY}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0001746618"
+    ticker: RVLV
+    source: "Revolve Group 10-K FY2025, notes (Stockholders' Equity, Net Income Per Share)"
+    accn: "0001193125-26-071307"
+    quote: >-
+      The rights of the holders of Class A and Class B common stock are identical, except for
+      voting and conversion rights. [...] As the liquidation and dividend rights are identical for
+      both classes, the undistributed earnings are allocated on a proportionate basis.
+    conversion: >-
+      Each share of Class B common stock is entitled to ten votes per share and is convertible at
+      any time into one share of Class A common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: RVLV}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0001488139"
+    ticker: AMRC
+    source: >-
+      Ameresco Exhibit 3.1 (Restated Certificate of Incorporation), filed with accn
+      0000950123-10-070340 and incorporated in the 10-K FY2025 (accn 0001628280-26-013574)
+    accn: "0000950123-10-070340"
+    quote: >-
+      Class A Common Stock and Class B Common Stock shall have the same rights and privileges and
+      rank equally, share ratably and be identical in all respects as to all matters. [...] The
+      holders of shares of Class A Common Stock and the holders of shares of Class B Common Stock
+      shall be entitled to share equally, on a per-share basis, in such dividends and other
+      distributions of cash, property or shares of stock of the Corporation as may be declared by
+      the Board of Directors from time to time with respect to the Common Stock [...] In the event
+      of the voluntary or involuntary liquidation, dissolution, or winding up of the Corporation,
+      the holders of Class A Common Stock and the holders of Class B Common Stock shall be entitled
+      to share equally, on a per-share basis, in all assets of the Corporation of whatever kind
+      available for distribution to the holders of Common Stock.
+    conversion: >-
+      Each share of Class B Common Stock shall be convertible into one fully paid and
+      nonassessable share of Class A Common Stock at the option of the holder thereof at any time.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: AMRC}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0001640428"
+    ticker: EVER
+    source: >-
+      EverQuote Exhibit 3.1 (Restated Certificate of Incorporation), filed with accn
+      0001193125-18-211396 and incorporated in the 10-K FY2025 (accn 0001193125-26-066957), which
+      gives the conversion
+    accn: "0001193125-18-211396"
+    quote: >-
+      Shares of Class A Common Stock and Class B Common Stock shall be treated equally,
+      identically and ratably, on a per share basis, with respect to any Distribution paid or
+      distributed by the Corporation [...] As used herein, the term “Distribution” means (i) any
+      dividend or distribution of cash, property or shares of the Corporation’s capital stock; and
+      (ii) any distribution following or in connection with any liquidation, dissolution or
+      winding up of the Corporation, either voluntary or involuntary.
+    conversion: >-
+      Each share of Class B common stock is convertible into one share of Class A common stock at
+      the option of the holder at any time.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: EVER}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0002057463"
+    ticker: GLIBA
+    source: >-
+      GCI Liberty Exhibit 3.1 (Articles of Incorporation), filed with accn 0001104659-25-067808 and
+      incorporated in the 10-K FY2025 (accn 0001104659-26-013442), whose Exhibit 4.3 (Description
+      of Securities) gives the dividend sentence and whose Item 1A the conversion. No Ventures
+      Group stock is issued (the 10-K: "if and when issued"). Series B is quoted OTC as GLIBB but
+      the 10-K says it "is not actively traded", so it is priced at GLIBA, the series it converts
+      into.
+    accn: "0001104659-25-067808"
+    quote: >-
+      Each share of Series A GCI Group Common Stock, Series B GCI Group Common Stock and Series C
+      GCI Group Common Stock will, except as otherwise provided in this Section A.2., be identical
+      in all respects and will have equal rights, powers and privileges. [...] If dividends are
+      paid on any series of GCI Group common stock, an equal per share dividend will be
+      concurrently paid on the other series of GCI Group common stock.
+    conversion: >-
+      Each share of Series B GCI Group common stock is convertible, at any time at the option of
+      the holder, into one share of Series A GCI Group common stock, which is listed and traded on
+      the Nasdaq Global Select Market under the symbol “GLIBA.”
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: GLIBA}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0001809519"
+    ticker: GDRX
+    source: >-
+      GoodRx Holdings Exhibit 3.1 (Amended and Restated Certificate of Incorporation), filed with
+      accn 0001193125-20-256438 and incorporated in the 10-K FY2025 (accn 0001809519-26-000031)
+    accn: "0001193125-20-256438"
+    quote: >-
+      Except as otherwise provided herein or required by law, shares of Class A Common Stock and
+      Class B Common Stock shall have the same rights, privileges, preferences and powers, rank
+      equally (including as to dividends and distributions, and upon any liquidation, dissolution,
+      distribution of assets or winding up of the Corporation), share ratably and be identical in
+      all respects and as to all matters.
+    conversion: >-
+      Each share of Class B Common Stock shall be convertible into one (1) fully paid and
+      nonassessable share of Class A Common Stock at the option of the holder thereof at any time
+      upon written notice to the Corporation
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: GDRX}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0001422930"
+    ticker: PUBM
+    source: >-
+      PubMatic Exhibit 4.3 (Description of Securities), filed with accn 0001422930-21-000009 and
+      incorporated in the 10-K FY2025 (accn 0001422930-26-000010), which gives the conversion
+    accn: "0001422930-21-000009"
+    quote: >-
+      Any dividend or distributions paid or payable to the holders of shares of Class A common
+      stock and Class B common stock will be paid equally, identically and ratably, on a per share
+      basis [...] upon our liquidation, dissolution or winding up, holders of Class A common stock
+      and Class B common stock will be entitled to receive ratably all of our assets available for
+      distribution to our stockholders
+    conversion: >-
+      Each share of Class B is convertible anytime at the option of the holder into one share of
+      Class A common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: PUBM}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0001109116"
+    ticker: EVC
+    source: >-
+      Entravision Exhibit 4.1 (Fourth Amended and Restated Certificate of Incorporation), filed with
+      accn 0000950170-24-078508, and Exhibit 4.1 (Description of Securities), accn
+      0000950170-24-031460, both incorporated in the 10-K FY2025 (accn 0001193125-26-093993)
+    accn: "0000950170-24-078508"
+    quote: >-
+      each of the shares of Class U Common Stock shall be treated in an identical manner in all
+      respects, including with respect to dividends and treatment upon liquidation, to shares of
+      Class A Common Stock.
+    conversion: >-
+      Shares of Entravision’s Class U common stock are convertible into shares of Entravision’s
+      Class A common stock on a share-for-share basis automatically upon the transfer of such
+      shares to a person or entity which is not an affiliate of the holder.
+    classes:
+      - {member: "evc:CommonClassUMember", priced_at: EVC}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0001825088"
+    ticker: DFH
+    source: >-
+      Dream Finders Homes Exhibit 3.1 (Amended and Restated Certificate of Incorporation), filed
+      with accn 0001140361-21-002037 and incorporated in the 10-K FY2025 (accn 0001628280-26-010837)
+    accn: "0001140361-21-002037"
+    quote: >-
+      the holders of Class A Common Stock and Class B Common Stock shall be entitled to share
+      equally, identically and ratably, on a per share basis, with respect to any dividend or other
+      distribution paid or distributed by the Corporation [...] In the event of any voluntary or
+      involuntary liquidation, dissolution or winding-up of the Corporation, the holders of Class A
+      Common Stock and Class B Common Stock shall be entitled to share equally, identically and
+      ratably in all assets remaining after the payment of any liabilities
+    conversion: >-
+      Each share of Class B Common Stock shall be convertible at any time at the option of the
+      holder thereof, and without the payment of additional consideration by the holder thereof,
+      into one share of Class A Common Stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: DFH}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0001829864"
+    ticker: TASK
+    source: >-
+      TaskUs Exhibit 3.1 (Amended and Restated Certificate of Incorporation), filed with accn
+      0001193125-21-191190 and incorporated in the 10-K FY2025 (accn 0001829864-26-000012); the
+      conversion is from the 10-K (notes, Stockholders' Equity)
+    accn: "0001193125-21-191190"
+    quote: >-
+      Except as otherwise provided herein or required by law, shares of Class A Common Stock and
+      Class B Common Stock shall have the same rights, privileges, preferences and powers, rank
+      equally (including as to dividends and distributions, and upon any liquidation, dissolution,
+      distribution of assets or winding up of the Corporation), share ratably and be identical in
+      all respects and as to all matters.
+    conversion: >-
+      Each share of Class B common stock is entitled to ten votes per share and is convertible into
+      one share of Class A common stock at any time or automatically upon certain conditions but no
+      later than June 10, 2028
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: TASK}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0000928658"
+    ticker: CVLG
+    source: >-
+      Covenant Logistics Group Exhibit 4.3 (Description of Securities), filed with accn
+      0001437749-23-004926 and incorporated in the 10-K FY2025 (accn 0001437749-26-006086)
+    accn: "0001437749-23-004926"
+    quote: >-
+      Holders of Class A common stock and Class B common stock are entitled to receive dividends
+      payable in cash or property other than common stock on an equal basis, if and when such
+      dividends are declared by the Board of Directors from funds legally available [...] In the
+      event of liquidation, dissolution, or winding up, holders of Class A and Class B common stock
+      share with each other on a ratable basis as a single class in our assets
+    conversion: >-
+      A holder of Class B common stock may convert its Class B common stock into Class A common
+      stock at any time at the ratio of one share of Class A common stock for each share of Class B
+      common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: CVLG}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0000880117"
+    ticker: JBSS
+    source: "John B. Sanfilippo & Son 10-K FY ended 2026-06-25, Exhibit 4.1 (Description of Securities) and Item 5"
+    accn: "0001193125-26-356919"
+    quote: >-
+      When and as dividends are declared on any shares of Common Stock and Class A Stock, whether
+      payable in cash, property or securities of the Company, the holders of Common Stock and Class
+      A Stock will be entitled to share equally, share for share, in such dividends. [...] Holders
+      of Common Stock and Class A Stock will share ratably in all assets legally available for
+      distribution to our stockholders in the event of dissolution.
+    conversion: >-
+      In addition, each share of Class A Stock is convertible at the option of the holder at any
+      time into one share of Common Stock
+    classes:
+      - {member: "us-gaap:CommonClassAMember", priced_at: JBSS}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0000072573"
+    ticker: MOV
+    source: >-
+      Movado Group Exhibit 4.2 (Description of Securities), filed with accn 0001564590-20-013004 and
+      incorporated in the 10-K FY ended 2026-01-31 (accn 0001193125-26-115298). Class A has an SEC
+      ticker (MOVAA) but the 10-K says "There is currently no established public trading market
+      for the class A common stock", so it is priced at MOV, the common stock it converts into.
+    accn: "0001564590-20-013004"
+    quote: >-
+      Shares of Common Stock and Class A Common Stock will share equally on a per share basis in
+      any dividends declared by the Board of Directors. [...] Upon the liquidation, dissolution or
+      winding up of the Company, the holders of Common Stock and Class A Common Stock are entitled
+      to receive ratably the net assets of the Company
+    conversion: >-
+      Each holder of shares of Class A Common Stock is entitled to convert, at any time and from
+      time to time, any and all such shares into the same number of shares of Common Stock.
+    classes:
+      - {member: "us-gaap:CommonClassAMember", priced_at: MOV}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0001788882"
+    ticker: ROOT
+    source: >-
+      Root Exhibit 3.1 (Amended and Restated Certificate of Incorporation), filed with accn
+      0001628280-20-015173 and incorporated in the 10-K FY2025 (accn 0001788882-26-000014), which
+      gives the conversion
+    accn: "0001628280-20-015173"
+    quote: >-
+      any dividends paid to the holders of shares of Class A Common Stock and Class B Common Stock
+      shall be paid pro rata, on an equal priority, pari passu basis [...] the remaining assets of
+      the Company legally available for distribution to stockholders, or consideration payable to
+      the stockholders of the Company, in the case of an Acquisition constituting a Liquidation
+      Event, shall be distributed on an equal priority, pro rata basis to the holders of Class A
+      Common Stock and Class B Common Stock
+    conversion: >-
+      Our Class B common stock is neither listed nor traded, but each share of Class B common stock
+      is convertible at any time at the option of the holder into one share of Class A common stock
+      and is automatically converted upon sale or transfer into one share of Class A common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: ROOT}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0001517375"
+    ticker: SPT
+    source: >-
+      Sprout Social Exhibit 4.4 (Description of Securities), filed with accn 0001517375-20-000012,
+      and Exhibit 3.1 (Amended and Restated Certificate of Incorporation), accn
+      0001628280-19-015150, both incorporated in the 10-K FY2025 (accn 0001517375-26-000015)
+    accn: "0001517375-20-000012"
+    quote: >-
+      The rights of the holders of Class A common stock and Class B common stock are identical,
+      except with respect to voting, conversion and transfer rights. [...] shall have the same
+      rights, privileges and powers, rank equally (including as to dividends and distributions, and
+      upon any liquidation, dissolution, distribution of assets or winding up of the Corporation),
+      share ratably and be identical in all respects and as to all matters.
+    conversion: >-
+      Each outstanding share of our Class B common stock is convertible at any time at the option
+      of the holder into one share of our Class A common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: SPT}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0001840502"
+    ticker: TBLA
+    source: >-
+      Taboola.com Exhibit 3.1 (Amended and Restated Articles of Association), filed with accn
+      0001140361-23-001725 and incorporated in the 10-K FY2025 (accn 0001840502-26-000004)
+    accn: "0001140361-23-001725"
+    quote: >-
+      Except only with respect to voting rights and to the rights to receive notice of meetings of
+      the shareholders (or any class thereof), the Non-Voting Ordinary Shares shall have rights and
+      privileges identical in all respects and matters to the rights and privileges of Ordinary
+      Shares (including if applicable, upon liquidation, dissolution or winding up of the Company)
+      [...] the Shares shall rank pari passu in all respects and matters.
+    conversion: >-
+      Immediately prior to, and as a condition to the transfer of a Non-Voting Ordinary Share by
+      the holder thereof to a non-Affiliated person or entity, each such Non-Voting Ordinary Share
+      shall be converted, without payment of any additional consideration, into one (1) fully-paid
+      and non-assessable Ordinary Share
+    classes:
+      - {member: "us-gaap:NonvotingCommonStockMember", priced_at: TBLA}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0001874315"
+    ticker: SATL
+    source: >-
+      Satellogic Exhibit 3.2 (Certificate of Incorporation), filed with accn 0001437749-25-009269
+      and incorporated in the 10-K FY2025 (accn 0001874315-26-000013)
+    accn: "0001437749-25-009269"
+    quote: >-
+      the holders of record of Common Stock shall share ratably, on a per share basis, in all
+      dividends, whether payable in cash, stock or otherwise. [...] Upon any liquidation,
+      dissolution or winding up of the affairs of the Corporation, whether voluntary or
+      involuntary, holders of Common Stock will be entitled to receive all assets of the
+      Corporation available for distribution to its stockholders ratably in proportion to the
+      number of shares of Class A Common Stock and/or Class B Common Stock held of record by them
+    conversion: >-
+      Each share of Class B Common Stock shall be convertible into one (1) share of Class A Common
+      Stock at the option of the Class B Holder at any time upon written notice to the Corporation.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: SATL}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0001494582"
+    ticker: BOC
+    source: "Boston Omaha 10-K FY2025, Item 1A and notes (Stockholders' Equity)"
+    accn: "0001437749-26-010341"
+    quote: >-
+      Each share of Class B common stock is identical to the Class A common stock in liquidation,
+      dividend and similar rights.
+    conversion: >-
+      580,558 shares of our Class B common stock, which converts on a one for one basis into an
+      equivalent number of shares of our Class A common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: BOC}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0001709164"
+    ticker: HBB
+    source: >-
+      Hamilton Beach Brands Exhibit 3.1 (Amended and Restated Certificate of Incorporation), filed
+      with accn 0001193125-17-291492 and incorporated in the 10-K FY2025 (accn
+      0001709164-26-000037), which gives the conversion
+    accn: "0001193125-17-291492"
+    quote: >-
+      Each share of Class A Common Stock and Class B Common Stock shall be equal in respect of
+      rights to dividends and other distributions in cash, stock or property of the Corporation
+      [...] the remaining assets and funds of the Corporation shall be divided among and paid
+      ratably, in accordance with the number of shares of Class A Common Stock and Class B Common
+      Stock held by each such holder, to the holders of Class A Common Stock and Class B Common
+      Stock.
+    conversion: "Class B Common is convertible into Class A Common on a one-for-one basis."
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: HBB}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0001514991"
+    ticker: AMCX
+    source: >-
+      AMC Networks Exhibit 3.1 (Articles of Incorporation), filed with accn 0001193125-25-137075 and
+      incorporated in the 10-K FY2025 (accn 0001514991-26-000011), which gives the conversion
+    accn: "0001193125-25-137075"
+    quote: >-
+      holders of Class A Common Stock and Class B Common Stock shall be entitled to receive equally
+      on a per share basis such dividends and other distributions in cash, stock or property of the
+      Corporation [...] the remaining assets and funds of the Corporation shall be divided among,
+      and paid ratably to the holders of Class A Common Stock and Class B Common Stock (including
+      those persons who shall become holders of Class A Common Stock by reason of the conversion of
+      their shares of Class B Common Stock) as a single class.
+    conversion: >-
+      AMC Networks Class B shares can be converted to AMC Networks Class A Common Stock at any time
+      with a conversion ratio of one AMC Networks Class A common share for one AMC Networks Class B
+      common share.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: AMCX}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0001891027"
+    ticker: MNTN
+    source: "MNTN 10-K FY2025, notes (Class A and Class B Common Stock) and Exhibit 4.3 (Description of Capital Stock)"
+    accn: "0001891027-26-000019"
+    quote: >-
+      The rights of the holders of our Class A common stock and our Class B common stock are
+      identical, except with respect to voting, conversion and transfer rights. [...] In the event
+      of our liquidation or dissolution, the holders of our Class A common stock and our Class B
+      common stock will be entitled to receive proportionately our net assets available for
+      distribution to stockholders
+    conversion: >-
+      Each outstanding share of our Class B common stock is convertible at any time at the option
+      of the holder into one share of our Class A common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: MNTN}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0001576942"
+    ticker: SFIX
+    source: >-
+      Stitch Fix Exhibit 3.1 (Restated Certificate of Incorporation), filed with accn
+      0001193125-17-349294 and incorporated in the 10-K FY ended 2026-08-01 (accn
+      0001628280-26-063365), which gives the conversion
+    accn: "0001193125-17-349294"
+    quote: >-
+      Any dividends paid to the holders of shares of Class A Common Stock and Class B Common Stock
+      shall be paid pro rata, on an equal priority, pari passu basis [...] the remaining assets of
+      the Company legally available for distribution to stockholders shall be distributed on an
+      equal priority, pro rata basis to the holders of Class A Common Stock and Class B Common
+      Stock
+    conversion: >-
+      Each share of Class B common stock is convertible at any time at the option of the
+      stockholder into one share of Class A common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: SFIX}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0001319947"
+    ticker: DBI
+    source: >-
+      Designer Brands Exhibit 4.2 (Description of the Registrant's Securities), filed with accn
+      0001319947-20-000025 and incorporated in the 10-K FY ended 2026-01-31 (accn
+      0001319947-26-000022)
+    accn: "0001319947-20-000025"
+    quote: >-
+      Holders of Class A Common Shares and Class B Common Shares will share in an equal amount per
+      share in any dividend declared by the board of directors [...] The holders of Common Shares
+      would be entitled to receive a pro rata distribution of any excess amount.
+    conversion: >-
+      Holders of Class B Common Shares have the right, upon notice to the Company, to convert each
+      Class B Common Share to one Class A Common Share.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: DBI}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0000832428"
+    ticker: SSP
+    source: >-
+      E.W. Scripps Exhibit 3.05 (Amended and Restated Articles of Incorporation) and Exhibit 4.03
+      (Description of Securities), filed with accn 0000832428-23-000019 and incorporated in the 10-K
+      FY2025 (accn 0000832428-26-000010)
+    accn: "0000832428-23-000019"
+    quote: >-
+      the amount of any such dividend payable on each of the Class A Common Shares shall be equal
+      in all cases to the amount of such dividend payable on each of the Common Voting Shares, and
+      the amount of any such dividend payable on each of the Common Voting Shares shall be equal in
+      all cases to the amount of the dividend payable on each of the Class A Common Shares. [...] In
+      the event of liquidation, dissolution or winding up, holders of class A common shares and
+      common voting shares are entitled to participate equally, share for share, in the assets
+      available for distribution.
+    conversion: >-
+      Each Common Voting Share may at any time be converted at the election of the holder thereof
+      into one Class A Common Share.
+    classes:
+      - {member: "ssp:VotingCommonStockMember", priced_at: SSP}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0001755953"
+    ticker: ABTC
+    source: >-
+      American Bitcoin Exhibit 3.2 (Second Amended and Restated Certificate of Incorporation),
+      filed with accn 0001213900-25-083726 and incorporated in the 10-K FY2025 (accn
+      0001193125-26-127278). The cover's Class C has 0 shares and is not summed.
+    accn: "0001213900-25-083726"
+    quote: >-
+      the holders of each series of Common Stock shall be entitled to receive, on a per share
+      basis, the same form and amount of dividends and other distributions of cash, property or
+      shares of stock of the Corporation [...] In the event of a voluntary or involuntary
+      liquidation, dissolution, distribution of assets or winding up of the Corporation, the
+      holders of each series of Common Stock shall be entitled to share equally, on a per share
+      basis, in all assets of the Corporation of whatever kind available for distribution to the
+      holders of Common Stock.
+    conversion: >-
+      At any time, any holder of shares of Class B Common Stock or Class C Common Stock, at the
+      option of such holder, may convert any share of Class B Common Stock or Class C Common Stock
+      held by such holder at any time after the date of issuance of such share, in each case, at
+      the office of the Corporation or any transfer agent for such stock, into one (1) validly
+      issued, fully paid and nonassessable share of Class A Common Stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: ABTC}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0000064472"
+    ticker: GENC
+    source: "Gencor Industries 10-K FY ended 2025-09-30, Exhibit 4.2 (Description of Securities) and Item 5"
+    accn: "0001193125-25-312742"
+    quote: >-
+      Holders of our Common Stock and our Class B Stock are entitled to receive cash dividends at
+      the same rate if and when declared by our Board out of funds legally available therefor
+      [...] With respect to distributions other than cash dividends, all other distributions,
+      including stock dividends and all other distributions and rights including distributions upon
+      liquidation, our Common Stock and our Class B Stock will rank equally and have the same rights
+    conversion: >-
+      Our Class B Stock will be convertible on a share-for-share basis at all times other than while
+      our stock transfer books are closed for any purpose.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: GENC}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0002080921"
+    ticker: APC
+    source: >-
+      ARKO Petroleum 10-K FY2025, Exhibit 4.1 (Description of Securities); the conversion is from
+      its Exhibit 3.1 (Amended and Restated Certificate of Incorporation), filed with accn
+      0001193125-26-034394 and incorporated in the 10-K. Class B is held by ARKO Corp. (the parent).
+    accn: "0001193125-26-131747"
+    quote: >-
+      Cash dividends paid in respect of our Class A common stock will also be paid in respect of
+      our Class B common stock equally on a per share basis. [...] the holders of shares of Class A
+      common stock are entitled to share ratably (together with the holders of Class B common
+      stock) in all of our remaining assets and funds available for distribution to holders of
+      shares of common stock.
+    conversion: >-
+      ARKO Parent (as defined below), as holder of shares of Class B Common Stock may convert any or
+      all of such shares of Class B Common Stock at any time into Class A Common Stock on a
+      one-for-one basis at the option of ARKO Parent.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: APC}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0001299969"
+    ticker: CHCI
+    source: >-
+      Comstock Holding Companies Exhibit 3.1 (Amended and Restated Certificate of Incorporation),
+      filed with accn 0001193125-15-378579 and incorporated in the 10-K FY2025 (accn
+      0001628280-26-018409); "Common Stock" there is the Class A and Class B together
+    accn: "0001193125-15-378579"
+    quote: >-
+      holders of Common Stock shall be entitled to receive equally, on a per share basis, such
+      dividends and other distributions in cash, securities or other property of the Corporation
+      [...] the remaining net assets of the Corporation shall be distributed among holders of
+      shares of Common Stock equally on a per share basis.
+    conversion: >-
+      The holder of each share of Class B Common Stock shall have the right at any time, or from
+      time to time, at such holder’s option, to convert such share into one fully paid and
+      nonassessable share of Class A Common Stock
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: CHCI}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0001524025"
+    ticker: TLYS
+    source: >-
+      Tilly's Exhibit 3.1 (Amended and Restated Certificate of Incorporation), filed with accn
+      0001193125-11-242512 and incorporated in the 10-K FY ended 2026-01-31 (accn
+      0001628280-26-024440)
+    accn: "0001193125-11-242512"
+    quote: >-
+      Except as otherwise expressly provided in this Certificate of Incorporation, the powers,
+      preferences and rights of the holders of Class A Common Stock and holders of Class B Common
+      Stock, and the qualifications, limitations and restrictions thereof, shall be in all respects
+      identical.
+    conversion: >-
+      A share of Class B Common Stock shall be automatically converted into one share of Class A
+      Common Stock effective immediately upon
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: TLYS}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0001534969"
+    ticker: SERA
+    source: "Sera Prognostics 10-K FY2025, notes (Stockholders' Equity, Net Loss Per Share) and Item 5"
+    accn: "0001534969-26-000009"
+    quote: >-
+      The rights, including the liquidation and dividend rights, of the holders of the Company’s
+      Class A and Class B common stock are identical, except with respect to voting and conversion.
+    conversion: >-
+      Each share of Class B common stock may be converted at any time to one share of Class A
+      common stock at the option of its holder, subject to the ownership limitations provided for in
+      the Company’s amended and restated certificate of incorporation, as amended.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: SERA}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0001009759"
+    ticker: CEPL
+    source: >-
+      Capstone Energy Plus 10-K FY ended 2026-03-31 (notes) and its Exhibit 3.1 (Certificate of
+      Incorporation), filed with accn 0001104659-23-124877 and incorporated in the 10-K
+    accn: "0001104659-26-077817"
+    quote: >-
+      As both classes carry identical economic rights, earnings per share is presented on a
+      combined basis. [...] the holders of the shares of Common Stock and the holders of any shares
+      of Non-Voting Common Stock each shall be entitled to receive such dividends and other
+      distributions (payable in cash, property or capital stock of the Corporation) when, as and if
+      declared thereon by the Board from time to time out of any assets or funds of the Corporation
+      legally available therefor and shall share equally on a per share basis in such dividends and
+      distributions.
+    conversion: >-
+      Each share of non-voting common stock automatically converts into one share of common stock
+      upon transfer
+    classes:
+      - {member: "us-gaap:NonvotingCommonStockMember", priced_at: CEPL}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0001826889"
+    ticker: BODI
+    source: >-
+      The Beachbody Company Exhibit 4.3 (Description of Securities), filed with accn
+      0000950170-22-002537, and Exhibit 3.1 (Certificate of Incorporation), accn
+      0000950170-25-046760, both incorporated in the 10-K FY2025 (accn 0001193125-26-100284)
+    accn: "0000950170-22-002537"
+    quote: >-
+      The Class X common stock is identical to our Class A common stock in all respects, except
+      that the holders of our Class X common stock will be entitled to cast 10 votes per Class X
+      share.
+    conversion: >-
+      Each share of Class X Common Stock shall be convertible into one share of Class A Common Stock
+      at the option of the holder thereof at any time upon written notice to the transfer agent of
+      the Corporation.
+    classes:
+      - {member: "body:CommonClassXMember", priced_at: BODI}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0001783328"
+    ticker: TCRX
+    source: >-
+      TScan Therapeutics Exhibit 3.1 (Amended and Restated Certificate of Incorporation), filed
+      with accn 0001193125-21-219696 and incorporated in the 10-K FY2025 (accn 0001193125-26-089884)
+    accn: "0001193125-21-219696"
+    quote: >-
+      holders of shares of Voting Common Stock and Non-Voting Common Stock shall be entitled to
+      receive on a pari passu basis such dividends and distributions and other distributions in
+      cash, stock or property of the Corporation [...] shares of Voting Common Stock and Non-Voting
+      Common Stock shall be entitled to receive on a pari passu basis the assets and funds of the
+      Corporation available for distribution in the event of any liquidation, dissolution or
+      winding up of the affairs of the Corporation, whether voluntary or involuntary.
+    conversion: >-
+      Each holder of shares of Non-Voting Common Stock shall have the right to convert each share of
+      Non-Voting Common Stock held by such holder into one (1) share of Voting Common Stock at such
+      holder’s election by providing written notice to the Corporation
+    classes:
+      - {member: "us-gaap:NonvotingCommonStockMember", priced_at: TCRX}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0001061069"
+    ticker: AWX
+    source: >-
+      Avalon Holdings Articles of Incorporation (Article FOURTH, Division C) and description of
+      capital stock, in the 1998 filing accn 0000950132-98-000427 incorporated in the 10-K FY2025
+      (accn 0001437749-26-009091)
+    accn: "0000950132-98-000427"
+    quote: >-
+      No dividend or other distribution upon the shares of Class A Common Stock or the shares of
+      Class B Common Stock of the Corporation shall be made unless a corresponding and, subject to
+      the next sentence, pro rata dividend or distribution is made upon the shares of the other
+      class of Common Stock. [...] In the event of any liquidation, dissolution or winding up of the
+      Corporation or any reduction in its capital resulting in any distribution of its assets to
+      its shareholders, the holders of the Class A and Class B Common Stock shall be entitled to
+      receive, as a single class pro rata, the assets of the Corporation remaining for distribution
+      to its shareholders.
+    conversion: >-
+      Each share of Avalon Class B Common Stock is convertible at any time, at the option of and
+      without cost to its holder, into one share of Avalon Class A Common Stock
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: AWX}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0001735041"
+    ticker: GTEC
+    source: "Greenland Technologies Holding 10-K FY2025, Item 5 / description of share capital"
+    accn: "0001213900-26-032928"
+    quote: >-
+      Economic Rights Both classes have identical rights to dividends, distributions, and
+      liquidation proceeds.
+    conversion: >-
+      Each Class B ordinary share is convertible into one Class A ordinary share at any time by the
+      holder thereof
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: GTEC}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0001823878"
+    ticker: MYPS
+    source: >-
+      PLAYSTUDIOS Exhibit 3.1 (Second Amended and Restated Certificate of Incorporation), filed with
+      accn 0001823878-21-000008 and incorporated in the 10-K FY2025 (accn 0001823878-26-000020)
+    accn: "0001823878-21-000008"
+    quote: >-
+      shares of Class A Common Stock and Class B Common Stock shall have the same rights and powers,
+      share ratably and be identical in all respects as to all matters [...] Any dividends paid to
+      the holders of shares of Common Stock shall be paid pro rata to the holders of the Class A
+      Common Stock and Class B Common Stock, on an equal priority, pari passu basis. [...] the
+      assets of the Corporation legally available for distribution to stockholders shall be
+      distributed on an equal priority, pro rata basis to the holders of Class A Common Stock and
+      Class B Common Stock
+    conversion: >-
+      Each share of Class B Common Stock will automatically convert into one fully paid and
+      nonassessable share of Class A Common Stock on the Final Conversion Date.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: MYPS}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0001892292"
+    ticker: MSS
+    source: "Maison Solutions 10-K FY ended 2025-04-30, Item 5 and notes (Stockholders' Equity)"
+    accn: "0001213900-25-075991"
+    quote: >-
+      While the economic rights of our common stock are the same, the Class A common stock has one
+      (1) vote per share, while Class B common stock has ten (10) votes per share. [...] the rights
+      of the holders of Class A common stock and Class B common stock are identical, except with
+      respect to voting and conversion rights.
+    conversion: >-
+      Each share of Class B common stock is entitled to ten (10) votes and is convertible at any
+      time into one share of Class A common stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: MSS}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0001703056"
+    ticker: ADT
+    source: >-
+      ADT Exhibit 3.1 (Amended and Restated Certificate of Incorporation, as amended), filed with
+      accn 0001193125-20-248089 and incorporated in the 10-K FY2025 (accn 0001703056-26-000022),
+      which gives the conversion
+    accn: "0001193125-20-248089"
+    quote: >-
+      Except as expressly provided in this Section 4.02, including the voting restriction
+      applicable to Class B Common Stock set forth in Section 4.02(a)(i), shares of Common Stock and
+      Class B Common Stock shall have the same rights and privileges and rank equally, share
+      ratably, and be identical in all respects as to all matters.
+    conversion: >-
+      Class B common stock is not listed for public trading on any exchange or market system;
+      however, each share will become immediately convertible into one share of common stock, at
+      the option of the holder, subject to certain timing and restrictions.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: ADT}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+
+  - cik: "0001805521"
+    ticker: FFAI
+    source: "Faraday Future Intelligent Electric 10-K FY2025, Exhibit 4.1 (Description of Securities)"
+    accn: "0001628280-26-022509"
+    quote: >-
+      Shares of Class A Common Stock and Class B Common Stock shall be treated equally, identically
+      and ratably, on a per share basis, with respect to any dividend paid by the Company [...]
+      Upon the dissolution, liquidation or winding up of the company, subject to the rights, if
+      any, of the holders of our Preferred Stock, the holders of our Common Stock shall be entitled
+      to receive the assets of the company available for distribution to its stockholders ratably
+      in proportion to the number of shares held by them.
+    conversion: >-
+      Shares of Class B Common Stock have the right to convert into shares of Class A Common Stock
+      at any time at the rate of one share of Class A Common Stock for each share of Class B Common
+      Stock.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: FFAI}
+    checked_by: "Claude (feat-unlisted-classes-3), 2026-11-23"
+  - cik: "0000789933"
+    ticker: NC
+    source: "NACCO Industries 10-K FY2025, Note 12 (Stockholders' Equity and Earnings Per Share)"
+    accn: "0000789933-26-000070"
+    quote: >-
+      Our Class A common stock and Class B common stock have the same cash dividend rights per
+      share. As the liquidation and dividend rights are identical, any distribution of earnings
+      would be allocated to Class A and Class B stockholders on a proportionate basis, and
+      accordingly the net income per share for each class of common stock is identical. The Class
+      A common stock has one vote per share and the Class B common stock has ten votes per share.
+    conversion: >-
+      The Class B common stock is convertible into Class A common stock on a one-for-one basis at
+      any time at the request of the holder.
+    classes:
+      - {member: "us-gaap:CommonClassBMember", priced_at: NC}
+    checked_by: "Claude (feat-cover-symbols), 2026-11-23"
+
+# cover_symbols format (the cover's XBRL tags no dei:TradingSymbol on any class):
+#   - cik: "0000000000"
+#     ticker: the company's primary listing
+#     accn: the 10-K the quote comes from
+#     source: the filing and section
+#     quote: verbatim rows of the cover's "Title of each class / Trading Symbol(s) / Name of each
+#       exchange" table (cells joined with " | ", line breaks inside a cell as " / ")
+#     symbols: {<StatementClassOfStockAxis member>: <symbol as the cover table states it>}
+#     checked_by: who read the filing, and when
+# RPC's Class A symbol is recorded, but its unlisted Class B has no `unlisted_economic` entry (the
+# 10-K's Ex 4.1 says Class B dividends are "equivalent" and that Class B is "not entitled to
+# dividends"; docs/decisions/WT-01.md 2026-11-23), so it keeps its single count.
+# Molson Coors (TAP) is not here: both its classes are listed (TAP.A, TAP), but the cover misses
+# its exchangeable shares, so it is in `cover_excluded` below.
+cover_symbols:
+  - cik: "0000789933"
+    ticker: NC
+    accn: "0000789933-26-000070"
+    source: "NACCO Industries 10-K FY2025, cover page (Section 12(b) and 12(g) securities)"
+    quote: >-
+      Class A Common Stock, $1 par value per share | NC | New York Stock Exchange
+      Class A Common Stock, $1 par value per share | NC | NYSE Texas
+      Securities registered pursuant to Section 12(g) of the Act: Class B Common Stock, $1 par
+      value per share. Class B Common Stock is not publicly listed for trade on any exchange or
+      market system; however, Class B Common Stock is convertible into Class A Common Stock on a
+      share-for-share basis.
+    symbols:
+      "us-gaap:CommonClassAMember": NC
+    checked_by: "Claude (feat-cover-symbols), 2026-11-23"
+  - cik: "0001841968"
+    ticker: RPC
+    accn: "0001193125-26-081484"
+    source: "Ridgepost Capital 10-K FY2025, cover page (Section 12(b) securities)"
+    quote: >-
+      Class A Common Stock, $0.001 par value per share | RPC | NYSE / NYSE Texas, Inc.
+      Securities registered pursuant to Section 12(g) of the Act: None
+    symbols:
+      "us-gaap:CommonClassAMember": RPC
+    checked_by: "Claude (feat-cover-symbols), 2026-11-23"
+
+# Symbols a cover lists that are not common stock (preferred, notes) but carry no suffix Glint can
+# read (SATS, not SATS.P): never the primary ticker (metrics/primary.py), so the company is
+# priced at its common stock. Quote: the cover's "Title of each class / Trading Symbol" row, verbatim.
+non_common_symbols:
+  - cik: "0001920406"
+    ticker: ASST
+    symbol: SATS
+    accn: "0001628280-26-071332"
+    source: "Strive, Inc. 10-Q for the quarter ended 2026-09-30, cover page (Section 12(b) securities)"
+    quote: >-
+      15.00% Series A Perpetual SATS Preferred Stock, $0.001 par value per share | SATS |
+      The Nasdaq Stock Market LLC
+    checked_by: "Claude (fix-primary-non-common), 2026-11-24"
+  - cik: "0001831096"
+    ticker: GEG
+    symbol: GEGGL
+    accn: "0001193125-26-447533"
+    source: "Great Elm Group 10-Q for the quarter ended 2026-09-30, cover page (Section 12(b) securities)"
+    quote: >-
+      7.25% Notes due 2027 | GEGGL | The Nasdaq Stock Market LLC (Nasdaq Global Select Market)
+    checked_by: "Claude (fix-primary-geg), 2026-11-24"
+
+# Registrants whose cover lists symbols on StatementClassOfStockAxis members that aren't classes of
+# one common equity: never summed into a market cap (universe/listed_classes.py). Evidence: the
+# latest cached 10-Q cover (dei facts by class) and what its members are.
+cover_excluded:
+  - cik: "0001479247"
+    ticker: USCI
+    reason: >-
+      United States Commodity Index Funds Trust: USCI (United States Commodity Index Fund) and
+      CPER (United States Copper Index Fund) are separate funds, each with its own NAV, under one
+      registrant (10-Q accn 0001104659-26-124000, members UnitedStatesCommodityIndexFundMember and
+      UnitedStatesCopperIndexFundMember). Not classes of one equity.
+  - cik: "0002087989"
+    ticker: YSAG
+    reason: >-
+      Texas Precious Metals Trust: YSAU (Yall Street Physical Gold ETF) and YSAG (Yall Street
+      Physical Silver ETF) are separate funds under one registrant (10-Q accn
+      0001999371-26-025050, members YallStreetPhysicalGoldETFMember and
+      YallStreetPhysicalSilverETFMember). Not classes of one equity.
+  - cik: "0001553079"
+    ticker: ESBA
+    reason: >-
+      Empire State Realty OP, L.P.: ESBA, OGCP and FISK are its Series ES, 60 and 250 operating
+      partnership units (10-Q accn 0001553079-26-000011, 21.7M units on the cover). The units
+      held by its general partner, Empire State Realty Trust (ESRT, its own registrant and
+      listing), aren't on this cover, so the listed series are not the partnership's whole equity.
+  - cik: "0000720672"
+    ticker: SF
+    reason: >-
+      Stifel Financial: SFB on its cover is the 5.20% Senior Notes due 2047 (10-Q accn
+      0001193125-26-446268, member SeniorNotes520Due2047Member, 225,000,000), debt tagged on the
+      class axis. Stifel has one class of common stock (SF).
+  - cik: "0000024545"
+    ticker: TAP
+    reason: >-
+      Molson Coors Beverage Company: Class A (TAP.A) and Class B (TAP) are both listed (10-K FY2025
+      accn 0000024545-26-000006 cover: "Class A Common Stock, $0.01 par value | TAP.A | New York
+      Stock Exchange", "Class B Common Stock, $0.01 par value | TAP | New York Stock Exchange"),
+      but the cover classes are not its whole equity: the Class A and Class B exchangeable shares
+      of Molson Coors Canada Inc. (2,678,963 and 7,093,946 at 2026-02-11, same 10-K) "are
+      exchangeable at any time, at the option of the holder on a one -for-one basis for
+      corresponding shares of Molson Coors common stock" and "receive the same dividends", and the
+      weighted-average share count "includes Class A common stock and Class B common stock and
+      Class A exchangeable shares and Class B exchangeable shares". Summing the cover (175.6M,
+      10-Q accn 0000024545-26-000079) would undercount the 186.8M Glint uses now (like NMRK).

@@ -1,0 +1,81 @@
+# glint smoke expectations (WT-09). What a real build must show over the API.
+# Companies are the Appendix D set (SPAC, recent IPO and FY-change picks from the fixture
+# manifest). `kind` defaults to operating. `notes` pins a metric's null reason where the filing
+# makes it certain; the applicability matrix (§4.5, config/metrics.yaml) is checked for every
+# company on top of these, and every null must carry a reason.
+
+preset_total: [1, 2000]
+
+companies:
+  AAPL: {sector: Technology}
+  MSFT: {sector: Technology}
+  NVDA: {sector: Technology}
+  KO: {sector: Consumer Staples}
+  MU: {sector: Technology}
+  KHC: {sector: Consumer Staples}
+  RIVN:  # loss-maker: net income and operating income below zero
+    notes: {pe_ttm: NEGATIVE_DENOMINATOR, ev_ebit: NEGATIVE_DENOMINATOR}
+  SBUX:  # negative shareholders' equity
+    notes: {debt_to_equity: NEGATIVE_DENOMINATOR, pb: NEGATIVE_DENOMINATOR}
+  XOM: {sector: Energy}
+  F: {}
+  JPM:
+    sector: Banks
+    notes: {ev_ebit: NOT_APPLICABLE_SECTOR, gross_margin: NOT_APPLICABLE_SECTOR}
+  O: {sector: Real Estate, is_reit: true}
+  BRK.B: {}
+  BRK.A: {}
+  GOOGL: {sector: Technology}  # SIC 7370; Glint sectors are SIC-based, not GICS
+  GOOG: {sector: Technology}
+  TSM:
+    is_foreign_filer: true
+    notes: {pe_ttm: FOREIGN_PRICE_BASIS}
+  ASML:
+    is_foreign_filer: true
+    notes: {pe_ttm: FOREIGN_PRICE_BASIS}
+  AAC: {kind: spac}
+  # SEV: recent IPO, pre-revenue. piotroski_f: only two fiscal year-ends (no FY2023 total assets).
+  # fcf_growth_yoy: the Q3 2026 10-Q (0001493152-26-051733) gave the 9M 2025 YTD, so a year-back
+  # TTM exists: FCF 2024-10-01..2025-09-30 = -17.458M (CFO -16.492M, capex 0.966M), so n/m.
+  SEV:
+    notes: {fcf_growth_yoy: NEGATIVE_DENOMINATOR, piotroski_f: INSUFFICIENT_HISTORY}
+  ANAB: {}  # fiscal-year change (10-KT)
+
+search:
+  - {q: AAPL, top: AAPL}
+  - {q: appel, top: AAPL}  # misspelt name
+  - {q: apple, top: AAPL}
+  - {q: brk b, top: BRK.B}  # share class, space instead of a dot
+  - {q: brk-a, top: BRK.A}
+  - {q: googl, top: GOOGL}  # not GOOG
+  - {q: goog, top: GOOG}
+  - {q: microsoft, top: MSFT}
+  - {q: coca cola, top: KO}
+
+# `glint smoke --perf`: the §5.10 API budgets on this build, through the app in-process (the
+# HTTP layer, validation and JSON, but no socket). The screen is tests/api/test_perf.py's.
+perf:
+  runs: 40
+  screen_p95_ms: 300
+  company_p95_ms: 150
+  screen:
+    filters:
+      op: and
+      children:
+        - {metric: roic, cmp: gte, value: 0.05}
+        - {metric: gross_margin, cmp: pct_rank_gte, value: 0.3, within: sector}
+        - {metric: operating_margin, cmp: vs_sector_median_gte, value: -0.05}
+        - {metric: pe_ttm, cmp: between, value: [3, 60]}
+        - {metric: net_debt_to_ebitda, cmp: lte, value: 4, missing: pass}
+        - {metric: fcf_margin, cmp: gt, value: 0}
+        - {metric: revenue_growth_yoy, cmp: gte, value: -0.1}
+        - {metric: sector, cmp: neq, value: Utilities}
+        - op: or
+          children:
+            - {metric: dividend_yield, cmp: gte, value: 0.01}
+            - {metric: buyback_yield, cmp: gte, value: 0.0}
+        - {metric: current_ratio, cmp: gte, value: 0.8}
+    rank:
+      factors: [{metric: roic, weight: 0.5}, {metric: fcf_yield, weight: 0.5}]
+    columns: [ticker, name, sector, market_cap, roic, fcf_yield, rank_score]
+    near_misses: true

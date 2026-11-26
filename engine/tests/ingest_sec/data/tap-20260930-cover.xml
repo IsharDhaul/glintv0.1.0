@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='utf-8'?>
+<xbrl xmlns="http://www.xbrl.org/2003/instance" xmlns:dei="http://xbrl.sec.gov/dei/2026" xmlns:xbrldi="http://xbrl.org/2006/xbrldi" xml:lang="en-US">
+  <!-- Trimmed from Molson Coors Beverage Company 10-Q accn 0000024545-26-000079 (cover share counts and trading symbols); values unchanged. The symbols carry dei:EntityListingsExchangeAxis as well as the class axis, so parse_instance keeps none of them. -->
+  <context id="c-3">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000024545</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="us-gaap:StatementClassOfStockAxis">us-gaap:CommonClassAMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="dei:EntityListingsExchangeAxis">exch:XNYS</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-01</startDate>
+            <endDate>2026-09-30</endDate>
+        </period>
+    </context>
+  <context id="c-4">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000024545</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="us-gaap:StatementClassOfStockAxis">us-gaap:CommonClassBMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="dei:EntityListingsExchangeAxis">exch:XNYS</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2026-01-01</startDate>
+            <endDate>2026-09-30</endDate>
+        </period>
+    </context>
+  <context id="c-6">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000024545</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="us-gaap:StatementClassOfStockAxis">us-gaap:CommonClassAMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <instant>2026-10-29</instant>
+        </period>
+    </context>
+  <context id="c-7">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000024545</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="us-gaap:StatementClassOfStockAxis">us-gaap:CommonClassBMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <instant>2026-10-29</instant>
+        </period>
+    </context>
+  <dei:TradingSymbol contextRef="c-3" id="f-24">TAP.A</dei:TradingSymbol>
+  <dei:TradingSymbol contextRef="c-4" id="f-27">TAP</dei:TradingSymbol>
+  <dei:EntityCommonStockSharesOutstanding contextRef="c-6" decimals="INF" id="f-38" unitRef="shares">2563034</dei:EntityCommonStockSharesOutstanding>
+  <dei:EntityCommonStockSharesOutstanding contextRef="c-7" decimals="INF" id="f-39" unitRef="shares">173017657</dei:EntityCommonStockSharesOutstanding>
+</xbrl>

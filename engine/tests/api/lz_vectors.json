@@ -1,0 +1,45 @@
+{
+  "source": "lz-string@1.5.0 compressToEncodedURIComponent",
+  "vectors": [
+    {
+      "text": "",
+      "encoded": "Q"
+    },
+    {
+      "text": "a",
+      "encoded": "IZA"
+    },
+    {
+      "text": "Hello, world",
+      "encoded": "BIUwNmD2A0AEDukBOYAmQ"
+    },
+    {
+      "text": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "encoded": "IY18ZXTt-4g"
+    },
+    {
+      "text": "P/E ≤ 10 — ✓ 🚀 naïve café",
+      "encoded": "AoegogBIJkQQjADBQKAQUMjkFC8G4AL2IDsCGA9wG4CmEAxvgGYCXQA"
+    },
+    {
+      "text": "{\"name\":\"Unknown metric\",\"filters\":{\"op\":\"and\",\"children\":[{\"metric\":\"nope\",\"cmp\":\"gt\",\"value\":1}]}}",
+      "encoded": "N4IgdghgtgpiBcICqYDWYD2B3MACWALgE4CWAxiADQgBmJANgTEQM4KgYAOCIEYAJlRBkAFg35EYYBAG1QhUhUSZOcamSjdEAcwJCAbhHoBXOPACMAXwC6ly0A"
+    },
+    {
+      "text": "{\"name\":\"Bad limit\",\"limit\":5000}",
+      "encoded": "N4IgdghgtgpiBcIBCEAmACANgSytgLiADQg56HwCsADLQL5A"
+    },
+    {
+      "text": "{\"name\":\"Nested\",\"filters\":{\"op\":\"and\",\"children\":[{\"metric\":\"roic\",\"cmp\":\"gte\",\"value\":0.05},{\"op\":\"or\",\"children\":[{\"metric\":\"fcf_margin\",\"cmp\":\"gte\",\"value\":0.1},{\"op\":\"and\",\"children\":[{\"metric\":\"gross_margin\",\"cmp\":\"pct_rank_gte\",\"value\":0.5,\"within\":\"sector\"},{\"metric\":\"sector\",\"cmp\":\"neq\",\"value\":\"Utilities\"}]}]},{\"metric\":\"net_debt_to_ebitda\",\"cmp\":\"lte\",\"value\":3,\"missing\":\"pass\"}]}}",
+      "encoded": "N4IgdghgtgpiBcIByMDOAXGATEAaEAZgJYA2mATqgqAPYAOCIEYO+AxgBalbkxgIBtULHTkibRuRri8INlAaIA5plkA3CCQCuceAAYAdHoCsAX1y1FIGuVmduvfvCEgRYiYgJsCAfSgRyJSJ+dgVGFTh8DW1dQwBGc0tGZlY5LhIePkFhGFEZZSlUVD8AoJC5MMQ6NnQfcmYAax8I9U0dBENjfAB3InQuJxBUGBqbEETXXPdGYdHbUKswGABHVpjGAFV0Uj6iNHGAXVMji0m8j3BcnywYACNa9BofO76sCDtKkDJIkGj2+AAzPgoEQisElIw6BAiodTKYgA"
+    },
+    {
+      "text": "{\"dsl_version\":1,\"name\":\"Magic Formula\",\"universe\":{\"sectors_exclude\":[\"Banks\",\"Insurance\",\"Capital Markets\",\"Utilities\"],\"market_cap_min\":1000000000},\"filters\":{\"op\":\"and\",\"children\":[]},\"rank\":{\"method\":\"rank_sum\",\"within\":\"universe\",\"factors\":[{\"metric\":\"ebit_ev\",\"weight\":1},{\"metric\":\"greenblatt_roc\",\"weight\":1}]},\"columns\":[\"ticker\",\"name\",\"sector\",\"market_cap\",\"ebit_ev\",\"greenblatt_roc\",\"rank_score\"],\"sort\":{\"by\":\"rank_score\",\"dir\":\"desc\"},\"limit\":30,\"near_misses\":false}",
+      "encoded": "N4IgJgzgNg+gbgUwE4QJYHsB2IBcBGAGhEwEMBbBXEAWRIHNUBjAAgDF0kyBXKEkIrplSIUlHKAgJGAFw4QYCAB6MoXMGIDaIAEIlMAawj8QASUwQuSPY0pEAwiQAOqaSSjNaSfQmlGiAVWlUKBdUBCMAXSIyEi8fGEYnGDJUbHwABkysrIBfIgAzYOlkI3EQdEcqPTBjRgALYLAkBDSNCLyQKwNcUAppOvQanE69fRgLMmMAdxcGtJBBYRLbEHySGTlcDV6fJCYqBAAjFwU4aYRUOjrpXDw8nek9xio6ZpbD3mlpGCR0Z6Iphcrjd8Dl2kRGOhVGRzFsQEFGN4kMZSBRjJINsjorFvN9EpUiEcTggzkRXgh3p9vr9-iMDONIc0QFEQBAOCDQIcAJ5ULpjCCMlZgVDI4bqAUgDohFIggDM6SImAQsWSqAgklKaygkhyQA"
+    },
+    {
+      "text": "{\"dsl_version\":1,\"name\":\"Quality compounders\",\"filters\":{\"op\":\"and\",\"children\":[{\"metric\":\"roic\",\"cmp\":\"gte\",\"value\":0.15},{\"metric\":\"gross_margin\",\"cmp\":\"gte\",\"value\":0.4},{\"metric\":\"revenue_cagr_3y\",\"cmp\":\"gte\",\"value\":0.08},{\"metric\":\"net_debt_to_ebitda\",\"cmp\":\"lte\",\"value\":2,\"missing\":\"pass\"},{\"metric\":\"fcf_margin\",\"cmp\":\"gte\",\"value\":0.1}]},\"rank\":{\"method\":\"percentile_composite\",\"within\":\"universe\",\"factors\":[{\"metric\":\"roic\",\"weight\":0.5},{\"metric\":\"fcf_yield\",\"weight\":0.5}],\"min_factor_coverage\":0.7},\"columns\":[\"ticker\",\"name\",\"sector\",\"market_cap\",\"roic\",\"gross_margin\",\"revenue_cagr_3y\",\"net_debt_to_ebitda\",\"fcf_margin\",\"fcf_yield\",\"rank_score\"],\"sort\":{\"by\":\"rank_score\",\"dir\":\"desc\"},\"limit\":100,\"near_misses\":true}",
+      "encoded": "N4IgJgzgNg+gbgUwE4QJYHsB2IBcBGAGhEwEMBbBXEARQFcSpUAXATwAIBjdMgB3VsxhkEEEQBmqKE2G5Q6HlRKDRIDgAtJYJAmw4A2qApMkqDlSTpTKjryoBzaSrgNalHAAYAdHgCsAXwJDBGMrHBA7CwgIGDISJDtUbCIbBTCHSiJnKFdcLwAWAKCQszDtRExXGA4SCJgAZhZrWzTHTJc3L3cADkKQIxMS4mCYIQAjJhgmdBgEUeYwEibUkCkMkCycnAAmIjJUKMS7Kh4SKJBe-tCQMQ4xGLiEpNVm8Nb19tzvPwBdAJAkJQAa1kfWCanQYGOyA4OiYkgQVW4fDQbwA7swNLoQAJUIgUGsxCQOFMULgDKDiuZLGYiKiEKg7GomJ9-IEKQMqDc7ixUAgoJDafTGcyPJ5-N9dokYITiegkIi8TUOp4AOx-LjZMiYET6EBwjiA5AqUgUFQQBCypAqWJIQ0TaoKIgWKxECLoKL3eKJFRlHSVaq1BrG4ZjCZTGZzJgLFRcz2PGO3GA8vkC-5AmAQLjaEASkAQOUi0CjRqldOZuVrMCoK1hISZ85ERh7EV4dzuIiYBBxGL7c064yuPxAA"
+    }
+  ]
+}

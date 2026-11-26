@@ -1,0 +1,28 @@
+{
+  "name": "Piotroski value",
+  "summary": "Cheap on price to book, with a strong 9-point financial-health score.",
+  "kind": "screen",
+  "how_to_read": "Two filters must both pass: price to book in the cheapest 30% of the universe, and a Piotroski F-score of at least 8 out of 9. The F-score adds up nine pass/fail tests comparing the latest fiscal year with the one before: profitability (ROA, operating cash flow, change in ROA, cash flow above net income), funding (less leverage, a better current ratio, no new shares) and efficiency (a better gross margin and asset turnover). Piotroski applied it to the cheapest fifth of stocks by book-to-market. Glint uses the cheapest 30% by P/B to get a workable list: many companies are missing one of the nine inputs, so the cheapest fifth leaves very few. Glint shows the list. It doesn't test or claim any returns.",
+  "misses": [
+    "The years ahead: a high score says the latest year improved on the one before, and nothing about the years ahead.",
+    "Companies whose book value understates the business (brands, software, buybacks that shrank equity).",
+    "Any company with one of the nine inputs missing from its filings, because the score is then missing.",
+    "Banks and insurers: the score isn't meaningful for them, so they never pass."
+  ],
+  "source": "Piotroski, 'Value Investing: The Use of Historical Financial Statement Information to Separate Winners from Losers', Journal of Accounting Research (2000)",
+  "screen": {
+    "dsl_version": 1,
+    "name": "Piotroski value",
+    "filters": {
+      "op": "and",
+      "children": [
+        { "metric": "pb", "cmp": "pct_rank_lte", "value": 0.30, "within": "universe" },
+        { "metric": "piotroski_f", "cmp": "gte", "value": 8 }
+      ]
+    },
+    "columns": ["ticker", "name", "sector", "market_cap", "pb", "piotroski_f", "roa", "current_ratio"],
+    "sort": { "by": "piotroski_f", "dir": "desc" },
+    "limit": 100,
+    "near_misses": true
+  }
+}

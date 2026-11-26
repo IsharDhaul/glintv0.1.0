@@ -1,0 +1,272 @@
+@import "tailwindcss";
+
+/* Design tokens. Source of truth: the Visual standard in docs/glint-ui-upgrade.md, implemented
+   per docs/ui-spec.md §1. Components use token classes only (no-raw-style.test.ts). One theme:
+   light. Every text token meets 4.5:1 on sand, paper and dune (ratios in docs/design-direction.md). */
+
+:root {
+  color-scheme: light;
+
+  /* Colours are OKLCH (perceptual: equal L looks equally light). The three anchors are the
+     user's: forest #1F3D2B, sand #E8DCC4, purple #8B5CF6. Contrast is checked by tokens.test.ts. */
+
+  /* surfaces: sand's hue (84.6), stepped in lightness */
+  --sand: oklch(89.8% 0.035 84.6);
+  --paper: oklch(95.9% 0.014 84.6);
+  --dune: oklch(85.8% 0.042 85.3);
+  /* row hover: dune half-mixed into paper, opaque (sticky cells must cover what scrolls under) */
+  --row-hover: color-mix(in oklch, var(--dune) 50%, var(--paper));
+  /* text tiers: forest's hue (156), stepped in lightness; muted leans olive */
+  --ink: oklch(25.1% 0.029 156.2);
+  --ink-soft: oklch(36.3% 0.025 156.2);
+  --muted: oklch(43.4% 0.023 120.3);
+  /* brand and interaction */
+  --forest: oklch(33.1% 0.049 156.2);
+  --on-forest: var(--paper);
+  --sand-soft: oklch(76.6% 0.031 102.8);
+  --purple: oklch(60.6% 0.219 292.7);
+  --purple-ink: oklch(47.1% 0.228 286.4);
+  /* data: up, down and caution share one lightness (45%), so none reads heavier than another */
+  --pos: oklch(45% 0.118 253.9);
+  --neg: oklch(45% 0.147 34.3);
+  --caution: oklch(45% 0.095 68.7);
+  --nodata: oklch(55.8% 0.036 87.3);
+  /* lines: ink with alpha, so they blend into sand, paper and dune alike */
+  --line: oklch(25.1% 0.029 156.2 / 0.12);
+  --line-strong: oklch(25.1% 0.029 156.2 / 0.62); /* control borders: ≥ 3:1 on every surface */
+  /* synthetic banner */
+  --banner: oklch(75.1% 0.13 79.8);
+  --on-banner: var(--ink);
+
+  /* the one elevation, and focus */
+  --shadow-overlay: 0 8px 24px oklch(25.1% 0.029 156.2 / 0.18);
+  --focus-ring: 0 0 0 2px var(--paper), 0 0 0 4px var(--purple);
+
+  /* motion */
+  --dur-quick: 120ms;
+  --dur-sheet: 160ms;
+  --dur-tick: 200ms;
+  --dur-changed: 1500ms;
+
+  /* padding inside sheets (drawer, palette, menus, bottom sheets): see --radius-in-sheet */
+  --pad-sheet: 8px;
+
+  --banner-h: 0px;
+  --touch: 44px;
+}
+
+/* The sticky app header (band + as-of line; the as-of line wraps on phones). The filter bar sticks
+   under it, and scrolling to a focused or anchored element stops below it and the banner, so
+   focus is never hidden (WCAG 2.4.11). */
+:root {
+  --header-h: 5.5625rem;
+}
+@media (min-width: 48rem) {
+  :root {
+    --header-h: 4.625rem;
+  }
+}
+html {
+  scroll-padding-top: calc(var(--banner-h) + var(--header-h) + 0.5rem);
+}
+
+/* Sticky headers and the drawer sit below the banner when it is present. */
+:root:has([data-synthetic-banner]) {
+  --banner-h: 1.75rem;
+}
+
+/* Density: compact (default) and comfortable. */
+:root,
+[data-density="compact"] {
+  --row-h: 2rem;
+  --ctl-h: 1.75rem;
+  --cell-x: 0.5rem;
+  --panel-pad: 0.75rem;
+}
+
+[data-density="comfortable"] {
+  --row-h: 2.5rem;
+  --ctl-h: 2.25rem;
+  --cell-x: 0.75rem;
+  --panel-pad: 1rem;
+}
+
+/* Phones: 44px rows and controls, whatever the density (touch targets, docs/ui-spec.md §2). */
+@media (max-width: 47.99rem) {
+  :root,
+  [data-density="compact"],
+  [data-density="comfortable"] {
+    --row-h: 2.75rem;
+    --ctl-h: 2.75rem;
+  }
+}
+
+@theme inline {
+  --color-sand: var(--sand);
+  --color-paper: var(--paper);
+  --color-dune: var(--dune);
+  --color-row-hover: var(--row-hover);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-muted: var(--muted);
+  --color-forest: var(--forest);
+  --color-on-forest: var(--on-forest);
+  --color-sand-soft: var(--sand-soft);
+  --color-purple: var(--purple);
+  --color-purple-ink: var(--purple-ink);
+  --color-pos: var(--pos);
+  --color-neg: var(--neg);
+  --color-caution: var(--caution);
+  --color-nodata: var(--nodata);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-banner: var(--banner);
+  --color-on-banner: var(--on-banner);
+
+  --spacing-banner: var(--banner-h);
+  --spacing-row: var(--row-h);
+  --spacing-ctl: var(--ctl-h);
+  --spacing-cell: var(--cell-x);
+  --spacing-panel: var(--panel-pad);
+  --spacing-touch: var(--touch);
+
+  /* Words: Atkinson Hyperlegible Next. Numbers: IBM Plex Sans. Code: IBM Plex Mono. */
+  --font-words: "Atkinson Hyperlegible Next", ui-sans-serif, system-ui, sans-serif;
+  --font-numbers: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-code: "IBM Plex Mono", ui-monospace, monospace;
+  --font-sans: var(--font-words);
+  --font-mono: var(--font-code);
+
+  /* Type scale (docs/ui-spec.md §1.3). Weight and family are set where used. */
+  --text-title: 1.5rem;
+  --text-title--line-height: 2rem;
+  --text-section: 1rem;
+  --text-section--line-height: 1.5rem;
+  --text-prose: 0.9375rem;
+  --text-prose--line-height: 1.5rem;
+  --text-label: 0.8125rem;
+  --text-label--line-height: 1.25rem;
+  --text-cell: 0.8125rem;
+  --text-cell--line-height: 1.25rem;
+  --text-head: 0.75rem;
+  --text-head--line-height: 1rem;
+  --text-meta: 0.75rem;
+  --text-meta--line-height: 1rem;
+  --text-figure: 1.25rem;
+  --text-figure--line-height: 1.75rem;
+
+  /* Radius by hierarchy. */
+  --radius-control: 2px;
+  --radius-panel: 4px;
+  --radius-sheet: 8px;
+  /* Nested corners: an inner radius is the outer radius minus the padding between them, so the
+     two curves stay concentric. With Glint's small radii most inner corners come out square. */
+  --radius-in-sheet: max(0px, calc(var(--radius-sheet) - var(--pad-sheet)));
+  --radius-in-panel: max(0px, calc(var(--radius-panel) - var(--panel-pad)));
+
+  --shadow-overlay: var(--shadow-overlay);
+
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --animate-changed: changed var(--dur-changed) var(--ease-out) 1;
+
+  @keyframes changed {
+    0%,
+    70% {
+      box-shadow: inset 3px 0 0 var(--purple);
+    }
+    100% {
+      box-shadow: inset 3px 0 0 transparent;
+    }
+  }
+}
+
+@layer base {
+  body {
+    background: var(--sand);
+    color: var(--ink-soft);
+    font-family: var(--font-words);
+    font-weight: 400;
+  }
+
+  /* Every number: IBM Plex Sans with tabular figures. */
+  .num,
+  table,
+  input[inputmode="decimal"] {
+    font-family: var(--font-numbers);
+    font-variant-numeric: tabular-nums;
+  }
+
+  :focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+    border-radius: var(--radius-control);
+  }
+}
+
+/* Nested corners: panels inside a sheet (the drawer's content, bottom sheets) take the sheet's
+   inner radius, so their corners stay concentric with the sheet's. */
+.in-sheet .rounded-panel {
+  border-radius: var(--radius-in-sheet);
+}
+
+/* Horizontal scrollers fade only the edges that hide content (useScrollEdges sets the flags):
+   transparent → black over the first and last 15%, capped at 4rem so wide rows keep their ends. */
+.fade-x[data-fade-start][data-fade-end] {
+  mask-image: linear-gradient(90deg, transparent, #000 min(15%, 4rem), #000 max(85%, calc(100% - 4rem)), transparent);
+}
+.fade-x[data-fade-start]:not([data-fade-end]) {
+  mask-image: linear-gradient(90deg, transparent, #000 min(15%, 4rem));
+}
+.fade-x-end[data-fade-end],
+.fade-x[data-fade-end]:not([data-fade-start]) {
+  mask-image: linear-gradient(90deg, #000 max(85%, calc(100% - 4rem)), transparent);
+}
+
+/* The sieve's one orchestrated moment: on first load each tray's kept bar grows from the left. */
+@keyframes sieve-fill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* A table's sticky first column casts a soft edge once the table scrolls sideways. */
+[data-fade-start] .sticky-col {
+  box-shadow: 6px 0 8px -6px oklch(25.1% 0.029 156.2 / 0.3);
+}
+
+/* No-data bars: the nodata tone, always hatched (never colour alone). */
+.hatch {
+  background-image: repeating-linear-gradient(135deg, var(--nodata) 0 2px, transparent 2px 5px);
+}
+
+/* The synthetic banner: ochre with a light hatch, unmistakable for app chrome. */
+.banner-hatch {
+  background-color: var(--banner);
+  background-image: repeating-linear-gradient(
+    135deg,
+    color-mix(in oklch, var(--ink) 12%, transparent) 0 2px,
+    transparent 2px 9px
+  );
+}
+
+/* A row that entered the results because of the user's edit: a purple bar that fades. */
+.entered {
+  animation: var(--animate-changed);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  /* Same information, no motion: the bar shows statically. */
+  .entered {
+    box-shadow: inset 3px 0 0 var(--purple);
+  }
+}

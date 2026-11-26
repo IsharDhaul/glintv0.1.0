@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='utf-8'?>
+<xbrl xmlns="http://www.xbrl.org/2003/instance" xmlns:dei="http://xbrl.sec.gov/dei/2026" xmlns:us-gaap="http://fasb.org/us-gaap/2026" xmlns:xbrldi="http://xbrl.org/2006/xbrldi" xml:lang="en-US">
+  <!-- Trimmed from Portillo's Inc. 10-Q accn 0001871509-26-000056 (cover, symbols, NCI %); values unchanged -->
+  <context id="c-1">
+    <entity>
+      <identifier scheme="http://www.sec.gov/CIK">0001871509</identifier>
+    </entity>
+    <period>
+      <startDate>2025-12-29</startDate>
+      <endDate>2026-06-28</endDate>
+    </period>
+  </context>
+  <context id="c-2">
+    <entity>
+      <identifier scheme="http://www.sec.gov/CIK">0001871509</identifier>
+      <segment>
+        <xbrldi:explicitMember dimension="us-gaap:StatementClassOfStockAxis">us-gaap:CommonClassAMember</xbrldi:explicitMember>
+      </segment>
+    </entity>
+    <period>
+      <instant>2026-07-29</instant>
+    </period>
+  </context>
+  <context id="c-3">
+    <entity>
+      <identifier scheme="http://www.sec.gov/CIK">0001871509</identifier>
+      <segment>
+        <xbrldi:explicitMember dimension="us-gaap:StatementClassOfStockAxis">us-gaap:CommonClassBMember</xbrldi:explicitMember>
+      </segment>
+    </entity>
+    <period>
+      <instant>2026-07-29</instant>
+    </period>
+  </context>
+  <context id="c-123">
+    <entity>
+      <identifier scheme="http://www.sec.gov/CIK">0001871509</identifier>
+      <segment>
+        <xbrldi:explicitMember dimension="srt:OwnershipAxis">ptlo:PortillosOpCoMember</xbrldi:explicitMember>
+        <xbrldi:explicitMember dimension="us-gaap:StatementClassOfStockAxis">us-gaap:CommonClassBMember</xbrldi:explicitMember>
+      </segment>
+    </entity>
+    <period>
+      <instant>2026-06-28</instant>
+    </period>
+  </context>
+  <context id="c-124">
+    <entity>
+      <identifier scheme="http://www.sec.gov/CIK">0001871509</identifier>
+      <segment>
+        <xbrldi:explicitMember dimension="srt:OwnershipAxis">ptlo:PortillosOpCoMember</xbrldi:explicitMember>
+        <xbrldi:explicitMember dimension="us-gaap:StatementClassOfStockAxis">us-gaap:CommonClassBMember</xbrldi:explicitMember>
+      </segment>
+    </entity>
+    <period>
+      <instant>2025-12-28</instant>
+    </period>
+  </context>
+  <unit id="shares">
+    <measure>shares</measure>
+  </unit>
+  <unit id="number">
+    <measure>pure</measure>
+  </unit>
+  <dei:TradingSymbol contextRef="c-1" id="f-17">PTLO</dei:TradingSymbol>
+  <dei:EntityCommonStockSharesOutstanding contextRef="c-2" decimals="INF" id="f-25" unitRef="shares">72518678</dei:EntityCommonStockSharesOutstanding>
+  <dei:EntityCommonStockSharesOutstanding contextRef="c-3" decimals="INF" id="f-26" unitRef="shares">3424546</dei:EntityCommonStockSharesOutstanding>
+  <us-gaap:MinorityInterestOwnershipPercentageByNoncontrollingOwners contextRef="c-123" decimals="3" id="f-624" unitRef="number">0.045</us-gaap:MinorityInterestOwnershipPercentageByNoncontrollingOwners>
+  <us-gaap:MinorityInterestOwnershipPercentageByNoncontrollingOwners contextRef="c-124" decimals="3" id="f-626" unitRef="number">0.046</us-gaap:MinorityInterestOwnershipPercentageByNoncontrollingOwners>
+</xbrl>
